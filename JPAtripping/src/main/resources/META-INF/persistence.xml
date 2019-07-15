@@ -13,9 +13,9 @@
 
 
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/FIX ME?useSSL=false" />
-      <property name="javax.persistence.jdbc.user" value="FIX ME"/>
-      <property name="javax.persistence.jdbc.password" value="FIX ME" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/trippingdb?useSSL=false" />
+      <property name="javax.persistence.jdbc.user" value="tripping"/>
+      <property name="javax.persistence.jdbc.password" value="tripping" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
       <property name="hibernate.show_sql" value="false" />
