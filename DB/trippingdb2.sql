@@ -16,22 +16,45 @@ CREATE SCHEMA IF NOT EXISTS `trippingdb` DEFAULT CHARACTER SET utf8 ;
 USE `trippingdb` ;
 
 -- -----------------------------------------------------
+-- Table `journal_entry`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `journal_entry` ;
+
+CREATE TABLE IF NOT EXISTS `journal_entry` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `description` LONGTEXT NULL,
+  `image_url` TEXT NULL,
+  `is_public` TINYINT NULL,
+  `is_complete` TINYINT NULL,
+  `title` VARCHAR(45) NULL,
+  `entry_text` LONGTEXT NULL,
+  `create_date` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(150) NOT NULL,
-  `password` VARCHAR(150) NOT NULL,
-  `first_name` VARCHAR(150) NULL,
-  `last_name` VARCHAR(150) NULL,
-  `email` VARCHAR(150) NULL,
+  `username` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `journal_id` INT NOT NULL,
   `create_date` TIMESTAMP NULL,
   `image_url` TEXT NULL,
-  `role` VARCHAR(45) NULL,
-  `active` TINYINT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`, `journal_id`),
+  INDEX `fk_user_journal1_idx` (`journal_id` ASC),
+  CONSTRAINT `fk_user_journal1`
+    FOREIGN KEY (`journal_id`)
+    REFERENCES `journal_entry` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -42,8 +65,8 @@ DROP TABLE IF EXISTS `destination` ;
 
 CREATE TABLE IF NOT EXISTS `destination` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NULL,
-  `description` TEXT NULL,
+  `name` VARCHAR(45) NULL,
+  `description` LONGTEXT NULL,
   `image_url` TEXT NULL,
   `short_description` VARCHAR(450) NULL,
   PRIMARY KEY (`id`))
@@ -63,32 +86,9 @@ CREATE TABLE IF NOT EXISTS `address` (
   `state` VARCHAR(250) NULL,
   `zip` VARCHAR(9) NULL,
   `phone` VARCHAR(20) NULL,
-  `latitude` DECIMAL NULL,
-  `longitude` DECIMAL NULL,
+  `lat` DECIMAL NULL,
+  `long` DECIMAL NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `journal_entry`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_entry` ;
-
-CREATE TABLE IF NOT EXISTS `journal_entry` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `is_public` TINYINT NULL,
-  `is_complete` TINYINT NULL,
-  `title` VARCHAR(150) NULL,
-  `entry_text` LONGTEXT NULL,
-  `create_date` DATETIME NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
-  CONSTRAINT `fk_journal_entry_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -99,9 +99,9 @@ DROP TABLE IF EXISTS `amenity` ;
 
 CREATE TABLE IF NOT EXISTS `amenity` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NOT NULL,
+  `name` VARCHAR(150) NULL,
   `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
+  `description` TEXT NULL,
   `icon_url` TEXT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -114,8 +114,8 @@ DROP TABLE IF EXISTS `activity` ;
 
 CREATE TABLE IF NOT EXISTS `activity` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(450) NOT NULL,
-  `short_description` VARCHAR(450) NULL,
+  `name` VARCHAR(250) NULL,
+  `short_description` VARCHAR(45) NULL,
   `long_description` TEXT NULL,
   `image_url` TEXT NULL,
   PRIMARY KEY (`id`))
@@ -129,14 +129,12 @@ DROP TABLE IF EXISTS `event` ;
 
 CREATE TABLE IF NOT EXISTS `event` (
   `id` INT NOT NULL,
-  `destination_id` INT NOT NULL,
-  `name` VARCHAR(450) NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  `start_date` DATETIME NULL,
-  `end_date` DATETIME NULL,
+  `start_date` DATE NULL,
+  `end_date` DATE NULL,
   `event_details` TEXT NULL,
-  PRIMARY KEY (`id`),
+  `description` TEXT NULL,
+  `destination_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `destination_id`),
   INDEX `fk_event_destination1_idx` (`destination_id` ASC),
   CONSTRAINT `fk_event_destination1`
     FOREIGN KEY (`destination_id`)
@@ -154,8 +152,8 @@ DROP TABLE IF EXISTS `event_image` ;
 CREATE TABLE IF NOT EXISTS `event_image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `event_id` INT NOT NULL,
-  `image_url` TEXT NOT NULL,
-  PRIMARY KEY (`id`),
+  `image_url` TEXT NULL,
+  PRIMARY KEY (`id`, `event_id`),
   INDEX `fk_event_images_event1_idx` (`event_id` ASC),
   CONSTRAINT `fk_event_images_event1`
     FOREIGN KEY (`event_id`)
@@ -174,11 +172,35 @@ CREATE TABLE IF NOT EXISTS `journal_entry_image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `journal_id` INT NOT NULL,
   `image_url` TEXT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`, `journal_id`),
   INDEX `fk_journal_images_journal1_idx` (`journal_id` ASC),
   CONSTRAINT `fk_journal_images_journal1`
     FOREIGN KEY (`journal_id`)
     REFERENCES `journal_entry` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `destination_has_activitiy`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `destination_has_activitiy` ;
+
+CREATE TABLE IF NOT EXISTS `destination_has_activitiy` (
+  `activitiy_id` INT NOT NULL,
+  `destination_id` INT NOT NULL,
+  PRIMARY KEY (`activitiy_id`, `destination_id`),
+  INDEX `fk_activities_has_destination_destination1_idx` (`destination_id` ASC),
+  INDEX `fk_activities_has_destination_activities1_idx` (`activitiy_id` ASC),
+  CONSTRAINT `fk_activities_has_destination_activities1`
+    FOREIGN KEY (`activitiy_id`)
+    REFERENCES `activity` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activities_has_destination_destination1`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -190,13 +212,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `destination_user_review` ;
 
 CREATE TABLE IF NOT EXISTS `destination_user_review` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `destination_id` INT NOT NULL,
-  `create_date` DATETIME NULL,
+  `user_id` INT NULL,
+  `destination_id` INT NULL,
+  `create_date` TIMESTAMP NULL,
   `title` VARCHAR(250) NULL,
   `rating` INT NULL,
   `review_text` TEXT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `destination_user_reviewcol` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_has_destination_destination1_idx` (`destination_id` ASC),
   INDEX `fk_user_has_destination_user1_idx` (`user_id` ASC),
@@ -220,12 +243,12 @@ DROP TABLE IF EXISTS `event_user_review` ;
 
 CREATE TABLE IF NOT EXISTS `event_user_review` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `event_id` INT NOT NULL,
-  `create_date` DATETIME NULL,
-  `title` VARCHAR(150) NULL,
+  `user_id` INT NULL,
+  `create_date` TIMESTAMP NULL,
+  `title` VARCHAR(250) NULL,
   `rating` INT NULL,
   `review_text` TEXT NULL,
+  `event_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_event_has_user_user1_idx` (`user_id` ASC),
   INDEX `fk_event_has_user_event1_idx` (`event_id` ASC),
@@ -252,9 +275,7 @@ CREATE TABLE IF NOT EXISTS `point_of_interest` (
   `name` VARCHAR(250) NULL,
   `address_id` INT NOT NULL,
   `destination_id` INT NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`, `address_id`, `destination_id`),
   INDEX `fk_point_of_interest_address1_idx` (`address_id` ASC),
   INDEX `fk_point_of_interest_destination1_idx` (`destination_id` ASC),
   CONSTRAINT `fk_point_of_interest_address1`
@@ -313,34 +334,6 @@ CREATE TABLE IF NOT EXISTS `point_of_interest_has_activity` (
   CONSTRAINT `fk_point_of_interest_has_activity_activity1`
     FOREIGN KEY (`activity_id`)
     REFERENCES `activity` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `point_of_interest_comment`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `point_of_interest_comment` ;
-
-CREATE TABLE IF NOT EXISTS `point_of_interest_comment` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `poi_id` INT NOT NULL,
-  `comment_text` TEXT NULL,
-  `rating` INT NULL,
-  `comment_date` DATETIME NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_user_poi_id_idx` (`user_id` ASC),
-  INDEX `fk_poi_id_idx` (`poi_id` ASC),
-  CONSTRAINT `fk_user_poi_id`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_poi_id`
-    FOREIGN KEY (`poi_id`)
-    REFERENCES `point_of_interest` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
