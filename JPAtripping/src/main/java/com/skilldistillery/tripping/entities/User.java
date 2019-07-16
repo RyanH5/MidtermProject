@@ -7,6 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 public class User {
 
@@ -29,16 +33,24 @@ public class User {
 	private String lastName;
 
 	@Column(name = "create_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	private Date createDate;
 
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "journal_id")
-	private List<JournalEntry> journalId;
+	@Column(name = "journal_entry_id")
+	private List<JournalEntry> journalEntryId;
 
 	@Column(name = "image_url")
 	private String imageURL;
+
+	@Column(name = "role")
+	private String role;
+
+	@Column(name = "active")
+	private boolean active;
 
 //	Getters and setters
 
@@ -98,12 +110,12 @@ public class User {
 		this.email = email;
 	}
 
-	public List<JournalEntry> getJournalId() {
-		return journalId;
+	public List<JournalEntry> getJournalEntryId() {
+		return journalEntryId;
 	}
 
-	public void setJournalId(List<JournalEntry> journalId) {
-		this.journalId = journalId;
+	public void setJournalEntryId(List<JournalEntry> journalEntryId) {
+		this.journalEntryId = journalEntryId;
 	}
 
 	public String getImageURL() {
@@ -114,13 +126,29 @@ public class User {
 		this.imageURL = imageURL;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 //	Constructors
 
 	public User() {
 	}
 
 	public User(int id, String userName, String password, String firstName, String lastName, Date createDate,
-			String email, List<JournalEntry> journalId, String imageURL) {
+			String email, List<JournalEntry> journalEntryId, String imageURL, String role, boolean active) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -129,15 +157,19 @@ public class User {
 		this.lastName = lastName;
 		this.createDate = createDate;
 		this.email = email;
-		this.journalId = journalId;
+		this.journalEntryId = journalEntryId;
 		this.imageURL = imageURL;
+		this.role = role;
+		this.active = active;
 	}
 
 //	To String
-	
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("User [id=").append(id).append(", userName=").append(userName).append("]");
+		return builder.toString();
 	}
 
 }

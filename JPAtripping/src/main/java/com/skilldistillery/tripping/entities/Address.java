@@ -8,33 +8,39 @@ import javax.persistence.Id;
 
 @Entity
 public class Address {
-	
+
 //	Declarations
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "street_1")
 	private String street1;
-	
+
 	@Column(name = "street_2")
 	private String street2;
-	
+
 	@Column(name = "city")
 	private String city;
-	
+
 	@Column(name = "state")
 	private String state;
-	
+
 	@Column(name = "zip_code")
 	private String zip_code;
-	
+
 	@Column(name = "phone")
 	private String phone;
 
+	@Column(name = "latitude")
+	private double latitude;
+
+	@Column(name = "longitude")
+	private double longitude;
+
 //	Getters and setters
-	
+
 	public int getId() {
 		return id;
 	}
@@ -91,23 +97,29 @@ public class Address {
 		this.phone = phone;
 	}
 
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
 //	Constructors
-	
+
 	public Address() {
 	}
 
-	public Address(int id, int destId, String street1, String city, String state, String zip_code, String phone) {
-		super();
-		this.id = id;
-		this.street1 = street1;
-		this.city = city;
-		this.state = state;
-		this.zip_code = zip_code;
-		this.phone = phone;
-	}
-
-	public Address(int id, int destId, String street1, String street2, String city, String state, String zip_code,
-			String phone) {
+	public Address(int id, String street1, String street2, String city, String state, String zip_code, String phone,
+			double latitude, double longitude) {
 		super();
 		this.id = id;
 		this.street1 = street1;
@@ -116,13 +128,18 @@ public class Address {
 		this.state = state;
 		this.zip_code = zip_code;
 		this.phone = phone;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
-	
+
 //	To String
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", street1=" + street1 + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Address [id=").append(id).append(", street1=").append(street1).append(", city=").append(city)
+				.append(", state=").append(state).append("]");
+		return builder.toString();
 	}
-	
+
 }

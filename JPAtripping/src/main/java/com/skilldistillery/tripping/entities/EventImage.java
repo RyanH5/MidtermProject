@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class EventImage {
-	
+
 //	Declarations
 
 	@Id
@@ -16,9 +16,9 @@ public class EventImage {
 	@Column(name = "event_id")
 	private int eventId;
 
-	@Column(name = "path")
-	private String path;
-	
+	@Column(name = "image_url")
+	private String imageUrl;
+
 //	Getters and setters
 
 	public int getId() {
@@ -37,32 +37,32 @@ public class EventImage {
 		this.eventId = eventId;
 	}
 
-	public String getPath() {
-		return path;
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
-	
+
 //	Constructors
 
 	public EventImage() {
 	}
 
-	public EventImage(int id, int eventId, String path) {
+	public EventImage(int id, int eventId, String imageUrl) {
 		super();
 		this.id = id;
 		this.eventId = eventId;
-		this.path = path;
+		this.imageUrl = imageUrl;
 	}
 
 //	To String
-	
 	@Override
 	public String toString() {
-		return "EventImage [id=" + id + ", path=" + path + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("EventImage [id=").append(id).append(", imageUrl=").append(imageUrl).append("]");
+		return builder.toString();
 	}
-
 
 }
