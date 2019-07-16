@@ -21,7 +21,7 @@ public class Destination {
 	private String image;
 	
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="activitiy_has_destination",
+	@JoinTable(name="destination_has_activity",
 	joinColumns=@JoinColumn(name="destination_id"),
 	inverseJoinColumns=@JoinColumn(name="activity_id"))	
 	private List<Activity> activities;
