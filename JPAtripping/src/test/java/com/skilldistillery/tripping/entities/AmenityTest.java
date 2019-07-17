@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class AmenityTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	Amenity amenity;
@@ -43,14 +43,38 @@ class AmenityTest {
 
 	@Disabled
 	@Test
-		void test() {
+	void test() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	
-		void test_Amenity_mapping() {
+
+	void test_Amenity_mappingId() {
+		assertEquals(1, amenity.getId());
+	}
+
+	@Test
+
+	void test_Amenity_mappingName() {
 		assertEquals("ADA", amenity.getName());
+	}
+
+	@Test
+
+	void test_Amenity_mapping_short_description() {
+		assertEquals("wheel chair accessible stuff", amenity.getShortDescription());
+	}
+
+	@Test
+
+	void test_Amenity_mapping_long_description() {
+		assertEquals("lots of safety stuff stuff stufgf", amenity.getLongDescription());
+	}
+
+	@Test
+
+	void test_Amenity_mapping_image_url() {
+		assertEquals("image.url", amenity.getIconUrl());
 	}
 
 }
