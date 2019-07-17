@@ -2,13 +2,17 @@ package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.*;
 
-class DestinationTests {
+class EventTests {
+
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
+	private Event evt;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -23,22 +27,25 @@ class DestinationTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+		evt = em.find(Event.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
+		evt = null;
 	}
 
 	@Test
-	void test_description_mappings() {
-		Destination dest = em.find(Destination.class, 1);
-		Destination dest2 = em.find(Destination.class, 2);
-		assertEquals(1, dest.getId());
-		assertEquals("mt elber", dest.getName());
-		assertEquals("mountain mountain", dest.getDescription());
-		assertEquals("bigmtn.jpg", dest.getImage());
-		assertEquals("it was so awesome i broke my arm", dest2.getDestinationReviews().get(0).getReviewText());
+	void test_event_mappings() {
+		assertEquals("P peaches", evt.getName());
+		assertEquals("starts at time ends at later time", evt.getEventDetails());
+	}
+	
+	@Test
+	void test_event_destination_association() {
+		assertEquals(1, evt.getDestination().getId());
+		
 	}
 
 }

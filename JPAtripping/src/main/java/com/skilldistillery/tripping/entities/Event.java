@@ -41,9 +41,6 @@ public class Event {
 
 //	Getters and Setters
 
-	
-
-
 	public int getId() {
 		return id;
 	}
