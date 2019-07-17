@@ -38,7 +38,7 @@ public class DestinationDAOImpl implements DestinationDAO {
 		updated.setName(destination.getName());
 		updated.setActivities(destination.getActivities());
 		updated.setAddress(destination.getAddress());
-		updated.setAmenities(destination.getAmenities));
+		updated.setAmenities(destination.getAmenities);
 		updated.setShortDescription(destination.getShortDescription());
 		updated.setDescription(destination.getDescription());
 //		updated.setComments(destination.getComments());
@@ -46,7 +46,7 @@ public class DestinationDAOImpl implements DestinationDAO {
 		em.persist(updated);
 		return true;
 	}
-	
+
 	@Override
 	public boolean deleteDestination(int id) {
 		Destination destination = em.find(Destination.class, id);
@@ -57,55 +57,65 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return true;
 	}
 
-
 	@Override
 	public Destination createDestinationAndAddress(Destination destination) {
-		// TODO Auto-generated method stub
+		em.persist(destination);
 		return null;
 	}
 
-	@Override
-	public List<Destination> getDestination(int amenityId) {
-		String query = "SELECT destination FROM Destination destination JOIN FETCH destination.amenities WHERE point.destination.id = :destinationId";
-		List<PointOfInterest> destination = em.createQuery(query, Destination.class).setParameter("destinationId", destinationId)
-				.getResultList();
-		return destination;
-	}
 
 	@Override
 	public List<PointOfInterest> getPointsByAmenityAndDestination(int amenityId, int destinationId) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT point FROM PointOfInterest point JOIN FETCH point.amenities WHERE point.destination.id = :destinationId";
+		List<PointOfInterest> points = em.createQuery(query, PointOfInterest.class)
+				.setParameter("destinationId", destinationId).getResultList();
+		return points;
 	}
 
 	@Override
 	public List<Amenity> getAmenitiesByPoint(int pointId) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT amenity FROM Amenity amenity INNER JOIN PointOfInteest ON  WHERE amenity.point.id = :pointId";
+		List<Amenity> amenities = em.createQuery(query, Amenity.class).setParameter("pointId", pointId).getResultList();
+		return amenities;
 	}
 
 	@Override
 	public List<Activity> getActivitiesByPoint(int pointId) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT activity FROM Activity activity WHERE activity.point.id = :pointId";
+		List<Activity> activities = em.createQuery(query, Activity.class).setParameter("pointId", pointId)
+				.getResultList();
+		return activities;
 	}
 
 	@Override
 	public PointOfInterestComment createComment(PointOfInterestComment comment) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(comment);
+		return comment;
 	}
 
 	@Override
 	public void addActivitiesById(PointOfInterest pointOfInterest, Integer[] activityIds) {
-		// TODO Auto-generated method stub
+		for (Integer aid : activityIds) {
+			Destination destination = null;
+			destination.addActivity(em.find(Activity.class, aid));
+		}
 
 	}
 
 	@Override
 	public void addAmenityById(PointOfInterest pointOfInterest, Integer[] amenityIds) {
-		// TODO Auto-generated method stub
+		for (Integer aid : amenityIds) {
+			Destination destination = null;
+			destination.addAmenity(em.find(Amenity.class, aid));
 
+		}
+
+	}
+
+	@Override
+	public List<PointOfInterest> getPointsByDestination(int destinationId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
