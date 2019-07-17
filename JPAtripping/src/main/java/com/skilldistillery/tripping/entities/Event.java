@@ -2,13 +2,7 @@ package com.skilldistillery.tripping.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -21,8 +15,9 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "destination_id")
-	private int destinationId;
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
+	private Destination destination;
 
 	@Column(name = "name")
 	private String name;
@@ -46,6 +41,9 @@ public class Event {
 
 //	Getters and Setters
 
+	
+
+
 	public int getId() {
 		return id;
 	}
@@ -54,12 +52,12 @@ public class Event {
 		this.id = id;
 	}
 
-	public int getDestinationId() {
-		return destinationId;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	public String getName() {
@@ -111,15 +109,17 @@ public class Event {
 	}
 
 //	Constructors
-
+	
 	public Event() {
 	}
+	
 
-	public Event(int id, int destinationId, String name, String shortDescription, String longDescription,
-			Date startDate, Date endDate, String eventDetails) {
+//	To String
+
+	public Event(Destination destination, String name, String shortDescription, String longDescription, Date startDate,
+			Date endDate, String eventDetails) {
 		super();
-		this.id = id;
-		this.destinationId = destinationId;
+		this.destination = destination;
 		this.name = name;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
@@ -127,8 +127,6 @@ public class Event {
 		this.endDate = endDate;
 		this.eventDetails = eventDetails;
 	}
-
-//	To String
 
 	@Override
 	public String toString() {

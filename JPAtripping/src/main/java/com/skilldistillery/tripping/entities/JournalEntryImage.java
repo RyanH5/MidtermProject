@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="journal_entry_image")
 public class JournalEntryImage {
 
 //	Declarations
@@ -26,18 +26,8 @@ public class JournalEntryImage {
 	@Column(name="image_url")
 	private String imageURL;
 	
-//	Constructors
-
-	public JournalEntryImage() {
-	}
-
-	public JournalEntryImage(int journalId, String imageURL) {
-		this.journalId = journalId;
-		this.imageURL = imageURL;
-	}
 	
 //	Getters and Setters
-	
 
 
 	public int getId() {
@@ -64,5 +54,22 @@ public class JournalEntryImage {
 		this.imageURL = imageURL;
 	}
 
+//	Constructors
 
+	public JournalEntryImage() {
+	}
+
+	public JournalEntryImage(int journalId, String imageURL) {
+		this.journalId = journalId;
+		this.imageURL = imageURL;
+	}
+
+//	To String 
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("JournalEntryImage [id=").append(id).append(", imageURL=").append(imageURL).append("]");
+		return builder.toString();
+	}
 }

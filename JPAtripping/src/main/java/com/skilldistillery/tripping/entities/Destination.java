@@ -24,13 +24,13 @@ public class Destination {
 	@Column(name="image_url")
 	private String image;
 
-	@OneToMany(mappedBy="destinationId")
+	@OneToMany(mappedBy="destination")
 	private List<DestinationReview> destinationReviews;
 	
-	@OneToMany(mappedBy="destinationId")
+	@OneToMany(mappedBy="destination")
 	private List<PointOfInterest> points;
 	
-	@OneToMany(mappedBy="destinationId")
+	@OneToMany(mappedBy="destination")
 	private List<Event> events;
 
 	public Destination() {

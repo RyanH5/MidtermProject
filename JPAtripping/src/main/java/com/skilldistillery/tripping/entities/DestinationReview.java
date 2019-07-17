@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,11 +25,12 @@ public class DestinationReview {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "destination_id")
-	private String destinationId;
+	private String destination;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,89 +46,111 @@ public class DestinationReview {
 	@Column(name = "review_text")
 	private String reviewText;
 
+	
 //	Getters and Setters
 
-	public int getId() {
+	
+
+	
+
+public int getId() {
 		return id;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public String getDestinationId() {
-		return destinationId;
+
+
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(String destinationId) {
-		this.destinationId = destinationId;
+
+
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
+
+
 
 	public Date getCreateDate() {
 		return createDate;
 	}
 
+
+
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
+
 
 	public String getTitle() {
 		return title;
 	}
 
+
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+
 
 	public int getRating() {
 		return rating;
 	}
 
+
+
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
+
+
 	public String getReviewText() {
 		return reviewText;
 	}
+
+
 
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
 
 //	Constructors
-
+	
 	public DestinationReview() {
 	}
 
-	public DestinationReview(int id, int userId, String destinationId, Date createDate, String title, int rating,
+
+	public DestinationReview(User user, String destination, Date createDate, String title, int rating,
 			String reviewText) {
 		super();
-		this.id = id;
-		this.userId = userId;
-		this.destinationId = destinationId;
+		this.user = user;
+		this.destination = destination;
 		this.createDate = createDate;
 		this.title = title;
 		this.rating = rating;
 		this.reviewText = reviewText;
 	}
 
-//	To String
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("DestinationReview [id=").append(id).append(", userId=").append(userId).append(", title=")
-				.append(title).append("]");
-		return builder.toString();
-	}
-
+	
 }

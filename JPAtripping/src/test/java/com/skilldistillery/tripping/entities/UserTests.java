@@ -58,7 +58,6 @@ class UserTests {
 		assertEquals("myimage.jpg", user.getImageURL());
 		assertEquals("notAdmin", user.getRole());
 		assertEquals(0, user.isActive());
-		assertEquals("mt elber", user.getDestinations().get(0).getName());
 		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
 	}
 

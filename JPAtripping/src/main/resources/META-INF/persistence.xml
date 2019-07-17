@@ -8,6 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
+
 		<class>com.skilldistillery.tripping.entities.Activity</class>
 		<class>com.skilldistillery.tripping.entities.Address</class>
 		<class>com.skilldistillery.tripping.entities.Amenity</class>
