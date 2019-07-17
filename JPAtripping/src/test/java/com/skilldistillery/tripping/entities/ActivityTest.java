@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class ActivityTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	Activity activity;
@@ -24,7 +24,6 @@ class ActivityTest {
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("tripping");
 	}
-	
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
@@ -34,7 +33,7 @@ class ActivityTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		activity = em.find(Activity.class, 1);
+		activity = em.find(Activity.class, 2);
 	}
 
 	@AfterEach
@@ -44,40 +43,44 @@ class ActivityTest {
 
 	@Disabled
 	@Test
-		void test() {
+	void test() {
 		fail("Not yet implemented");
 	}
-	
-	@Test
-	
-		void test_Activity_mappingId() {
-		assertEquals("1", activity.getId());
-}
 
 	@Test
-	
-		void test_Activity_mappingName() {
-		assertEquals("hike", activity.getName());
+
+	void test_Activity_mappingId() {
+		assertEquals(2, activity.getId());
 	}
+
 	@Test
-	
+
+	void test_Activity_mappingName() {
+		assertEquals("mountain biking", activity.getName());
+	}
+
+	@Test
+
 	void test_Activity_mapping_short_description() {
-		assertEquals("many trails", activity.getShortDescription());
+		assertEquals("trails for all levels", activity.getShortDescription());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_long_description() {
-		assertEquals("easy moderate difficllt trails", activity.getLongDescription());
+		assertEquals("easy moderate difficult trails", activity.getLongDescription());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_image_url() {
 		assertEquals("fakeimage3.url", activity.getImageUrl());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_points() {
 		assertEquals(5, activity.getPoints().size());
 	}
-	
+
 }
