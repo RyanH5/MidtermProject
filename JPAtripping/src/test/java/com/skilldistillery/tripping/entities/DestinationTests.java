@@ -33,12 +33,23 @@ class DestinationTests {
 	@Test
 	void test_description_mappings() {
 		Destination dest = em.find(Destination.class, 1);
-		Destination dest2 = em.find(Destination.class, 2);
 		assertEquals(1, dest.getId());
 		assertEquals("mt elber", dest.getName());
 		assertEquals("mountain mountain", dest.getDescription());
 		assertEquals("bigmtn.jpg", dest.getImage());
+	}
+	
+	@Test
+	void test_destination_userReviews_association() {
+		Destination dest2 = em.find(Destination.class, 2);
 		assertEquals("it was so awesome i broke my arm", dest2.getDestinationReviews().get(0).getReviewText());
+		
+	}
+	
+	@Test 
+	void test_destination_event_association() {
+		Destination dest = em.find(Destination.class, 1);
+		assertEquals("peaches strawberries blah blach mtn food", dest.getEvents().get(0).getLongDescription());
 	}
 
 }
