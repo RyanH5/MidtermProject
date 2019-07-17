@@ -105,10 +105,9 @@ public class DestinationReview {
 		this.reviewText = reviewText;
 	}
 
-	
+
 	public DestinationReview() {
 	}
-
 
 	public DestinationReview(User user, Destination destination, Date createDate, String title, int rating,
 			String reviewText) {
@@ -120,5 +119,17 @@ public class DestinationReview {
 		this.rating = rating;
 		this.reviewText = reviewText;
 	}
-	
+
+//	To String
+
+	public DestinationReview(int id, Destination destination) {
+		super();
+		this.id = id;
+		this.destination = destination;
+	}
+
+
+
+
+
 }
