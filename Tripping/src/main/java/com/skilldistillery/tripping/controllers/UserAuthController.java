@@ -26,6 +26,13 @@ public class UserAuthController {
 	public ModelAndView register(ModelAndView model, User user) {
 		System.out.println(user);
 		dao.createNewUser(user);
+		model.setViewName("user/profile");
+		return model;
+	}
+	
+	@RequestMapping(path = "userLogin.do")
+	public ModelAndView login(ModelAndView model, User user) {
+		
 		return model;
 	}
 	
