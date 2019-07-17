@@ -3,10 +3,14 @@ package com.skilldistillery.tripping.entities;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class JournalEntryImage {
 
 //	Declarations
@@ -17,8 +21,9 @@ public class JournalEntryImage {
 
 	@Column(name = "journal_id")
 	private int journalId;
-
-	@Column(name = "image_url")
+	
+	@ManyToOne
+	@JoinColumn(name="image_url")
 	private List<String> imageURL;
 
 //	Getters and setters
@@ -53,7 +58,6 @@ public class JournalEntryImage {
 	}
 
 	public JournalEntryImage(int id, int journalId, List<String> imageURL) {
-		super();
 		this.id = id;
 		this.journalId = journalId;
 		this.imageURL = imageURL;
