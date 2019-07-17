@@ -24,9 +24,8 @@ public class UserAuthController {
 	
 	@RequestMapping(path = "createUser.do")
 	public ModelAndView register(ModelAndView model, User user) {
-//		User newUser = dao.createNewUser();
 		System.out.println(user);
-		System.out.println("MODEL" + model);
+		dao.createNewUser(user);
 		return model;
 	}
 	
