@@ -16,9 +16,6 @@ public class Destination {
 	private String shortDescription;
 
 	private String description;
-	
-	@Column(name = "description")
-	private String description;
 
 	public String getDescription() {
 		return description;
