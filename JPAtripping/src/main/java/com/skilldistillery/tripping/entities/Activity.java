@@ -46,12 +46,6 @@ public class Activity {
 	inverseJoinColumns = { @JoinColumn(name = "point_of_interest_id") })
 	private List<PointOfInterest> points;
 
-//	Getters and Setters
-	
-//	@OneToMany(mappedBy="activity")
-//	private Activity activity;
-	
-
 	public List<PointOfInterest> getPoints() {
 		return points;
 	}

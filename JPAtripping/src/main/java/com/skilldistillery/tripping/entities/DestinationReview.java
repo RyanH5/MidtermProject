@@ -29,7 +29,8 @@ public class DestinationReview {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "destination_id")
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
 	private Destination destination;
 
 	@Column(name = "create_date")
@@ -46,53 +47,37 @@ public class DestinationReview {
 	@Column(name = "review_text")
 	private String reviewText;
 
-
 	public int getId() {
 		return id;
 	}
-
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-
 	public User getUser() {
 		return user;
 	}
-
-
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-
-
 	public Destination getDestination() {
 		return destination;
 	}
-
-
 
 	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
 
-
-
 	public Date getCreateDate() {
 		return createDate;
 	}
 
-
-
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-
 
 
 	public String getTitle() {
@@ -100,36 +85,26 @@ public class DestinationReview {
 	}
 
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
 
 	public int getRating() {
 		return rating;
 	}
 
-
-
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-
-
 
 	public String getReviewText() {
 		return reviewText;
 	}
 
-
-
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
 
-//	Constructors
 	
 	public DestinationReview() {
 	}
@@ -145,6 +120,5 @@ public class DestinationReview {
 		this.rating = rating;
 		this.reviewText = reviewText;
 	}
-
 	
 }
