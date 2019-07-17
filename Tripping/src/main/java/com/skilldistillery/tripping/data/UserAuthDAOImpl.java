@@ -22,12 +22,21 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 	@Override
 	public User createNewUser(User user) {
 		em.persist(user);
-		return null;
+		return user;
 	}
 
 	@Override
 	public boolean updateUser(int id, User user) {
-		// TODO Auto-generated method stub
+		User userToUpdate = em.find(User.class, id);
+		userToUpdate.setUserName(user.getUserName());
+		userToUpdate.setPassword(user.getPassword());
+		userToUpdate.setFirstName(user.getFirstName());
+		userToUpdate.setLastName(user.getLastName());
+		userToUpdate.setEmail(user.getEmail());
+		userToUpdate.setCreateDate(user.getCreateDate());
+		userToUpdate.setImageURL(user.getImageURL());
+		userToUpdate.setRole(user.getRole());
+		userToUpdate.setActive(user.isActive());
 		return false;
 	}
 	
