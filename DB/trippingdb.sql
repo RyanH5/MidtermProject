@@ -113,65 +113,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `journal_entry`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_entry` ;
-
-CREATE TABLE IF NOT EXISTS `journal_entry` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `is_public` TINYINT NULL,
-  `is_complete` TINYINT NULL,
-  `title` VARCHAR(150) NULL,
-  `entry_text` LONGTEXT NULL,
-  `create_date` DATETIME NULL,
-  `destination__id` INT NULL,
-  `activity_id` INT NULL,
-  `poi_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
-  INDEX `fk_destination_entry_idx` (`destination__id` ASC),
-  INDEX `fk_poi_entry_idx` (`poi_id` ASC),
-  INDEX `fk_activity_entry_idx` (`activity_id` ASC),
-  CONSTRAINT `fk_journal_entry_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_destination_entry`
-    FOREIGN KEY (`destination__id`)
-    REFERENCES `destination` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_activity_entry`
-    FOREIGN KEY (`activity_id`)
-    REFERENCES `activity` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_poi_entry`
-    FOREIGN KEY (`poi_id`)
-    REFERENCES `point_of_interest` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `amenity`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `amenity` ;
-
-CREATE TABLE IF NOT EXISTS `amenity` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  `icon_url` TEXT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `event`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `event` ;
@@ -192,6 +133,72 @@ CREATE TABLE IF NOT EXISTS `event` (
     REFERENCES `destination` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `journal_entry`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `journal_entry` ;
+
+CREATE TABLE IF NOT EXISTS `journal_entry` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `is_public` TINYINT NULL,
+  `is_complete` TINYINT NULL,
+  `title` VARCHAR(150) NULL,
+  `entry_text` LONGTEXT NULL,
+  `create_date` DATETIME NULL,
+  `destination_id` INT NULL,
+  `activity_id` INT NULL,
+  `poi_id` INT NULL,
+  `event_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
+  INDEX `fk_destination_entry_idx` (`destination_id` ASC),
+  INDEX `fk_poi_entry_idx` (`poi_id` ASC),
+  INDEX `fk_activity_entry_idx` (`activity_id` ASC),
+  INDEX `fk_entry_event_idx` (`event_id` ASC),
+  CONSTRAINT `fk_journal_entry_user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_destination`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_activity`
+    FOREIGN KEY (`activity_id`)
+    REFERENCES `activity` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_poi`
+    FOREIGN KEY (`poi_id`)
+    REFERENCES `point_of_interest` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_event`
+    FOREIGN KEY (`event_id`)
+    REFERENCES `event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `amenity`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `amenity` ;
+
+CREATE TABLE IF NOT EXISTS `amenity` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(150) NOT NULL,
+  `short_description` VARCHAR(450) NULL,
+  `long_description` TEXT NULL,
+  `icon_url` TEXT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -444,13 +451,24 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `trippingdb`;
+INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (1, 1, 'P peaches', 'tasty fruits in the mountains', 'peaches strawberries blah blach mtn food', '2017-07-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
+INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (2, 3, 'telluride blues n brews', 'beer n bluegrass', 'billy strings beer music food', '2017-05-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `journal_entry`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', 3, 2, 1);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (2, 2, 0, 1, ' Skiing in Vail', ' I skied so fast so fast good time yay', ' 2017-07-11 21:00:00', 1, 3, 2);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', 2, 1, 3);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `activity_id`, `poi_id`, `event_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', 3, 2, 1, 1);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `activity_id`, `poi_id`, `event_id`) VALUES (2, 2, 0, 1, ' Skiing in Vail', ' I skied so fast so fast good time yay', ' 2017-07-11 21:00:00', 1, 3, 2, 1);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `activity_id`, `poi_id`, `event_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', 2, 1, 3, 1);
 
 COMMIT;
 
@@ -464,17 +482,6 @@ INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `i
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (2, 'Pet Friendly', 'things are awesome with dogs dogs', 'dog bowls dog parks dog bones dogs all over', 'dog.url');
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (3, 'Pet Friendly', 'things are awesome with dogs dogs', 'dog bowls dog parks dog bones dogs all over', 'cat.url');
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (4, 'hotel', 'wgasgsg heel chair accessible stuff', 'lots of safety stfds suff stuff stufgf', 'hotel.url');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `event`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `trippingdb`;
-INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (1, 1, 'P peaches', 'tasty fruits in the mountains', 'peaches strawberries blah blach mtn food', '2017-07-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
-INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (2, 3, 'telluride blues n brews', 'beer n bluegrass', 'billy strings beer music food', '2017-05-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
 
 COMMIT;
 
