@@ -29,7 +29,8 @@ public class DestinationReview {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "destination_id")
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
 	private Destination destination;
 
 	@Column(name = "create_date")

@@ -52,9 +52,9 @@ public class JournalEntry {
 	@JoinColumn(name = "destination__id")
 	private Destination destination;
 
-//	@ManyToOne
-//	@JoinColumn(name = "event_id")
-//	private Event event;
+	@ManyToOne
+	@JoinColumn(name = "event_id")
+	private Event event;
 
 	@ManyToOne
 	@JoinColumn(name = "activity_id")
@@ -128,13 +128,13 @@ public class JournalEntry {
 		this.destination = destination;
 	}
 
-//	public Event getEvent() {
-//		return event;
-//	}
-//
-//	public void setEvent(Event event) {
-//		this.event = event;
-//	}
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
 
 	public Activity getActivity() {
 		return activity;
@@ -166,7 +166,7 @@ public class JournalEntry {
 		this.entryText = entryText;
 		this.createDate = createDate;
 		this.destination = destination;
-//		this.event = event;
+		this.event = event;
 		this.activity = activity;
 		this.images = images;
 	}

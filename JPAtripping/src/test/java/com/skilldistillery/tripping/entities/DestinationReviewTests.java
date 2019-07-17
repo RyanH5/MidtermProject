@@ -55,6 +55,19 @@ class DestinationReviewTests {
 		assertEquals("golden biking review", destReview.getTitle());
 		assertEquals(4, destReview.getRating());
 		assertEquals("it was so awesome i broke my arm", destReview.getReviewText());
-
 	}
+	
+	@Test
+	void test_Destination_Review_has_destinations () {
+		DestinationReview destReview = em.find(DestinationReview.class, 1);
+		assertNotNull(destReview.getDestination().getName());
+		assertEquals("st mary glackier", destReview.getDestination().getName());
+	}
+	@Test
+	void test_Destination_Review_has_users () {
+		DestinationReview destReview = em.find(DestinationReview.class, 1);
+		assertNotNull(destReview.getDestination());
+		assertEquals(" ryan", destReview.getUser().getFirstName());
+	}
+
 }

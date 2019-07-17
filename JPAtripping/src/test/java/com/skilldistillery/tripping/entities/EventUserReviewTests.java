@@ -60,12 +60,9 @@ class EventUserReviewTests {
 	void test_event_review_has_an_event() {
 		EventReview eventReview = em.find(EventReview.class, 1);
 		assertNotNull(1, eventReview.getEvent().getName());
-		assertEqual("P peaches", eventReview.getEvent().getName());
+		assertEquals("P peaches", eventReview.getEvent().getName());
 	}
 
-	private void assertEqual(String string, String name) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

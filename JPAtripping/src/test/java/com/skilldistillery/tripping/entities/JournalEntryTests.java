@@ -61,17 +61,20 @@ class JournalEntryTests {
 	void test_journal_has_activities() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);
 		assertNotNull(jEntry.getActivity());
+		assertEquals("hike", jEntry.getActivity().getName());
 	}
 	
 	@Test
 	void test_journal_has_events() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);
-//		assertNotNull(jEntry.getEvent());
+		assertNotNull(jEntry.getEvent());
+		assertEquals("P peaches", jEntry.getEvent().getName());
 		
 	}
 	@Test
 	void test_journal_has_destinations() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);
 		assertNotNull(jEntry.getDestination());
+		assertEquals("mt elber", jEntry.getDestination());
 	}
 }
