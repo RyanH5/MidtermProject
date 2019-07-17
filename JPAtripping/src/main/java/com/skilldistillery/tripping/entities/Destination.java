@@ -36,7 +36,7 @@ public class Destination {
 
 	@OneToMany(mappedBy = "destination")
 	private List<Event> events;
-	public Object getAmenities;
+	
 
 //	INSTEAD OF VOID ID LIKE TO RETURN A STRING TO SHOW THAT ALL ADD/REMOVE WORK
 	public void addDestinationReview(DestinationReview review) {
@@ -157,56 +157,6 @@ public class Destination {
 		this.shortDescription = shortDescription;
 		this.image = image;
 		this.destinationReviews = destinationUserReviews;
-	}
-
-	public void addAmenity(Amenity find) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void addActivity(Activity find) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object getActivities1() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void setActivities(Object activities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object getAddress() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void setAddress(Object address) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setAmenities(Object getAmenities2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setComments(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Object getActivities11() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getActivities() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

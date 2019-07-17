@@ -36,13 +36,11 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public boolean updateDestination(int id, Destination destination) {
 		Destination updated = em.find(Destination.class, destination.getId());
 		updated.setName(destination.getName());
-		updated.setActivities(destination.getActivities());
-		updated.setAddress(destination.getAddress());
-		updated.setAmenities(destination.getAmenities);
+		updated.setImage(destination.getImage());
 		updated.setShortDescription(destination.getShortDescription());
 		updated.setDescription(destination.getDescription());
-//		updated.setComments(destination.getComments());
-//		updated.setDestination(destination.getDestination());
+		updated.setDestinationReviews(destination.getDestinationReviews());
+		updated.setPoints(destination.getPoints());
 		em.persist(updated);
 		return true;
 	}
@@ -50,9 +48,12 @@ public class DestinationDAOImpl implements DestinationDAO {
 	@Override
 	public boolean deleteDestination(int id) {
 		Destination destination = em.find(Destination.class, id);
-		destination.setAmenities(null);
-		destination.setActivities(null);
-		destination.setComments(null);
+		destination.setName(null);
+		destination.setImage(null);
+		destination.setShortDescription(null);
+		destination.setDescription(null);
+		destination.setDestinationReviews(null);
+		destination.setPoints(null);
 		em.remove(destination);
 		return true;
 	}
@@ -97,7 +98,6 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public void addActivitiesById(PointOfInterest pointOfInterest, Integer[] activityIds) {
 		for (Integer aid : activityIds) {
 			Destination destination = null;
-			destination.addActivity(em.find(Activity.class, aid));
 		}
 
 	}
@@ -106,7 +106,6 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public void addAmenityById(PointOfInterest pointOfInterest, Integer[] amenityIds) {
 		for (Integer aid : amenityIds) {
 			Destination destination = null;
-			destination.addAmenity(em.find(Amenity.class, aid));
 
 		}
 
