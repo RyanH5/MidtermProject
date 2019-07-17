@@ -1,5 +1,6 @@
 package com.skilldistillery.tripping.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -60,10 +61,10 @@ public class User {
 	private List<EventReview> eventReviews;
 
 	@OneToMany(mappedBy = "user")
-	private List<DestinationReview> destinationReviews;
+	private List<DestinationReview> destReviews;
 
 	@OneToMany(mappedBy = "user")
-	private List<PointOfInterestComment> pointOfInterestComments;
+	private List<PointOfInterestComment> pointComments;
 
 //	Getters and setters
 
@@ -171,20 +172,76 @@ public class User {
 		this.eventReviews = eventReviews;
 	}
 
-	public List<DestinationReview> getDestinationReviews() {
-		return destinationReviews;
+	public List<DestinationReview> getDestReviews() {
+		return destReviews;
 	}
 
-	public void setDestinationReviews(List<DestinationReview> destinationReviews) {
-		this.destinationReviews = destinationReviews;
+	public void setDestReviews(List<DestinationReview> destReviews) {
+		this.destReviews = destReviews;
 	}
 
-	public List<PointOfInterestComment> getPointOfInterestComments() {
-		return pointOfInterestComments;
+	public List<PointOfInterestComment> getPointComments() {
+		return pointComments;
 	}
 
-	public void setPointOfInterestComments(List<PointOfInterestComment> pointOfInterestComments) {
-		this.pointOfInterestComments = pointOfInterestComments;
+	public void setPointComments(List<PointOfInterestComment> pointComments) {
+		this.pointComments = pointComments;
+	}
+
+	public void addJournalEntry(JournalEntry journalEntry) {
+		if (journalEntries == null)
+			journalEntries = new ArrayList<>();
+		if (!journalEntries.contains(journalEntry)) {
+			journalEntries.add(journalEntry);
+		}
+	}
+
+	public void removeJournalEntry(JournalEntry journalEntry) {
+		if (journalEntries != null && journalEntries.contains(journalEntry)) {
+			journalEntries.remove(journalEntry);
+		}
+	}
+
+	public void addEventReview(EventReview eventReview) {
+		if (eventReviews == null)
+			eventReviews = new ArrayList<>();
+		if (!eventReviews.contains(eventReview)) {
+			eventReviews.add(eventReview);
+		}
+	}
+
+	public void removeEventReview(EventReview eventReview) {
+		if (eventReviews != null && eventReviews.contains(eventReview)) {
+			eventReviews.remove(eventReview);
+		}
+	}
+
+	public void addDestinationReview(DestinationReview destReview) {
+		if (destReviews == null)
+			destReviews = new ArrayList<>();
+		if (!destReviews.contains(destReview)) {
+			destReviews.add(destReview);
+		}
+	}
+
+	public void removeDestinationReview(DestinationReview destReview) {
+		if (destReviews != null && destReviews.contains(destReview)) {
+			destReviews.remove(destReview);
+		}
+	}
+
+	public void addPointComment(PointOfInterestComment pointComment) {
+		if (pointComments == null)
+			pointComments = new ArrayList<>();
+		if (!pointComments.contains(pointComment)) {
+			pointComments.add(pointComment);
+		}
+	}
+
+	public void removePointComment(PointOfInterestComment pointComment) {
+		if (pointComments != null && pointComments.contains(pointComment)) {
+			pointComments.remove(pointComment);
+		}
 	}
 
 //	Constructors
@@ -193,8 +250,8 @@ public class User {
 
 	public User(String userName, String password, String firstName, String lastName, Date createDate, String email,
 			List<JournalEntry> journalEntries, String imageURL, String role, boolean active,
-			List<EventReview> eventReviews, List<DestinationReview> destinationReviews,
-			List<PointOfInterestComment> pointOfInterestComments) {
+			List<EventReview> eventReviews, List<DestinationReview> destReviews,
+			List<PointOfInterestComment> pointComments, PointOfInterest point) {
 		super();
 		this.userName = userName;
 		this.password = password;
@@ -207,8 +264,8 @@ public class User {
 		this.role = role;
 		this.active = active;
 		this.eventReviews = eventReviews;
-		this.destinationReviews = destinationReviews;
-		this.pointOfInterestComments = pointOfInterestComments;
+		this.destReviews = destReviews;
+		this.pointComments = pointComments;
 	}
 
 //	To String
@@ -216,7 +273,9 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", userName=").append(userName).append("]");
+		builder.append("User [id=").append(id).append(", userName=").append(userName).append(", password=")
+				.append(password).append(", firstName=").append(firstName).append(", lastName=").append(lastName)
+				.append(", email=").append(email).append("]");
 		return builder.toString();
 	}
 

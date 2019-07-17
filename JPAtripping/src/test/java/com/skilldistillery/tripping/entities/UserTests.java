@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
@@ -50,14 +51,31 @@ class UserTests {
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
 		assertEquals(1, user.getId());
-		assertEquals(" password2.0", user.getPassword());
-		assertEquals(" ryan", user.getFirstName());
-		assertEquals(" harr", user.getLastName());
-		assertEquals(" harr@gmail.com", user.getEmail());
-		assertEquals(" myimage.jpg", user.getImageURL());
-		assertEquals(" notAdmin", user.getRole());
-		assertEquals(0, user.isActive());
+		assertEquals(" \"password2.0\"", user.getPassword());
+		assertEquals(" \"ryan\"", user.getFirstName());
+		assertEquals(" \"harr\"", user.getLastName());
+		assertEquals(" \"harr@gmail.com\"", user.getEmail());
+		assertEquals(" \"myimage.jpg\"", user.getImageURL());
+		assertEquals(" \"notAdmin\"", user.getRole());
+		assertEquals(false, user.isActive());
+	}
+	
+	@Test
+	void test_user_has_journal_entries() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getJournalEntries());
 		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
+	}
+	
+	@Test
+	void test_user_has_destination_reviews() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getDestReviews());
+	}
+	@Test
+	void test_user_has_point_comments() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getPointComments());
 	}
 
 }
