@@ -82,7 +82,7 @@ class UserTests {
 		assertNotNull(user.getDestinationReviews());
 		assertEquals("golden biking review", user.getDestinationReviews().get(0).getTitle());
 	}
-
+	
 	@Test
 	void test_user_has_POI_reviews() {
 		User user = em.find(User.class, 1);
