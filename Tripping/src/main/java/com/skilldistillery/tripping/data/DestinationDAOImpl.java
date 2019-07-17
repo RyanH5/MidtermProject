@@ -117,4 +117,10 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return null;
 	}
 
+	@Override
+	public List<PointOfInterest> getPointsByDestination(int destinationId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
