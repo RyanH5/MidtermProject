@@ -39,7 +39,7 @@ class DestinationTests {
 	@Test
 	void test_description_mappings() {
 		Destination dest = em.find(Destination.class, 1);
-		assertEquals("Maybe Kayaking?", dest.getActivities().get(0).getName());
+		assertEquals("Maybe Kayaking?", dest.get
 		assertEquals("Craig", dest.getUsers().get(0).getFirstName());
 		assertEquals("Chanas last name", dest.getUsers().get(0).getLastName());
 	}
