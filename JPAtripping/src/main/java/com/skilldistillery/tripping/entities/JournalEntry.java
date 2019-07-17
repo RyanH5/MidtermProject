@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,8 +26,8 @@ public class JournalEntry {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private int userId;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "is_public")
 	private boolean isPublic;
@@ -44,14 +46,20 @@ public class JournalEntry {
 	@CreationTimestamp
 	private Date createDate;
 
-	@Column(name = "destination_id")
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
 	private int destinationId;
 
-	@Column(name = "event_id")
+	@ManyToOne
+	@JoinColumn(name = "event_id")
 	private int eventId;
 
-	@Column(name = "activity_id")
+	@ManyToOne
+	@JoinColumn(name = "activity_id")
 	private int activityId;
+
+	@OneToMany(mappedBy = "journal_id")
+	private List<JournalEntryImage> images;
 
 //	Getters and setters	
 	public int getId() {
@@ -62,12 +70,12 @@ public class JournalEntry {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public boolean isPublic() {
@@ -134,28 +142,23 @@ public class JournalEntry {
 		this.activityId = activityId;
 	}
 
-//	Constructors
+	public List<JournalEntryImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<JournalEntryImage> images) {
+		this.images = images;
+	}
+
+	//	Constructors
 
 	public JournalEntry() {
 	}
 
-	public JournalEntry(int id, int userId, boolean isPublic, boolean isComplete, String title, String entryText,
-			Date createDate) {
+	public JournalEntry(User user, boolean isPublic, boolean isComplete, String title, String entryText,
+			Date createDate, int destinationId, int eventId, int activityId, List<JournalEntryImage> images) {
 		super();
-		this.id = id;
-		this.userId = userId;
-		this.isPublic = isPublic;
-		this.isComplete = isComplete;
-		this.title = title;
-		this.entryText = entryText;
-		this.createDate = createDate;
-	}
-
-	public JournalEntry(int id, int userId, boolean isPublic, boolean isComplete, String title, String entryText,
-			Date createDate, int destinationId, int eventId, int activityId) {
-		super();
-		this.id = id;
-		this.userId = userId;
+		this.user = user;
 		this.isPublic = isPublic;
 		this.isComplete = isComplete;
 		this.title = title;
@@ -164,6 +167,7 @@ public class JournalEntry {
 		this.destinationId = destinationId;
 		this.eventId = eventId;
 		this.activityId = activityId;
+		this.images = images;
 	}
 
 //	To String
