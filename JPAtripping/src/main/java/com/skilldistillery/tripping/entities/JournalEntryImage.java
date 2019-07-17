@@ -19,8 +19,8 @@ public class JournalEntryImage {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@ManyToOne
-	@JoinColumn(name = "journal_id")
+	
+	@Column(name = "journal_id")
 	private int journalId;
 
 	

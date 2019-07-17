@@ -49,7 +49,7 @@ public class JournalEntry {
 	private Date createDate;
 
 	@ManyToOne
-	@JoinColumn(name = "destination__id")
+	@JoinColumn(name = "destination_id")
 	private Destination destination;
 
 	@ManyToOne

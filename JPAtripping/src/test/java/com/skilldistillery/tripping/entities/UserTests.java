@@ -65,14 +65,13 @@ class UserTests {
 	void test_user_has_journal_entries() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getJournalEntries());
-		assertEquals(2, user.getJournalEntries().get(0).getActivity().getId());
 		assertEquals("Mtn biking in golden", user.getJournalEntries().get(0).getTitle());
 	}
 
 	@Test
 	void test_user_has_event_reviews() {
 		User user = em.find(User.class, 1);
-		assertNotNull(user.getEventReviews());
+		assertNotNull(user.getEventReviews().get(0));
 		assertEquals("tasty fruits in the mountains", user.getEventReviews().get(0).getTitle());
 
 	}
