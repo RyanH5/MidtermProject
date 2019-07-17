@@ -70,108 +70,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `activity`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `activity` ;
-
-CREATE TABLE IF NOT EXISTS `activity` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(450) NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  `image_url` TEXT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `point_of_interest`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `point_of_interest` ;
-
-CREATE TABLE IF NOT EXISTS `point_of_interest` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(250) NULL,
-  `address_id` INT NOT NULL,
-  `destination_id` INT NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_point_of_interest_address1_idx` (`address_id` ASC),
-  INDEX `fk_point_of_interest_destination1_idx` (`destination_id` ASC),
-  CONSTRAINT `fk_point_of_interest_address1`
-    FOREIGN KEY (`address_id`)
-    REFERENCES `address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_point_of_interest_destination1`
-    FOREIGN KEY (`destination_id`)
-    REFERENCES `destination` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `journal_entry`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `journal_entry` ;
-
-CREATE TABLE IF NOT EXISTS `journal_entry` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `is_public` TINYINT NULL,
-  `is_complete` TINYINT NULL,
-  `title` VARCHAR(150) NULL,
-  `entry_text` LONGTEXT NULL,
-  `create_date` DATETIME NULL,
-  `destination__id` INT NULL,
-  `activity_id` INT NULL,
-  `poi_id` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
-  INDEX `fk_destination_entry_idx` (`destination__id` ASC),
-  INDEX `fk_poi_entry_idx` (`poi_id` ASC),
-  INDEX `fk_activity_entry_idx` (`activity_id` ASC),
-  CONSTRAINT `fk_journal_entry_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_destination_entry`
-    FOREIGN KEY (`destination__id`)
-    REFERENCES `destination` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_activity_entry`
-    FOREIGN KEY (`activity_id`)
-    REFERENCES `activity` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_poi_entry`
-    FOREIGN KEY (`poi_id`)
-    REFERENCES `point_of_interest` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `amenity`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `amenity` ;
-
-CREATE TABLE IF NOT EXISTS `amenity` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NOT NULL,
-  `short_description` VARCHAR(450) NULL,
-  `long_description` TEXT NULL,
-  `icon_url` TEXT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `event`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `event` ;
@@ -192,6 +90,80 @@ CREATE TABLE IF NOT EXISTS `event` (
     REFERENCES `destination` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `activity`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `activity` ;
+
+CREATE TABLE IF NOT EXISTS `activity` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(450) NOT NULL,
+  `short_description` VARCHAR(450) NULL,
+  `long_description` TEXT NULL,
+  `image_url` TEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `journal_entry`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `journal_entry` ;
+
+CREATE TABLE IF NOT EXISTS `journal_entry` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `is_public` TINYINT NULL,
+  `is_complete` TINYINT NULL,
+  `title` VARCHAR(150) NULL,
+  `entry_text` LONGTEXT NULL,
+  `create_date` DATETIME NULL,
+  `destination_id` INT NULL,
+  `event_id` INT NULL,
+  `activitity_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
+  INDEX `fk_entry_destination_idx` (`destination_id` ASC),
+  INDEX `fk_entry_event_idx` (`event_id` ASC),
+  INDEX `fk_entry_activity_idx` (`activitity_id` ASC),
+  CONSTRAINT `fk_journal_entry_user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_destination`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_event`
+    FOREIGN KEY (`event_id`)
+    REFERENCES `event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entry_activity`
+    FOREIGN KEY (`activitity_id`)
+    REFERENCES `activity` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `amenity`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `amenity` ;
+
+CREATE TABLE IF NOT EXISTS `amenity` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(150) NOT NULL,
+  `short_description` VARCHAR(450) NULL,
+  `long_description` TEXT NULL,
+  `icon_url` TEXT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -292,6 +264,34 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `point_of_interest`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `point_of_interest` ;
+
+CREATE TABLE IF NOT EXISTS `point_of_interest` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(250) NULL,
+  `address_id` INT NOT NULL,
+  `destination_id` INT NOT NULL,
+  `short_description` VARCHAR(450) NULL,
+  `long_description` TEXT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_point_of_interest_address1_idx` (`address_id` ASC),
+  INDEX `fk_point_of_interest_destination1_idx` (`destination_id` ASC),
+  CONSTRAINT `fk_point_of_interest_address1`
+    FOREIGN KEY (`address_id`)
+    REFERENCES `address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_point_of_interest_destination1`
+    FOREIGN KEY (`destination_id`)
+    REFERENCES `destination` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `point_of_interest_has_amenity`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `point_of_interest_has_amenity` ;
@@ -382,9 +382,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (1, 'ryanh5', ' password2.0', ' ryan', ' harr', ' harr@gmail.com', ' 2015-07-11 11:00:00', ' myimage.jpg', ' notAdmin',  0);
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (2, 'craigh', ' passwo3.0', ' craig', ' smith', ' smith@gmail.com', ' 2015-07-11 11:00:00', ' craigsimagage.jpg', ' Admin',  1);
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (3, 'chana', ' password7.0', ' chana', ' Name', ' chana@gmail.com', ' 2015-07-11 11:00:00', ' chanaimage.jpg', ' notAdmin',  1);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (1, 'ryanh5', ' \"password2.0\"', ' \"ryan\"', ' \"harr\"', ' \"harr@gmail.com\"', ' 2015-07-11 11:00:00', ' \"myimage.jpg\"', ' \"notAdmin\"',  0);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (2, 'craigh', ' \"passwo3.0\"', ' \"craig\"', ' \"smith\"', ' \"smith@gmail.com\"', ' 2015-07-11 11:00:00', ' \"craigsimagage.jpg\"', ' \"Admin\"',  1);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `image_url`, `role`, `active`) VALUES (3, 'chana', ' \"password7.0\"', ' \"chana\"', ' \"lName\"', ' \"chana@gmail.com\"', ' 2015-07-11 11:00:00', ' \"chanaimage.jpg\"', ' \"notAdmin\"',  1);
 
 COMMIT;
 
@@ -407,10 +407,21 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (1, '329 birch ct', 'market street', 'palm harbor', 'FL', '80499', '727-545-5708', 39.833, 59.543);
+INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (1, '329 birch ct', 'market street', 'palm harbor', 'fl', '80499', '727-545-5708', 39.833, 59.543);
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (2, '3 palm ct', 'blake street', 'dener', 'AK', '80239', '727-595-5708', 39.833, 59.543);
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (3, '29 blvd ct', 'jump street', 'phoenix', 'CT', '80239', '727-515-5708', 39.833, 59.513);
-INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (4, '3 round st', 'ssgfa  street', 'tucson', 'AZ', '80299', '727-525-5708', 39.833, 49.543);
+INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (4, '3 round st', 'ssgfa  street', 'tucson', 'az', '80299', '727-525-5708', 39.833, 49.543);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `trippingdb`;
+INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (1, 1, 'P peaches', 'tasty fruits in the mountains', 'peaches strawberries blah blach mtn food', '2017-07-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
+INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (2, 3, 'telluride blues n brews', 'beer n bluegrass', 'billy strings beer music food', '2017-05-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
 
 COMMIT;
 
@@ -420,24 +431,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (1, 'hike', 'many trails', 'easy moderate difficult trails', 'fakeimage3.url');
-INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (2, 'mountain biking', 'trails for all levels', 'easy moderate difficult trails', 'fakeimage3.url');
-INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (3, 'ski', 'perfect powder', 'easy moderate difficult trails', 'fakeimage3.url');
-INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (4, 'kayak', 'whitewater or flatwater', 'rough rapids moderate rapids or smooth water', 'fakeimage3.url');
-INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (5, 'camp', 'rv or tent', 'rv water electric hookup or car tent camp backpack tent camp', 'fakeimage3.url');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `point_of_interest`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `trippingdb`;
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'hike trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'mountainbike trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'ski slopes', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'kayak dropin sites', 1, 1, NULL, NULL);
+INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (1, '\"hike\"', '\"many_trails\"', '\"easy_moderate_difficult_trails\"', NULL);
+INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (2, '\"mointain_bike\"', '\"trails_for_all_levels\"', '\"easy_moderate_difficult_trails\"', NULL);
+INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (3, '\"ski\"', '\"perfect_powder\"', '\"easy_moderate_difficult_trails\"', NULL);
+INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (4, '\"kayak\"', '\"whitewater_or_flatwater\"', '\"rough_rapids_moderate_rapids_or_smooth_water\"', NULL);
+INSERT INTO `activity` (`id`, `name`, `short_description`, `long_description`, `image_url`) VALUES (5, '\"camp\"', '\"rv_or_tent\"', '\"rv_water_electric_hookup_or_car_tent_camp_backpack_tent_camp\"', NULL);
 
 COMMIT;
 
@@ -447,9 +445,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', 3, 2, 1);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (2, 2, 0, 1, ' Skiing in Vail', ' I skied so fast so fast good time yay', ' 2017-07-11 21:00:00', 1, 3, 2);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination__id`, `activity_id`, `poi_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', 2, 1, 3);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', NULL, NULL, NULL);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (2, 2, 0,  1, ' \"Skiing in Vail\"', ' \"I skied so fast so fast good time yay\"', ' 2017-07-11 21:00:00', NULL, NULL, NULL);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', NULL, NULL, NULL);
 
 COMMIT;
 
@@ -463,17 +461,6 @@ INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `i
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (2, 'Pet Friendly', 'things are awesome with dogs dogs', 'dog bowls dog parks dog bones dogs all over', 'dog.url');
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (3, 'Pet Friendly', 'things are awesome with dogs dogs', 'dog bowls dog parks dog bones dogs all over', 'cat.url');
 INSERT INTO `amenity` (`id`, `name`, `short_description`, `long_description`, `icon_url`) VALUES (4, 'hotel', 'wgasgsg heel chair accessible stuff', 'lots of safety stfds suff stuff stufgf', 'hotel.url');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `event`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `trippingdb`;
-INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (1, 1, 'P peaches', 'tasty fruits in the mountains', 'peaches strawberries blah blach mtn food', '2017-07-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
-INSERT INTO `event` (`id`, `destination_id`, `name`, `short_description`, `long_description`, `start_date`, `end_date`, `event_details`) VALUES (2, 3, 'telluride blues n brews', 'beer n bluegrass', 'billy strings beer music food', '2017-05-11 21:00:00', '2017-09-11 21:00:00', 'starts at time ends at later time');
 
 COMMIT;
 
@@ -520,30 +507,23 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (1, 1, 1, '2017-07-11 21:00:00', 'tasty fruits in the mountains', 4, 'awesome juicy fruits');
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (2, 2, 1, '2017-07-11 21:00:00', 'tasty fruits in the mountains', 5, 'my favorite two things');
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (3, 3, 1, '2017-07-11 21:00:00', 'beer n bluegrass', 2, 'not as blue as I like');
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (1, 1, 1, NULL, 'tasty fruits in the mountains', NULL, NULL);
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (2, 2, 1, NULL, 'tasty fruits in the mountains', NULL, NULL);
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (3, 3, 2, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `point_of_interest_has_amenity`
+-- Data for table `point_of_interest`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (1, 1);
-INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 3);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `point_of_interest_has_activity`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `trippingdb`;
-INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 3);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, '\"hike_trailhead', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, '\"mountainbike_trailhead\"', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, '\"ski_slopes\"', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, '\"kayak_dropin_sites\"', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, '\"campground_or_primative\"', 1, 1, NULL, NULL);
 
 COMMIT;
 
@@ -553,8 +533,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `point_of_interest_comment` (`id`, `user_id`, `poi_id`, `comment_text`, `rating`, `comment_date`) VALUES (1, 1, 1, 'Great trailhead parking', 5, '2017-07-11 21:00:00');
-INSERT INTO `point_of_interest_comment` (`id`, `user_id`, `poi_id`, `comment_text`, `rating`, `comment_date`) VALUES (2, 1, 3, 'Road to trailhead requires 4x4', 4, '2017-07-11 21:00:00');
+INSERT INTO `point_of_interest_comment` (`id`, `user_id`, `poi_id`, `comment_text`, `rating`, `comment_date`) VALUES (1, 1, 1, 'sometext', 5, NULL);
 
 COMMIT;
 

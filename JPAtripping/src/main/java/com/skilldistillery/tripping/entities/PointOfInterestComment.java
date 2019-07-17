@@ -3,61 +3,53 @@ package com.skilldistillery.tripping.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+@Entity
+@Table(name = "point_of_interest_comment")
 public class PointOfInterestComment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name="user_id")
-	private String userId;
-	
-	@Column(name="poi_id")
-	private String poiId;
-	
-	@Column(name="comment_text")
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "poi_id")
+	private PointOfInterest point;
+
+	@Column(name = "comment_text")
 	private String commentText;
-	
-	@Column(name="rating")
+
+	@Column(name = "rating")
 	private int rating;
-	
+
 	@Column(name = "comment_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	private Date commentDate;
 
 //	Getters and setters
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getPoiId() {
-		return poiId;
-	}
-
-	public void setPoiId(String poiId) {
-		this.poiId = poiId;
 	}
 
 	public String getCommentText() {
@@ -83,21 +75,10 @@ public class PointOfInterestComment {
 	public void setCommentDate(Date commentDate) {
 		this.commentDate = commentDate;
 	}
-	
+
 //	Constructors
 
 	public PointOfInterestComment() {
-	}
-
-	public PointOfInterestComment(int id, String userId, String poiId, String commentText, int rating,
-			Date commentDate) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.poiId = poiId;
-		this.commentText = commentText;
-		this.rating = rating;
-		this.commentDate = commentDate;
 	}
 
 //	To String
@@ -109,5 +90,21 @@ public class PointOfInterestComment {
 		return builder.toString();
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public PointOfInterest getPoint() {
+		return point;
+	}
+
+	public void setPoint(PointOfInterest point) {
+		this.point = point;
+	}
 	
+
 }

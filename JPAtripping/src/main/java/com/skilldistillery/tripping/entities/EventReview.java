@@ -1,6 +1,9 @@
 package com.skilldistillery.tripping.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,6 +12,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+@Entity
 public class EventReview {
 
 //	Declarations
@@ -26,7 +30,7 @@ public class EventReview {
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
-	private String createDate;
+	private Date createDate;
 
 	@Column(name = "title")
 	private String title;
@@ -63,11 +67,11 @@ public class EventReview {
 		this.eventId = eventId;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
