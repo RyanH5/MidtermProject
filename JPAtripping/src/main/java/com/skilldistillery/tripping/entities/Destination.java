@@ -1,8 +1,13 @@
 package com.skilldistillery.tripping.entities;
 
-import java.util.*;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Destination {
@@ -20,35 +25,8 @@ public class Destination {
 	@Column(name="image_url")
 	private String image;
 	
-	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="destination_has_activity",
-	joinColumns=@JoinColumn(name="destination_id"),
-	inverseJoinColumns=@JoinColumn(name="activity_id"))	
-	private List<Activity> activities;
-	
-	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="user_destination_review",
-	joinColumns=@JoinColumn(name="destination_id"),
-	inverseJoinColumns=@JoinColumn(name="user_id"))
-	private List<User> users;
-	
-	
-	
-	public Destination() {
-		super();
-	}
-
-	public Destination(String name, String shortDescription, String description, String image,
-			List<Activity> activities, List<User> users) {
-		super();
-//		this.id = id;
-		this.name = name;
-		this.shortDescription = shortDescription;
-		this.description = description;
-		this.image = image;
-		this.activities = activities;
-		this.users = users;
-	}
+	@OneToMany(mappedBy = "destination")
+	private List<PointOfInterest> points;
 
 	public int getId() {
 		return id;
@@ -90,19 +68,18 @@ public class Destination {
 		this.image = image;
 	}
 
-	public List<Activity> getActivities() {
-		return activities;
+	public List<PointOfInterest> getPoints() {
+		return points;
 	}
 
-	public void setActivities(List<Activity> activities) {
-		this.activities = activities;
+	@Override
+	public String toString() {
+		return "Destination [name=" + name + ", shortDescription=" + shortDescription + ", description=" + description
+				+ ", image=" + image + "]";
 	}
 
-	public List<User> getUsers() {
-		return users;
+	public void setPoints(List<PointOfInterest> points) {
+		this.points = points;
 	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+	
 }
