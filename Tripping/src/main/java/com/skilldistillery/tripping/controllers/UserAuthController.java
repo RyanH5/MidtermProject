@@ -32,7 +32,13 @@ public class UserAuthController {
 	
 	@RequestMapping(path = "userLogin.do")
 	public ModelAndView login(ModelAndView model, User user) {
-		
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(user);
+		user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(user);
+		model.addObject("user", user);
+		model.setViewName("user/profile");
 		return model;
 	}
 	

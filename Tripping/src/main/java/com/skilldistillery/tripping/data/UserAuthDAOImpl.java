@@ -18,6 +18,17 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 	public User findUserById(int id) {
 		return em.find(User.class, id);
 	}
+	
+	@Override
+	public User findUserByUserNameAndPassword(String usn, String psw) {
+		String query = "SELECT usr FROM User usr WHERE usr.userName = :usn AND usr.password = :psw";
+		User selectedUser = em.createQuery(query, User.class)
+				.setParameter("usn", usn)
+				.setParameter("psw", psw)
+				.getSingleResult();
+		return selectedUser;
+	}
+	
 
 	@Override
 	public User createNewUser(User user) {
@@ -39,5 +50,8 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 		userToUpdate.setActive(user.isActive());
 		return true;
 	}
+
+
+
 	
 }
