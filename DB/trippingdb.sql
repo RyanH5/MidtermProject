@@ -123,12 +123,12 @@ CREATE TABLE IF NOT EXISTS `journal_entry` (
   `create_date` DATETIME NULL,
   `destination_id` INT NULL,
   `event_id` INT NULL,
-  `activitity_id` INT NULL,
+  `activity_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_journal_entry_user_idx` (`user_id` ASC),
   INDEX `fk_entry_destination_idx` (`destination_id` ASC),
   INDEX `fk_entry_event_idx` (`event_id` ASC),
-  INDEX `fk_entry_activity_idx` (`activitity_id` ASC),
+  INDEX `fk_entry_activity_idx` (`activity_id` ASC),
   CONSTRAINT `fk_journal_entry_user`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `journal_entry` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_entry_activity`
-    FOREIGN KEY (`activitity_id`)
+    FOREIGN KEY (`activity_id`)
     REFERENCES `activity` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -479,9 +479,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', NULL, NULL, NULL);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (2, 2, 0,  1, ' \"Skiing in Vail\"', ' \"I skied so fast so fast good time yay\"', ' 2017-07-11 21:00:00', NULL, NULL, NULL);
-INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activitity_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', NULL, NULL, NULL);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activity_id`) VALUES (1, 1, 0, 1, 'Mtn biking in golden', 'went riding it was sick btw it was awesome', '2017-07-11 21:00:00', NULL, NULL, NULL);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activity_id`) VALUES (2, 2, 0,  1, ' \"Skiing in Vail\"', ' \"I skied so fast so fast good time yay\"', ' 2017-07-11 21:00:00', NULL, NULL, NULL);
+INSERT INTO `journal_entry` (`id`, `user_id`, `is_public`, `is_complete`, `title`, `entry_text`, `create_date`, `destination_id`, `event_id`, `activity_id`) VALUES (3, 1, 1, 0, 'Dirtbiking in GJ was so dirty.', 'sick time whatever whatver', '2017-07-11 21:00:00', NULL, NULL, NULL);
 
 COMMIT;
 
