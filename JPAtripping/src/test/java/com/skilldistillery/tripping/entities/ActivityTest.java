@@ -51,6 +51,6 @@ class ActivityTest {
 	@Test
 	
 		void test_Activity_mapping() {
-		assertEquals("Hike", activity.getName());
+		assertEquals("hike", activity.getName());
 	}
 }

@@ -434,11 +434,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'hike trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'mountainbike trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'ski slopes', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'kayak dropin sites', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'kayak pullout', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'hike trailhead', 1, 1, 'short desc', 'long desc');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'mountainbike trailhead', 1, 1, 'short desc', 'long desc');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'ski slopes', 1, 1, 'short desc', 'long desc');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'kayak dropin sites', 1, 1, 'short desc', 'long desc');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'kayak pullout', 1, 1, 'short desc', 'long desc');
 
 COMMIT;
 
