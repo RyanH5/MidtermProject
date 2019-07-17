@@ -49,7 +49,7 @@ class UserTests {
 	@Test
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
-		assertEquals("ryanh5?", user.getId());
+		assertEquals("1", user.getId());
 		assertEquals("password2.0", user.getPassword());
 		assertEquals("ryan", user.getFirstName());
 		assertEquals("harr", user.getLastName());

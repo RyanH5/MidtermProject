@@ -11,7 +11,6 @@ public class Destination {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;	
-	private String description;
 
 	@Column(name="short_description")
 	private String shortDescription;
