@@ -30,7 +30,7 @@ public class DestinationReview {
 	private User user;
 
 	@Column(name = "destination_id")
-	private String destination;
+	private Destination destination;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -46,14 +46,8 @@ public class DestinationReview {
 	@Column(name = "review_text")
 	private String reviewText;
 
-	
-//	Getters and Setters
 
-	
-
-	
-
-public int getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -77,13 +71,13 @@ public int getId() {
 
 
 
-	public String getDestination() {
+	public Destination getDestination() {
 		return destination;
 	}
 
 
 
-	public void setDestination(String destination) {
+	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
 
@@ -141,7 +135,7 @@ public int getId() {
 	}
 
 
-	public DestinationReview(User user, String destination, Date createDate, String title, int rating,
+	public DestinationReview(User user, Destination destination, Date createDate, String title, int rating,
 			String reviewText) {
 		super();
 		this.user = user;
