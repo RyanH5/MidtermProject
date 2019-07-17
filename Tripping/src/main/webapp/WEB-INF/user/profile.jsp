@@ -19,8 +19,9 @@
 		</nav>
 	</header>
 		<section>
-			<h1>${user.userName}</h1>
-			<h2>Welcome, ${user.firstName } ${user.lastName }</h2>
+			<%-- <h1>${user.userName}</h1> --%>
+			<%-- <h2>Welcome, ${user.firstName } ${user.lastName }</h2> --%>
+			<h2>Welcome, ${sessionScope.user.userName }</h2>
 		</section>
 
 </body>
