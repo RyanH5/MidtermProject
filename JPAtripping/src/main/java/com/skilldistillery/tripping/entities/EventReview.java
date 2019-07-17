@@ -110,6 +110,17 @@ public class EventReview {
 		this.title = title;
 	}
 
+	public EventReview(int id, int userId, int eventId, Date createDate, String title, int rating, String review_text) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.eventId = eventId;
+		this.createDate = createDate;
+		this.title = title;
+		this.rating = rating;
+		this.review_text = review_text;
+	}
+
 //	To String
 
 	@Override
