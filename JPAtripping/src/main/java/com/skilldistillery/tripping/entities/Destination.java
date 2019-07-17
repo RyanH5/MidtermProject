@@ -1,8 +1,13 @@
 package com.skilldistillery.tripping.entities;
 
-import java.util.*;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Destination {
@@ -19,19 +24,13 @@ public class Destination {
 	
 	@Column(name="image_url")
 	private String image;
-	
-	
-	
+
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="user_destination_review",
 	joinColumns=@JoinColumn(name="destination_id"),
 	inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<DestinationReview> destinationReviews;
-	
-	
-	
-	
-	
+
 	public Destination() {
 		super();
 	}
@@ -45,6 +44,4 @@ public class Destination {
 		this.image = image;
 		this.destinationReviews = destinationUserReviews;
 	}
-
-	
 }
