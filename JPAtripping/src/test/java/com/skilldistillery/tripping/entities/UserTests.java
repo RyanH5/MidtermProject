@@ -90,4 +90,15 @@ class UserTests {
 		assertEquals("Great trailhead parking", user.getPointOfInterestComments().get(0).getCommentText());
 	}
 
+	@Test
+	void test_user_has_destination_reviews() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getDestReviews());
+	}
+	@Test
+	void test_user_has_point_comments() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getPointComments());
+	}
+
 }
