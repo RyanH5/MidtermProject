@@ -1,24 +1,23 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class UserTests {
+public class AmenityTests {
 
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
+	private EntityManager em;
+	private Amenity amenity;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,33 +32,29 @@ class UserTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+		amenity = em.find(Amenity.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-	}
-
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
+		amenity = null;
 	}
 
 	@Test
-	void test_user_mappings() {
-		User user = em.find(User.class, 1);
-		assertEquals("ryanh5?", user.getId());
-		assertEquals("password2.0", user.getPassword());
-		assertEquals("ryan", user.getFirstName());
-		assertEquals("harr", user.getLastName());
-		assertEquals("harr@gmail.com", user.getEmail());
-		assertEquals("2015-07-11 11:00:00", user.getCreateDate());
-		assertEquals("myimage.jpg", user.getImageURL());
-		assertEquals("notAdmin", user.getRole());
-		assertEquals(0, user.isActive());
-		assertEquals("mt elber", user.getDestinations().get(0).getName());
-		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
+	void test_Amenity_mappings() {
+		assertEquals(1, amenity.getId());
+		assertEquals("ADA", amenity.getName());
+		assertEquals("wheel chair accessible stuff", amenity.getShortDescription());
+		assertEquals("lots of safety stuff stuff stufgf", amenity.getLongDescription());
+		assertEquals("image.url", amenity.getIconUrl());
 	}
 
+	@Test
+	void test_Amenityy_has_Points() {
+		assertNotNull(amenity.getPoints());
+		assertEquals(1, amenity.getPoints().size());
+		assertEquals("Specific Trailhead", amenity.getPoints().get(0).getName());
+	}
+	
 }

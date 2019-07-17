@@ -1,24 +1,23 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class UserTests {
+public class ActivityTests {
 
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
+	private EntityManager em;
+	private Activity activity;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,33 +32,29 @@ class UserTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+		activity = em.find(Activity.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-	}
-
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
+		activity = null;
 	}
 
 	@Test
-	void test_user_mappings() {
-		User user = em.find(User.class, 1);
-		assertEquals("ryanh5?", user.getId());
-		assertEquals("password2.0", user.getPassword());
-		assertEquals("ryan", user.getFirstName());
-		assertEquals("harr", user.getLastName());
-		assertEquals("harr@gmail.com", user.getEmail());
-		assertEquals("2015-07-11 11:00:00", user.getCreateDate());
-		assertEquals("myimage.jpg", user.getImageURL());
-		assertEquals("notAdmin", user.getRole());
-		assertEquals(0, user.isActive());
-		assertEquals("mt elber", user.getDestinations().get(0).getName());
-		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
+	void test_Activity_mappings() {
+		assertEquals(1, activity.getId());
+		assertEquals("4x4 & Jeep Tours", activity.getName());
+		assertEquals("Many Trails", activity.getShortDescription());
+		assertEquals("Trails for all levels", activity.getLongDescription());
+		assertEquals("imageurl", activity.getImageUrl());
 	}
 
+	@Test
+	void test_Activity_has_Points() {
+		assertNotNull(activity.getPoints());
+		assertEquals(1, activity.getPoints().size());
+		assertEquals("Specific Trailhead", activity.getPoints().get(0).getName());
+	}
+	
 }
