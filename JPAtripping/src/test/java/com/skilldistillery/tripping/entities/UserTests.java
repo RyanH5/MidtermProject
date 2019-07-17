@@ -60,7 +60,6 @@ class UserTests {
 		assertEquals(false, user.isActive());
 	}
 
-
 	@Test
 	void test_user_has_journal_entries() {
 		User user = em.find(User.class, 1);
@@ -90,7 +89,6 @@ class UserTests {
 		assertEquals("Great trailhead parking", user.getPointComments().get(0).getCommentText());
 	}
 
-	
 	@Test
 	void test_user_has_point_comments() {
 		User user = em.find(User.class, 1);
