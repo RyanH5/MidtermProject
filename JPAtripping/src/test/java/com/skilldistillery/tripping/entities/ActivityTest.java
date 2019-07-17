@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ActivityTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	Activity activity;
@@ -22,7 +22,6 @@ class ActivityTest {
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("tripping");
 	}
-	
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
@@ -41,31 +40,36 @@ class ActivityTest {
 	}
 
 	@Test
-		void test_Activity_mappingId() {
+	void test_Activity_mappingId() {
 		assertEquals(2, activity.getId());
 	}
+
 	@Test
-		void test_Activity_mappingName() {
+	void test_Activity_mappingName() {
 		assertEquals("mountain biking", activity.getName());
 	}
+
 	@Test
 	void test_Activity_mapping_short_description() {
 		assertEquals("trails for all levels", activity.getShortDescription());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_long_description() {
 		assertEquals("easy moderate difficult trails", activity.getLongDescription());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_image_url() {
 		assertEquals("fakeimage3.url", activity.getImageUrl());
 	}
+
 	@Test
-	
+
 	void test_Activity_mapping_points() {
 		assertEquals(5, activity.getPoints().size());
 	}
-	
+
 }
