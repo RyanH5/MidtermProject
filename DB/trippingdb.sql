@@ -579,6 +579,36 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `point_of_interest_has_amenity`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `trippingdb`;
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (1, 1);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (1, 2);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (1, 3);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 4);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 5);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 6);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `point_of_interest_has_activity`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `trippingdb`;
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 1);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 2);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 3);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (2, 4);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (2, 5);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (2, 6);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `point_of_interest_comment`
 -- -----------------------------------------------------
 START TRANSACTION;
