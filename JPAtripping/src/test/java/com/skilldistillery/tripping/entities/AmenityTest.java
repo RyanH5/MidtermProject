@@ -77,4 +77,9 @@ class AmenityTest {
 		assertEquals("image.url", amenity.getIconUrl());
 	}
 
+@Test
+	
+	void test_Amenity_mapping_points() {
+		assertEquals(5, amenity.getPoints().size());
+	}
 }

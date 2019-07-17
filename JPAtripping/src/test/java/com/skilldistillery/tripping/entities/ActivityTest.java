@@ -74,4 +74,10 @@ class ActivityTest {
 	void test_Activity_mapping_image_url() {
 		assertEquals("fakeimage3.url", activity.getImageUrl());
 	}
+	@Test
+	
+	void test_Activity_mapping_points() {
+		assertEquals(5, activity.getPoints().size());
+	}
+	
 }
