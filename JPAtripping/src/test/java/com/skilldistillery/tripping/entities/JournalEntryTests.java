@@ -48,14 +48,14 @@ class JournalEntryTests {
 	@Test
 	void test_journal_entry_mappings() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);
-		assertEquals(1, jEntry.getUserId());
+		assertEquals(1, jEntry.getUser());
 		assertEquals(0, jEntry.isPublic());
 		assertEquals(1, jEntry.isComplete());
 		assertEquals("Mtn biking in golden", jEntry.getTitle());
 		assertEquals("went riding it was sick btw it was awesome", jEntry.getEntryText());
 		assertEquals("2017-07-11 21:00:00", jEntry.getCreateDate());
-		assertNull(jEntry.getActivityId());
-		assertNull(jEntry.getEventId());
-		assertNull(jEntry.getDestinationId());
+		assertNull(jEntry.getActivity());
+		assertNull(jEntry.getEvent());
+		assertNull(jEntry.getDestination());
 	}
 }

@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="journal_entry_image")
 public class JournalEntryImage {
 
 //	Declarations
@@ -22,10 +22,8 @@ public class JournalEntryImage {
 	@Column(name = "journal_id")
 	private int journalId;
 
-	
-	@ManyToOne
-	@JoinColumn(name="image_url")
-	private List<String> imageURL;
+	@Column(name = "image_url")
+	private String imageURL;
 
 //	Getters and setters
 
@@ -58,7 +56,7 @@ public class JournalEntryImage {
 	public JournalEntryImage() {
 	}
 
-	public JournalEntryImage(int journalId, List<String> imageURL) {
+	public JournalEntryImage(int journalId, String imageURL) {
 		this.journalId = journalId;
 		this.imageURL = imageURL;
 	}

@@ -7,12 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name="destination_user_review")
 public class DestinationReview {
 
 //	Declarations
@@ -21,8 +25,9 @@ public class DestinationReview {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "destination_id")
 	private String destinationId;
@@ -41,6 +46,7 @@ public class DestinationReview {
 	@Column(name = "review_text")
 	private String reviewText;
 
+	
 //	Getters and Setters
 
 	public int getId() {
@@ -51,12 +57,14 @@ public class DestinationReview {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getDestinationId() {
@@ -104,26 +112,20 @@ public class DestinationReview {
 	public DestinationReview() {
 	}
 
-	public DestinationReview(int id, int userId, String destinationId, Date createDate, String title, int rating,
-			String reviewText) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.destinationId = destinationId;
-		this.createDate = createDate;
-		this.title = title;
-		this.rating = rating;
-		this.reviewText = reviewText;
-	}
+	
+
+public DestinationReview(User user, String destinationId, Date createDate, String title, int rating,
+		String reviewText) {
+	super();
+	this.user = user;
+	this.destinationId = destinationId;
+	this.createDate = createDate;
+	this.title = title;
+	this.rating = rating;
+	this.reviewText = reviewText;
+}
 
 //	To String
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("DestinationReview [id=").append(id).append(", userId=").append(userId).append(", title=")
-				.append(title).append("]");
-		return builder.toString();
-	}
 
 }

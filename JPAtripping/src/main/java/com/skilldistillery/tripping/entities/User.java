@@ -44,7 +44,7 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<JournalEntry> journalEntries;
 
 	@Column(name = "image_url")
@@ -55,9 +55,15 @@ public class User {
 
 	@Column(name = "active")
 	private boolean active;
-	
-	@ManyToMany(mappedBy = "users")
-	private List<Destination> destinations;
+
+	@OneToMany(mappedBy = "user")
+	private List<EventReview> eventReviews;
+
+	@OneToMany(mappedBy = "user")
+	private List<DestinationReview> destinationReviews;
+
+	@OneToMany(mappedBy = "user")
+	private List<PointOfInterestComment> pointOfInterestComments;
 
 //	Getters and setters
 
@@ -149,21 +155,47 @@ public class User {
 		this.active = active;
 	}
 
-	public List<Destination> getDestinations() {
-		return destinations;
+	public List<JournalEntry> getJournalEntries() {
+		return journalEntries;
 	}
 
-	public void setDestinations(List<Destination> destinations) {
-		this.destinations = destinations;
+	public void setJournalEntries(List<JournalEntry> journalEntries) {
+		this.journalEntries = journalEntries;
+	}
+
+	public List<EventReview> getEventReviews() {
+		return eventReviews;
+	}
+
+	public void setEventReviews(List<EventReview> eventReviews) {
+		this.eventReviews = eventReviews;
+	}
+
+	public List<DestinationReview> getDestinationReviews() {
+		return destinationReviews;
+	}
+
+	public void setDestinationReviews(List<DestinationReview> destinationReviews) {
+		this.destinationReviews = destinationReviews;
+	}
+
+	public List<PointOfInterestComment> getPointOfInterestComments() {
+		return pointOfInterestComments;
+	}
+
+	public void setPointOfInterestComments(List<PointOfInterestComment> pointOfInterestComments) {
+		this.pointOfInterestComments = pointOfInterestComments;
 	}
 
 //	Constructors
-	
 	public User() {
 	}
 
-	public User(String userName, String password, String firstName, String lastName, Date createDate,
-			String email, List<JournalEntry> journalEntries, String imageURL, String role, boolean active) {
+	public User(String userName, String password, String firstName, String lastName, Date createDate, String email,
+			List<JournalEntry> journalEntries, String imageURL, String role, boolean active,
+			List<EventReview> eventReviews, List<DestinationReview> destinationReviews,
+			List<PointOfInterestComment> pointOfInterestComments) {
+		super();
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
@@ -174,9 +206,11 @@ public class User {
 		this.imageURL = imageURL;
 		this.role = role;
 		this.active = active;
+		this.eventReviews = eventReviews;
+		this.destinationReviews = destinationReviews;
+		this.pointOfInterestComments = pointOfInterestComments;
 	}
 
-	
 //	To String
 
 	@Override

@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,12 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name="journal_entry")
 public class JournalEntry {
 
 //	Declarations
@@ -24,8 +28,8 @@ public class JournalEntry {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private int userId;
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	@Column(name = "is_public")
 	private boolean isPublic;
@@ -44,14 +48,20 @@ public class JournalEntry {
 	@CreationTimestamp
 	private Date createDate;
 
-	@Column(name = "destination_id")
-	private int destinationId;
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
+	private Destination destination;
 
-	@Column(name = "event_id")
-	private int eventId;
+	@ManyToOne
+	@JoinColumn(name = "event_id")
+	private Event event;
 
-	@Column(name = "activity_id")
-	private int activityId;
+	@ManyToOne
+	@JoinColumn(name = "activity_id")
+	private Activity activity;
+
+	@OneToMany(mappedBy = "journalId")
+	private List<JournalEntryImage> images;
 
 //	Getters and setters	
 	public int getId() {
@@ -62,12 +72,12 @@ public class JournalEntry {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public boolean isPublic() {
@@ -110,60 +120,56 @@ public class JournalEntry {
 		this.createDate = createDate;
 	}
 
-	public int getDestinationId() {
-		return destinationId;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(int destinationId) {
-		this.destinationId = destinationId;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
-	public int getEventId() {
-		return eventId;
+	public Event getEvent() {
+		return event;
 	}
 
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
-	public int getActivityId() {
-		return activityId;
+	public Activity getActivity() {
+		return activity;
 	}
 
-	public void setActivityId(int activityId) {
-		this.activityId = activityId;
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
-//	Constructors
+	public List<JournalEntryImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<JournalEntryImage> images) {
+		this.images = images;
+	}
+
+	// Constructors
 
 	public JournalEntry() {
 	}
 
-	public JournalEntry(int id, int userId, boolean isPublic, boolean isComplete, String title, String entryText,
-			Date createDate) {
+	public JournalEntry(User user, boolean isPublic, boolean isComplete, String title, String entryText,
+			Date createDate, Destination destination, Event event, Activity activity, List<JournalEntryImage> images) {
 		super();
-		this.id = id;
-		this.userId = userId;
+		this.user = user;
 		this.isPublic = isPublic;
 		this.isComplete = isComplete;
 		this.title = title;
 		this.entryText = entryText;
 		this.createDate = createDate;
-	}
-
-	public JournalEntry(int id, int userId, boolean isPublic, boolean isComplete, String title, String entryText,
-			Date createDate, int destinationId, int eventId, int activityId) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.isPublic = isPublic;
-		this.isComplete = isComplete;
-		this.title = title;
-		this.entryText = entryText;
-		this.createDate = createDate;
-		this.destinationId = destinationId;
-		this.eventId = eventId;
-		this.activityId = activityId;
+		this.destination = destination;
+		this.event = event;
+		this.activity = activity;
+		this.images = images;
 	}
 
 //	To String
