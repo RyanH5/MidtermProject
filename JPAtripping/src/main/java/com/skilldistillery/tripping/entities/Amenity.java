@@ -1,11 +1,21 @@
 package com.skilldistillery.tripping.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Amenity {
@@ -25,13 +35,27 @@ public class Amenity {
 	@Column(name = "long_description")
 	private String longDescription;
 
-	@Column(name = "icon_Url")
+	@Column(name = "icon_url")
 	private String iconUrl;
+	
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "point_of_interest_has_amenity", 
+	joinColumns = {	@JoinColumn(name = "amenity_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "point_of_interest_id") })
+	private List<PointOfInterest> points;
 
 //	Getters and setters
 	
 	@OneToMany(mappedBy="Amenity")
 	private Amenity amenity;
+
+	public List<PointOfInterest> getPoints() {
+		return points;
+	}
+
+	public void setPoints(List<PointOfInterest> points) {
+		this.points = points;
+	}
 
 	public int getId() {
 		return id;
@@ -95,6 +119,23 @@ public class Amenity {
 		builder.append("Amenity [id=").append(id).append(", name=").append(name).append(", shortDescription=")
 				.append(shortDescription).append("]");
 		return builder.toString();
+	}
+
+	public void addPoint(PointOfInterest pointOfInterest) {
+		if (points == null)
+			points = new ArrayList<>();
+		if (!points.contains(pointOfInterest)) {
+			points.add(pointOfInterest);
+			pointOfInterest.addAmenity(this);
+		
+		}
+	}
+
+	public void removePoint(PointOfInterest pointOfInterest) {
+		if (points != null && points.contains(pointOfInterest)) {
+			points.remove(pointOfInterest);
+			pointOfInterest.removeAmenity(this);
+		}
 	}
 
 }

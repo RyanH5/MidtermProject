@@ -1,12 +1,12 @@
 package com.skilldistillery.tripping.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class JournalEntryImage {
 
 //	Declarations
@@ -19,7 +19,7 @@ public class JournalEntryImage {
 	private int journalId;
 
 	@Column(name = "image_url")
-	private List<String> imageURL;
+	private String imageURL;
 
 //	Getters and setters
 
@@ -39,11 +39,11 @@ public class JournalEntryImage {
 		this.journalId = journalId;
 	}
 
-	public List<String> getImageURL() {
+	public String getImageURL() {
 		return imageURL;
 	}
 
-	public void setImageURL(List<String> imageURL) {
+	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
 	}
 
@@ -52,7 +52,7 @@ public class JournalEntryImage {
 	public JournalEntryImage() {
 	}
 
-	public JournalEntryImage(int id, int journalId, List<String> imageURL) {
+	public JournalEntryImage(int id, int journalId, String imageURL) {
 		super();
 		this.id = id;
 		this.journalId = journalId;
