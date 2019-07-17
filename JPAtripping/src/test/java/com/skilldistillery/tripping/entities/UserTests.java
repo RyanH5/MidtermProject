@@ -79,22 +79,18 @@ class UserTests {
 	@Test
 	void test_user_has_destination_reviews() {
 		User user = em.find(User.class, 1);
-		assertNotNull(user.getDestinationReviews());
-		assertEquals("golden biking review", user.getDestinationReviews().get(0).getTitle());
+		assertNotNull(user.getDestReviews());
+		assertEquals("golden biking review", user.getDestReviews().get(0).getTitle());
 	}
 
 	@Test
 	void test_user_has_POI_reviews() {
 		User user = em.find(User.class, 1);
-		assertNotNull(user.getPointOfInterestComments());
-		assertEquals("Great trailhead parking", user.getPointOfInterestComments().get(0).getCommentText());
+		assertNotNull(user.getPointComments());
+		assertEquals("Great trailhead parking", user.getPointComments().get(0).getCommentText());
 	}
 
-	@Test
-	void test_user_has_destination_reviews() {
-		User user = em.find(User.class, 1);
-		assertNotNull(user.getDestReviews());
-	}
+	
 	@Test
 	void test_user_has_point_comments() {
 		User user = em.find(User.class, 1);
