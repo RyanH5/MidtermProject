@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -41,9 +43,9 @@ public class User {
 
 	@Column(name = "email")
 	private String email;
-//
-//	@Column(name = "journal_entry_id")
-//	private List<JournalEntry> journalEntryId;
+
+	@OneToMany(mappedBy = "userId")
+	private List<JournalEntry> journalEntries;
 
 	@Column(name = "image_url")
 	private String imageURL;
@@ -53,6 +55,9 @@ public class User {
 
 	@Column(name = "active")
 	private boolean active;
+	
+	@ManyToMany(mappedBy = "users")
+	private List<Destination> destinations;
 
 //	Getters and setters
 
@@ -112,13 +117,13 @@ public class User {
 		this.email = email;
 	}
 
-//	public List<JournalEntry> getJournalEntryId() {
-//		return journalEntryId;
-//	}
-//
-//	public void setJournalEntryId(List<JournalEntry> journalEntryId) {
-//		this.journalEntryId = journalEntryId;
-//	}
+	public List<JournalEntry> getJournalEntryId() {
+		return journalEntries;
+	}
+
+	public void setJournalEntryId(List<JournalEntry> journalEntryId) {
+		this.journalEntries = journalEntryId;
+	}
 
 	public String getImageURL() {
 		return imageURL;
@@ -144,27 +149,34 @@ public class User {
 		this.active = active;
 	}
 
-//	Constructors
+	public List<Destination> getDestinations() {
+		return destinations;
+	}
 
+	public void setDestinations(List<Destination> destinations) {
+		this.destinations = destinations;
+	}
+
+//	Constructors
+	
 	public User() {
 	}
 
-	public User(int id, String userName, String password, String firstName, String lastName, Date createDate,
-			String email, List<JournalEntry> journalEntryId, String imageURL, String role, boolean active) {
-		super();
-		this.id = id;
+	public User(String userName, String password, String firstName, String lastName, Date createDate,
+			String email, List<JournalEntry> journalEntries, String imageURL, String role, boolean active) {
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.createDate = createDate;
 		this.email = email;
-//		this.journalEntryId = journalEntryId;
+		this.journalEntries = journalEntries;
 		this.imageURL = imageURL;
 		this.role = role;
 		this.active = active;
 	}
 
+	
 //	To String
 
 	@Override
