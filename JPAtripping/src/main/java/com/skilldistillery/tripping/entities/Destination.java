@@ -15,6 +15,7 @@ public class Destination {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
 	
 	@Column(name="short_description")
