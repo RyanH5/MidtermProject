@@ -1,12 +1,12 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,8 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class UserTests {
-
+class JournalEntryTests {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
 
@@ -47,19 +46,16 @@ class UserTests {
 	}
 
 	@Test
-	void test_user_mappings() {
-		User user = em.find(User.class, 1);
-		assertEquals("ryanh5?", user.getId());
-		assertEquals("password2.0", user.getPassword());
-		assertEquals("ryan", user.getFirstName());
-		assertEquals("harr", user.getLastName());
-		assertEquals("harr@gmail.com", user.getEmail());
-		assertEquals("2015-07-11 11:00:00", user.getCreateDate());
-		assertEquals("myimage.jpg", user.getImageURL());
-		assertEquals("notAdmin", user.getRole());
-		assertEquals(0, user.isActive());
-		assertEquals("mt elber", user.getDestinations().get(0).getName());
-		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
+	void test_journal_entry_mappings() {
+		JournalEntry jEntry = em.find(JournalEntry.class, 1);
+		assertEquals(1, jEntry.getUserId());
+		assertEquals(0, jEntry.isPublic());
+		assertEquals(1, jEntry.isComplete());
+		assertEquals("Mtn biking in golden", jEntry.getTitle());
+		assertEquals("went riding it was sick btw it was awesome", jEntry.getEntryText());
+		assertEquals("2017-07-11 21:00:00", jEntry.getCreateDate());
+		assertNull(jEntry.getActivityId());
+		assertNull(jEntry.getEventId());
+		assertNull(jEntry.getDestinationId());
 	}
-
 }
