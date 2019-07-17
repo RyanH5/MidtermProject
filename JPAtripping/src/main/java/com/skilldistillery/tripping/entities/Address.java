@@ -27,8 +27,8 @@ public class Address {
 	@Column(name = "state")
 	private String state;
 
-	@Column(name = "zip_code")
-	private String zip_code;
+	@Column(name = "zip")
+	private String zipcode;
 
 	@Column(name = "phone")
 	private String phone;
@@ -81,12 +81,12 @@ public class Address {
 		this.state = state;
 	}
 
-	public String getZip_code() {
-		return zip_code;
+	public String getZipcode() {
+		return zipcode;
 	}
 
-	public void setZip_code(String zip_code) {
-		this.zip_code = zip_code;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	public String getPhone() {
@@ -101,7 +101,7 @@ public class Address {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(long latitude) {
 		this.latitude = latitude;
 	}
 
@@ -109,7 +109,7 @@ public class Address {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(long longitude) {
 		this.longitude = longitude;
 	}
 
@@ -118,7 +118,7 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(int id, String street1, String street2, String city, String state, String zip_code, String phone,
+	public Address(int id, String street1, String street2, String city, String state, String zipcode, String phone,
 			double latitude, double longitude) {
 		super();
 		this.id = id;
@@ -126,7 +126,7 @@ public class Address {
 		this.street2 = street2;
 		this.city = city;
 		this.state = state;
-		this.zip_code = zip_code;
+		this.zipcode = zipcode;
 		this.phone = phone;
 		this.latitude = latitude;
 		this.longitude = longitude;

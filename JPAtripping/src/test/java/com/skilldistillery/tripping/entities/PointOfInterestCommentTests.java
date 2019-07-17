@@ -1,6 +1,6 @@
 package com.skilldistillery.tripping.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,9 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class DestinationTests {
+public class PointOfInterestCommentTests {
+
 	private static EntityManagerFactory emf;
-	private static EntityManager em;
+	private EntityManager em;
+	private PointOfInterestComment comment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -29,27 +31,29 @@ class DestinationTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+		comment = em.find(PointOfInterestComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
+		comment = null;
 	}
 
 	@Test
-	void test_Destination_has_Points() {
-		Destination dest = em.find(Destination.class, 1);
-		assertEquals("Specific Trailhead", dest.getPoints().get(0).getName());
+	void test_Comment_mappings() {
+		assertEquals(1, comment.getId());
+		assertEquals("sometext", comment.getCommentText());
+	}
+
+	@Test
+	void test_Comment_has_Point() {
+		assertEquals(1, comment.getPoint().getId());
 	}
 	
 	@Test
-	void test_Destination_has_Events() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void test_Destination_has_Reviews() {
-		fail("Not yet implemented");
+	void test_Comment_has_User() {
+		assertEquals(1, comment.getUser().getId());
 	}
 
 }

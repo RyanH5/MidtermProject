@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+@Entity
 public class User {
 
 //	Declarations
@@ -20,7 +22,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "user_name")
+	@Column(name = "username")
 	private String userName;
 
 	@Column(name = "password")
@@ -39,9 +41,9 @@ public class User {
 
 	@Column(name = "email")
 	private String email;
-
-	@Column(name = "journal_entry_id")
-	private List<JournalEntry> journalEntryId;
+//
+//	@Column(name = "journal_entry_id")
+//	private List<JournalEntry> journalEntryId;
 
 	@Column(name = "image_url")
 	private String imageURL;
@@ -110,13 +112,13 @@ public class User {
 		this.email = email;
 	}
 
-	public List<JournalEntry> getJournalEntryId() {
-		return journalEntryId;
-	}
-
-	public void setJournalEntryId(List<JournalEntry> journalEntryId) {
-		this.journalEntryId = journalEntryId;
-	}
+//	public List<JournalEntry> getJournalEntryId() {
+//		return journalEntryId;
+//	}
+//
+//	public void setJournalEntryId(List<JournalEntry> journalEntryId) {
+//		this.journalEntryId = journalEntryId;
+//	}
 
 	public String getImageURL() {
 		return imageURL;
@@ -157,7 +159,7 @@ public class User {
 		this.lastName = lastName;
 		this.createDate = createDate;
 		this.email = email;
-		this.journalEntryId = journalEntryId;
+//		this.journalEntryId = journalEntryId;
 		this.imageURL = imageURL;
 		this.role = role;
 		this.active = active;
