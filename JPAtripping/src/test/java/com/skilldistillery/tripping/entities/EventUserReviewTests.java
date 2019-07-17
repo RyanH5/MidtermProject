@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
@@ -45,12 +46,25 @@ class EventUserReviewTests {
 	}
 	
 	@Test
-	void test_destination_user_revew() {
-		DestinationReview destReview = em.find(DestinationReview.class, 1);
-		assertEquals(1, destReview.getUser().getId());
-		assertEquals("golden biking review", destReview.getTitle());
-		assertEquals(4, destReview.getRating());
-		assertEquals("it was so awesome i broke my arm", destReview.getReviewText());
+	void test_event_review_mappings() {
+		EventReview eventReview = em.find(EventReview.class, 1);
+		assertEquals(1, eventReview.getUser().getId());
+		assertEquals(1, eventReview.getEvent().getId());
+		assertNotNull(eventReview.getCreateDate());
+		assertEquals("tasty fruits in the mountains", eventReview.getTitle());
+		assertEquals(4, eventReview.getRating());
+		assertEquals("awesome juicy fruits", eventReview.getReview_text());
+	}
+	
+	@Test
+	void test_event_review_has_an_event() {
+		EventReview eventReview = em.find(EventReview.class, 1);
+		assertNotNull(1, eventReview.getEvent().getName());
+		assertEqual("P peaches", eventReview.getEvent().getName());
+	}
+
+	private void assertEqual(String string, String name) {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -49,12 +49,12 @@ public class JournalEntry {
 	private Date createDate;
 
 	@ManyToOne
-	@JoinColumn(name = "destination_id")
+	@JoinColumn(name = "destination__id")
 	private Destination destination;
 
-	@ManyToOne
-	@JoinColumn(name = "event_id")
-	private Event event;
+//	@ManyToOne
+//	@JoinColumn(name = "event_id")
+//	private Event event;
 
 	@ManyToOne
 	@JoinColumn(name = "activity_id")
@@ -128,13 +128,13 @@ public class JournalEntry {
 		this.destination = destination;
 	}
 
-	public Event getEvent() {
-		return event;
-	}
-
-	public void setEvent(Event event) {
-		this.event = event;
-	}
+//	public Event getEvent() {
+//		return event;
+//	}
+//
+//	public void setEvent(Event event) {
+//		this.event = event;
+//	}
 
 	public Activity getActivity() {
 		return activity;
@@ -159,7 +159,6 @@ public class JournalEntry {
 
 	public JournalEntry(User user, boolean isPublic, boolean isComplete, String title, String entryText,
 			Date createDate, Destination destination, Event event, Activity activity, List<JournalEntryImage> images) {
-		super();
 		this.user = user;
 		this.isPublic = isPublic;
 		this.isComplete = isComplete;
@@ -167,7 +166,7 @@ public class JournalEntry {
 		this.entryText = entryText;
 		this.createDate = createDate;
 		this.destination = destination;
-		this.event = event;
+//		this.event = event;
 		this.activity = activity;
 		this.images = images;
 	}

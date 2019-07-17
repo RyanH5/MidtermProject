@@ -1,12 +1,12 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -49,16 +49,46 @@ class UserTests {
 	@Test
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
-		assertEquals("ryanh5?", user.getId());
-		assertEquals("password2.0", user.getPassword());
-		assertEquals("ryan", user.getFirstName());
-		assertEquals("harr", user.getLastName());
-		assertEquals("harr@gmail.com", user.getEmail());
-		assertEquals("2015-07-11 11:00:00", user.getCreateDate());
-		assertEquals("myimage.jpg", user.getImageURL());
-		assertEquals("notAdmin", user.getRole());
-		assertEquals(0, user.isActive());
-		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
+		assertEquals("ryanh5", user.getUserName());
+		assertEquals(" password2.0", user.getPassword());
+		assertEquals(" ryan", user.getFirstName());
+		assertEquals(" harr", user.getLastName());
+		assertEquals(" harr@gmail.com", user.getEmail());
+//		assertEquals("2015-07-11 11:00:00.0", user.getCreateDate());  <--this is not empty
+		assertEquals(" myimage.jpg", user.getImageURL());
+		assertEquals(" notAdmin", user.getRole());
+		assertEquals(false, user.isActive());
+	}
+		
+	
+	@Test
+	void test_user_has_journal_entries() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getJournalEntries());
+		assertEquals(2, user.getJournalEntries().get(0).getActivity().getId());
+		assertEquals("Mtn biking in golden", user.getJournalEntries().get(0).getTitle());
+	}
+	
+	@Test
+	void test_user_has_event_reviews() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getEventReviews());
+		assertEquals("tasty fruits in the mountains", user.getEventReviews().get(0).getTitle());
+		
+	}
+	
+	@Test
+	void test_user_has_destination_reviews() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getDestinationReviews());
+		assertEquals("golden biking review", user.getDestinationReviews().get(0).getTitle());
+	}
+		
+	@Test
+	void test_user_has_POI_reviews() {
+		User user = em.find(User.class, 1);
+		assertNotNull(user.getPointOfInterestComments());
+		assertEquals("Great trailhead parking", user.getPointOfInterestComments().get(0).getCommentText());
 	}
 
 }
