@@ -211,13 +211,17 @@ public class User {
 		this.pointOfInterestComments = pointOfInterestComments;
 	}
 
-//	To String
-
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", userName=").append(userName).append("]");
-		return builder.toString();
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", createDate=" + createDate + ", email=" + email + ", journalEntries="
+				+ journalEntries + ", imageURL=" + imageURL + ", role=" + role + ", active=" + active
+				+ ", eventReviews=" + eventReviews + ", destinationReviews=" + destinationReviews
+				+ ", pointOfInterestComments=" + pointOfInterestComments + "]";
 	}
+
+//	To String
+
+	
 
 }

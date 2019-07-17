@@ -37,7 +37,7 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 		userToUpdate.setImageURL(user.getImageURL());
 		userToUpdate.setRole(user.getRole());
 		userToUpdate.setActive(user.isActive());
-		return false;
+		return true;
 	}
 	
 }
