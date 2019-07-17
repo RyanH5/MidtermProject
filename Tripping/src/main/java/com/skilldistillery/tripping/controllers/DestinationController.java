@@ -17,13 +17,12 @@ public class DestinationController {
 	@Autowired
 	private DestinationDAO dao;
 	
-	@RequestMapping(value= {"/", "index", "home.do" })
+	@RequestMapping(value= {"getDestination"})
 	public String index(Model model) {
 		List<PointOfInterest> points = dao.getPointsByDestination(1);
 		model.addAttribute("allpoints", points);
-		model.addAttribute("allpoints", points);
 		
-		return "index";
+		return "viewDestination";
 	}
 }
 	
