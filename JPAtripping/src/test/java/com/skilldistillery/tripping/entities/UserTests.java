@@ -87,7 +87,7 @@ class UserTests {
 	void test_user_has_POI_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getPointOfInterestComments());
-		assertEquals("Great trailhead parking", user.getPointOfInterestComments().get(0).getCommentText());
+		assertEquals("sometext", user.getPointOfInterestComments().get(0).getCommentText());
 	}
 
 }
