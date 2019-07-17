@@ -20,16 +20,18 @@ public class Destination {
 
 	@Column(name="short_description")
 	private String shortDescription;
-
 	
 	@Column(name="image_url")
 	private String image;
 
-	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name="user_destination_review",
-	joinColumns=@JoinColumn(name="destination_id"),
-	inverseJoinColumns=@JoinColumn(name="user_id"))
+	@OneToMany(mappedBy="destinationId")
 	private List<DestinationReview> destinationReviews;
+	
+	@OneToMany(mappedBy="destinationId")
+	private List<PointOfInterest> points;
+	
+	@OneToMany(mappedBy="destinationId")
+	private List<Event> events;
 
 	public Destination() {
 		super();
@@ -44,4 +46,70 @@ public class Destination {
 		this.image = image;
 		this.destinationReviews = destinationUserReviews;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public List<DestinationReview> getDestinationReviews() {
+		return destinationReviews;
+	}
+
+	public void setDestinationReviews(List<DestinationReview> destinationReviews) {
+		this.destinationReviews = destinationReviews;
+	}
+
+	public List<PointOfInterest> getPoints() {
+		return points;
+	}
+
+	public void setPoints(List<PointOfInterest> points) {
+		this.points = points;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+	
+	
 }

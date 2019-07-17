@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name="destination_user_review ")
 public class DestinationReview {
 
 //	Declarations

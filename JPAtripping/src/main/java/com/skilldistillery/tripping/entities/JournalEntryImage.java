@@ -1,5 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,11 +23,22 @@ public class JournalEntryImage {
 	private int journalId;
 
 	
-	@ManyToOne
-	@JoinColumn(name="image_url")
-	private List<String> imageURL;
+	@Column(name="image_url")
+	private String imageURL;
+	
+//	Constructors
 
-//	Getters and setters
+	public JournalEntryImage() {
+	}
+
+	public JournalEntryImage(int journalId, String imageURL) {
+		this.journalId = journalId;
+		this.imageURL = imageURL;
+	}
+	
+//	Getters and Setters
+	
+
 
 	public int getId() {
 		return id;
@@ -51,23 +64,5 @@ public class JournalEntryImage {
 		this.imageURL = imageURL;
 	}
 
-//	Constructors
-
-	public JournalEntryImage() {
-	}
-
-	public JournalEntryImage(int journalId, List<String> imageURL) {
-		this.journalId = journalId;
-		this.imageURL = imageURL;
-	}
-
-//	To String 
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("JournalEntryImage [id=").append(id).append(", imageURL=").append(imageURL).append("]");
-		return builder.toString();
-	}
 
 }

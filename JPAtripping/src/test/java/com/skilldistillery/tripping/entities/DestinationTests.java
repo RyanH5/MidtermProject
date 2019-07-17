@@ -37,11 +37,14 @@ class DestinationTests {
 	}
 
 	@Test
-	void test_Destination_has_Points() {
+	void test_description_mappings() {
 		Destination dest = em.find(Destination.class, 1);
-		assertEquals("Maybe Kayaking?", dest.get
-		assertEquals("Craig", dest.getUsers().get(0).getFirstName());
-		assertEquals("Chanas last name", dest.getUsers().get(0).getLastName());
+		Destination dest2 = em.find(Destination.class, 2);
+		assertEquals(1, dest.getId());
+		assertEquals("mt elber", dest.getName());
+		assertEquals("mountain mountain", dest.getDescription());
+		assertEquals("bigmtn.jpg", dest.getImage());
+		assertEquals("it was so awesome i broke my arm", dest2.getDestinationReviews().get(0).getReviewText());
 	}
 
 }
