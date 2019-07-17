@@ -47,10 +47,37 @@ class ActivityTest {
 		void test() {
 		fail("Not yet implemented");
 	}
+	
+	@Test
+	
+		void test_Activity_mappingId() {
+		assertEquals("1", activity.getId());
+}
 
 	@Test
 	
-		void test_Activity_mapping() {
+		void test_Activity_mappingName() {
 		assertEquals("hike", activity.getName());
 	}
+	@Test
+	
+	void test_Activity_mapping_short_description() {
+		assertEquals("many trails", activity.getShortDescription());
+	}
+	@Test
+	
+	void test_Activity_mapping_long_description() {
+		assertEquals("easy moderate difficllt trails", activity.getLongDescription());
+	}
+	@Test
+	
+	void test_Activity_mapping_image_url() {
+		assertEquals("fakeimage3.url", activity.getImageUrl());
+	}
+	@Test
+	
+	void test_Activity_mapping_points() {
+		assertEquals(5, activity.getPoints().size());
+	}
+	
 }
