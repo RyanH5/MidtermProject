@@ -2,7 +2,6 @@ package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
@@ -16,7 +15,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class EventUserReviewTests {
+class DestinationReviewTests {
+
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
 
@@ -39,31 +39,35 @@ class EventUserReviewTests {
 	void tearDown() throws Exception {
 		em.close();
 	}
-	
+
 	@Disabled
 	@Test
 	void test() {
 		fail("Not yet implemented");
 	}
-	
-	@Test
-	void test_event_review_mappings() {
-		EventReview eventReview = em.find(EventReview.class, 1);
-		assertEquals(1, eventReview.getUser().getId());
-		assertEquals(1, eventReview.getEvent().getId());
-//		assertNotNull(eventReview.getCreateDate()); <-- is null in DB
-		assertEquals("tasty fruits in the mountains", eventReview.getTitle());
-//		assertNull(eventReview.getRating()); <-- is null in DB
-		assertNull(eventReview.getReview_text());
-	}
-	
-	@Test
-	void test_event_review_has_an_event() {
-		EventReview eventReview = em.find(EventReview.class, 1);
-		assertNotNull(1, eventReview.getEvent().getName());
-		assertEquals("P peaches", eventReview.getEvent().getName());
-	}
 
+	@Test
+	void test_Destination_review_mappings() {
+		DestinationReview destReview = em.find(DestinationReview.class, 1);
+		assertEquals(1, destReview.getId());
+		assertEquals(2, destReview.getDestination().getId());
+		assertNotNull(destReview.getCreateDate());
+		assertEquals("golden biking review", destReview.getTitle());
+		assertEquals(4, destReview.getRating());
+		assertEquals("it was so awesome i broke my arm", destReview.getReviewText());
+	}
 	
+	@Test
+	void test_Destination_Review_has_destinations () {
+		DestinationReview destReview = em.find(DestinationReview.class, 1);
+		assertNotNull(destReview.getDestination().getName());
+		assertEquals("st mary glackier", destReview.getDestination().getName());
+	}
+	@Test
+	void test_Destination_Review_has_users () {
+		DestinationReview destReview = em.find(DestinationReview.class, 1);
+		assertNotNull(destReview.getDestination());
+		assertEquals(" ryan", destReview.getUser().getFirstName());
+	}
 
 }
