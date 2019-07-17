@@ -1,5 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,11 +45,11 @@ public class JournalEntryImage {
 		this.journalId = journalId;
 	}
 
-	public String getImageURL() {
+	public List<String> getImageURL() {
 		return imageURL;
 	}
 
-	public void setImageURL(String imageURL) {
+	public void setImageURL(List<String> imageURL) {
 		this.imageURL = imageURL;
 	}
 
