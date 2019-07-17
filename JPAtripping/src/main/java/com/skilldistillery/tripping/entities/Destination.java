@@ -36,6 +36,7 @@ public class Destination {
 
 	@OneToMany(mappedBy = "destination")
 	private List<Event> events;
+	
 
 //	INSTEAD OF VOID ID LIKE TO RETURN A STRING TO SHOW THAT ALL ADD/REMOVE WORK
 	public void addDestinationReview(DestinationReview review) {
