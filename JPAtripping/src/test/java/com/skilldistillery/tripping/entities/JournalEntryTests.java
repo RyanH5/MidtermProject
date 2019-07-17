@@ -54,8 +54,8 @@ class JournalEntryTests {
 		assertEquals("Mtn biking in golden", jEntry.getTitle());
 		assertEquals("went riding it was sick btw it was awesome", jEntry.getEntryText());
 		assertEquals("2017-07-11 21:00:00", jEntry.getCreateDate());
-		assertNull(jEntry.getActivityId());
-		assertNull(jEntry.getEventId());
-		assertNull(jEntry.getDestinationId());
+		assertNull(jEntry.getActivity());
+		assertNull(jEntry.getEvent());
+		assertNull(jEntry.getDestination());
 	}
 }
