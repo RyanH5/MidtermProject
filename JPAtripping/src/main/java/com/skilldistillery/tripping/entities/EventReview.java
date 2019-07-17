@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,11 +23,13 @@ public class EventReview {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	@Column(name = "event_id")
-	private int eventId;
+	@ManyToOne
+	@JoinColumn(name = "event_id")
+	private Event event;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -51,20 +55,20 @@ public class EventReview {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public int getEventId() {
-		return eventId;
+	public Event getEvent() {
+		return event;
 	}
 
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	public Date getCreateDate() {
@@ -110,11 +114,10 @@ public class EventReview {
 		this.title = title;
 	}
 
-	public EventReview(int id, int userId, int eventId, Date createDate, String title, int rating, String review_text) {
+	public EventReview(User user, Event event, Date createDate, String title, int rating, String review_text) {
 		super();
-		this.id = id;
-		this.userId = userId;
-		this.eventId = eventId;
+		this.user = user;
+		this.event = event;
 		this.createDate = createDate;
 		this.title = title;
 		this.rating = rating;
