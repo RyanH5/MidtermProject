@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Amenity {
@@ -28,6 +29,9 @@ public class Amenity {
 	private String iconUrl;
 
 //	Getters and setters
+	
+	@OneToMany(mappedBy="Amenity")
+	private Amenity amenity;
 
 	public int getId() {
 		return id;

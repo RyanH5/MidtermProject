@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Activity {
@@ -28,6 +29,10 @@ public class Activity {
 	private String imageUrl;
 
 //	Getters and Setters
+	
+	@OneToMany(mappedBy="Activity")
+	private Activity activity;
+	
 
 	public int getId() {
 		return id;
