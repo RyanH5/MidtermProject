@@ -49,14 +49,13 @@ class UserTests {
 	@Test
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
-		assertEquals("1", user.getId());
-		assertEquals("password2.0", user.getPassword());
-		assertEquals("ryan", user.getFirstName());
-		assertEquals("harr", user.getLastName());
-		assertEquals("harr@gmail.com", user.getEmail());
-		assertEquals("2015-07-11 11:00:00", user.getCreateDate());
-		assertEquals("myimage.jpg", user.getImageURL());
-		assertEquals("notAdmin", user.getRole());
+		assertEquals(1, user.getId());
+		assertEquals(" password2.0", user.getPassword());
+		assertEquals(" ryan", user.getFirstName());
+		assertEquals(" harr", user.getLastName());
+		assertEquals(" harr@gmail.com", user.getEmail());
+		assertEquals(" myimage.jpg", user.getImageURL());
+		assertEquals(" notAdmin", user.getRole());
 		assertEquals(0, user.isActive());
 		assertEquals("Mtn biking in golden", user.getJournalEntryId().get(0).getTitle());
 	}

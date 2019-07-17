@@ -36,6 +36,7 @@ class DestinationTests {
 		assertEquals(1, dest.getId());
 		assertEquals("mt elber", dest.getName());
 		assertEquals("mountain mountain", dest.getDescription());
+		assertEquals("mtn mtn", dest.getShortDescription());
 		assertEquals("bigmtn.jpg", dest.getImage());
 	}
 	

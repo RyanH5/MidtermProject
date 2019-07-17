@@ -10,21 +10,32 @@ public class Destination {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name;	
+	private String name;
 
-	@Column(name="short_description")
+	@Column(name = "short_description")
 	private String shortDescription;
 	
-	@Column(name="image_url")
+	@Column(name = "description")
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Column(name = "image_url")
 	private String image;
 
-	@OneToMany(mappedBy="destination")
+	@OneToMany(mappedBy = "destination")
 	private List<DestinationReview> destinationReviews;
-	
-	@OneToMany(mappedBy="destination")
+
+	@OneToMany(mappedBy = "destination")
 	private List<PointOfInterest> points;
-	
-	@OneToMany(mappedBy="destination")
+
+	@OneToMany(mappedBy = "destination")
 	private List<Event> events;
 
 //	INSTEAD OF VOID ID LIKE TO RETURN A STRING TO SHOW THAT ALL ADD/REMOVE WORK
@@ -32,46 +43,47 @@ public class Destination {
 		if (destinationReviews == null) {
 			destinationReviews = new ArrayList<>();
 		}
-		
-		if(!destinationReviews.contains(review)) {
+
+		if (!destinationReviews.contains(review)) {
 			destinationReviews.add(review);
 			review.setDestination(this);
 		}
 	}
-	
+
 	public void removeDestinationReview(DestinationReview review) {
 		if (destinationReviews != null && destinationReviews.contains(review)) {
 			destinationReviews.remove(review);
 		}
 	}
-	
+
 	public void addPointOfInteres(PointOfInterest poi) {
 		if (points == null) {
 			points = new ArrayList<>();
 		}
-		
-		if(!points.contains(poi)) {
+
+		if (!points.contains(poi)) {
 			points.add(poi);
 			poi.setDestination(this);
 		}
 	}
-	
+
 	public void removePointOfInterest(PointOfInterest poi) {
 		if (points != null && points.contains(poi)) {
 			points.remove(poi);
 		}
 	}
+
 	public void addEvent(Event event) {
 		if (events == null) {
 			events = new ArrayList<>();
 		}
-		
-		if(!events.contains(event)) {
+
+		if (!events.contains(event)) {
 			events.add(event);
 			event.setDestination(this);
 		}
 	}
-	
+
 	public void removeEvent(Event event) {
 		if (events != null && events.contains(event)) {
 			events.remove(event);
@@ -92,14 +104,6 @@ public class Destination {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public String getShortDescription() {
@@ -141,19 +145,18 @@ public class Destination {
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
-	
+
 	public Destination() {
 		super();
 	}
-	
-	public Destination(String name, String shortDescription, String description, String image,
+
+	public Destination(String name, String shortDescription, String image,
 			List<DestinationReview> destinationUserReviews, List<User> users) {
 		super();
 		this.name = name;
 		this.shortDescription = shortDescription;
-		this.description = description;
 		this.image = image;
 		this.destinationReviews = destinationUserReviews;
 	}
-	
+
 }
