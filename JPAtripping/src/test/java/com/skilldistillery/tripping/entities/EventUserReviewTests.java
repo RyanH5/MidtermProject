@@ -47,8 +47,7 @@ class EventUserReviewTests {
 	@Test
 	void test_destination_user_revew() {
 		DestinationReview destReview = em.find(DestinationReview.class, 1);
-		assertEquals(1, destReview.getUserId());
-		assertEquals(2, destReview.getDestinationId());
+		assertEquals(1, destReview.getUser().getId());
 		assertEquals("golden biking review", destReview.getTitle());
 		assertEquals(4, destReview.getRating());
 		assertEquals("it was so awesome i broke my arm", destReview.getReviewText());
