@@ -44,7 +44,7 @@ public class PointOfInterest {
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinTable(name = "point_of_interest_has_amenity", joinColumns = {
-			@JoinColumn(name = "point_of_interest_id") }, inverseJoinColumns = { @JoinColumn(name = "amenity_id") })
+	@JoinColumn(name = "point_of_interest_id") }, inverseJoinColumns = { @JoinColumn(name = "amenity_id") })
 	private List<Amenity> amenities;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
