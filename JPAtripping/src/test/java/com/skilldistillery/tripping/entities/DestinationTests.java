@@ -2,15 +2,9 @@ package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 class DestinationTests {
 	private static EntityManagerFactory emf;
@@ -37,19 +31,26 @@ class DestinationTests {
 	}
 
 	@Test
-	void test_Destination_has_Points() {
+	void test_description_mappings() {
 		Destination dest = em.find(Destination.class, 1);
-		assertEquals("Specific Trailhead", dest.getPoints().get(0).getName());
+		assertEquals(1, dest.getId());
+		assertEquals("mt elber", dest.getName());
+		assertEquals("mountain mountain", dest.getDescription());
+		assertEquals("mtn mtn", dest.getShortDescription());
+		assertEquals("bigmtn.jpg", dest.getImage());
 	}
 	
 	@Test
-	void test_Destination_has_Events() {
-		fail("Not yet implemented");
+	void test_destination_userReviews_association() {
+		Destination dest2 = em.find(Destination.class, 2);
+		assertEquals("it was so awesome i broke my arm", dest2.getDestinationReviews().get(0).getReviewText());
+		
 	}
 	
-	@Test
-	void test_Destination_has_Reviews() {
-		fail("Not yet implemented");
+	@Test 
+	void test_destination_event_association() {
+		Destination dest = em.find(Destination.class, 1);
+		assertEquals("peaches strawberries blah blach mtn food", dest.getEvents().get(0).getLongDescription());
 	}
 
 }

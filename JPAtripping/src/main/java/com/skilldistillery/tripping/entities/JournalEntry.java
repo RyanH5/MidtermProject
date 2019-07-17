@@ -159,7 +159,6 @@ public class JournalEntry {
 
 	public JournalEntry(User user, boolean isPublic, boolean isComplete, String title, String entryText,
 			Date createDate, Destination destination, Event event, Activity activity, List<JournalEntryImage> images) {
-		super();
 		this.user = user;
 		this.isPublic = isPublic;
 		this.isComplete = isComplete;

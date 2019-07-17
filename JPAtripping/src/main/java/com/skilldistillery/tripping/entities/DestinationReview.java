@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name="destination_user_review")
+@Table(name="destination_user_review ")
 public class DestinationReview {
 
 //	Declarations
@@ -29,8 +29,9 @@ public class DestinationReview {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "destination_id")
-	private String destinationId;
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
+	private Destination destination;
 
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -46,9 +47,6 @@ public class DestinationReview {
 	@Column(name = "review_text")
 	private String reviewText;
 
-	
-//	Getters and Setters
-
 	public int getId() {
 		return id;
 	}
@@ -56,8 +54,6 @@ public class DestinationReview {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
 
 	public User getUser() {
 		return user;
@@ -67,12 +63,12 @@ public class DestinationReview {
 		this.user = user;
 	}
 
-	public String getDestinationId() {
-		return destinationId;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(String destinationId) {
-		this.destinationId = destinationId;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	public Date getCreateDate() {
@@ -83,9 +79,11 @@ public class DestinationReview {
 		this.createDate = createDate;
 	}
 
+
 	public String getTitle() {
 		return title;
 	}
+
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -107,25 +105,31 @@ public class DestinationReview {
 		this.reviewText = reviewText;
 	}
 
-//	Constructors
 
 	public DestinationReview() {
 	}
 
-	
-
-public DestinationReview(User user, String destinationId, Date createDate, String title, int rating,
-		String reviewText) {
-	super();
-	this.user = user;
-	this.destinationId = destinationId;
-	this.createDate = createDate;
-	this.title = title;
-	this.rating = rating;
-	this.reviewText = reviewText;
-}
+	public DestinationReview(User user, Destination destination, Date createDate, String title, int rating,
+			String reviewText) {
+		super();
+		this.user = user;
+		this.destination = destination;
+		this.createDate = createDate;
+		this.title = title;
+		this.rating = rating;
+		this.reviewText = reviewText;
+	}
 
 //	To String
+
+	public DestinationReview(int id, Destination destination) {
+		super();
+		this.id = id;
+		this.destination = destination;
+	}
+
+
+
 
 
 }
