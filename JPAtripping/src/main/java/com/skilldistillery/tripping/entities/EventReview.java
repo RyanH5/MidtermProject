@@ -42,7 +42,7 @@ public class EventReview {
 	private String title;
 
 	@Column(name = "rating")
-	private int rating;
+	private Integer rating;
 
 	@Column(name = "review_text")
 	private String review_text;

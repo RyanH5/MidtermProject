@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -48,14 +49,39 @@ class JournalEntryTests {
 	@Test
 	void test_journal_entry_mappings() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);
-		assertEquals(1, jEntry.getUser());
-		assertEquals(0, jEntry.isPublic());
-		assertEquals(1, jEntry.isComplete());
+		assertEquals(1, jEntry.getUser().getId());
+		assertEquals(false, jEntry.isPublic());
+		assertEquals(true, jEntry.isComplete());
 		assertEquals("Mtn biking in golden", jEntry.getTitle());
 		assertEquals("went riding it was sick btw it was awesome", jEntry.getEntryText());
-		assertEquals("2017-07-11 21:00:00", jEntry.getCreateDate());
+		assertNotNull(jEntry.getCreateDate());
+	}
+		
+	@Test
+	void test_journal_has_activities() {
+		JournalEntry jEntry = em.find(JournalEntry.class, 1);
 		assertNull(jEntry.getActivity());
+//		assertEquals("hike", jEntry.getActivity().getName());
+	}
+	
+	@Test
+	void test_journal_has_events() {
+		JournalEntry jEntry = em.find(JournalEntry.class, 1);
 		assertNull(jEntry.getEvent());
+//		assertEquals("P peaches", jEntry.getEvent().getName());
+		
+	}
+	@Test
+	void test_journal_has_destinations() {
+		JournalEntry jEntry = em.find(JournalEntry.class, 1);
 		assertNull(jEntry.getDestination());
+// 		assertNotNull(jEntry.getDestination().getId());
+//		assertEquals("mt elber", jEntry.getDestination());
+	}
+	
+	@Test 
+	void test_journal_entry_has_images() {
+		JournalEntryImage jEntryImage = em.find(JournalEntryImage.class, 1);
+		assertNotNull(jEntryImage.getImageURL());
 	}
 }

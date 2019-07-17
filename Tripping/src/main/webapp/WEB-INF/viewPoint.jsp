@@ -10,13 +10,27 @@
 </head>
 </head>
 <body>
-	<form action="getPoint.do" method="GET">
-		Film ID: <input type="text" name="pid" /> <input type="submit"
-			value="Show Point" />
-		<hr>
-		<c:forEach var="p" items="${points}">
-			<li><a href="getPoint.do?fid=${p.id }">${p.name }</a></li>
+	<c:forEach var="p" items="${allpoints}">
+		<h4>Point of Interest ID ${p.id }</h4>
+		<li><a href="getPoint.do?fid=${p.id }">${p.name }</a></li>
+		<li><a href="getPoint.do?fid=${p.id }">${p.address }</a></li>
+		<li><a href="getPoint.do?fid=${p.id }">${p.destination }</a></li>
+		<li><a href="getPoint.do?fid=${p.id }">${p.shortDescription }</a></li>
+		<li><a href="getPoint.do?fid=${p.id }">${p.longDescription }</a></li>
+		<h2>Amenities:</h2>
+		<c:forEach var="a" items="${p.getAmenities()}">
+			<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
 		</c:forEach>
-	</form>
+		<h2>Activities:</h2>
+		<c:forEach var="a" items="${p.getActivities()}">
+			<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
+		</c:forEach>
+		<h2>Comments:</h2>
+		<c:forEach var="c" items="${p.getComments()}">
+			<li><a href="getPoint.do?fid=${c.id }">${c.commentText }</a></li>
+			<br>
+			<br>
+		</c:forEach>
+	</c:forEach>
 </body>
 </html>
