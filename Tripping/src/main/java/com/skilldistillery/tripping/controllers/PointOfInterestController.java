@@ -16,7 +16,7 @@ public class PointOfInterestController {
 	@Autowired
 	private PointOfInterestDAO dao;
 
-	@RequestMapping(value = { "/", "index", "home.do" })
+	@RequestMapping(value = { "viewPoint" })
 	public String index(Model model) {
 		List<PointOfInterest> points = dao.getPointsByDestination(1);
 		model.addAttribute("allpoints", points);
@@ -26,7 +26,7 @@ public class PointOfInterestController {
  		model.addAttribute("allpoints", points);
 // 		model.addAttribute("amenities", amenities);
 // 		model.addAttribute("activities", activities);
-		return "index";
+		return "viewPoint";
 	}
 	
 	@RequestMapping(path = "getPoint.do")

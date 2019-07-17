@@ -36,9 +36,9 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public boolean updateDestination(int id, Destination destination) {
 		Destination updated = em.find(Destination.class, destination.getId());
 		updated.setName(destination.getName());
-		updated.setActivities(destination.getActivities());
-		updated.setAddress(destination.getAddress());
-		updated.setAmenities(destination.getAmenities));
+//		updated.setActivities(destination.getActivities());
+//		updated.setAddress(destination.getAddress());
+//		updated.setAmenities(destination.getAmenities));
 		updated.setShortDescription(destination.getShortDescription());
 		updated.setDescription(destination.getDescription());
 //		updated.setComments(destination.getComments());
@@ -50,10 +50,10 @@ public class DestinationDAOImpl implements DestinationDAO {
 	@Override
 	public boolean deleteDestination(int id) {
 		Destination destination = em.find(Destination.class, id);
-		destination.setAmenities(null);
-		destination.setActivities(null);
-		destination.setComments(null);
-		em.remove(destination);
+//		destination.setAmenities(null);
+//		destination.setActivities(null);
+//		destination.setComments(null);
+//		em.remove(destination);
 		return true;
 	}
 
@@ -64,13 +64,13 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return null;
 	}
 
-	@Override
-	public List<Destination> getDestination(int amenityId) {
-		String query = "SELECT destination FROM Destination destination JOIN FETCH destination.amenities WHERE point.destination.id = :destinationId";
-		List<PointOfInterest> destination = em.createQuery(query, Destination.class).setParameter("destinationId", destinationId)
-				.getResultList();
-		return destination;
-	}
+//	@Override
+//	public List<Destination> getDestination(int amenityId) {
+//		String query = "SELECT destination FROM Destination destination JOIN FETCH destination.amenities WHERE point.destination.id = :destinationId";
+//		List<PointOfInterest> destination = em.createQuery(query, Destination.class).setParameter("destinationId", destinationId)
+//				.getResultList();
+//		return destination;
+//	}
 
 	@Override
 	public List<PointOfInterest> getPointsByAmenityAndDestination(int amenityId, int destinationId) {
@@ -106,6 +106,12 @@ public class DestinationDAOImpl implements DestinationDAO {
 	public void addAmenityById(PointOfInterest pointOfInterest, Integer[] amenityIds) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<PointOfInterest> getPointsByDestination(int destinationId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
