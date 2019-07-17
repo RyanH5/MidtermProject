@@ -14,6 +14,8 @@ public class Destination {
 
 	@Column(name = "short_description")
 	private String shortDescription;
+
+	private String description;
 	
 	@Column(name = "description")
 	private String description;
