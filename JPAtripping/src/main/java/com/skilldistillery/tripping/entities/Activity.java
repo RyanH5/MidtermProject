@@ -48,8 +48,8 @@ public class Activity {
 
 //	Getters and Setters
 	
-	@OneToMany(mappedBy="Activity")
-	private Activity activity;
+//	@OneToMany(mappedBy="activity")
+//	private Activity activity;
 	
 
 	public List<PointOfInterest> getPoints() {

@@ -438,6 +438,7 @@ INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'mountainbike trailhead', 1, 1, NULL, NULL);
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'ski slopes', 1, 1, NULL, NULL);
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'kayak dropin sites', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'kayak pullout', 1, 1, NULL, NULL);
 
 COMMIT;
 
@@ -533,7 +534,10 @@ COMMIT;
 START TRANSACTION;
 USE `trippingdb`;
 INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (1, 1);
-INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 3);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (2, 1);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (3, 1);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (4, 1);
+INSERT INTO `point_of_interest_has_amenity` (`point_of_interest_id`, `amenity_id`) VALUES (5, 1);
 
 COMMIT;
 
@@ -543,7 +547,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 3);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (1, 2);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (2, 2);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (3, 2);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (4, 2);
+INSERT INTO `point_of_interest_has_activity` (`point_of_interest_id`, `activity_id`) VALUES (5, 2);
 
 COMMIT;
 

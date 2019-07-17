@@ -22,7 +22,7 @@ class ActivityTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("Tripping");
+		emf = Persistence.createEntityManagerFactory("tripping");
 	}
 	
 

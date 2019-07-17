@@ -46,8 +46,8 @@ public class Amenity {
 
 //	Getters and setters
 	
-	@OneToMany(mappedBy="Amenity")
-	private Amenity amenity;
+//	@OneToMany(mappedBy="amenity")
+//	private Amenity amenity;
 
 	public List<PointOfInterest> getPoints() {
 		return points;
