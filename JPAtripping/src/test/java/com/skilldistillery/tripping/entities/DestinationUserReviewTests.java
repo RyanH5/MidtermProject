@@ -43,6 +43,7 @@ class DestinationUserReviewTests {
 	@Test
 	void test_destination_usr_review_mappings() {
 		assertEquals("golden biking review", dr1.getTitle());
+		assertEquals("crevasse rescue mountain", dr1.getDestination().getDescription());
 	}
 	
 	@Test
