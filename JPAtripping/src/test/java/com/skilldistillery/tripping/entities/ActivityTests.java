@@ -32,7 +32,7 @@ public class ActivityTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		activity = em.find(Activity.class, 1);
+		activity = em.find(Activity.class, 2);
 	}
 
 	@AfterEach
@@ -43,18 +43,18 @@ public class ActivityTests {
 
 	@Test
 	void test_Activity_mappings() {
-		assertEquals(1, activity.getId());
-		assertEquals("4x4 & Jeep Tours", activity.getName());
-		assertEquals("Many Trails", activity.getShortDescription());
-		assertEquals("Trails for all levels", activity.getLongDescription());
-		assertEquals("imageurl", activity.getImageUrl());
+		assertEquals(2, activity.getId());
+		assertEquals("mountain biking", activity.getName());
+		assertEquals("trails for all levels", activity.getShortDescription());
+		assertEquals("easy moderate difficult trails", activity.getLongDescription());
+		assertEquals("fakeimage3.url", activity.getImageUrl());
 	}
 
 	@Test
 	void test_Activity_has_Points() {
 		assertNotNull(activity.getPoints());
-		assertEquals(1, activity.getPoints().size());
-		assertEquals("Specific Trailhead", activity.getPoints().get(0).getName());
+		assertEquals(5, activity.getPoints().size());
+		assertEquals("hike trailhead", activity.getPoints().get(0).getName());
 	}
 	
 }

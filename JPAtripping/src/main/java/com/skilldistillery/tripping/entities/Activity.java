@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="activity")
 public class Activity {
@@ -41,8 +42,6 @@ public class Activity {
 	joinColumns = { @JoinColumn(name = "activity_id") }, 
 	inverseJoinColumns = { @JoinColumn(name = "point_of_interest_id") })
 	private List<PointOfInterest> points;
-
-//	Getters and Setters
 
 	public List<PointOfInterest> getPoints() {
 		return points;

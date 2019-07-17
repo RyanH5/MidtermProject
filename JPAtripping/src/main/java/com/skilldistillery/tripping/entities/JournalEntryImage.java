@@ -23,10 +23,13 @@ public class JournalEntryImage {
 	@JoinColumn(name = "journal_id")
 	private int journalId;
 
-	@Column(name = "image_url")
+	
+	@Column(name="image_url")
 	private String imageURL;
+	
+	
+//	Getters and Setters
 
-//	Getters and setters
 
 	public int getId() {
 		return id;
@@ -70,5 +73,4 @@ public class JournalEntryImage {
 		builder.append("JournalEntryImage [id=").append(id).append(", imageURL=").append(imageURL).append("]");
 		return builder.toString();
 	}
-
 }

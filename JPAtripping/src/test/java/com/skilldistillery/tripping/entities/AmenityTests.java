@@ -51,10 +51,10 @@ public class AmenityTests {
 	}
 
 	@Test
-	void test_Amenityy_has_Points() {
+	void test_Amenity_has_Points() {
 		assertNotNull(amenity.getPoints());
-		assertEquals(1, amenity.getPoints().size());
-		assertEquals("Specific Trailhead", amenity.getPoints().get(0).getName());
+		assertEquals(5, amenity.getPoints().size());
+		assertEquals("hike trailhead", amenity.getPoints().get(0).getName());
 	}
 	
 }

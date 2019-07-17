@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name="destination_user_review")
+@Table(name="destination_user_review ")
 public class DestinationReview {
 
 //	Declarations
@@ -46,9 +46,6 @@ public class DestinationReview {
 
 	@Column(name = "review_text")
 	private String reviewText;
-
-	
-//	Getters and Setters
 
 	public int getId() {
 		return id;
@@ -82,9 +79,11 @@ public class DestinationReview {
 		this.createDate = createDate;
 	}
 
+
 	public String getTitle() {
 		return title;
 	}
+
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -106,7 +105,6 @@ public class DestinationReview {
 		this.reviewText = reviewText;
 	}
 
-//	Constructors
 
 	public DestinationReview() {
 	}
@@ -123,12 +121,13 @@ public class DestinationReview {
 	}
 
 //	To String
-	
+
 	public DestinationReview(int id, Destination destination) {
 		super();
 		this.id = id;
 		this.destination = destination;
 	}
+
 
 
 

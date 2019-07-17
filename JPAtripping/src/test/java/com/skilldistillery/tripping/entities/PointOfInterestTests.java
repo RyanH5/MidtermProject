@@ -44,7 +44,7 @@ public class PointOfInterestTests {
 	@Test
 	void test_PoI_mappings() {
 		assertEquals(1, point.getId());
-		assertEquals("Specific Trailhead", point.getName());
+		assertEquals("hike trailhead", point.getName());
 	}
 	
 	@Test
@@ -61,14 +61,13 @@ public class PointOfInterestTests {
 	@Test
 	void test_PoI_has_Comments() {
 		assertNotNull(point.getComments());
-		assertEquals("sometext",point.getComments().get(0).getCommentText());
+		assertEquals("Great trailhead parking",point.getComments().get(0).getCommentText());
 	}
 	
 	@Test
 	void test_PoI_has_Activities() {
 		assertNotNull(point.getActivities());
-		assertEquals("4x4 & Jeep Tours",point.getActivities().get(0).getName());
-		assertEquals("Adventure Tours",point.getActivities().get(1).getName());
+		assertEquals("mountain biking",point.getActivities().get(0).getName());
 	}
 	
 	@Test

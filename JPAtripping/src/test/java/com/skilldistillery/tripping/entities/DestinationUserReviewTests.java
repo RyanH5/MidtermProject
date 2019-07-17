@@ -1,6 +1,6 @@
 package com.skilldistillery.tripping.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AddressTests {
+class DestinationUserReviewTests {
 
 	private static EntityManagerFactory emf;
-	private EntityManager em;
-	private Address address;
+	private static EntityManager em;
+	private DestinationReview dr1;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,27 +31,31 @@ public class AddressTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		dr1 = em.find(DestinationReview.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		dr1 = null;
 	}
 
 	@Test
-	void test_Address_mappings() {
-		assertEquals(1, address.getId());
-		assertEquals("palm harbor", address.getCity());
-		assertEquals("329 birch ct", address.getStreet1());
-		assertEquals("market street", address.getStreet2());
-		assertEquals("FL", address.getState());
-		assertEquals("727-545-5708", address.getPhone());
-		assertEquals("80499", address.getZipcode());
-//		assertEquals(39.833, address.getLatitude());
-//		assertEquals(59.543, address.getLongitude());
-		// TODO: FIXME:bdrgd
+	void test_destination_usr_review_mappings() {
+		assertEquals("golden biking review", dr1.getTitle());
+		assertEquals("crevasse rescue mountain", dr1.getDestination().getDescription());
+	}
+	
+	@Test
+	void test_destination_usr_review_association_destination() {
+		assertEquals("alpine mtn", dr1.getDestination().getShortDescription());
+	}
+	
+
+	@Test 
+	void test_desst_usr_review_association_to_user() {
+		assertEquals(" harr", dr1.getUser().getLastName());
+		
 	}
 
 }

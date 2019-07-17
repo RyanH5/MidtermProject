@@ -49,7 +49,7 @@ class UserTests {
 	@Test
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
-		assertEquals("ryanh5", user.getUserName());
+		assertEquals(1, user.getId());
 		assertEquals(" password2.0", user.getPassword());
 		assertEquals(" ryan", user.getFirstName());
 		assertEquals(" harr", user.getLastName());
@@ -59,8 +59,8 @@ class UserTests {
 		assertEquals(" notAdmin", user.getRole());
 		assertEquals(false, user.isActive());
 	}
-		
-	
+
+
 	@Test
 	void test_user_has_journal_entries() {
 		User user = em.find(User.class, 1);
@@ -68,22 +68,22 @@ class UserTests {
 		assertEquals(2, user.getJournalEntries().get(0).getActivity().getId());
 		assertEquals("Mtn biking in golden", user.getJournalEntries().get(0).getTitle());
 	}
-	
+
 	@Test
 	void test_user_has_event_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getEventReviews());
 		assertEquals("tasty fruits in the mountains", user.getEventReviews().get(0).getTitle());
-		
+
 	}
-	
+
 	@Test
 	void test_user_has_destination_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getDestinationReviews());
 		assertEquals("golden biking review", user.getDestinationReviews().get(0).getTitle());
 	}
-		
+
 	@Test
 	void test_user_has_POI_reviews() {
 		User user = em.find(User.class, 1);
