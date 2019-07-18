@@ -40,7 +40,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean addEvent(Event e) {
-		// TODO Auto-generated method stub
+		em.persist(e);
 		return true;
 	}
 
