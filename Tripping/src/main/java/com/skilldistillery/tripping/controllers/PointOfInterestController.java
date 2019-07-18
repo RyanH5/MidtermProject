@@ -18,17 +18,15 @@ public class PointOfInterestController {
 	private PointOfInterestDAO dao;
 
 	@RequestMapping(path = "viewPoint.do")
-	public ModelAndView viewPoint(ModelAndView model, User user) {
-		System.out.println(user);
-		List<PointOfInterest> allpoints = dao.getPointsByDestination(1);
+	public ModelAndView viewPoint(ModelAndView model) {
+		List<PointOfInterest> allpoints = dao.getAllPoints();
 		model.addObject("allpoints", allpoints);
 		model.setViewName("entity/viewPoint");
 		return model;
 	}
 	
 	@RequestMapping(path = "viewPoints.do")
-	public ModelAndView viewPoints(ModelAndView model, User user) {
-		System.out.println(user);
+	public ModelAndView viewPoints(ModelAndView model) {
 		List<PointOfInterest> allpoints = dao.getPointsByDestination(1);
 		model.addObject("allpoints", allpoints);
 		model.setViewName("entities/viewPoints");
