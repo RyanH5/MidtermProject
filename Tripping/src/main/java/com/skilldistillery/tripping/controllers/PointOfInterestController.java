@@ -2,38 +2,41 @@ package com.skilldistillery.tripping.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.PointOfInterestDAO;
+import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.PointOfInterest;
+import com.skilldistillery.tripping.entities.User;
 
 @Controller
 public class PointOfInterestController {
 
 	@Autowired
 	private PointOfInterestDAO dao;
+	private Destination dao;
 
-	@RequestMapping(value = { "viewPoint" })
-	public String index(Model model) {
-		List<PointOfInterest> points = dao.getPointsByDestination(1);
-		model.addAttribute("allpoints", points);
-//		List<Amenity> amenities = dao.getAmenitiesByPoint(1);
-//		List<Activity> activities = dao.getActivitiesByPoint(1);
-//		model.addAttribute("point",dao.findPointOfInterestById(1));
- 		model.addAttribute("allpoints", points);
-// 		model.addAttribute("amenities", amenities);
-// 		model.addAttribute("activities", activities);
-		return "viewPoint";
+	@RequestMapping(path = "viewPoint.do")
+	public ModelAndView viewPoint(ModelAndView model, User user) {
+		System.out.println(user);
+		List<PointOfInterest> allpoints = dao.getPointsByDestination(1);
+		model.addObject("allpoints", allpoints);
+		model.setViewName("point/viewPoint");
+		return model;
 	}
-	
-	@RequestMapping(path = "getPoint.do")
-	public String viewPointById(Integer id, Model model) {
-		PointOfInterest point = dao.findPointOfInterestById(id);
-		model.addAttribute("point", point);
-		return "viewPoint";
+
+	@RequestMapping(path = "viewDestination.do")
+	public ModelAndView viewDestination(ModelAndView model, User user) {
+		System.out.println(user);
+		Destination destination = dao.getPointsByDestination(1);
+		model.addObject("destination", destination);
+		model.setViewName("point/viewPoint");
+		return model;
 	}
 
 }

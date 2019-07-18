@@ -132,14 +132,24 @@ public class Address {
 		this.longitude = longitude;
 	}
 
-//	To String
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Address [id=").append(id).append(", street1=").append(street1).append(", city=").append(city)
-				.append(", state=").append(state).append("]");
+		builder.append("Address Street=");
+		builder.append(street1);
+		builder.append(", City=");
+		builder.append(city);
+		builder.append(", State=");
+		builder.append(state);
+		builder.append(", Zipcode=");
+		builder.append(zipcode);
+		builder.append(", Phone=");
+		builder.append(phone);
+		builder.append("]");
 		return builder.toString();
 	}
+
+//	To String
+
 
 }

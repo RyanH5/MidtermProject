@@ -12,7 +12,6 @@ import com.skilldistillery.tripping.entities.Activity;
 import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.PointOfInterest;
-import com.skilldistillery.tripping.entities.PointOfInterestComment;
 
 @Transactional
 @Service
@@ -64,9 +63,8 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return null;
 	}
 
-
 	@Override
-	public List<PointOfInterest> getPointsByAmenityAndDestination(int amenityId, int destinationId) {
+	public List<PointOfInterest> getPointsByDestination(int destinationId) {
 		String query = "SELECT point FROM PointOfInterest point JOIN FETCH point.amenities WHERE point.destination.id = :destinationId";
 		List<PointOfInterest> points = em.createQuery(query, PointOfInterest.class)
 				.setParameter("destinationId", destinationId).getResultList();
@@ -74,47 +72,18 @@ public class DestinationDAOImpl implements DestinationDAO {
 	}
 
 	@Override
-	public List<Amenity> getAmenitiesByPoint(int pointId) {
+	public List<Amenity> getAmenitiesByDestination(int pointId) {
 		String query = "SELECT amenity FROM Amenity amenity INNER JOIN PointOfInteest ON  WHERE amenity.point.id = :pointId";
 		List<Amenity> amenities = em.createQuery(query, Amenity.class).setParameter("pointId", pointId).getResultList();
 		return amenities;
 	}
 
 	@Override
-	public List<Activity> getActivitiesByPoint(int pointId) {
+	public List<Activity> getActivitiesByDestination(int pointId) {
 		String query = "SELECT activity FROM Activity activity WHERE activity.point.id = :pointId";
 		List<Activity> activities = em.createQuery(query, Activity.class).setParameter("pointId", pointId)
 				.getResultList();
 		return activities;
-	}
-
-	@Override
-	public PointOfInterestComment createComment(PointOfInterestComment comment) {
-		em.persist(comment);
-		return comment;
-	}
-
-	@Override
-	public void addActivitiesById(PointOfInterest pointOfInterest, Integer[] activityIds) {
-		for (Integer aid : activityIds) {
-			Destination destination = null;
-		}
-
-	}
-
-	@Override
-	public void addAmenityById(PointOfInterest pointOfInterest, Integer[] amenityIds) {
-		for (Integer aid : amenityIds) {
-			Destination destination = null;
-
-		}
-
-	}
-
-	@Override
-	public List<PointOfInterest> getPointsByDestination(int destinationId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
