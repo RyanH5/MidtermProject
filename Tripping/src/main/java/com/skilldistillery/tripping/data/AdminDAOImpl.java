@@ -119,7 +119,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean deleteActivity(Activity a) {
-		// TODO Auto-generated method stub
+		em.remove(a);
 		return true;
 	}
 
