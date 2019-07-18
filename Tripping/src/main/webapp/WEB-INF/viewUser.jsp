@@ -10,15 +10,35 @@
 </head>
 </head>
 <body>
+	<header>
+		<c:choose>
+			<c:when test="${sessionScope.user.role.equals('admin')}">
+				<ul class="nav nav-pills card-header-pills">
+			      <li class="nav-item">
+			        <a class="nav-link active" href="">Active</a>
+			      <li class="nav-item">
+			        <a class="nav-link disabled" href="#">Inactive</a>
+			      </li>
+			    </ul>
+			    <ul class="nav nav-pills card-header-pills">
+			      <li class="nav-item">
+			        <a class="nav-link disabled" href="">Admin</a>
+			      <li class="nav-item">
+			        <a class="nav-link active" href="#">WebUser</a>
+			      </li>
+			    </ul>
+			</c:when>			
+		</c:choose>
+	</header>
 	
 	<form action="showUser.do" method="GET">
 		Film ID: <input type="text" name="pid" /> <input type="submit"
 			value="Show User" />
 			</form>
 		<hr>
+		<c:choose>
 		<c:forEach var="u" items="${users}">
 			<li><a href="showUser.do?fid=${u.id }">${u.userName }</a></li>
-		<c:choose>
 			<c:when test="${! empty user}">
 				<h4>User Info</h4>
 				<p>ID: ${user.id}</p>
@@ -32,11 +52,11 @@
 				<p>Role: ${user.role }</p>
 				<p>Active: ${user.active }</p>
 				<h2>Journal Entries:</h2>
-				<c:forEach var="journalentry" items="${user.journalEntries}">
-					<ul>
-						<li>${user.journalentry }</li>
-					</ul>
-				</c:forEach>
+					<c:forEach var="journalentry" items="${user.journalEntries}">
+						<ul>
+							<li>${user.journalentry }</li>
+						</ul>
+					</c:forEach>
 				</c:when>
 				</c:choose>
 				<c:otherwise> No User Here</c:otherwise>

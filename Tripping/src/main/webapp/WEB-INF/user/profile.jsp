@@ -35,9 +35,9 @@
 					    </ul>
 					    <ul class="nav nav-pills card-header-pills">
 					      <li class="nav-item">
-					        <a class="nav-link active" href="">Admin</a>
+					        <a class="nav-link disabled" href="">Admin</a>
 					      <li class="nav-item">
-					        <a class="nav-link disabled" href="#">WebUser</a>
+					        <a class="nav-link active" href="#">WebUser</a>
 					      </li>
 					    </ul>
 					</c:when>			
