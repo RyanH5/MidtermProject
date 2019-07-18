@@ -18,7 +18,6 @@
 		</nav>
 	</header>
 		<section>
-			
 			<h2>Welcome, ${sessionScope.user.userName }</h2>
 		</section>
 

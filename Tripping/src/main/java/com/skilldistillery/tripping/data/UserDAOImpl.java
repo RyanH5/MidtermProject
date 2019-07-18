@@ -212,11 +212,5 @@ public class UserDAOImpl implements UserDAO {
 		updatedPoiComment.setCommentDate(poiComment.getCommentDate());
 		return true;
 	}
-
-	@Override
-	public boolean deletePOIComment(int id) {
-		PointOfInterestComment poiComment = em.find(PointOfInterestComment.class, id);
-		em.remove(poiComment);
-		return true;
-	}
+	
 }
