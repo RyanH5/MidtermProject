@@ -26,7 +26,8 @@
 	  		</form>
 	  		</c:otherwise>
 		</c:choose>
-		
+		<a href="viewPoint.do">View Destinations</a>
+		<a href="viewPoint.do">View Profile</a>
 		</nav>
 	</header>
 
