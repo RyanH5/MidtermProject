@@ -125,7 +125,12 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean updateActivity(Activity a) {
-		// TODO Auto-generated method stub
+		Activity updatedActivity = em.find(Activity.class, a.getId());
+		updatedActivity.setImageUrl(a.getImageUrl());
+		updatedActivity.setLongDescription(a.getLongDescription());
+		updatedActivity.setName(a.getName());
+		updatedActivity.setPoints(a.getPoints());
+		updatedActivity.setShortDescription(a.getShortDescription());
 		return true;
 	}
 
