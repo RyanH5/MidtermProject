@@ -46,13 +46,19 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean deleteEvent(Event e) {
-		// TODO Auto-generated method stub
+		em.remove(e);
 		return true;
 	}
 
 	@Override
 	public boolean updateEvent(Event e) {
-		// TODO Auto-generated method stub
+		Event updatedEvent = em.find(Event.class, e.getId());
+		updatedEvent.setDestination(e.getDestination());
+		updatedEvent.setEndDate(e.getEndDate());
+		updatedEvent.setEventDetails(e.getEventDetails());
+		updatedEvent.setLongDescription(e.getLongDescription());
+		updatedEvent.setShortDescription(e.getShortDescription());
+		updatedEvent.setStartDate(e.getStartDate());
 		return true;
 	}
 
