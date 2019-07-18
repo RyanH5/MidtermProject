@@ -134,9 +134,11 @@ public class AdminDAOImpl implements AdminDAO{
 		return true;
 	}
 
+//	think i shouldnt need this, do the admin access only work (active/inactive or admin/user) then call userDAO updateUser method
 	@Override
 	public boolean adminUpdateUser(User user) {
-		// TODO Auto-generated method stub
+		User adminUpdatedUser = em.find(User.class, user.getId());
+		
 		return true;
 	}
 	

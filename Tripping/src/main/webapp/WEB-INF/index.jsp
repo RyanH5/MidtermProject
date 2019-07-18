@@ -29,6 +29,14 @@
 		
 		</nav>
 	</header>
+	
+	
+	<!-- Admin btn to login or just regular login but slightly different views -->
+	<!-- <footer>
+		<form action="adminLogin.do" method="GET">
+	  		<input type="submit" value="Admin" class="nav btn link">
+	  	</form>
+	</footer> -->
 
 </body>
 </html>

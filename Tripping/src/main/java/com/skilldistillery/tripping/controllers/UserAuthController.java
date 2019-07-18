@@ -40,6 +40,8 @@ public class UserAuthController {
 	public String login(User user, Errors errors, HttpSession session) {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
 			session.setAttribute("user", user);
+			System.out.println(session);
+			System.out.println(user);
 			return "user/profile";
 	}
 	
