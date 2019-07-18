@@ -87,7 +87,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean addPointOfInterest(PointOfInterest poi) {
-		// TODO Auto-generated method stub
+		em.persist(poi);
 		return true;
 	}
 
