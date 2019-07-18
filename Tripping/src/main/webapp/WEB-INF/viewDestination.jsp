@@ -11,19 +11,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Destination</title>
 </head>
 </head>
 <body>
-	<div class="container-fluid">
-		<form action="getPoint.do" method="GET">
-			Film ID: <input type="text" name="pid" /> <input type="submit"
-				value="Show Point" />
-			<hr>
-			<c:forEach var="p" items="${points}">
-				<li><a href="getPoint.do?fid=${p.id }">${p.name }</a></li>
-			</c:forEach>
-		</form>
-	</div>
+	<form action="getDestination.do" method="GET">
+		Destination ID: <input type="text" name="pid" /> <input type="submit"
+			value="Show Destination" />
+		<hr>
+		<c:forEach var="d" items="${destinations}">
+			<li><a href="getDestination.do?fid=${d.id }">${d.name }</a></li>
+		</c:forEach>
+	</form>
 </body>
 </html>
