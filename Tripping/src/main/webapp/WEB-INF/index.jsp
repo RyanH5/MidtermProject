@@ -26,11 +26,11 @@
 					</form>
 				</c:otherwise>
 			</c:choose>
-			<a href="viewPoint.do">View Points</a> <br>
-			<a href="userLogin.do">Login</a><br>
-			<a href="userRegister.do">Register</a><br>
-			<a href="viewProfile.do">Profile</a><br>
-			<a href="viewDestinations.do">Destinations</a><br>
+			<a href="userRegister.do">User Registration</a><br>
+			<a href="userLogin.do">User Login</a><br>
+			<a href="viewProfile.do">User Profile</a><br>
+			<a href="viewPoint.do">View All Points of Interest</a> <br>
+			<a href="viewDestinations.do">View All Destinations</a><br>
 			<form action="viewEvents.do" method="GET">
 				Get Events by Destination ID: <input type="text" name="id" /> <input type="submit"
 					value="Show Events" />

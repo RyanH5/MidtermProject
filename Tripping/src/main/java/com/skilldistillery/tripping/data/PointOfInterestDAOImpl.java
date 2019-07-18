@@ -111,4 +111,11 @@ public class PointOfInterestDAOImpl implements PointOfInterestDAO {
 			pointOfInterest.addAmenity(em.find(Amenity.class, aid));
 		}
 	}
+
+	@Override
+	public List<PointOfInterest> getAllPoints() {
+		String query = "SELECT point FROM PointOfInterest point";
+		List<PointOfInterest> points = em.createQuery(query, PointOfInterest.class).getResultList();
+		return points;
+	}
 }
