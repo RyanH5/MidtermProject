@@ -8,13 +8,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.tripping.entities.Activity;
-import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.DestinationReview;
 import com.skilldistillery.tripping.entities.EventReview;
 import com.skilldistillery.tripping.entities.JournalEntry;
 import com.skilldistillery.tripping.entities.JournalEntryImage;
-import com.skilldistillery.tripping.entities.PointOfInterest;
 import com.skilldistillery.tripping.entities.PointOfInterestComment;
 import com.skilldistillery.tripping.entities.User;
 
@@ -26,18 +23,17 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 	List<JournalEntryImage> journalEntryImages;
 
-
 	@Override
 	public User addUser(User user) {
 		em.persist(user);
 		return user;
 	}
-	
+
 	@Override
 	public User findUserById(int id) {
 		return em.find(User.class, id);
 	}
-	
+
 	@Override
 	public boolean updateUser(int id, User user) {
 		User updatedUser = em.find(User.class, user.getId());
@@ -57,7 +53,7 @@ public class UserDAOImpl implements UserDAO {
 		em.persist(updatedUser);
 		return true;
 	}
-	
+
 	@Override
 	public boolean deleteUser(int id) {
 		User user = em.find(User.class, id);
@@ -68,7 +64,7 @@ public class UserDAOImpl implements UserDAO {
 		em.remove(user);
 		return true;
 	}
-	
+
 	@Override
 	public JournalEntry addJournalEntry(JournalEntry journalEntry) {
 		em.persist(journalEntry);
@@ -148,8 +144,14 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean updateDestinationReview(int id, DestinationReview destReview) {
-		// TODO Auto-generated method stub
-		return false;
+		DestinationReview updatedDestReview = em.find(DestinationReview.class, id);
+		updatedDestReview.setUser(destReview.getUser());
+		updatedDestReview.setDestination(destReview.getDestination());
+		updatedDestReview.setCreateDate(destReview.getCreateDate());
+		updatedDestReview.setTitle(destReview.getTitle());
+		updatedDestReview.setRating(destReview.getRating());
+		updatedDestReview.setReviewText(destReview.getReviewText());
+		return true;
 	}
 
 	@Override
@@ -172,8 +174,14 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean updateEventReview(int id, EventReview eventReview) {
-		// TODO Auto-generated method stub
-		return false;
+		EventReview updatedEventReview = em.find(EventReview.class, id);
+		updatedEventReview.setUser(eventReview.getUser());
+		updatedEventReview.setEvent(eventReview.getEvent());
+		updatedEventReview.setCreateDate(eventReview.getCreateDate());
+		updatedEventReview.setTitle(eventReview.getTitle());
+		updatedEventReview.setRating(eventReview.getRating());
+		updatedEventReview.setReview_text(eventReview.getReview_text());
+		return true;
 	}
 
 	@Override
@@ -196,8 +204,13 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean updatePOIComment(int id, PointOfInterestComment poiComment) {
-		// TODO Auto-generated method stub
-		return false;
+		PointOfInterestComment updatedPoiComment = em.find(PointOfInterestComment.class, id);
+		updatedPoiComment.setUser(poiComment.getUser());
+		updatedPoiComment.setPoint(poiComment.getPoint());
+		updatedPoiComment.setCommentText(poiComment.getCommentText());
+		updatedPoiComment.setRating(poiComment.getRating());
+		updatedPoiComment.setCommentDate(poiComment.getCommentDate());
+		return true;
 	}
 
 	@Override
