@@ -70,7 +70,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean deleteAmenity(Amenity a) {
-		// TODO Auto-generated method stub
+		em.remove(a);
 		return true;
 	}
 
