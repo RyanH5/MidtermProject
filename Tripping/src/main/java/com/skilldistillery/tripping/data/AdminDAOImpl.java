@@ -99,7 +99,15 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean updatePointOfInterest(PointOfInterest poi) {
-		// TODO Auto-generated method stub
+		PointOfInterest updatedPOI = em.find(PointOfInterest.class, poi.getId());
+		updatedPOI.setActivities(poi.getActivities());
+		updatedPOI.setAddress(poi.getAddress());
+		updatedPOI.setAmenities(poi.getAmenities());
+		updatedPOI.setComments(poi.getComments());
+		updatedPOI.setDestination(poi.getDestination());
+		updatedPOI.setLongDescription(poi.getLongDescription());
+		updatedPOI.setName(poi.getName());
+		updatedPOI.setShortDescription(poi.getName());
 		return true;
 	}
 
