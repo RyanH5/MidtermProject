@@ -30,7 +30,7 @@ public class DestinationController {
 	public ModelAndView getDestinations(ModelAndView model, int id) {
 		List<PointOfInterest> points = dao.getPointsByDestination(id);
 		model.addObject("allpoints", points);
-		model.setViewName("entities/viewDestination");
+		model.setViewName("entities/viewDestinations");
 		return model;
 	}
 }

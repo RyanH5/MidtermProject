@@ -11,7 +11,9 @@
  =========================================================
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,21 +79,10 @@
 			<div class="section text-center">
 					<h4>Point of Interest ID ${dest.id }</h4>
 					<li><a href="getPoint.do?fid=${dest.id }">${dest.name }</a></li>
-					<li><a href="getPoint.do?fid=${dest.id }">${dest.shortDescription }</a></li>
-					<li><a href="getPoint.do?fid=${dest.id }">${dest.longDescription }</a></li>
+					<li><a href="getPoint.do?fid=${dest.id }">${dest.description }</a></li>
 					<h2>Amenities:</h2>
 					<c:forEach var="p" items="${dest.getPoints()}">
-						<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
-					</c:forEach>
-					<h2>Activities:</h2>
-					<c:forEach var="e" items="${dest.getEvents()}">
-						<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
-					</c:forEach>
-					<h2>Comments:</h2>
-					<c:forEach var="c" items="${dest.getComments()}">
-						<li><a href="getPoint.do?fid=${c.id }">${c.commentText }</a></li>
-						<br>
-						<br>
+						<li><a href="getPoint.do?fid=${p.id }">${p.name }</a></li>
 					</c:forEach>
 			</div>
 		</div>
