@@ -268,8 +268,6 @@ public class User {
 		this.pointComments = pointComments;
 	}
 
-//	To String
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -278,5 +276,6 @@ public class User {
 				.append(", email=").append(email).append("]");
 		return builder.toString();
 	}
+
 
 }
