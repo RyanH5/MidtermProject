@@ -64,7 +64,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean addAmenity(Amenity a) {
-		// TODO Auto-generated method stub
+		em.persist(a);
 		return true;
 	}
 
