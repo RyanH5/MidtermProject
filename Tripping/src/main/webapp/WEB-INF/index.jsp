@@ -30,14 +30,21 @@
 			<a href="userLogin.do">Login</a><br>
 			<a href="userRegister.do">Register</a><br>
 			<a href="viewProfile.do">Profile</a><br>
-			<a href="viewEvents.do">Profile</a><br>
 			<a href="viewDestinations.do">Destinations</a><br>
+			<form action="viewEvents.do" method="GET">
+				Get Events by Destination ID: <input type="text" name="id" /> <input type="submit"
+					value="Show Events" />
+			</form>
+			<form action="viewEvent.do" method="GET">
+				Get Event by Event ID: <input type="text" name="id" /> <input type="submit"
+					value="Show Events" />
+			</form>
 			<form action="viewUser.do" method="GET">
 				Get User by User ID: <input type="text" name="id" /> <input type="submit"
 					value="Show User" />
 			</form>
 			<form action="viewDestination.do" method="GET">
-				Get Destination by Dest ID: <input type="text" name="id" /> <input type="submit"
+				Get Destination by Destination ID: <input type="text" name="id" /> <input type="submit"
 					value="Show Destination" />
 			</form>
 			<form action="viewPoint.do" method="GET">
