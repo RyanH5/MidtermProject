@@ -18,25 +18,12 @@ public class UserController {
 	@Autowired
 	private UserDAO dao;
 
-	@RequestMapping(value = { "doUserCRUD" })
+	@RequestMapping(value = { "showUser" })
 	public String index(Model model) {
 		return null;
-
-		
-//		List<PointOfInterest> points = dao.getPointsByDestination(1);
-//		model.addAttribute("allpoints", points);
-////		List<Amenity> amenities = dao.getAmenitiesByPoint(1);
-////		List<Activity> activities = dao.getActivitiesByPoint(1);
-////		model.addAttribute("point",dao.findPointOfInterestById(1));
-// 		model.addAttribute("allpoints", points);
-//// 		model.addAttribute("amenities", amenities);
-//// 		model.addAttribute("activities", activities);
-//		return "index";
 	}
-	
 
-	
-	@RequestMapping(path = "doUserCRUD.do")
+	@RequestMapping(path = "showUser.do")
 	public String viewUserById(Integer id, Model model) {
 		User user = dao.findUserById(id);
 		model.addAttribute("user", user);
