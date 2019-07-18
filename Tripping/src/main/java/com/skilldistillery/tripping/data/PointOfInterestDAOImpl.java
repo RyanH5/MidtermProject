@@ -28,7 +28,7 @@ public class PointOfInterestDAOImpl implements PointOfInterestDAO {
 	@Override
 	public PointOfInterest createPointOfInterest(PointOfInterest pointOfInterest) {
 		em.persist(pointOfInterest);
-		return null;
+		return pointOfInterest;
 	}
 
 	@Override
