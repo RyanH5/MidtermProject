@@ -76,7 +76,12 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean updateAmenity(Amenity a) {
-		// TODO Auto-generated method stub
+		Amenity updatedAmenity = em.find(Amenity.class, a.getId());
+		updatedAmenity.setIconUrl(a.getIconUrl());
+		updatedAmenity.setLongDescription(a.getLongDescription());
+		updatedAmenity.setName(a.getName());
+		updatedAmenity.setPoints(a.getPoints());
+		updatedAmenity.setShortDescription(a.getShortDescription());
 		return true;
 	}
 
