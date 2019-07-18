@@ -37,10 +37,7 @@ public class Activity {
 	@Column(name = "image_url")
 	private String imageUrl;
 	
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
-	@JoinTable(name = "point_of_interest_has_activity", 
-	joinColumns = { @JoinColumn(name = "activity_id") }, 
-	inverseJoinColumns = { @JoinColumn(name = "point_of_interest_id") })
+	@ManyToMany(mappedBy="activities")
 	private List<PointOfInterest> points;
 
 	public List<PointOfInterest> getPoints() {

@@ -37,6 +37,10 @@ public class Destination {
 	@OneToMany(mappedBy = "destination")
 	private List<Event> events;
 	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinTable(name = "dest_act", joinColumns = @JoinColumn(name = "song_id"), inverseJoinColumns = @JoinColumn(name = "album_id"))
+	private List<Activity> activities;
+	
 
 //	INSTEAD OF VOID ID LIKE TO RETURN A STRING TO SHOW THAT ALL ADD/REMOVE WORK
 	public void addDestinationReview(DestinationReview review) {
