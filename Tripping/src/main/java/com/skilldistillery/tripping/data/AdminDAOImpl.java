@@ -26,9 +26,17 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean updateDestination(Destination dest) {
-		// TODO Auto-generated method stub
+		Destination updatedDestination = em.find(Destination.class, dest.getId());
+		updatedDestination.setDescription(dest.getDescription());
+		updatedDestination.setDestinationReviews(dest.getDestinationReviews());
+		updatedDestination.setEvents(dest.getEvents());
+		updatedDestination.setImage(dest.getImage());
+		updatedDestination.setName(dest.getName());
+		updatedDestination.setPoints(dest.getPoints());
+		updatedDestination.setShortDescription(dest.getShortDescription());
 		return true;
 	}
+	
 
 	@Override
 	public boolean addEvent(Event e) {
