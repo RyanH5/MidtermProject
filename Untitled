@@ -1,0 +1,29 @@
+PointOfInterest
+What are they ? places w/ address_id, activities, amenities
+What do they have? Address in the address table address_id
+
+Activity - horseback riding, mountain biking on oxygen
+Amenity - something they have as a feature that is not an Activity
+          more like an accomodation, wheelchair accessible, has O2
+
+12 Destinations -
+   --- Craig (Estes Park, Dinosaur, Golden)
+   use address_id 1 through 15
+   --- Cecil (Colorado Springs, Boulder)
+   use address_id 16 through 30
+   --- Chana (Aspen, Durango, Gunnison)
+   use address_id 31 through 45
+   --- Ryan (Grand Junction, Telluride, Denver)
+   use address_id 46 through 60
+
+goal of at least 5 point_of_interest per destination_id
+5 points of interest associated with destination_id
+they need an address in the address table, linked by address_id in point_of_interest
+
+goal of at least 3 activities per point_of_interest_id
+that means entry in point_of_interest_has_activity for point_of_interest_id and activity_id
+so for point_of_interest 1, if it has activity 1, an entry 1,1 in table point_of_interest_has_activity
+
+goal of at least 3 amenities per point_of_interest_id
+that means entry in point_of_interest_has_amenity for point_of_interest_id and amenity_id
+so for point_of_interest 1, if it has amenity 1, an entry 1,1 in table point_of_interest_has_amenity
