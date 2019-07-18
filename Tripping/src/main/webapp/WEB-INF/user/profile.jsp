@@ -12,8 +12,8 @@
   			<input type="submit" value="Tripping" class="btn"/>
 		</form>
 		<nav>
-			<form action="userLogin.do" method="GET">
-	  	<input type="submit" name="logInOrOut" value="logout" class="nav btn link"/>
+			<form action="userLogout.do" method="GET">
+	  	<input type="submit" value="logout" class="nav btn link"/>
 	  </form>
 		</nav>
 	</header>

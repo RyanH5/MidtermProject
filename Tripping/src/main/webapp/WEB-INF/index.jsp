@@ -14,16 +14,18 @@
   			<input type="submit" value="Tripping" class="btn"/>
 		</form>
 		<nav>
-			<form action="loginOrRegister.do" method="GET">
 		<c:choose>
 			<c:when test="${ empty sessionScope.user}">
-	  			<input type="submit" name="logInOrOut" value="Login" class="nav btn link">
+			<form action="loginOrRegister.do" method="GET">
+	  			<input type="submit" value="Login" class="nav btn link">
+	  		</form>
 	  		</c:when>
 	  		<c:otherwise>
-	  			<input type="submit" name="logInOrOut" value="Logout" class="nav btn link">
+			<form action="userLogout.do" method="GET">
+	  			<input type="submit" value="Logout" class="nav btn link">
+	  		</form>
 	  		</c:otherwise>
 		</c:choose>
-	  </form>
 		
 		</nav>
 	</header>

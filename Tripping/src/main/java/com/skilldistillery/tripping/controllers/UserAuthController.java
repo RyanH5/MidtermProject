@@ -37,17 +37,16 @@ public class UserAuthController {
 	}
 	
 	@RequestMapping(path = "userLogin.do", method=RequestMethod.GET)
-	public String login(@RequestParam("logInOrOut") String logChoice, User user, Errors errors, HttpSession session) {
-		if (logChoice.equals("login")) {
+	public String login(User user, Errors errors, HttpSession session) {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
 			session.setAttribute("user", user);
 			return "user/profile";
-		}	else {
-			session.removeAttribute("user");
-			return "index";
-		}
 	}
 	
-//	@RequestMapping(path = "")
+	@RequestMapping(path = "userLogout.do", method=RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("user");
+		return "index";	
+	}
 	
 }

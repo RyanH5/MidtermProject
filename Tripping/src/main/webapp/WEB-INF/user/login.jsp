@@ -12,15 +12,12 @@
   			<input type="submit" value="Tripping" class="btn"/>
 		</form>
 		<nav>
-			<form action="userLogin.do" method="GET">
-	  	<input type="submit" value="Login" class="nav btn link"/>
-	  </form>
 		</nav>
 	</header>
 		<h4>If you're already a user</h4>
 		<form action="userLogin.do" method="GET" class="form form-login" name="logInOrOut" value="login">
 		<h2>Login</h2>
-		<input type="hidden" name="logInOrOut" value="login"/>
+		<input type="hidden" value="login"/>
 		<div>
 			<div class="form-inputs-container">
 				<label for="userName">Username: </label>
