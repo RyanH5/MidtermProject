@@ -12,15 +12,13 @@
   			<input type="submit" value="Tripping" class="btn"/>
 		</form>
 		<nav>
-		<!--  MUST FIX::::: UPDATE TO USER LOGOUT -->
 			<form action="userLogin.do" method="GET">
-	  	<input type="submit" value="Logout" class="nav btn link"/>
+	  	<input type="submit" name="logInOrOut" value="logout" class="nav btn link"/>
 	  </form>
 		</nav>
 	</header>
 		<section>
-			<%-- <h1>${user.userName}</h1> --%>
-			<%-- <h2>Welcome, ${user.firstName } ${user.lastName }</h2> --%>
+			
 			<h2>Welcome, ${sessionScope.user.userName }</h2>
 		</section>
 

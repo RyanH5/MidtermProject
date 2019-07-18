@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,10 +37,15 @@ public class UserAuthController {
 	}
 	
 	@RequestMapping(path = "userLogin.do", method=RequestMethod.GET)
-	public String login(User user, Errors errors, HttpSession session) {
-		user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
-		session.setAttribute("user", user);
-		return "user/profile";
+	public String login(@RequestParam("logInOrOut") String logChoice, User user, Errors errors, HttpSession session) {
+		if (logChoice.equals("login")) {
+			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
+			session.setAttribute("user", user);
+			return "user/profile";
+		}	else {
+			session.removeAttribute("user");
+			return "index";
+		}
 	}
 	
 //	@RequestMapping(path = "")

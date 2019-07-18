@@ -15,13 +15,16 @@
 		</form>
 		<nav>
 			<form action="loginOrRegister.do" method="GET">
-			<c:if test="${ empty sessionScope.user}">
-	  			<input type="submit" value="Login" class="nav btn link">
-	  		</c:if>
-	  		<c:othewise>
-	  			<input type="submit" value="Logout" class="nav btn link">
-	  		</c:othewise>
+		<c:choose>
+			<c:when test="${ empty sessionScope.user}">
+	  			<input type="submit" name="logInOrOut" value="Login" class="nav btn link">
+	  		</c:when>
+	  		<c:otherwise>
+	  			<input type="submit" name="logInOrOut" value="Logout" class="nav btn link">
+	  		</c:otherwise>
+		</c:choose>
 	  </form>
+		
 		</nav>
 	</header>
 
