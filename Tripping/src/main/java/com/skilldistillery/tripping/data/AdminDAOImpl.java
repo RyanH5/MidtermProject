@@ -93,7 +93,7 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public boolean deletePointOfInterest(PointOfInterest poi) {
-		// TODO Auto-generated method stub
+		em.remove(poi);
 		return true;
 	}
 
