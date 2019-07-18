@@ -33,6 +33,7 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 	@Override
 	public User createNewUser(User user) {
 		user.setRole("webUser");
+		user.setActive(true);
 		em.persist(user);
 		return user;
 	}
