@@ -44,17 +44,17 @@ public class ActivityTests {
 	@Test
 	void test_Activity_mappings() {
 		assertEquals(2, activity.getId());
-		assertEquals("mountain biking", activity.getName());
-		assertEquals("trails for all levels", activity.getShortDescription());
-		assertEquals("easy moderate difficult trails", activity.getLongDescription());
-		assertEquals("fakeimage3.url", activity.getImageUrl());
+		assertEquals("Adventure Tours", activity.getName());
+		assertEquals("No seriously, let us do the driving while you take in the scenery.", activity.getShortDescription());
+		assertEquals("Lots to see and more", activity.getLongDescription());
+		assertEquals("https://captainzipline.com/wp-content/uploads/colorado-zipline-tour-2.jpg", activity.getImageUrl());
 	}
 
 	@Test
 	void test_Activity_has_Points() {
 		assertNotNull(activity.getPoints());
-		assertEquals(5, activity.getPoints().size());
-		assertEquals("hike trailhead", activity.getPoints().get(0).getName());
+		assertEquals(1, activity.getPoints().size());
+		assertEquals("Specific Trailhead", activity.getPoints().get(0).getName());
 	}
 	
 }

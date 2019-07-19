@@ -26,34 +26,27 @@
 					</form>
 				</c:otherwise>
 			</c:choose>
-			<a href="viewPoint.do">View Points</a> <br>
-			<a href="userLogin.do">Login</a><br>
-			<a href="userRegister.do">Register</a><br>
-			<a href="viewProfile.do">Profile</a><br>
-			<a href="viewDestinations.do">Destinations</a><br>
-			<form action="viewEvents.do" method="GET">
-				Get Events by Destination ID: <input type="text" name="id" /> <input type="submit"
-					value="Show Events" />
-			</form>
-			<form action="viewEvent.do" method="GET">
-				Get Event by Event ID: <input type="text" name="id" /> <input type="submit"
-					value="Show Events" />
-			</form>
-			<form action="viewUser.do" method="GET">
-				Get User by User ID: <input type="text" name="id" /> <input type="submit"
-					value="Show User" />
-			</form>
+			<a href="userRegister.do">User Registration</a><br> <a
+				href="loginOrRegister.do">User Login</a><br> <a
+				href="viewProfile.do">User Profile</a><br> <a
+				href="indexWIP.do">View New Index Work in Progress</a> <br> <a
+				href="viewDestinations.do">View All Destinations</a><br> <a
+				href="viewPoints.do">View All Points</a><br>
 			<form action="viewDestination.do" method="GET">
-				Get Destination by Destination ID: <input type="text" name="id" /> <input type="submit"
-					value="Show Destination" />
+				Get Destination by Destination ID: <input type="text" name="id" />
+				<input type="submit" value="Get Destination" />
 			</form>
 			<form action="viewPoint.do" method="GET">
-				Get Point by Point ID: <input type="text" name="id" /> <input type="submit"
-					value="Show Point" />
+				Get Point by Point ID: <input type="text" name="id" /> <input
+					type="submit" value="Get Point" />
 			</form>
-			<form action="viewPoints.do" method="GET">
-				Points by Destination ID: <input type="text" name="id" /> <input type="submit"
-					value="Show Point" />
+			<form action="viewUser.do" method="GET">
+				Get User Profile by User ID: <input type="text" name="id" /> <input
+					type="submit" value="Get User" />
+			</form>
+			<form action="viewEvent.do" method="GET">
+				Get Event by Event ID: <input type="text" name="id" /> <input
+					type="submit" value="Get Event" />
 			</form>
 		</nav>
 	</header>

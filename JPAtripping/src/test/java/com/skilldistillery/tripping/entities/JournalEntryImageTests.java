@@ -1,7 +1,6 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class JournalEntryImageTests {
@@ -36,12 +34,6 @@ class JournalEntryImageTests {
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-	}
-
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
 	}
 
 	@Test

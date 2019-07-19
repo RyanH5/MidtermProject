@@ -27,9 +27,9 @@ public class DestinationController {
 	}
 	
 	@RequestMapping(value= {"viewDestinations.do"})
-	public ModelAndView getDestinations(ModelAndView model, int id) {
-		List<PointOfInterest> points = dao.getPointsByDestination(id);
-		model.addObject("allpoints", points);
+	public ModelAndView getDestinations(ModelAndView model) {
+		List<Destination> dests = dao.getAllDestinations();
+		model.addObject("dests", dests);
 		model.setViewName("entities/viewDestinations");
 		return model;
 	}

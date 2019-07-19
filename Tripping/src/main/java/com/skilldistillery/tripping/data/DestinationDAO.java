@@ -24,5 +24,7 @@ public interface DestinationDAO {
 	public List<Amenity> getAmenitiesByDestination(int pointId);
 	
 	public List<Activity> getActivitiesByDestination(int pointId);
+
+	public List<Destination> getAllDestinations();
 	
 }
