@@ -31,9 +31,9 @@
 				href="viewProfile.do">View User Profile</a><br> <a
 				href="indexWIP.do">View Index Work in Progress</a> <br> <a
 				href="viewDestinations.do">View All Destinations</a><br> <a
-				href="viewEvents.do">FIX ME: View All Events</a><br><a
+				href="viewAllEvents.do">View All Events</a><br><a
 				href="viewActivities.do">View All Activities</a><br><a
-				href="viewUsers.do">FIX ME View All Users</a><br>
+				href="viewUsers.do">View All Users</a><br>
 			<form action="viewDestination.do" method="GET">
 				View Destination by ID: <input type="text" name="id" />
 				<input type="submit" value="Get Destination" />

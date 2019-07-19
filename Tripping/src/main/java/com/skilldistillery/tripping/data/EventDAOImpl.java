@@ -45,7 +45,15 @@ public class EventDAOImpl implements EventDAO{
 				+ " JOIN event.destination d"
 				+ " WHERE d.id = :id";
 		List<Event> events = em.createQuery(jpql9, Event.class)
-			.setParameter("id", 3)
+			.setParameter("id", destinationId)
+			.getResultList();
+		return events;
+	}
+
+	@Override
+	public List<Event> getAllEvents() {
+		String jpql9 = "SELECT event FROM Event event";
+		List<Event> events = em.createQuery(jpql9, Event.class)
 			.getResultList();
 		return events;
 	}
