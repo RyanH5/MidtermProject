@@ -17,9 +17,8 @@ public class EventDAOImpl implements EventDAO{
 	private EntityManager em;
 
 	@Override
-	public Event findPointOfInterestById(int id) {
-		em.find(Event.class, id);
-		return null;
+	public Event findEventById(int id) {
+		return em.find(Event.class, id);
 	}
 
 	@Override

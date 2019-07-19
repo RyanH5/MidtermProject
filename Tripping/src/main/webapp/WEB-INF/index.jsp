@@ -45,8 +45,8 @@
 					type="submit" value="Get User" />
 			</form>
 			<form action="viewEvent.do" method="GET">
-				Get Event by Event ID: <input type="text" name="id" /> <input
-					type="submit" value="Get Event" />
+				Get Event by Event ID: <input type="text" name="id" /> 
+				<input type="submit" value="Get Event" />
 			</form>
 		</nav>
 	</header>
