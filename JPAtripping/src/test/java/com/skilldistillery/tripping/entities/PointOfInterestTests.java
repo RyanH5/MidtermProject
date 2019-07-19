@@ -50,7 +50,7 @@ public class PointOfInterestTests {
 	@Test
 	void test_PoI_has_Address() {
 		assertEquals(1, point.getAddress().getId());
-		assertEquals("329 birch ct", point.getAddress().getStreet1());
+		assertEquals("119 Zazpo Place", point.getAddress().getStreet1());
 	}
 	
 	@Test

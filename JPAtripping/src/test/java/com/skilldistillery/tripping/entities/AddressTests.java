@@ -43,7 +43,7 @@ public class AddressTests {
 	@Test
 	void test_Address_mappings() {
 		assertEquals(1, address.getId());
-		assertEquals("palm harbor", address.getCity());
+		assertEquals("Denver", address.getCity());
 		assertEquals("329 birch ct", address.getStreet1());
 		assertEquals("market street", address.getStreet2());
 		assertEquals("fl", address.getState());
