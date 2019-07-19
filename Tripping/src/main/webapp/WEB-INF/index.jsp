@@ -13,15 +13,17 @@
 			<input type="submit" value="Tripping" class="btn" />
 		</form>
 		<nav>
+			<!--  ************** when: IF LOGGED IN  **********************-->
+			<!--  ************** if: IF ADMIN      *************-->
+			<!--  ************** otherwise: IF VISITOR *************-->
+			<!--  ************** outside choose: ALL  **************-->
 			<c:choose>
-			<!--  *********************** IF LOGGED IN  **********************-->
 				<c:when test="${! empty sessionScope.user}">
 					<form action="userLogout.do" method="GET">
 						<input type="submit" value="Logout" class="nav btn link">
 					</form>
 					<a href="viewProfile.do">View My Profile</a><br>
 					
-					<!--  ************** IF ADMIN *************-->
 					<c:if test="${sessionScope.user.role.equals('admin')}">
 						<form action="viewUser.do" method="GET">
 							View User by User ID: <input type="text" name="id" /> <input
@@ -31,17 +33,12 @@
 						<a href="viewUsers.do">FIX ME View All Users</a><br>
 					</c:if> 
 				</c:when>
-				<!--  ******************* IF VISITOR *************-->
 				<c:otherwise>
-					<form action="loginOrRegister.do" method="GET">
-						<input type="submit" value="Login" class="nav btn link">
-					</form>
+					<a href="userRegister.do">View User Registration</a><br> 
+					<a href="loginOrRegister.do">View User Login</a><br> 
 				</c:otherwise>
 			</c:choose>
-			<!--  ************** ALL USERS, VISITORS, ADMIN **************-->
 			<a href="shellTemplate.do">View Shell Template</a><br> 
-			<a href="userRegister.do">View User Registration</a><br> 
-			<a href="loginOrRegister.do">View User Login</a><br> 
 			<a href="indexWIP.do">View Index Work in Progress</a> <br> 
 			<a href="viewDestinations.do">View All Destinations</a><br> 
 			<a href="viewEvents">FIX ME: View All Events</a><br>
