@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+#navExample {
+	background-color: light-gray;
+}
+
+.main-section {
+	margin-top: 71px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.destination-container {
+	width: 18%;
+    margin: 10px;
+    border: 1px solid lightblue;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.destination-container:hover {
+	box-shadow: 2px 2px lightblue;
+}
+
+.destination-card-image {
+	background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 1620px) {
+	.destination-container {
+	width: 23%;
+
+	}
+}
+
+@media only screen and (max-width: 1340px) {
+	.destination-container {
+	width: 31%;
+
+	}
+}
