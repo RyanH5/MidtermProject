@@ -54,6 +54,7 @@
 			<form action="viewEvents.do" method="GET">
 				Get All Event by Destination ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Events" />
+			</form>
 			
 			<form action="viewActivity.do" method="GET">
 				FIXME: View Activity by Activity ID: <input type="text" name="id" /> <input
