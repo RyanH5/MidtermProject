@@ -28,6 +28,11 @@
 <body>
 
 	<!--    navbar come here          -->
+	<nav>
+		<a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+			          tripping
+			        </a>
+	</nav>
 
 	<!-- end navbar  -->
 
