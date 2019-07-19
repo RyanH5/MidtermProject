@@ -23,6 +23,7 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+<link href="./assets/css/destinations.css" rel="stylesheet" />
 
 </head>
 <head>
@@ -88,12 +89,13 @@
 		</div>
 	</div>
 </nav>
-	<div class="section section-image section-login"
+<%-- 	<div class="section section-image section-login"
 		style="background-image: url('https://www.uncovercolorado.com/wp-content/uploads/2017/10/Colorado-Kayaking-Lake-Clouds-950x475.jpg');">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mx-auto">
 					<div class="card card-register" style="background-image: url('./assets/img/login-image.jpg');">
+	<c:forEach var="d" items="${dests}">
 						<h3 class="title mx-auto">Welcome</h3>
 						<div class="social-line text-center">
 							<a href="#pablo"
@@ -107,7 +109,6 @@
 								class="fa fa-twitter"></i>
 							</a>
 						</div>
-	<%-- <c:forEach var="d" items="${dests}">
 		<div class="section text-center">
 			<h2>${d.name }</h2>
 			<a href="viewDestination.do?id=${d.id }">${d.name }</a><br>
@@ -117,7 +118,22 @@
 				<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
 			</c:forEach>
 		</div>
-	</c:forEach> --%>
+	</c:forEach>
+	</div> --%>
+	
+		<div class="main-section"
+		style="background-image: url('https://www.uncovercolorado.com/wp-content/uploads/2017/10/Colorado-Kayaking-Lake-Clouds-950x475.jpg');">
+			<c:forEach var="d" items="${dests}">
+				<div class="section text-center">
+					<h2>${d.name }</h2>
+					<a href="viewDestination.do?id=${d.id }">${d.name }</a><br>
+					<a href="viewDestination.do?id=${d.id }">${d.description }</a><br>
+					<h4>Points Of Interest:</h4>
+					<c:forEach var="p" items="${d.getPoints()}">
+						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+					</c:forEach>
+				</div>
+			</c:forEach>
 	</div>
 	<footer class="footer footer-black  footer-white ">
 		<div class="container">
@@ -151,7 +167,7 @@
 	<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
 	<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
 	<!--  Google Maps Plugin    -->
-	<script type="text/javascript"
+	<!-- <script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<script>
 		$(document).ready(function() {
@@ -181,7 +197,7 @@
 				}
 			}
 		});
-	</script>
+	</script> -->
 	</body>
 </html>
 

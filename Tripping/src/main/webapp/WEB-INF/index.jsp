@@ -41,7 +41,7 @@
 			<a href="shellTemplate.do">View Shell Template</a><br> 
 			<a href="indexWIP.do">View Index Work in Progress</a> <br> 
 			<a href="viewDestinations.do">View All Destinations</a><br> 
-			<a href="viewEvents">FIX ME: View All Events</a><br>
+			<a href="viewAllEvents.do">View All Events</a><br>
 			<a href="viewActivities.do">View All Activities</a><br>
 
 			<form action="viewDestination.do" method="GET">
