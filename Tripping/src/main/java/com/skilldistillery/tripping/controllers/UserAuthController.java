@@ -44,6 +44,7 @@ public class UserAuthController {
 	@RequestMapping(path = "userLogin.do", method=RequestMethod.GET)
 	public String login(User user, Errors errors, HttpSession session) {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
+			user.getJournalEntries();
 			session.setAttribute("user", user);
 			return "user/profile";
 	}
