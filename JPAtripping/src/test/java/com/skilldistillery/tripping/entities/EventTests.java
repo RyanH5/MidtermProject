@@ -38,8 +38,8 @@ class EventTests {
 
 	@Test
 	void test_event_mappings() {
-		assertEquals("P peaches", evt.getName());
-		assertEquals("starts at time ends at later time", evt.getEventDetails());
+		assertEquals("Jazz Fest, Estes Park", evt.getName());
+		assertEquals("Cost $10 per day or $15 whole weekend early purchase", evt.getEventDetails());
 	}
 	
 	@Test

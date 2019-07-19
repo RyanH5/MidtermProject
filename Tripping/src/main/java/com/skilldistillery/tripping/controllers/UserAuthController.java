@@ -1,6 +1,5 @@
 package com.skilldistillery.tripping.controllers;
 
-import javax.persistence.TemporalType;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.UserAuthDAO;
@@ -28,10 +25,18 @@ public class UserAuthController {
 		return model;
 	}
 	
+	@RequestMapping(path = "userRegister.do")
+	public ModelAndView registerUser(ModelAndView model, User user) {
+		model.setViewName("user/register");
+		return model;
+	}
+	
 	@RequestMapping(path = "createUser.do")
-	public ModelAndView register(ModelAndView model, User user) {
+	public ModelAndView register(ModelAndView model, User newuser, HttpSession session) {
+		System.out.println(newuser);
+		User user = dao.createNewUser(newuser);
 		System.out.println(user);
-		dao.createNewUser(user);
+		session.setAttribute("user", user);
 		model.setViewName("user/profile");
 		return model;
 	}
@@ -39,6 +44,7 @@ public class UserAuthController {
 	@RequestMapping(path = "userLogin.do", method=RequestMethod.GET)
 	public String login(User user, Errors errors, HttpSession session) {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
+			user.getJournalEntries();
 			session.setAttribute("user", user);
 			System.out.println(session);
 			System.out.println(user);

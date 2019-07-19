@@ -46,7 +46,7 @@ public class AddressTests {
 		assertEquals("palm harbor", address.getCity());
 		assertEquals("329 birch ct", address.getStreet1());
 		assertEquals("market street", address.getStreet2());
-		assertEquals("FL", address.getState());
+		assertEquals("fl", address.getState());
 		assertEquals("727-545-5708", address.getPhone());
 		assertEquals("80499", address.getZipcode());
 //		assertEquals(39.833, address.getLatitude());

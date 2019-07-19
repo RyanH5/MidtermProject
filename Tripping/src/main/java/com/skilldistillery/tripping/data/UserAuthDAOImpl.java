@@ -35,6 +35,7 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 		user.setRole("webUser");
 		user.setActive(true);
 		em.persist(user);
+		
 		return user;
 	}
 

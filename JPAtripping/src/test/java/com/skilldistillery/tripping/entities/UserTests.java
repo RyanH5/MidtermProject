@@ -50,13 +50,13 @@ class UserTests {
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
 		assertEquals(1, user.getId());
-		assertEquals(" password2.0", user.getPassword());
-		assertEquals(" ryan", user.getFirstName());
-		assertEquals(" harr", user.getLastName());
+		assertEquals("pw4", user.getPassword());
+		assertEquals("Ryan", user.getFirstName());
+		assertEquals("Last", user.getLastName());
 		assertEquals(" harr@gmail.com", user.getEmail());
 //		assertEquals("2015-07-11 11:00:00.0", user.getCreateDate());  <--this is not empty
-		assertEquals(" myimage.jpg", user.getImageURL());
-		assertEquals(" notAdmin", user.getRole());
+		assertEquals("https://i.pinimg.com/originals/a9/ee/44/a9ee4406650438b8e098163b0fe070a6.jpg", user.getImageURL());
+		assertEquals("notAdmin", user.getRole());
 		assertEquals(false, user.isActive());
 	}
 
@@ -64,7 +64,7 @@ class UserTests {
 	void test_user_has_journal_entries() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getJournalEntries());
-		assertEquals("Mtn biking in golden", user.getJournalEntries().get(0).getTitle());
+		assertEquals("Trip to Grand Junction", user.getJournalEntries().get(0).getTitle());
 	}
 
 	@Test
@@ -86,7 +86,7 @@ class UserTests {
 	void test_user_has_POI_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getPointComments());
-		assertEquals("Great trailhead parking", user.getPointComments().get(0).getCommentText());
+		assertEquals("sometext", user.getPointComments().get(0).getCommentText());
 	}
 
 	@Test

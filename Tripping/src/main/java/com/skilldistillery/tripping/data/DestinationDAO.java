@@ -6,7 +6,6 @@ import com.skilldistillery.tripping.entities.Activity;
 import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.PointOfInterest;
-import com.skilldistillery.tripping.entities.PointOfInterestComment;
 
 public interface DestinationDAO {
 	
@@ -22,16 +21,10 @@ public interface DestinationDAO {
 	
 	public List<PointOfInterest> getPointsByDestination(int destinationId);
 	
-	public List<PointOfInterest> getPointsByAmenityAndDestination(int amenityId, int destinationId);
+	public List<Amenity> getAmenitiesByDestination(int pointId);
 	
-	public List<Amenity> getAmenitiesByPoint(int pointId);
+	public List<Activity> getActivitiesByDestination(int pointId);
+
+	public List<Destination> getAllDestinations();
 	
-	public List<Activity> getActivitiesByPoint(int pointId);
-	
-	public PointOfInterestComment createComment(PointOfInterestComment comment);
-
-	public void addActivitiesById(PointOfInterest pointOfInterest, Integer[] activityIds);
-
-	public void addAmenityById(PointOfInterest pointOfInterest, Integer[] amenityIds);
-
 }

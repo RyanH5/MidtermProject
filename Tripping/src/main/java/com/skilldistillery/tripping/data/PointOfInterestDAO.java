@@ -17,7 +17,7 @@ public interface PointOfInterestDAO {
 
 	public boolean deletePointOfInterest(int id);
 	
-	public PointOfInterest createPointOfInterestAndAddress(PointOfInterest pointOfInterest);
+	public List<PointOfInterest> getAllPoints();
 	
 	public List<PointOfInterest> getPointsByDestination(int destinationId);
 
