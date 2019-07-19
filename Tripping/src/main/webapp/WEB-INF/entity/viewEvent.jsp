@@ -42,7 +42,16 @@
 		<br>
 		<p>${event.eventDetails }</p>
 		<br>
-		
+			<%-- <c:choose>
+				<c:when test="${! empty e.reviews}">
+					<c:forEach var="er" items="${e.reviews}">
+						<h4>Local Resident ${er.userId} says: </h4>
+						<h5>Review Title: ${er.title}</h5>
+						<p>Review Body: ${er.reviewText}</p>
+						<span>Rating: ${er.rating }</span>
+					</c:forEach>			
+				</c:when>			
+			</c:choose> --%>
 		
 	
 			<a href="viewPoints.do">Return to Destination</a><br>

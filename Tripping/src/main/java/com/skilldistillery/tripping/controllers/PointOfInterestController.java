@@ -19,7 +19,7 @@ public class PointOfInterestController {
 	@RequestMapping(path = "viewPoint.do")
 	public ModelAndView viewPoint(ModelAndView model, int id) {
 		PointOfInterest point = dao.findPointOfInterestById(id);
-		model.addObject("p", point);
+		model.addObject("point", point);
 		model.setViewName("entity/viewPoint");
 		return model;
 	}

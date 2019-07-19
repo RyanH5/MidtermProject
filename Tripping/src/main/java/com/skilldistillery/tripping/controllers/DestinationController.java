@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.DestinationDAO;
 import com.skilldistillery.tripping.entities.Destination;
-import com.skilldistillery.tripping.entities.PointOfInterest;
 
 @Controller
 public class DestinationController {
@@ -31,6 +29,13 @@ public class DestinationController {
 		List<Destination> dests = dao.getAllDestinations();
 		model.addObject("dests", dests);
 		model.setViewName("entities/viewDestinations");
+		return model;
+	}
+	@RequestMapping(value= {"shellTemplate.do"})
+	public ModelAndView getShellTemplate(ModelAndView model) {
+		List<Destination> dests = dao.getAllDestinations();
+		model.addObject("dests", dests);
+		model.setViewName("shelltemplate");
 		return model;
 	}
 }
