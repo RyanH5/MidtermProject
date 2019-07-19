@@ -2,7 +2,7 @@ package com.skilldistillery.tripping.data;
 
 import java.util.List;
 
-import com.skilldistillery.tripping.entities.*;
+import com.skilldistillery.tripping.entities.User;
 
 public interface UserAuthDAO {
 

@@ -63,7 +63,7 @@
 			</form>
 			
 			<form action="viewAmenity.do" method="GET">
-				FIXME: View Amenity by Amenity ID: <input type="text" name="id" /> <input
+				View Amenity by Amenity ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Amenity" />
 			</form>
 			

@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>${activity.name }</title>
+<title>${amenity.name }</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta
@@ -35,24 +35,24 @@
 
 		<!-- content come here     -->
 		<div class="section text-center">
-			<h2>${activity.name }</h2>
-			<a href="viewDestination.do?id=${activity.id }">${activity.name }</a><br>
-			<a href="viewDestination.do?id=${a.id }">${activity.imageUrl }</a><br>
+			<h2>${amenity.name }</h2>
+			<a href="viewDestination.do?id=${amenity.id }">${amenity.name }</a><br>
+			<a href="viewDestination.do?id=${a.id }">${amenity.iconUrl }</a><br>
 			<h4>Points Of Interest:</h4>
-			<c:forEach var="p" items="${activity.getPoints()}">
-				<a href="viewPoints.do?id=${activity.id }">${activity.name }</a>
+			<c:forEach var="p" items="${amenity.getPoints()}">
+				<a href="viewPoints.do?id=${amenity.id }">${amenity.name }</a>
 				<br>
 			</c:forEach>
 		</div>
 
 	<div class="page-header section-dark"
-	style="background-image: url('${activity.imageUrl }')">
+	style="background-image: url('${amenity.iconUrl }')">
 	<div class="filter"></div>
 	<div class="content-center">
 		<div class="container">
 			<div class="title-brand">
-				<h3 class="presentation-title">${activity.name }</h3>
-				<h6 class="category category-absolute">${activity.longDescription }</h6>
+				<h3 class="presentation-title">${amenity.name }</h3>
+				<h6 class="category category-absolute">${amenity.longDescription }</h6>
 				<!-- <div class="fog-low">
 					<img src="./assets/img/fog-low.png" alt="">
 				</div>
@@ -65,7 +65,7 @@
 	</div>
 	<div class="moving-clouds"
 		style="background-image: url('./assets/img/clouds.png');"></div>
-	<h6 class="category category-absolute">${activity.shortDescription }</h6>
+	<h6 class="category category-absolute">${amenity.shortDescription }</h6>
 </div>
 </div>
 
