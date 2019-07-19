@@ -41,8 +41,13 @@ public class EventDAOImpl implements EventDAO{
 
 	@Override
 	public List<Event> getEventsByDestination(int destinationId) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql9 = "SELECT event FROM Event event"
+				+ " JOIN event.destination d"
+				+ " WHERE d.id = :id";
+		List<Event> events = em.createQuery(jpql9, Event.class)
+			.setParameter("id", 3)
+			.getResultList();
+		return events;
 	}
 	
 	

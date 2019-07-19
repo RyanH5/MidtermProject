@@ -1,5 +1,7 @@
 package com.skilldistillery.tripping.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +19,16 @@ public class EventController {
 	@RequestMapping(path = "viewEvent.do")
 	public ModelAndView viewEvent(ModelAndView model, int id) {
 		Event event = dao.findEventById(id);
-		System.out.println(event);
 		model.addObject("event", event);
 		model.setViewName("entity/viewEvent");
+		return model;
+	}
+	
+	@RequestMapping(path = "viewEvents.do")
+	public ModelAndView viewEvents(int id, ModelAndView model) {
+		List<Event> events = dao.getEventsByDestination(id);
+		model.addObject("events", events);
+		model.setViewName("entities/viewEvents");
 		return model;
 	}
 }

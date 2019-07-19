@@ -10,7 +10,6 @@ public interface EventDAO {
 	public Event createEvent(Event event);
 	public boolean updateEvent(int id, Event event);
 	public boolean deletePointOfInteres(int id);
-//	public List<Event> allEvents = getAllEvents();
 	public List<Event> getEventsByDestination(int destinationId);
 	
 }

@@ -48,6 +48,10 @@
 				Get Event by Event ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Event" />
 			</form>
+			<form action="viewEvents.do" method="GET">
+				Get All Event by Destination ID: <input type="text" name="id" /> 
+				<input type="submit" value="Get Events" />
+			</form>
 		</nav>
 	</header>
 
