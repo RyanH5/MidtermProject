@@ -2,12 +2,12 @@ package com.skilldistillery.tripping.data;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.tripping.entities.Event;
 import com.skilldistillery.tripping.entities.User;
 
 @Transactional
