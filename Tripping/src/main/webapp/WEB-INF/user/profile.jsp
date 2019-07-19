@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="http://localhost:8090/indexWIP.do" rel="tooltip" title="tripping" data-placement="bottom">
           tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +46,7 @@
 					<li class="nav-item"><a href="viewDestinations.do"
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Destinations</a></li>
-					<li class="nav-item"><a href="viewEvents.do" 
+					<li class="nav-item"><a href="viewEvents.do"
 					class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Events</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
@@ -59,12 +60,12 @@
     </div>
   </nav>
   <!-- End Navbar -->
-  
+
   <div class="page-header page-header-xs" data-parallax="true" style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg);
     background-position-y: 42%;">
     <div class="filter"></div>
   </div>
-  <div class="section profile-content">
+  <div class="section profile-content" style="background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);">
     <div class="container">
       <div class="owner">
         <div class="avatar">
