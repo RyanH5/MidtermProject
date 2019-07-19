@@ -1,5 +1,7 @@
 package com.skilldistillery.tripping.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +57,13 @@ public class UserAuthController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("user");
 		return "index";	
+	}
+	@RequestMapping(path = "viewUsers.do")
+	public ModelAndView viewAllUsers(ModelAndView modelAndView ) {
+		modelAndView.setViewName("user/allUsers");
+		List<User> users = dao.findAllUsers();
+		modelAndView.addObject("users", users);
+		return modelAndView;	
 	}
 	
 }
