@@ -58,7 +58,7 @@ public class JournalEntry {
 	private Event event;
 
 	@ManyToOne
-	@JoinColumn(name = "activity_id")
+	@JoinColumn(name = "activitity_id")
 	private Activity activity;
 
 	@OneToMany(mappedBy = "journalId")

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,6 @@
 </head>
 <body>
 	<div class="mdl-card">
-		<c:forEach var="p" items="${allpoints}">
 			<div class="mdl-card__title">
 				<h2 class="mdl-card__title-text">${p.name }<br>${p.destination.getName() }</h2>
 			</div>
@@ -27,15 +25,15 @@
 				${p.address.getPhone() }
 				<h4>Amenities:</h4>
 				<c:forEach var="a" items="${p.getAmenities()}">
-					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
+					<li><a href="viewPoint.do?fid=${a.id }">${a.name }</a></li>
 				</c:forEach>
 				<h4>Activities:</h4>
 				<c:forEach var="a" items="${p.getActivities()}">
-					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
+					<li><a href="viewPoint.do?fid=${a.id }">${a.name }</a></li>
 				</c:forEach>
 				<h4>Comments:</h4>
 				<c:forEach var="c" items="${p.getComments()}">
-					<li><a href="getPoint.do?fid=${c.id }">${c.commentText }</a></li>
+					<li><a href="viewPoint.do?fid=${c.id }">${c.commentText }</a></li>
 					<br>
 					<br>
 				</c:forEach>
@@ -50,7 +48,6 @@
 					<i class="material-icons">add</i>
 				</button>
 			</div>
-		</c:forEach>
 	</div>
 </body>
 </html>

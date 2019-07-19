@@ -19,6 +19,8 @@ public interface PointOfInterestDAO {
 	
 	public PointOfInterest createPointOfInterestAndAddress(PointOfInterest pointOfInterest);
 	
+	public List<PointOfInterest> getAllPoints();
+	
 	public List<PointOfInterest> getPointsByDestination(int destinationId);
 
 	public List<PointOfInterest> getPointsByAmenityAndDestination(int amenityId, int destinationId);

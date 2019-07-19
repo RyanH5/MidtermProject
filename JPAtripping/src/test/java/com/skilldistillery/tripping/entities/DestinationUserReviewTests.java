@@ -43,18 +43,18 @@ class DestinationUserReviewTests {
 	@Test
 	void test_destination_usr_review_mappings() {
 		assertEquals("golden biking review", dr1.getTitle());
-		assertEquals("crevasse rescue mountain", dr1.getDestination().getDescription());
+		assertEquals("Located in the northwest corner of Colorado, is the town of Dinosaur. Origonaly named Baxter Springs, then Artesia, and renamed again in 1966, Dinosaur.", dr1.getDestination().getDescription());
 	}
 	
 	@Test
 	void test_destination_usr_review_association_destination() {
-		assertEquals("alpine mtn", dr1.getDestination().getShortDescription());
+		assertEquals("Dinoaur offers great ancient history with easy access to Dinosaur National Monument with a touch of modern amenities.", dr1.getDestination().getShortDescription());
 	}
 	
 
 	@Test 
 	void test_desst_usr_review_association_to_user() {
-		assertEquals(" harr", dr1.getUser().getLastName());
+		assertEquals("Last", dr1.getUser().getLastName());
 		
 	}
 

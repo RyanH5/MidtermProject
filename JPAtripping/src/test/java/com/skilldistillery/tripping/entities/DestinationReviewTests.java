@@ -61,13 +61,13 @@ class DestinationReviewTests {
 	void test_Destination_Review_has_destinations () {
 		DestinationReview destReview = em.find(DestinationReview.class, 1);
 		assertNotNull(destReview.getDestination().getName());
-		assertEquals("st mary glackier", destReview.getDestination().getName());
+		assertEquals("Dinosaur", destReview.getDestination().getName());
 	}
 	@Test
 	void test_Destination_Review_has_users () {
 		DestinationReview destReview = em.find(DestinationReview.class, 1);
 		assertNotNull(destReview.getDestination());
-		assertEquals(" ryan", destReview.getUser().getFirstName());
+		assertEquals("Ryan", destReview.getUser().getFirstName());
 	}
 
 }

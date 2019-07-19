@@ -86,4 +86,11 @@ public class DestinationDAOImpl implements DestinationDAO {
 		return activities;
 	}
 
+	@Override
+	public List<Destination> getAllDestinations() {
+		String query = "SELECT d FROM Destination d";
+		List<Destination> dests = em.createQuery(query, Destination.class).getResultList();
+		return dests;
+	}
+
 }
