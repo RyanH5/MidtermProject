@@ -31,7 +31,7 @@
 				href="viewProfile.do">View User Profile</a><br> <a
 				href="indexWIP.do">View Index Work in Progress</a> <br> <a
 				href="viewDestinations.do">View All Destinations</a><br> <a
-				href="viewEvents">FIX ME: View All Events</a><br><a
+				href="viewEvents.do">FIX ME: View All Events</a><br><a
 				href="viewActivities.do">View All Activities</a><br><a
 				href="viewUsers.do">FIX ME View All Users</a><br>
 			<form action="viewDestination.do" method="GET">
@@ -52,7 +52,7 @@
 				Get Event by Event ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Event" />
 			</form>
-			<form action="viewEvents.do" method="GET">
+			<form action="viewEventsByDestination.do" method="GET">
 				Get All Event by Destination ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Events" />
 			</form>
