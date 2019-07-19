@@ -21,7 +21,7 @@ public class UserController {
 	public ModelAndView viewUserById(ModelAndView model, Integer id) {
 		User user = dao.findUserById(id);
 		model.addObject("user", user);
-		model.setViewName("user/profile");
+		model.setViewName("user/viewWebUser");
 		return model;
 	}
 	
