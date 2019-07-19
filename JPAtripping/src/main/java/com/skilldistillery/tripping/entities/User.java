@@ -271,11 +271,31 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", userName=").append(userName).append(", password=")
-				.append(password).append(", firstName=").append(firstName).append(", lastName=").append(lastName)
-				.append(", email=").append(email).append("]");
+		builder.append("User [id=");
+		builder.append(id);
+		builder.append(", userName=");
+		builder.append(userName);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", lastName=");
+		builder.append(lastName);
+		builder.append(", createDate=");
+		builder.append(createDate);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", imageURL=");
+		builder.append(imageURL);
+		builder.append(", role=");
+		builder.append(role);
+		builder.append(", active=");
+		builder.append(active);
+		builder.append("]");
 		return builder.toString();
 	}
+
+	
 
 
 }

@@ -1,44 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%--
-<body>
-	<header class="header">
-		<form action="/" method="GET">
-  			<input type="submit" value="Tripping" class="btn"/>
-		</form>
-		<nav>
-			<form action="userLogout.do" method="GET">
-	  	<input type="submit" value="logout" class="nav btn link"/>
-	  </form>
-		</nav>
-	</header>
-		<section>
-			<h2>Welcome, ${sessionScope.user.userName }</h2>
-		</section>
-	<c:choose>
-		<c:when test="${! empty user}">
-			<h4>User Info</h4>
-			<p>ID: ${user.id}</p>
-			<p>Username: ${user.userName}</p>
-			<p>First Name: ${user.firstName}</p>
-			<p>Last Name: ${user.lastName}</p>
-			<p>Don't look at this password: ${user.password}</p>
-			<p>Create Date: ${user.createDate }</p>
-			<p>Email: ${user.email }</p>
-			<p>Image: ${user.imageURL }</p>
-			<p>Role: ${user.role }</p>
-			<p>Active: ${user.active }</p>
-		</c:when>
-		<c:otherwise> No User Here</c:otherwise>
-	</c:choose>
-</body>
---%>
-
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img//apple-icon.png">
@@ -63,7 +27,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/">
           tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,6 +59,7 @@
     </div>
   </nav>
   <!-- End Navbar -->
+  
   <div class="page-header page-header-xs" data-parallax="true" style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg);
     background-position-y: 42%;">
     <div class="filter"></div>
@@ -139,11 +104,6 @@
 							<ul class="list-unstyled follows">
 								<li>
 									<div class="row">
-<!-- 							<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
-											<img src="../assets/img/faces/clem-onojeghuo-2.jpg"
-												alt="Circle Image"
-												class="img-circle img-no-padding img-responsive">
-										</div> -->
 										<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
 											<div class="section text-center">
 												<c:forEach var="entry"

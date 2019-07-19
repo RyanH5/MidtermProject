@@ -66,6 +66,9 @@
 		<div class="collapse navbar-collapse justify-content-end"
 			id="navigation">
 			<ul class="navbar-nav">
+				<li><a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+			          tripping
+			        </a></li>
 				<li class="nav-item"><a href="viewActivities.do"
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Activities</a></li>
