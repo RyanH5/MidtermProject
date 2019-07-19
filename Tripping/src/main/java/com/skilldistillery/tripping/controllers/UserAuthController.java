@@ -48,6 +48,8 @@ public class UserAuthController {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
 			user.getJournalEntries();
 			session.setAttribute("user", user);
+			System.out.println(session);
+			System.out.println(user);
 			return "user/profile";
 	}
 	
