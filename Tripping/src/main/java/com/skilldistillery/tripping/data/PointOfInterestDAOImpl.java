@@ -57,12 +57,6 @@ public class PointOfInterestDAOImpl implements PointOfInterestDAO {
 	}
 
 	@Override
-	public PointOfInterest createPointOfInterestAndAddress(PointOfInterest pointOfInterest) {
-		em.persist(pointOfInterest);
-		return null;
-	}
-
-	@Override
 	public List<PointOfInterest> getPointsByDestination(int destinationId) {
 		String query = "SELECT point FROM PointOfInterest point WHERE point.destination.id = :id";
 		List<PointOfInterest> points = em.createQuery(query, PointOfInterest.class).setParameter("id", destinationId).getResultList();

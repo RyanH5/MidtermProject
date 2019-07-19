@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Tripping</title>
-<link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
 	<header class="header">
@@ -26,32 +25,53 @@
 					</form>
 				</c:otherwise>
 			</c:choose>
-			<a href="userRegister.do">User Registration</a><br> <a
-				href="loginOrRegister.do">User Login</a><br> <a
-				href="viewProfile.do">User Profile</a><br> <a
-				href="indexWIP.do">View New Index Work in Progress</a> <br> <a
+			<a href="userRegister.do">View User Registration</a><br> <a
+				href="loginOrRegister.do">View User Login</a><br> <a
+				href="viewProfile.do">View User Profile</a><br> <a
+				href="indexWIP.do">View Index Work in Progress</a> <br> <a
 				href="viewDestinations.do">View All Destinations</a><br> <a
-				href="viewPoints.do">View All Points</a><br>
+				href="viewEvents">FIX ME: View All Events</a><br><a
+				href="viewActivities.do">View All Activities</a><br><a
+				href="viewUsers.do">FIX ME View All Users</a><br>
 			<form action="viewDestination.do" method="GET">
-				Get Destination by Destination ID: <input type="text" name="id" />
+				View Destination by ID: <input type="text" name="id" />
 				<input type="submit" value="Get Destination" />
 			</form>
 			<form action="viewPoint.do" method="GET">
-				Get Point by Point ID: <input type="text" name="id" /> <input
+				View PoI by ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Point" />
 			</form>
+			
 			<form action="viewUser.do" method="GET">
-				Get User Profile by User ID: <input type="text" name="id" /> <input
+				FIXME: View Profile by User ID: <input type="text" name="id" /> <input
 					type="submit" value="Get User" />
 			</form>
+			
 			<form action="viewEvent.do" method="GET">
+<<<<<<< HEAD
 				Get Event by Event ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Event" />
 			</form>
 			<form action="viewEvents.do" method="GET">
 				Get All Event by Destination ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Events" />
+=======
+				FIXME: View Event by Event ID: <input type="text" name="id" /> <input
+					type="submit" value="Get Event" />
+>>>>>>> master
 			</form>
+			
+			<form action="viewActivity.do" method="GET">
+				FIXME: View Activity by Activity ID: <input type="text" name="id" /> <input
+					type="submit" value="Get Event" />
+			</form>
+			
+			<form action="viewAmenity.do" method="GET">
+				FIXME: View Amenity by Amenity ID: <input type="text" name="id" /> <input
+					type="submit" value="Get Amenity" />
+			</form>
+			
+			
 		</nav>
 	</header>
 
