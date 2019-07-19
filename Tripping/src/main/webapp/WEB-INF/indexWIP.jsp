@@ -34,7 +34,7 @@
 		<i class="fa fa-user-o" aria-hidden="true"></i>
 			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 				title="loginOrRegister.do" data-placement="bottom"
-				target="_blank"> login </a>
+				> login </a>
 			<button class="navbar-toggler navbar-toggler" type="button"
 				data-toggle="collapse" data-target="#navigation"
 				aria-controls="navigation-index" aria-expanded="false"
@@ -58,7 +58,7 @@
 							Events</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Star on GitHub" data-placement="bottom"
-					href="https://github.com/RyanH5/MidtermProject" target="_blank">
+					href="https://github.com/RyanH5/MidtermProject" >
 						<i class="fa fa-github"></i>
 						<p class="d-lg-none">GitHub</p>
 				</a></li>
@@ -1021,9 +1021,9 @@
 						Paper Kit Make sure you check all of them and use those that you
 						like the most.</p>
 					<br /> <a href="nucleo-icons.html"
-						class="btn btn-danger btn-round" target="_blank">View Demo
+						class="btn btn-danger btn-round" >View Demo
 						Icons</a> <a href="https://nucleoapp.com/?ref=1712"
-						class="btn btn-outline-danger btn-round" target="_blank">View
+						class="btn btn-outline-danger btn-round" >View
 						All Icons</a>
 				</div>
 				<div class="col-lg-6 col-md-12">
@@ -1103,7 +1103,7 @@
 					</div>
 					<div class="col text-center">
 						<a href="./examples/register-page.html"
-							class="btn btn-outline-neutral btn-round btn-lg" target="_blank">View
+							class="btn btn-outline-neutral btn-round btn-lg" >View
 							Register Page</a>
 					</div>
 				</div>
@@ -1114,20 +1114,20 @@
 		<div class="container">
 			<div class="row example-page">
 				<div class="col-md-6 text-center">
-					<a href="examples/landing.html" target="_blank"> <img
+					<a href="examples/landing.html" > <img
 						src="./assets/img/examples/landing-page.png" alt="Rounded Image"
 						class="img-rounded img-responsive" style="width: 100%"> <a
 						href="./examples/landing-page.html"
-						class="btn btn-outline-neutral btn-round" target="_blank">Landing
+						class="btn btn-outline-neutral btn-round" >Landing
 							Page</a>
 					</a>
 				</div>
 				<div class="col-md-6 text-center">
-					<a href="examples/profile.html" target="_blank"> <img
+					<a href="examples/profile.html" > <img
 						src="./assets/img/examples/profile-page.png" alt="Rounded Image"
 						class="img-rounded img-responsive" style="width: 100%"> <a
 						href="./examples/profile-page.html"
-						class="btn btn-outline-neutral btn-round" target="_blank">Profile
+						class="btn btn-outline-neutral btn-round" >Profile
 							Page</a>
 					</a>
 				</div>
@@ -1154,14 +1154,14 @@
 					<p class="description">
 						We've just launched <a
 							href="http://demos.creative-tim.com/paper-kit-2-pro/presentation.html?ref=utp-pk2-demos"
-							class="text-danger" target="_blank">tripping PRO</a>. It has a
+							class="text-danger" >tripping PRO</a>. It has a
 						huge number of components, sections and example pages.
 					</p>
 				</div>
 				<div class="col-sm-5 ml-auto mr-auto">
 					<a
 						href="https://www.creative-tim.com/product/paper-kit-2-pro?ref=utp-pk-demos"
-						class="btn btn-info btn-round" target="_blank"> <i
+						class="btn btn-info btn-round" > <i
 						class="nc-icon nc-spaceship" aria-hidden="true"></i> Upgrade to
 						PRO
 					</a>
@@ -1196,12 +1196,11 @@
 			<div class="row">
 				<nav class="footer-nav">
 					<ul>
-						<li><a href="https://www.creative-tim.com" target="_blank">Creative
+						<li><a href="https://www.creative-tim.com" >Creative
 								Tim</a></li>
-						<li><a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+						<li><a href="http://blog.creative-tim.com/" >Blog</a>
 						</li>
-						<li><a href="https://www.creative-tim.com/license"
-							target="_blank">Licenses</a></li>
+						<li><a href="https://www.creative-tim.com/license">Licenses</a></li>
 					</ul>
 				</nav>
 			</div>

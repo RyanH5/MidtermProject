@@ -53,19 +53,20 @@
 			<div class="title-brand">
 				<h3 class="presentation-title">${activity.name }</h3>
 				<h6 class="category category-absolute">${activity.longDescription }</h6>
-				<div class="fog-low">
+				<!-- <div class="fog-low">
 					<img src="./assets/img/fog-low.png" alt="">
 				</div>
 				<div class="fog-low right">
 					<img src="./assets/img/fog-low.png" alt="">
 				</div>
-			</div>
+			</div> -->
 			<h2 class="presentation-subtitle text-center"></h2>
 		</div>
 	</div>
 	<div class="moving-clouds"
 		style="background-image: url('./assets/img/clouds.png');"></div>
 	<h6 class="category category-absolute">${activity.shortDescription }</h6>
+</div>
 </div>
 
 

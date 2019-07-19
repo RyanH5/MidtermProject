@@ -14,7 +14,7 @@
 		</nav>
 	</header>
 		<section>
-			<h2>Welcome, ${sessionScope.user.userName }</h2>
+			<h2>Welcome, ${user.userName }</h2>
 		</section>
 	<c:choose>
 		<c:when test="${! empty user}">
@@ -55,7 +55,7 @@
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+ 
 </head>
 
 <body class="profile-page sidebar-collapse">
@@ -63,7 +63,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
           tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,7 @@
 							Events</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Star on GitHub" data-placement="bottom"
-					href="https://github.com/RyanH5/MidtermProject" target="_blank">
+					href="https://github.com/RyanH5/MidtermProject" >
 						<i class="fa fa-github"></i>
 						<p class="d-lg-none">GitHub</p>
 				</a></li>
@@ -103,13 +103,13 @@
     <div class="container">
       <div class="owner">
         <div class="avatar">
-          <img src="${sessionScope.user.imageURL }" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+          <img src="${user.imageURL }" alt="Circle Image" class="img-circle img-no-padding img-responsive">
         </div>
         <div class="name">
-          <h4 class="title">${sessionScope.user.userName }
+          <h4 class="title">${user.userName }
             <br />
 					</h4>
-					<h6 class="description">${sessionScope.user.role }</h6>
+					<h6 class="description">${user.role }</h6>
 				</div>
 			</div>
 			<div class="row">
@@ -147,7 +147,7 @@
 										<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
 											<div class="section text-center">
 												<c:forEach var="entry"
-													items="${sessionScope.user.getJournalEntries() }">
+													items="${user.getJournalEntries() }">
 													<em><h2>${entry.getTitle() }</h2></em>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
@@ -215,9 +215,9 @@
 			<div class="row">
 				<nav class="footer-nav">
 					<ul>
-						<li><a href="/" target="_blank">Trip Blog</a></li>
+						<li><a href="/" >Trip Blog</a></li>
 						<li><a href="https://www.creative-tim.com/license"
-							target="_blank">Licenses</a></li>
+							>Licenses</a></li>
 					</ul>
 				</nav>
 			</div>

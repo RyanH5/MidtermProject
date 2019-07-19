@@ -44,7 +44,7 @@
 			</form>
 			
 			<form action="viewUser.do" method="GET">
-				FIXME: View Profile by User ID: <input type="text" name="id" /> <input
+				View User by User ID: <input type="text" name="id" /> <input
 					type="submit" value="Get User" />
 			</form>
 			
@@ -58,7 +58,7 @@
 			</form>
 			
 			<form action="viewActivity.do" method="GET">
-				FIXME: View Activity by Activity ID: <input type="text" name="id" /> <input
+				View Activity by Activity ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Event" />
 			</form>
 			
