@@ -48,18 +48,12 @@
 			</form>
 			
 			<form action="viewEvent.do" method="GET">
-<<<<<<< HEAD
 				Get Event by Event ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Event" />
 			</form>
 			<form action="viewEvents.do" method="GET">
 				Get All Event by Destination ID: <input type="text" name="id" /> 
 				<input type="submit" value="Get Events" />
-=======
-				FIXME: View Event by Event ID: <input type="text" name="id" /> <input
-					type="submit" value="Get Event" />
->>>>>>> master
-			</form>
 			
 			<form action="viewActivity.do" method="GET">
 				FIXME: View Activity by Activity ID: <input type="text" name="id" /> <input
