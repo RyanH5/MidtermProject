@@ -25,17 +25,14 @@
 	<!--    navbar come here          -->
 	<!-- end navbar  -->
 	<div class="wrapper">
-		<c:forEach var="e" items="${events}">
+		<c:forEach var="user" items="${users}">
 			<div class="section text-center">
-				<h2>${e.name }</h2>
-				<a href="viewEvent.do?id=${d.id }">${d.name }</a><br> <a
-					href="viewEvent.do?id=${d.id }">${d.description }</a><br>
-
-
-				<h4>Starting: ${e.startDate}</h4>
-				<h4>Ending: ${e.endDate}</h4>
-				<p>${e.eventDetails}</p>
-
+				<h2>${user.userName }</h2>
+				
+				<a href="viewUser.do?id=${user.id }">${user.firstName }</a><br> 
+				<a href="viewUser.do?id=${user.id }">${user.lastName }</a><br> 
+				<a href="viewUser.do?id=${user.id }">${user.active }</a><br> 
+					
 			</div>
 		</c:forEach>
 	</div>
@@ -60,5 +57,4 @@
 	src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
-
 </html>

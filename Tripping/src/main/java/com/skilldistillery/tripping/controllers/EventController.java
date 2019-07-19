@@ -24,9 +24,16 @@ public class EventController {
 		return model;
 	}
 	
-	@RequestMapping(path = "viewEvents.do")
+	@RequestMapping(path = "viewEventsByDestination.do")
 	public ModelAndView viewEvents(int id, ModelAndView model) {
 		List<Event> events = dao.getEventsByDestination(id);
+		model.addObject("events", events);
+		model.setViewName("entities/viewEvents");
+		return model;
+	}
+	@RequestMapping(path = "viewAllEvents.do")
+	public ModelAndView viewAllEvents(ModelAndView model) {
+		List<Event> events = dao.getAllEvents();
 		model.addObject("events", events);
 		model.setViewName("entities/viewEvents");
 		return model;

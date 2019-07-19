@@ -1,5 +1,7 @@
 package com.skilldistillery.tripping.data;
 
+import java.util.List;
+
 import com.skilldistillery.tripping.entities.*;
 
 public interface UserAuthDAO {
@@ -9,4 +11,5 @@ public interface UserAuthDAO {
 	public User createNewUser(User user);
 	public boolean updateUser(int id, User user);
 //	No delete user bc you'd never delete a user, just set inactive
+	public List<User> findAllUsers();
 }
