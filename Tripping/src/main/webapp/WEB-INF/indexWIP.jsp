@@ -68,7 +68,7 @@
 </nav>
 <!-- End Navbar -->
 <div class="page-header section-dark"
-	style="background-image: url('./assets/img/antine-barres.jpg')">
+	style="background-image: url('https://www.outtherecolorado.com/wp-content/uploads/2017/03/65c35611befe96d3a3f0f010e1e74fcd-1024x683.jpg')">
 	<div class="filter"></div>
 	<div class="content-center">
 		<div class="container">

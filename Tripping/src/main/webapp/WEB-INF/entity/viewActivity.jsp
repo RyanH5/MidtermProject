@@ -40,7 +40,7 @@
 			<a href="viewDestination.do?id=${a.id }">${activity.imageUrl }</a><br>
 			<h4>Points Of Interest:</h4>
 			<c:forEach var="p" items="${activity.getPoints()}">
-				<a href="viewPoints.do?id=${activity.id }">${activity.name }</a>
+				<a href="viewPoint.do?id=${p.id }">${p.name }</a>
 				<br>
 			</c:forEach>
 		</div>
