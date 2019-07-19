@@ -14,7 +14,7 @@
 		</form>
 		<nav>
 			<c:choose>
-			<!-- ****** **********  IF LOGGED IN  *************************-->
+			<!--  *********************** IF LOGGED IN  **********************-->
 				<c:when test="${! empty sessionScope.user}">
 					<form action="userLogout.do" method="GET">
 						<input type="submit" value="Logout" class="nav btn link">
@@ -22,7 +22,7 @@
 					<a href="viewProfile.do">View My Profile</a><br>
 					
 					<!--  ************** IF ADMIN *************-->
-					<c:if test="${sessionSscope.user.role == 'Admin' }">
+					<c:if test="${sessionScope.user.role.equals('admin')}">
 						<form action="viewUser.do" method="GET">
 							View User by User ID: <input type="text" name="id" /> <input
 								type="submit" value="Get User" />
@@ -31,15 +31,14 @@
 						<a href="viewUsers.do">FIX ME View All Users</a><br>
 					</c:if> 
 				</c:when>
-				
-				<!-- ************** IF VISITOR BROWSING ******************* -->
+				<!--  ******************* IF VISITOR *************-->
 				<c:otherwise>
 					<form action="loginOrRegister.do" method="GET">
 						<input type="submit" value="Login" class="nav btn link">
 					</form>
 				</c:otherwise>
 			</c:choose>
-			<!--     ********** FOR VISITOR, USER, OR ADMIN -->
+			<!--  ************** ALL USERS, VISITORS, ADMIN **************-->
 			<a href="shellTemplate.do">View Shell Template</a><br> 
 			<a href="userRegister.do">View User Registration</a><br> 
 			<a href="loginOrRegister.do">View User Login</a><br> 
