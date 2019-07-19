@@ -1,17 +1,3 @@
-<!--
- =========================================================
- * Material Kit - v2.0.5
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/material-kit
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
-   Licensed under MIT (https://github.com/creativetimofficial/material-kit/blob/master/LICENSE.md)
-
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -24,7 +10,7 @@
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Tripping Points</title>
+<title>Tripping</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />

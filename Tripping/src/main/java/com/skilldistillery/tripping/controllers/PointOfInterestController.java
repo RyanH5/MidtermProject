@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.PointOfInterestDAO;
 import com.skilldistillery.tripping.entities.PointOfInterest;
-import com.skilldistillery.tripping.entities.User;
 
 @Controller
 public class PointOfInterestController {
@@ -18,9 +17,9 @@ public class PointOfInterestController {
 	private PointOfInterestDAO dao;
 
 	@RequestMapping(path = "viewPoint.do")
-	public ModelAndView viewPoint(ModelAndView model) {
-		List<PointOfInterest> allpoints = dao.getAllPoints();
-		model.addObject("allpoints", allpoints);
+	public ModelAndView viewPoint(ModelAndView model, int id) {
+		PointOfInterest point = dao.findPointOfInterestById(id);
+		model.addObject("p", point);
 		model.setViewName("entity/viewPoint");
 		return model;
 	}
@@ -30,6 +29,12 @@ public class PointOfInterestController {
 		List<PointOfInterest> allpoints = dao.getPointsByDestination(1);
 		model.addObject("allpoints", allpoints);
 		model.setViewName("entities/viewPoints");
+		return model;
+	}
+	
+	@RequestMapping(path = "indexWIP.do")
+	public ModelAndView getNewIndex(ModelAndView model) {
+		model.setViewName("indexWIP");
 		return model;
 	}
 

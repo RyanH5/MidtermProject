@@ -56,30 +56,30 @@ class AmenityTest {
 	@Test
 
 	void test_Amenity_mappingName() {
-		assertEquals("ADA", amenity.getName());
+		assertEquals("Lodging", amenity.getName());
 	}
 
 	@Test
 
 	void test_Amenity_mapping_short_description() {
-		assertEquals("wheel chair accessible stuff", amenity.getShortDescription());
+		assertEquals("Please, come stay and enjoy your visit", amenity.getShortDescription());
 	}
 
 	@Test
 
 	void test_Amenity_mapping_long_description() {
-		assertEquals("lots of safety stuff stuff stufgf", amenity.getLongDescription());
+		assertEquals("Colorado hotels and lodging range from five-star luxury hotels to rustic cabins. Whether it’s a city hotel, mountain resort, historic B&B or alpine lodge, Colorado accommodations provide amazing views, values and a variety of places to stay. Choose between the largest international hotel chains to small inns. And, you’ll find plenty of great dining options and activities no matter where you stay in Colorado.", amenity.getLongDescription());
 	}
 
 	@Test
 
 	void test_Amenity_mapping_image_url() {
-		assertEquals("image.url", amenity.getIconUrl());
+		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlsPQxYDhJxgl3MNFMocEEmPwMmcG5llr5rmUCGB1yb2_YPSy4jQ", amenity.getIconUrl());
 	}
 
 @Test
 	
 	void test_Amenity_mapping_points() {
-		assertEquals(5, amenity.getPoints().size());
+		assertEquals(1, amenity.getPoints().size());
 	}
 }

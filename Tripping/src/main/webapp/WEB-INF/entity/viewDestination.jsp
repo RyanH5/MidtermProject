@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +10,10 @@
 <meta charset="utf-8">
 </head>
 <body>
-					<h4>Point of Interest ID ${dest.id }</h4>
+					<h4>Destination ID ${dest.id }</h4>
 					<li><a href="viewPoint.do?fid=${dest.id }">${dest.name }</a></li>
 					<li><a href="viewPoint.do?fid=${dest.id }">${dest.description }</a></li>
-					<h2>Amenities:</h2>
+					<h2>Points of Interest:</h2>
 					<c:forEach var="p" items="${dest.getPoints()}">
 						<li><a href="viewPoint.do?fid=${p.id }">${p.name }</a></li>
 					</c:forEach>

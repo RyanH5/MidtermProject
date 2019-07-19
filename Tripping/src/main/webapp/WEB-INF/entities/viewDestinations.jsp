@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-<title>Destination: ${destination.name}</title>
+<title>Destination: ${d.name}</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta

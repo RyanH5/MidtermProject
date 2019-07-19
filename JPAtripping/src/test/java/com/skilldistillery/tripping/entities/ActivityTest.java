@@ -46,30 +46,30 @@ class ActivityTest {
 
 	@Test
 	void test_Activity_mappingName() {
-		assertEquals("mountain biking", activity.getName());
+		assertEquals("Adventure Tours", activity.getName());
 	}
 
 	@Test
 	void test_Activity_mapping_short_description() {
-		assertEquals("trails for all levels", activity.getShortDescription());
+		assertEquals("No seriously, let us do the driving while you take in the scenery.", activity.getShortDescription());
 	}
 
 	@Test
 
 	void test_Activity_mapping_long_description() {
-		assertEquals("easy moderate difficult trails", activity.getLongDescription());
+		assertEquals("Lots to see and more", activity.getLongDescription());
 	}
 
 	@Test
 
 	void test_Activity_mapping_image_url() {
-		assertEquals("fakeimage3.url", activity.getImageUrl());
+		assertEquals("https://captainzipline.com/wp-content/uploads/colorado-zipline-tour-2.jpg", activity.getImageUrl());
 	}
 
 	@Test
 
 	void test_Activity_mapping_points() {
-		assertEquals(5, activity.getPoints().size());
+		assertEquals(1, activity.getPoints().size());
 	}
 
 }

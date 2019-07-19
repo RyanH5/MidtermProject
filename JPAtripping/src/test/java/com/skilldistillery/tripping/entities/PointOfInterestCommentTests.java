@@ -43,7 +43,7 @@ public class PointOfInterestCommentTests {
 	@Test
 	void test_Comment_mappings() {
 		assertEquals(1, comment.getId());
-		assertEquals("Great trailhead parking", comment.getCommentText());
+		assertEquals("sometext", comment.getCommentText());
 	}
 
 	@Test
