@@ -1,6 +1,7 @@
 package com.skilldistillery.tripping.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,6 +19,18 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;
+	
+	@OneToMany
+	@JoinColumn(name = "event_id")
+	private List<EventReview> reviews;
+
+	public List<EventReview> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<EventReview> reviews) {
+		this.reviews = reviews;
+	}
 
 	@Column(name = "name")
 	private String name;
