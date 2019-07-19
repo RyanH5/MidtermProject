@@ -34,6 +34,7 @@
 				href="viewAllEvents.do">View All Events</a><br><a
 				href="viewActivities.do">View All Activities</a><br><a
 				href="viewUsers.do">View All Users</a><br>
+			<a href="viewGoogleMap.do">View Google Map</a><br>
 			<form action="viewDestination.do" method="GET">
 				View Destination by ID: <input type="text" name="id" />
 				<input type="submit" value="Get Destination" />
