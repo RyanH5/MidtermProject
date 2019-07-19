@@ -25,17 +25,8 @@
 			<h2>${e.name }</h2>
 			<a href="viewEvent.do?id=${d.id }">${d.name }</a><br>
 			<a href="viewEvent.do?id=${d.id }">${d.description }</a><br>
-			<!-- Add reviews to event -->
-			<%-- <c:choose>
-				<c:when test="${! empty e.reviews}">
-					<c:forEach var="er" items="${e.reviews}">
-						<h4>Local Resident ${er.userId} says: </h4>
-						<h5>Review Title: ${er.title}</h5>
-						<p>Review Body: ${er.reviewText}</p>
-						<span>Rating: ${er.rating }</span>
-					</c:forEach>			
-				</c:when>			
-			</c:choose> --%>
+			
+		
 			<h4>Starting: ${e.startDate}</h4>
 			<h4>Ending: ${e.endDate}</h4>
 			<p>${e.eventDetails}</p>

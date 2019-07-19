@@ -25,6 +25,7 @@
 					</form>
 				</c:otherwise>
 			</c:choose>
+			<a href="shellTemplate.do">View Shell Template</a><br> 
 			<a href="userRegister.do">View User Registration</a><br> <a
 				href="loginOrRegister.do">View User Login</a><br> <a
 				href="viewProfile.do">View User Profile</a><br> <a
