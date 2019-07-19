@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%--
 <body>
-	<header class="header">
+	<header class="header" >
 		<form action="/" method="GET">
   			<input type="submit" value="Tripping" class="btn"/>
 		</form>
@@ -63,7 +63,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="http://localhost:8090/indexWIP.do" rel="tooltip" title="tripping" data-placement="bottom">
           tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +99,7 @@
     background-position-y: 42%;">
     <div class="filter"></div>
   </div>
-  <div class="section profile-content">
+  <div class="section profile-content" style="background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);">
     <div class="container">
       <div class="owner">
         <div class="avatar">
