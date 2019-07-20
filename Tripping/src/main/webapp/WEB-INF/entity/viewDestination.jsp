@@ -10,34 +10,18 @@
 <meta charset="utf-8">
 </head>
 <body>
-					<h4>Destination ID ${dest.id }</h4>
-					<li><a href="viewPoint.do?fid=${dest.id }">${dest.name }</a></li>
-					<li><a href="viewPoint.do?fid=${dest.id }">${dest.description }</a></li>
+					<h4>Destination ID ${destination.id }</h4>
+					<li><a href="viewPoint.do?fid=${destination.id }">${destination.name }</a></li>
+					 <li><a href="viewPoint.do?fid=${destination.id }">${destination.description }</a></li>
 					<h2>Points of Interest:</h2>
-					<c:forEach var="p" items="${dest.getPoints()}">
-						<li><a href="viewPoint.do?fid=${p.id }">${p.name }</a></li>
-					</c:forEach>
+					<c:forEach var="poinr" items="${destination.getPoints()}">
+						<li><a href="viewPoint.do?fid=${point.id }">${point.name }</a></li>
+					</c:forEach> 
 			</div>
 		</div>
 	</div>
 	<footer class="footer footer-default">
-		<div class="container">
-			<nav class="float-left">
-				<ul>
-					<li><a href="https://www.creative-tim.com/"> Creative Tim
-					</a></li>
-				</ul>
-			</nav>
-			<div class="copyright float-right">
-				&copy;
-				<script>
-					document.write(new Date().getFullYear())
-				</script>
-				, made with <i class="material-icons">favorite</i> by <a
-					href="https://www.creative-tim.com/" target="blank">Creative
-					Tim</a> for a better web.
-			</div>
-		</div>
+
 	</footer>
 </body>
 

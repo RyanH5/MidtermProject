@@ -57,4 +57,6 @@ public interface UserDAO {
 	
 	public boolean updatePOIComment(int id, PointOfInterestComment poiComment);
 	
+	
+	
 }

@@ -18,16 +18,16 @@ public class DestinationController {
 	
 	@RequestMapping(value= {"viewDestination.do"})
 	public ModelAndView getDestination(ModelAndView model, int id) {
-		Destination dest = dao.findDestinationById(id);
-		model.addObject("dest", dest);
+		Destination destination = dao.findDestinationById(id);
+		model.addObject("destination", destination);
 		model.setViewName("entity/viewDestination");
 		return model;
 	}
 	
 	@RequestMapping(value= {"viewDestinations.do"})
 	public ModelAndView getDestinations(ModelAndView model) {
-		List<Destination> dests = dao.getAllDestinations();
-		model.addObject("dests", dests);
+		List<Destination> destinations = dao.getAllDestinations();
+		model.addObject("destinations", destinations);
 		model.setViewName("entities/viewDestinations");
 		return model;
 	}

@@ -28,52 +28,63 @@
 </head>
 <body>
 
-	<!--    navbar come here          -->
-	<nav>
-		<a id="navExample" class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
-			          tripping
-			        </a>
-	</nav>
-
-	<!-- end navbar  -->
-
-<%-- 	<div class="wrapper">
-
-	<!-- content come here     -->
-		<c:forEach var="a" items="${activities}">
-		<div class="section text-center">
-			<h2>${a.name }</h2>
-			<a href="viewDestination.do?id=${a.id }">${a.name }</a><br>
-			<a href="viewDestination.do?id=${a.id }">${a.imageUrl }</a><br>
-			<h4>Points Of Interest:</h4>
-			<c:forEach var="p" items="${a.getPoints()}">
-				<a href="viewPoints.do?id=${p.id }">${p.name }</a><br>
-			</c:forEach>
+<nav id="navExample" class="navbar navbar-expand-lg fixed-top"
+	color-on-scroll="300">
+	<div class="container">
+		<div class="navbar-translate">
+			<i class="fa fa-user-o" aria-hidden="true"></i> <a
+				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+				title="loginOrRegister.do" data-placement="bottom" target="_blank">login</a>
+			<button class="navbar-toggler navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navigation"
+				aria-controls="navigation-index" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-bar bar1"></span><span
+					class="navbar-toggler-bar bar2"></span><span
+					class="navbar-toggler-bar bar3"></span>
+			</button>
 		</div>
-	</c:forEach>
-
-	</div> --%>
-		<div class="main-section">
-		<c:forEach var="a" items="${activities}">
-			<div class="entity-container">
-				<div class="section text-center entity-card-image" style="background-image: url('${a.imageUrl}'); height: 230px;">
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navigation">
+			<ul class="navbar-nav">
+				<li><a class="navbar-brand" href="/" rel="tooltip"
+					title="tripping" data-placement="bottom"> tripping </a></li>
+				<li class="nav-item"><a href="viewActivities.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Activities</a></li>
+				<li class="nav-item"><a href="viewDestinations.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Destinations</a></li>
+				<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
+						class="nc-icon nc-layout-11"></i> Events</a></li>
+				<li class="nav-item"><a class="nav-link" rel="tooltip"
+					title="Star on GitHub" data-placement="bottom"
+					href="https://github.com/RyanH5/MidtermProject" target="_blank">
+						<i class="fa fa-github"></i>
+						<p class="d-lg-none">GitHub</p>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+	<div class="main-section">
+		<c:forEach var="activity" items="${activities}">
+			<div class="entity-container card">
+				<div class="section text-center entity-card-image"
+					href="viewActivity.do?id=${activity.id }"
+					style="background-image: url('${activity.imageUrl}'); height: 230px;">
 				</div>
 				<div class="entity-content dest">
-					<h2 class="entity-title"><a href="viewDestination.do?id=${a.id }">${a.name }</a></h2>
-					<br>
-					<h4>Points Of Interest:</h4>
-					<c:forEach var="p" items="${a.getPoints()}">
-						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
-					</c:forEach>					
+					<h6 class="entity-title">
+						<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
+					</h6>
 				</div>
-			</div>
 		</c:forEach>
 	</div>
-
+	</div>
 	<!-- Modal Bodies come here -->
 
 	<!--   end modal -->
-
 </body>
 
 <!--   Core JS Files   -->
