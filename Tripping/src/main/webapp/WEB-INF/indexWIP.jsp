@@ -86,7 +86,9 @@
 	</div>
 	<div class="moving-clouds"
 		style="background-image: url('./assets/img/clouds.png');"></div>
-	<h6 class="category category-absolute">Footer Texts</h6>
+	<!-- <h6 class="category category-absolute">EXPLORE</h6> -->
+	<h6 class="category category-absolute" style="color:#FFFFFF;font-size:160%;">
+	<a href="viewDestinations.do"><b>EXPLORE</b></h6>
 </div>
 <div class="main">
 	<div class="section section-buttons">

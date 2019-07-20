@@ -86,7 +86,9 @@
 	</div>
 </nav>
 	<div class="section section-image section-login"
-		style="background-image: url('./assets/img/login-image.jpg');">
+		style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
+<!-- 	<div class="section section-image section-login"
+		style="background-image: url('./assets/img/login-image.jpg');"> -->
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mx-auto">
@@ -125,11 +127,11 @@
 								<input type="text" name="password" class="form-control"
 									placeholder="Password">
 							</div>
-							<button class="btn btn-danger btn-block btn-round">Login</button>
+							<button class="btn btn-primary btn-block btn-round" style="background-color: #563C77">Login</button>
 						</form>
-						<div class="forgot">
+						<!-- <div class="forgot">
 							<a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-						</div>
+						</div> -->
 					</div>
 					<div class="col text-center">
 						<a href="userRegister.do"
