@@ -53,7 +53,7 @@
 					<li class="nav-item"><a href="viewDestinations.do"
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Destinations</a></li>
-					<li class="nav-item"><a href="viewEvents.do" 
+					<li class="nav-item"><a href="viewEvents.do"
 					class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Events</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
