@@ -61,6 +61,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+<%--
 	</div>
 
 	<!-- Modal Bodies come here -->

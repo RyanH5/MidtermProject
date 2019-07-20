@@ -51,9 +51,14 @@
 	color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
+<<<<<<< HEAD
 			<i class="fa fa-user-o" aria-hidden="true"></i> <a
 				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 				title="loginOrRegister.do" data-placement="bottom">login</a>
+=======
+		<i class="fa fa-user-o" aria-hidden="true"></i>
+			<a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom">tripping</a>
+>>>>>>> master
 			<button class="navbar-toggler navbar-toggler" type="button"
 				data-toggle="collapse" data-target="#navigation"
 				aria-controls="navigation-index" aria-expanded="false"
@@ -84,6 +89,7 @@
 		</div>
 	</div>
 </nav>
+<<<<<<< HEAD
 <div class="section section-image section-login"
 	style="background-image: url('./assets/img/login-image.jpg');">
 	<div class="container">
@@ -109,6 +115,114 @@
 								<span class="input-group-text"> <i
 									class="nc-icon nc-key-25"></i>
 								</span>
+=======
+	<div class="section section-image section-login"
+		style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
+<!-- 	<div class="section section-image section-login"
+		style="background-image: url('./assets/img/login-image.jpg');"> -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 mx-auto">
+					<div class="card card-register" style="background-image: url('./assets/img/login-image.jpg');">
+						<h3 class="title mx-auto">Welcome</h3>
+						<!-- <div class="social-line text-center">
+							<a href="#pablo"
+								class="btn btn-neutral btn-facebook btn-just-icon mt-0"> <i
+								class="fa fa-facebook-square"></i>
+							</a> <a href="#pablo"
+								class="btn btn-neutral btn-google btn-just-icon mt-0"> <i
+								class="fa fa-google-plus"></i>
+							</a> <a href="#pablo"
+								class="btn btn-neutral btn-twitter btn-just-icon mt-0"> <i
+								class="fa fa-twitter"></i>
+							</a>
+						</div> -->
+						<form class="login-form" action="userLogin.do">
+							<label>Username</label>
+							<div class="input-group form-group-no-border">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i
+										class="nc-icon nc-email-85"></i>
+									</span>
+								</div>
+								<input type="text" name="userName" class="form-control"
+									placeholder="Username">
+							</div>
+							<label>Password</label>
+							<div class="input-group form-group-no-border">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i
+										class="nc-icon nc-key-25"></i>
+									</span>
+								</div>
+								<input type="text" name="password" class="form-control"
+									placeholder="Password">
+							</div>
+							<button class="btn btn-primary btn-block btn-round" style="color:#563C77">Login</button>
+						</form>
+						<!-- <div class="forgot">
+							<a href="#" class="btn btn-link btn-primary">Forgot password?</a>
+						</div> -->
+					</div>
+					<div class="col text-center">
+						<a href="userRegister.do"
+							class="btn btn-outline-neutral btn-round btn-lg">View
+							Register Page</a>
+<!-- 					<div class="container">
+ 						<div class="row">
+							<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+								<div class="card card-login">
+									<form class="form" method="" action="">
+										<div class="card-header card-header-primary text-center">
+											<h4 class="card-title">Login</h4>
+											<div class="social-line">
+												<a href="#pablo" class="btn btn-just-icon btn-link"> <i
+													class="fa fa-facebook-square"></i>
+												</a> <a href="#pablo" class="btn btn-just-icon btn-link"> <i
+													class="fa fa-twitter"></i>
+												</a> <a href="#pablo" class="btn btn-just-icon btn-link"> <i
+													class="fa fa-google-plus"></i>
+												</a>
+											</div>
+										</div>
+										<p class="description text-center">Or Be Classical</p>
+										<div class="card-body">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text"> <i
+														class="material-icons">face</i>
+													</span>
+												</div>
+												<input type="text" class="form-control"
+													placeholder="First Name...">
+											</div>
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text"> <i
+														class="material-icons">mail</i>
+													</span>
+												</div>
+												<input type="email" class="form-control"
+													placeholder="Email...">
+											</div>
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text"> <i
+														class="material-icons">lock_outline</i>
+													</span>
+												</div>
+												<input type="password" class="form-control"
+													placeholder="Password...">
+											</div>
+										</div>
+										<div class="footer text-center">
+											<a href="#pablo"
+												class="btn btn-primary btn-link btn-wd btn-lg">Get
+												Started</a>
+										</div>
+									</form>
+								</div>
+>>>>>>> master
 							</div>
 							<input type="text" name="password" class="form-control"
 								placeholder="Password">

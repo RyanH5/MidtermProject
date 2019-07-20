@@ -31,8 +31,13 @@
 	color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
+<<<<<<< HEAD
 			<i class="fa fa-user-o" aria-hidden="true"></i> <a
 				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+=======
+		<i class="fa fa-user-o" aria-hidden="true"></i>
+			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+>>>>>>> master
 				title="loginOrRegister.do" data-placement="bottom">login</a>
 			<button class="navbar-toggler navbar-toggler" type="button"
 				data-toggle="collapse" data-target="#navigation"
