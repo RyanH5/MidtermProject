@@ -15,26 +15,26 @@
 	<div class="mdl-card">
 		<c:forEach var="p" items="${allpoints}">
 			<div class="mdl-card__title">
-				<h2 class="mdl-card__title-text">${p.name }<br>${p.destination.getName() }</h2>
+				<h2 class="mdl-card__title-text">${point.name }<br>${point.destination.getName() }</h2>
 			</div>
 			<div class="mdl-card__media">
 				<img src="skytower.jpg" width="173" height="157" border="0" alt=""
 					style="padding: 10px;">
 			</div>
 			<div class="mdl-card__supporting-text">
-				${p.address.getStreet1() } ${p.address.getCity() }
-				${p.address.getState() } ${p.address.getZipcode() }
-				${p.address.getPhone() }
+				${point.address.getStreet1() } ${point.address.getCity() }
+				${point.address.getState() } ${point.address.getZipcode() }
+				${point.address.getPhone() }
 				<h4>Amenities:</h4>
-				<c:forEach var="a" items="${p.getAmenities()}">
+				<c:forEach var="a" items="${point.getAmenities()}">
 					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
 				</c:forEach>
 				<h4>Activities:</h4>
-				<c:forEach var="a" items="${p.getActivities()}">
+				<c:forEach var="a" items="${point.getActivities()}">
 					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
 				</c:forEach>
 				<h4>Comments:</h4>
-				<c:forEach var="c" items="${p.getComments()}">
+				<c:forEach var="c" items="${point.getComments()}">
 					<li><a href="getPoint.do?fid=${c.id }">${c.commentText }</a></li>
 					<br>
 					<br>
