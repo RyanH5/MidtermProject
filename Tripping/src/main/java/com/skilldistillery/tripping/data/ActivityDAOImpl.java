@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.tripping.entities.Activity;
-import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.PointOfInterest;
 
 @Transactional

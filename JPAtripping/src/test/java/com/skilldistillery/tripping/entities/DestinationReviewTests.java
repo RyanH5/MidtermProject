@@ -50,7 +50,7 @@ class DestinationReviewTests {
 	void test_Destination_review_mappings() {
 		DestinationReview destReview = em.find(DestinationReview.class, 1);
 		assertEquals(1, destReview.getId());
-		assertEquals(2, destReview.getDestination().getId());
+		assertEquals(1, destReview.getDestination().getId());
 		assertNotNull(destReview.getCreateDate());
 		assertEquals("golden biking review", destReview.getTitle());
 		assertEquals(4, destReview.getRating());
@@ -61,7 +61,7 @@ class DestinationReviewTests {
 	void test_Destination_Review_has_destinations () {
 		DestinationReview destReview = em.find(DestinationReview.class, 1);
 		assertNotNull(destReview.getDestination().getName());
-		assertEquals("Dinosaur", destReview.getDestination().getName());
+		assertEquals("Estes Park", destReview.getDestination().getName());
 	}
 	@Test
 	void test_Destination_Review_has_users () {

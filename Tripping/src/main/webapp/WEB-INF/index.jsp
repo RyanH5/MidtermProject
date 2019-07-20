@@ -13,27 +13,41 @@
 			<input type="submit" value="Tripping" class="btn" />
 		</form>
 		<nav>
+			<!--  ************** when: IF LOGGED IN  **********************-->
+			<!--  ************** if: IF ADMIN      *************-->
+			<!--  ************** otherwise: IF VISITOR *************-->
+			<!--  ************** outside choose: ALL  **************-->
 			<c:choose>
-				<c:when test="${ empty sessionScope.user}">
-					<form action="loginOrRegister.do" method="GET">
-						<input type="submit" value="Login" class="nav btn link">
-					</form>
-				</c:when>
-				<c:otherwise>
+				<c:when test="${! empty sessionScope.user}">
 					<form action="userLogout.do" method="GET">
 						<input type="submit" value="Logout" class="nav btn link">
 					</form>
+					<a href="viewProfile.do">View My Profile</a><br>
+
+					<c:if test="${sessionScope.user.role.equals('admin')}">
+						<form action="viewUser.do" method="GET">
+							View User by User ID: <input type="text" name="id" /> <input
+								type="submit" value="Get User" />
+						</form>
+
+						<a href="viewUsers.do">FIX ME View All Users</a><br>
+					</c:if>
+				</c:when>
+				<c:otherwise>
+					<a href="userRegister.do">View User Registration</a><br>
+					<a href="loginOrRegister.do">View User Login</a><br>
 				</c:otherwise>
 			</c:choose>
-			<a href="shellTemplate.do">View Shell Template</a><br> 
+			<a href="shellTemplate.do">View Shell Template</a><br>
 			<a href="userRegister.do">View User Registration</a><br> <a
 				href="loginOrRegister.do">View User Login</a><br> <a
 				href="viewProfile.do">View User Profile</a><br> <a
 				href="indexWIP.do">View Index Work in Progress</a> <br> <a
 				href="viewDestinations.do">View All Destinations</a><br> <a
-				href="viewEvents">FIX ME: View All Events</a><br><a
+				href="viewAllEvents.do">View All Events</a><br><a
 				href="viewActivities.do">View All Activities</a><br><a
-				href="viewUsers.do">FIX ME View All Users</a><br>
+				href="viewUsers.do">View All Users</a><br>
+			<a href="viewGoogleMap.do">View Google Map</a><br>
 			<form action="viewDestination.do" method="GET">
 				View Destination by ID: <input type="text" name="id" />
 				<input type="submit" value="Get Destination" />
@@ -42,34 +56,31 @@
 				View PoI by ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Point" />
 			</form>
-			
-			<form action="viewUser.do" method="GET">
-				View User by User ID: <input type="text" name="id" /> <input
-					type="submit" value="Get User" />
-			</form>
-			
+
+
 			<form action="viewEvent.do" method="GET">
-				Get Event by Event ID: <input type="text" name="id" /> 
+				Get Event by Event ID: <input type="text" name="id" />
 				<input type="submit" value="Get Event" />
 			</form>
-			<form action="viewEvents.do" method="GET">
-				Get All Event by Destination ID: <input type="text" name="id" /> 
+			<form action="viewEventsByDestination.do" method="GET">
+				Get All Event by Destination ID: <input type="text" name="id" />
 				<input type="submit" value="Get Events" />
 			</form>
-			
+
 			<form action="viewActivity.do" method="GET">
 				View Activity by Activity ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Event" />
 			</form>
-			
+
 			<form action="viewAmenity.do" method="GET">
-				FIXME: View Amenity by Amenity ID: <input type="text" name="id" /> <input
+				View Amenity by Amenity ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Amenity" />
 			</form>
-			
-			
+
+
 		</nav>
 	</header>
+
 
 </body>
 </html>

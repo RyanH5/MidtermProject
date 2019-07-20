@@ -79,7 +79,7 @@ class UserTests {
 	void test_user_has_destination_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getDestReviews());
-		assertEquals("golden biking review", user.getDestReviews().get(0).getTitle());
+		assertEquals("Rocky Mountain National Park is a MUST!", user.getDestReviews().get(0).getTitle());
 	}
 	
 	@Test
