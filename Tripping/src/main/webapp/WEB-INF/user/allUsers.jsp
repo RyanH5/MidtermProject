@@ -20,22 +20,49 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+
 </head>
 <body>
 	<!--    navbar come here          -->
 	<!-- end navbar  -->
-	<div class="wrapper">
-		<c:forEach var="user" items="${users}">
-			<div class="section text-center">
-				<h2>${user.userName }</h2>
-				
-				<a href="viewUser.do?id=${user.id }">${user.firstName }</a><br> 
-				<a href="viewUser.do?id=${user.id }">${user.lastName }</a><br> 
-				<a href="viewUser.do?id=${user.id }">${user.active }</a><br> 
-					
-			</div>
-		</c:forEach>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-center">#</th>
+					<th>Username</th>
+					<th>Role</th>
+					<th>Since</th>
+					<th class="text-right">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="user" items="${users}">
+					<tr>
+						<td class="text-center">${user.id }</td>
+						<td>${user.userName }</td>
+						<td>${user.role }</td>
+						<td>${user.createDate }</td>
+						<td class="td-actions text-right">
+							<button type="button" rel="tooltip" title="View Profile"
+								class="btn btn-info btn-simple btn-xs">
+								<i class="fa fa-user"></i>
+							</button>
+							<button type="button" rel="tooltip" title="Edit Profile"
+								class="btn btn-success btn-simple btn-xs">
+								<i class="fa fa-edit"></i>
+							</button>
+							<button type="button" rel="tooltip" title="Make Inactive"
+								class="btn btn-danger btn-simple btn-xs">
+								<i class="fa fa-times"></i>
+							</button>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
+
 	<!-- Modal Bodies come here -->
 	<!--   end modal -->
 </body>

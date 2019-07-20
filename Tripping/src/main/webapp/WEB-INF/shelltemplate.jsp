@@ -20,9 +20,162 @@
 <!--    navbar come here          -->
 <!-- end navbar  -->
 <div class="wrapper">
-    <!-- content come here     -->
-</div>
+<div class="card card-raised card-form-horizontal no-transition">
+                  <div class="card-body __web-inspector-hide-shortcut__">
+                    <form method="" action="">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Activity" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Destination" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Event Date" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <button type="button" class="btn btn-danger btn-block"><i class="nc-icon nc-zoom-split"></i> &nbsp; Search</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div></div>
+                
+                <br><br>
+                
+                
+           <button type="button" class="btn btn-success btn-round" data-toggle="modal" data-target="#loginModal">
+              Login
+            </button>
+    
+    <br><br>
+    
+    <div class="section">
+        <div class="container">
+          <h3>Trip to ${destination.name }</h3>
+          <div>
+            <div class="row">
+               <div class="col-md-5 col-sm-5">
+              <!--  <h6>Upload Photo</h6>
+                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail img-no-padding" style="max-width: 370px; max-height: 250px;">
+                    <img src="../assets/img/image_placeholder.jpg" alt="...">
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail img-no-padding" style="max-width: 370px; max-height: 250px;"></div>
+                  <div>
+                    <span class="btn btn-outline-default btn-round btn-file">
+                      <span class="fileinput-new">Select image</span>
+                      <span class="fileinput-exists">Change</span>
+                      <input type="file" name="...">
+                    </span>
+                    <a href="#paper-kit" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                  </div>
+                </div> -->
+                <h6>Privacy
+                  <span class="icon-danger">*</span>
+                </h6>
+                <div class="form-check-radio">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> Public
+                    <span class="form-check-sign"></span>
+                  </label>
+                </div>
+                <div class="form-check-radio">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked> Private
+                    <span class="form-check-sign"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-7 col-sm-7">
+                <div class="form-group">
+                  <h6>Trip Name
+                    <span class="icon-danger">*</span>
+                  </h6>
+                  <input type="text" class="form-control border-input" placeholder="...">
+                </div>
+                <div class="form-group">
+                  <h6>Trip Journal Entry</h6>
+                  <textarea class="form-control textarea-limited" placeholder="" rows="13" maxlength="4500"></textarea>
+                  <h5>
+                    <small>
+                      <span id="textarea-limited-message" class="pull-right">4500 characters left</span>
+                    </small>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="row buttons-row">
+              <div class="col-md-4 col-sm-4">
+                <button class="btn btn-outline-danger btn-block btn-round" type="reset">Cancel</button>
+              </div>
+              <div class="col-md-4 col-sm-4">
+                <button class="btn btn-outline-primary btn-block btn-round" type="submit">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 <!-- Modal Bodies come here -->
+<!-- login modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog modal-register">
+      <div class="modal-content">
+        <div class="modal-header no-border-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h6 class="text-muted">Tripping</h6>
+          <h3 class="modal-title text-center">Plan your next trip!</h3>
+          <p>Log in to your account</p>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" value="" placeholder="Email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" value="" placeholder="Password" class="form-control" />
+          </div>
+          <button class="btn btn-block btn-round"> Log in</button>
+        </div>
+        <div class="modal-footer no-border-footer">
+          <span class="text-muted  text-center">Looking
+            <a href="#paper-kit">create an account</a> ?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- register modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog modal-register">
+      <div class="modal-content">
+        <div class="modal-header no-border-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h6 class="text-muted">Welcome</h6>
+          <h3 class="modal-title">Paper Kit</h3>
+          <p>Create your account free and secure</p>
+        </div>
+        <div class="modal-body">
+          <button class="btn btn-block btn-round"> Sign Up with Email</button>
+          <button class="btn btn-block btn-round">Connect with Facebook</button>
+          <button class="btn btn-block btn-round">Connect with Twitter</button>
+          <button type="button" class="btn btn-info btn-round btn-block btn-simple"> Sign In with Email </button>
+        </div>
+        <div class="modal-footer no-border-footer"></div>
+      </div>
+    </div>
+  </div>
+  <!-- END MODALS  -->
 <!--   end modal -->
 </body>
 <!--   Core JS Files   -->

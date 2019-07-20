@@ -23,8 +23,6 @@ pageEncoding="UTF-8"%>
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
-<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
-
 </head>
 
 <nav id="navExample" class="navbar navbar-expand-lg fixed-top"
@@ -84,12 +82,6 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer register-footer text-center">
-      <h6>©
-        <script>
-          document.write(new Date().getFullYear())
-        </script></h6>
     </div>
   </div>
   <!--   Core JS Files   -->

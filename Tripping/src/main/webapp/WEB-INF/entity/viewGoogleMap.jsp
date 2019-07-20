@@ -12,8 +12,9 @@
 </head>
 <body>
 
-<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination=...&center=...&zoom=...&key=..." allowfullscreen></iframe>
+	<iframe width="600" height="450" frameborder="0" style="border: 0"
+		src="https://www.google.com/maps/embed/v1/view?zoom=12&center=40.3772%2C-105.5217&key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4..."
+		allowfullscreen></iframe>
 
 	<div class="mdl-card">
 		<div class="mdl-card__title">
@@ -23,25 +24,12 @@ src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination
 			<img src="skytower.jpg" width="173" height="157" border="0" alt=""
 				style="padding: 10px;">
 		</div>
-		<div class="mdl-card__supporting-text">
-			${point.address.getStreet1() } ${point.address.getCity() }
-			${point.address.getState() } ${point.address.getZipcode() }
-			${point.address.getPhone() }
-			<h4>Amenities:</h4>
-			<c:forEach var="a" items="${point.getAmenities()}">
-				<li><a href="viewAmenity.do?id=${a.id }">${a.name }</a></li>
-			</c:forEach>
-			<h4>Activities:</h4>
-			<c:forEach var="a" items="${point.getActivities()}">
-				<li><a href="viewActivity.do?id=${a.id }">${a.name }</a></li>
-			</c:forEach>
-			<h4>Comments:</h4>
-			<c:forEach var="c" items="${point.getComments()}">
-				<li><a href="viewComment.do?id=${c.id }">${c.commentText }</a></li>
-				<br>
-				<br>
-			</c:forEach>
-		</div>
+
+
+
+
+
+
 		<div class="mdl-card__actions">
 			<button
 				class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -53,5 +41,30 @@ src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination
 			</button>
 		</div>
 	</div>
+	<!--    navbar come here          -->
+	<!-- end navbar  -->
+	<div class="wrapper">
+		<!-- content come here     -->
+	</div>
+	<!-- Modal Bodies come here -->
+	<!--   end modal -->
 </body>
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="./assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="./assets/js/plugins/nouislider.min.js"
+	type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="./assets/js/plugins/moment.min.js"></script>
+<script src="./assets/js/plugins/bootstrap-datepicker.js"
+	type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4"></script>
+<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
 </html>
