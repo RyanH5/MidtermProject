@@ -39,12 +39,6 @@ class JournalEntryTests {
 		em.close();
 	}
 
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 	void test_journal_entry_mappings() {
 		JournalEntry jEntry = em.find(JournalEntry.class, 1);

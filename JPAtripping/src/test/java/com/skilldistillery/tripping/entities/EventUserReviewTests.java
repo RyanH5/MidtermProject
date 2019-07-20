@@ -40,12 +40,6 @@ class EventUserReviewTests {
 		em.close();
 	}
 	
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-	
 	@Test
 	void test_event_review_mappings() {
 		EventReview eventReview = em.find(EventReview.class, 1);

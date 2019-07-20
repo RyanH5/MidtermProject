@@ -45,10 +45,10 @@ public class AddressTests {
 		assertEquals(1, address.getId());
 		assertEquals("Denver", address.getCity());
 		assertEquals("1119 Zazpo Place", address.getStreet1());
-		assertEquals("market street", address.getStreet2());
-		assertEquals("fl", address.getState());
-		assertEquals("727-545-5708", address.getPhone());
-		assertEquals("80499", address.getZipcode());
+		assertEquals("1120 Zazpo Place", address.getStreet2());
+		assertEquals("CO", address.getState());
+		assertEquals("970-947-2926", address.getPhone());
+		assertEquals("80123", address.getZipcode());
 //		assertEquals(39.833, address.getLatitude());
 //		assertEquals(59.543, address.getLongitude());
 		// TODO: FIXME:bdrgd

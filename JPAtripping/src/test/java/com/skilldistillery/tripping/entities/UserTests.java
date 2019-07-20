@@ -40,12 +40,6 @@ class UserTests {
 		em.close();
 	}
 
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 	void test_user_mappings() {
 		User user = em.find(User.class, 1);
