@@ -23,32 +23,11 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
-<link href="./assets/css/destinations.css" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 
 </head>
-<head>
-<meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76"
-	href="../assets/img//apple-icon.png">
-<link rel="icon" type="image/png" href="../assets/img//favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>tripping</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-	rel="stylesheet">
-<!-- CSS Files -->
-<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
-</head>
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
+<nav id="navExample" class="navbar navbar-expand-lg fixed-top" color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
 		<i class="fa fa-user-o" aria-hidden="true"></i>
@@ -121,19 +100,22 @@
 	</c:forEach>
 	</div> --%>
 	
-		<div class="main-section"
-		style="background-image: url('https://www.uncovercolorado.com/wp-content/uploads/2017/10/Colorado-Kayaking-Lake-Clouds-950x475.jpg');">
-			<c:forEach var="d" items="${dests}">
-				<div class="section text-center">
-					<h2>${d.name }</h2>
-					<a href="viewDestination.do?id=${d.id }">${d.name }</a><br>
-					<a href="viewDestination.do?id=${d.id }">${d.description }</a><br>
+	<div class="main-section">
+		<c:forEach var="d" items="${dests}">
+			<div class="entity-container">
+				<div class="section text-center entity-card-image" style="background-image: url('${d.image}'); height: 230px;">
+				</div>
+				<div class="entity-content dest">
+					<h2 class="entity-title"><a href="viewDestination.do?id=${d.id }">${d.name }</a></h2>
+					<br>
+					<a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a><br>
 					<h4>Points Of Interest:</h4>
 					<c:forEach var="p" items="${d.getPoints()}">
 						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
-					</c:forEach>
+					</c:forEach>					
 				</div>
-			</c:forEach>
+			</div>
+		</c:forEach>
 	</div>
 	<footer class="footer footer-black  footer-white ">
 		<div class="container">

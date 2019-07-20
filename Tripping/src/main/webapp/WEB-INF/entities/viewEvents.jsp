@@ -20,11 +20,12 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 </head>
 <body>
 	<!--    navbar come here          -->
 	<!-- end navbar  -->
-	<div class="wrapper">
+<%-- 	<div class="wrapper">
 		<c:forEach var="e" items="${events}">
 			<div class="section text-center">
 				<h2>${e.name }</h2>
@@ -36,6 +37,19 @@
 				<h4>Ending: ${e.endDate}</h4>
 				<p>${e.eventDetails}</p>
 
+			</div>
+		</c:forEach>
+	</div> --%>
+		<div class="main-section">
+		<c:forEach var="e" items="${events}">
+			<div class="entity-container">
+				<%-- <div class="section text-center entity-card-image" style="background-image: url('${e.image}'); height: 230px;">
+				</div> --%>
+				<div class="entity-content dest">
+					<h2>${e.name }</h2>
+					<a href="viewDestination.do?id=${e.id }">${e.name }</a><br>
+					<a href="viewDestination.do?id=${d.id }">${d.description }</a><br>					
+				</div>
 			</div>
 		</c:forEach>
 	</div>
