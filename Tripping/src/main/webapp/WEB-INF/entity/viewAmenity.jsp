@@ -40,7 +40,7 @@
 			<a href="viewDestination.do?id=${a.id }">${amenity.iconUrl }</a><br>
 			<h4>Points Of Interest:</h4>
 			<c:forEach var="p" items="${amenity.getPoints()}">
-				<a href="viewPoints.do?id=${amenity.id }">${amenity.name }</a>
+				<a href="viewPoint.do?id=${p.id }">${p.name }</a>
 				<br>
 			</c:forEach>
 		</div>

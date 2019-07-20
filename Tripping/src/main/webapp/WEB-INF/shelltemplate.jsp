@@ -37,7 +37,7 @@
 <script src="./assets/js/plugins/moment.min.js"></script>
 <script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
 <!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtGx7-G42wXChLrNgy4DXQxQRaUfEcl0Q "></script>
 <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
 </html>
