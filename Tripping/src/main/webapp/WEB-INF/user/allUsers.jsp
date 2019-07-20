@@ -32,6 +32,44 @@
 				<a href="viewUser.do?id=${user.id }">${user.firstName }</a><br> 
 				<a href="viewUser.do?id=${user.id }">${user.lastName }</a><br> 
 				<a href="viewUser.do?id=${user.id }">${user.active }</a><br> 
+				<!--  ************** ADMIN PRIVLEGES ************-->
+				<c:choose>
+					<c:when test="${sessionScope.user.role.equals('admin')}">
+						<div id="switches" class="admin-container">
+						<span>*** ADMIN ONLY ***</span>
+						<form action="toggleActiveUser.do" modelAttribute="user" method="GET">
+							<label>Active: 
+								<c:if test="${user.active}">
+									<input type="checkbox" name="active" value="true" data-toggle="switch"
+									checked="" data-on-color="primary" data-off-color="primary">
+								<span class="toggle"></span>								
+								</c:if>
+								<c:if test="${! user.active}">
+									<input type="checkbox" name="active" value="false"
+										data-toggle="switch" data-off-color="primary"
+										data-on-color="primary"> <span class="toggle"></span>
+								</c:if>
+								
+							</label>
+							<button type="button" class="btn btn-danger btn-round">SAVE</button>
+						</form>
+						<form action="toggleAdmin.do" modelAttribute="user" method="GET">
+							<label>Admin: 
+								<c:if test="${user.role.equals('admin')}">
+									<input type="checkbox" name="admin" value="true" checked=""
+									data-toggle="switch" data-off-color="primary"
+									data-on-color="primary"> <span class="toggle"></span>				
+								</c:if>
+								<c:if test="${! user.role.equals('admin')}">
+									<input type="checkbox" name="admin" value="false"
+										data-toggle="switch" data-off-color="primary"
+										data-on-color="primary"> <span class="toggle"></span>
+								</c:if>
+							</label>
+						</form>
+					</div>
+					</c:when>
+			</c:choose>
 					
 			</div>
 		</c:forEach>
