@@ -33,6 +33,10 @@
     background-repeat: no-repeat;
 }
 
+.entity-title {
+	text-align: center;
+}
+
 @media only screen and (max-width: 1620px) {
 	.entity-container {
 	width: 23%;

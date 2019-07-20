@@ -100,21 +100,22 @@
 	</c:forEach>
 	</div> --%>
 	
-		<div class="main-section">
-			<c:forEach var="d" items="${dests}">
+	<div class="main-section">
+		<c:forEach var="d" items="${dests}">
 			<div class="entity-container">
-				<div class="section text-center entity-card-image" style="background-image: url('${d.image}');"></div>
-					<div class="entity-content dest">
-						<h2>${d.name }</h2>
-						<a href="viewDestination.do?id=${d.id }">${d.name }</a><br>
-						<a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a><br>
-						<h4>Points Of Interest:</h4>
-						<c:forEach var="p" items="${d.getPoints()}">
-							<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
-						</c:forEach>					
-					</div>
+				<div class="section text-center entity-card-image" style="background-image: url('${d.image}'); height: 230px;">
+				</div>
+				<div class="entity-content dest">
+					<h2 class="entity-title"><a href="viewDestination.do?id=${d.id }">${d.name }</a></h2>
+					<br>
+					<a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a><br>
+					<h4>Points Of Interest:</h4>
+					<c:forEach var="p" items="${d.getPoints()}">
+						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+					</c:forEach>					
+				</div>
 			</div>
-			</c:forEach>
+		</c:forEach>
 	</div>
 	<footer class="footer footer-black  footer-white ">
 		<div class="container">
