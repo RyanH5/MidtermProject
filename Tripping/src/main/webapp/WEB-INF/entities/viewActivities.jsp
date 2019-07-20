@@ -23,20 +23,21 @@
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 
 </head>
 <body>
 
 	<!--    navbar come here          -->
 	<nav>
-		<a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+		<a id="navExample" class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
 			          tripping
 			        </a>
 	</nav>
 
 	<!-- end navbar  -->
 
-	<div class="wrapper">
+<%-- 	<div class="wrapper">
 
 	<!-- content come here     -->
 		<c:forEach var="a" items="${activities}">
@@ -51,6 +52,22 @@
 		</div>
 	</c:forEach>
 
+	</div> --%>
+		<div class="main-section">
+		<c:forEach var="a" items="${activities}">
+			<div class="entity-container">
+				<div class="section text-center entity-card-image" style="background-image: url('${a.imageUrl}'); height: 230px;">
+				</div>
+				<div class="entity-content dest">
+					<h2 class="entity-title"><a href="viewDestination.do?id=${a.id }">${a.name }</a></h2>
+					<br>
+					<h4>Points Of Interest:</h4>
+					<c:forEach var="p" items="${a.getPoints()}">
+						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+					</c:forEach>					
+				</div>
+			</div>
+		</c:forEach>
 	</div>
 
 	<!-- Modal Bodies come here -->
