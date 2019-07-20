@@ -138,7 +138,8 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public boolean adminUpdateUser(User user) {
 		User adminUpdatedUser = em.find(User.class, user.getId());
-		
+		adminUpdatedUser.setActive(user.isActive());
+		adminUpdatedUser.setRole(user.getRole());	
 		return true;
 	}
 	
