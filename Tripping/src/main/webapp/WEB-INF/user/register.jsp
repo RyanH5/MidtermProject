@@ -26,7 +26,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom">
           Tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,8 @@
       </div>
     </div>
   </nav>
-  <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
+  <!-- <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');"> -->
+  <div class="page-header" style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
