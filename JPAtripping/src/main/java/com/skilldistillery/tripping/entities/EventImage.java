@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class EventImage {
@@ -15,8 +17,9 @@ public class EventImage {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "event_id")
-	private int eventId;
+	@ManyToOne
+	@JoinColumn(name = "event_id")
+	private Event event;
 
 	@Column(name = "image_url")
 	private String imageUrl;
@@ -31,12 +34,13 @@ public class EventImage {
 		this.id = id;
 	}
 
-	public int getEventId() {
-		return eventId;
+
+	public Event getEvent() {
+		return event;
 	}
 
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	public String getImageUrl() {
@@ -52,10 +56,10 @@ public class EventImage {
 	public EventImage() {
 	}
 
-	public EventImage(int id, int eventId, String imageUrl) {
+	public EventImage(int id, Event event, String imageUrl) {
 		super();
 		this.id = id;
-		this.eventId = eventId;
+		this.event = event;
 		this.imageUrl = imageUrl;
 	}
 

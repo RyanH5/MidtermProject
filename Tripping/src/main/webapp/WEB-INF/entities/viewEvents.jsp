@@ -22,40 +22,65 @@
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
 <link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 </head>
-<body>
-	<!--    navbar come here          -->
-	<!-- end navbar  -->
-<%-- 	<div class="wrapper">
-		<c:forEach var="e" items="${events}">
-			<div class="section text-center">
-				<h2>${e.name }</h2>
-				<a href="viewEvent.do?id=${d.id }">${d.name }</a><br> <a
-					href="viewEvent.do?id=${d.id }">${d.description }</a><br>
-
-
-				<h4>Starting: ${e.startDate}</h4>
-				<h4>Ending: ${e.endDate}</h4>
-				<p>${e.eventDetails}</p>
-
-			</div>
-		</c:forEach>
-	</div> --%>
-		<div class="main-section">
-		<c:forEach var="e" items="${events}">
-			<div class="entity-container">
-				<%-- <div class="section text-center entity-card-image" style="background-image: url('${e.image}'); height: 230px;">
-				</div> --%>
-				<div class="entity-content dest">
-					<h2>${e.name }</h2>
-					<a href="viewDestination.do?id=${e.id }">${e.name }</a><br>
-					<a href="viewDestination.do?id=${d.id }">${d.description }</a><br>					
-				</div>
-			</div>
-		</c:forEach>
+<nav id="navExample" class="navbar navbar-expand-lg fixed-top"
+	color-on-scroll="300">
+	<div class="container">
+		<div class="navbar-translate">
+			<i class="fa fa-user-o" aria-hidden="true"></i> <a
+				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+				title="loginOrRegister.do" data-placement="bottom">login</a>
+			<button class="navbar-toggler navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navigation"
+				aria-controls="navigation-index" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-bar bar1"></span><span
+					class="navbar-toggler-bar bar2"></span><span
+					class="navbar-toggler-bar bar3"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navigation">
+			<ul class="navbar-nav">
+				<li><a class="navbar-brand" href="/" rel="tooltip"
+					title="tripping" data-placement="bottom"> tripping </a></li>
+				<li class="nav-item"><a href="viewActivities.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Activities</a></li>
+				<li class="nav-item"><a href="viewDestinations.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Destinations</a></li>
+				<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
+						class="nc-icon nc-layout-11"></i> Events</a></li>
+				<li class="nav-item"><a class="nav-link" rel="tooltip"
+					title="Star on GitHub" data-placement="bottom"
+					href="https://github.com/RyanH5/MidtermProject" target="_blank">
+						<i class="fa fa-github"></i>
+						<p class="d-lg-none">GitHub</p>
+				</a></li>
+			</ul>
+		</div>
 	</div>
-	<!-- Modal Bodies come here -->
-	<!--   end modal -->
-</body>
+</nav>				
+<div class="main-section">
+	<c:forEach var="event" items="${events}">
+		<div class="entity-container card">
+			<div class="section text-center entity-card-image"
+				style="background-image: url('${event.destination.image}'); height: 230px;">
+			</div>
+			<h6 class="entity-title">
+				<a href="viewEvent.do?id=${event.id }">${event.name }</a><br>
+						<a href="viewDestination.do?id=${event.destination.id }">${event.destination.name }</a><br>
+			</h6>
+		</div>
+	</c:forEach>
+</div>
+<footer class="footer footer-black  footer-white ">
+	<div class="container">
+		<div class="row">
+			<nav class="footer-nav"></nav>
+		</div>
+	</div>
+</footer>
 <!--   Core JS Files   -->
 <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -69,10 +94,39 @@
 <script src="./assets/js/plugins/moment.min.js"></script>
 <script src="./assets/js/plugins/bootstrap-datepicker.js"
 	type="text/javascript"></script>
+<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
 <!--  Google Maps Plugin    -->
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
 
+		if ($("#datetimepicker").length != 0) {
+			$('#datetimepicker').datetimepicker({
+				icons : {
+					time : "fa fa-clock-o",
+					date : "fa fa-calendar",
+					up : "fa fa-chevron-up",
+					down : "fa fa-chevron-down",
+					previous : 'fa fa-chevron-left',
+					next : 'fa fa-chevron-right',
+					today : 'fa fa-screenshot',
+					clear : 'fa fa-trash',
+					close : 'fa fa-remove'
+				}
+			});
+		}
+
+		function scrollToDownload() {
+
+			if ($('.section-download').length != 0) {
+				$("html, body").animate({
+					scrollTop : $('.section-download').offset().top
+				}, 1000);
+			}
+		}
+	});
+</script>
+</body>
 </html>

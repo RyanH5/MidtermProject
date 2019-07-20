@@ -3,9 +3,16 @@ package com.skilldistillery.tripping.entities;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.UpdateTimestamp;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Event {
@@ -19,18 +26,14 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;
-	
+
 	@OneToMany
 	@JoinColumn(name = "event_id")
 	private List<EventReview> reviews;
 
-	public List<EventReview> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<EventReview> reviews) {
-		this.reviews = reviews;
-	}
+	@OneToMany
+	@JoinColumn(name = "event_id")
+	private List<EventImage> images;
 
 	@Column(name = "name")
 	private String name;
@@ -43,10 +46,10 @@ public class Event {
 
 	@Column(name = "start_date")
 	@Temporal(TemporalType.TIMESTAMP)
-	@UpdateTimestamp
 	private Date startDate;
 
 	@Column(name = "end_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
 
 	@Column(name = "event_details")
@@ -118,11 +121,26 @@ public class Event {
 		this.eventDetails = eventDetails;
 	}
 
+	public List<EventImage> getImages() {
+		return images;
+	}
+
+	public void setImage(List<EventImage> images) {
+		this.images = images;
+	}
+
+	public List<EventReview> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<EventReview> reviews) {
+		this.reviews = reviews;
+	}
+
 //	Constructors
-	
+
 	public Event() {
 	}
-	
 
 //	To String
 

@@ -38,13 +38,14 @@
 					<a href="loginOrRegister.do">View User Login</a><br>
 				</c:otherwise>
 			</c:choose>
+			<a href="viewUsers.do">FIX ME View All Users</a><br>
 			<a href="shellTemplate.do">View Shell Template</a><br>
 			<a href="userRegister.do">View User Registration</a><br> <a
 				href="loginOrRegister.do">View User Login</a><br> <a
 				href="viewProfile.do">View User Profile</a><br> <a
 				href="indexWIP.do">View Index Work in Progress</a> <br> <a
 				href="viewDestinations.do">View All Destinations</a><br> <a
-				href="viewAllEvents.do">View All Events</a><br><a
+				href="viewEvents.do">View All Events</a><br><a
 				href="viewActivities.do">View All Activities</a><br><a
 				href="viewUsers.do">View All Users</a><br>
 			<a href="viewGoogleMap.do">View Google Map</a><br>
@@ -56,8 +57,6 @@
 				View PoI by ID: <input type="text" name="id" /> <input
 					type="submit" value="Get Point" />
 			</form>
-
-
 			<form action="viewEvent.do" method="GET">
 				Get Event by Event ID: <input type="text" name="id" />
 				<input type="submit" value="Get Event" />
@@ -69,7 +68,7 @@
 
 			<form action="viewActivity.do" method="GET">
 				View Activity by Activity ID: <input type="text" name="id" /> <input
-					type="submit" value="Get Event" />
+					type="submit" value="Get Activity" />
 			</form>
 
 			<form action="viewAmenity.do" method="GET">

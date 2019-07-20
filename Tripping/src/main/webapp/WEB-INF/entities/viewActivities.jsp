@@ -34,7 +34,7 @@
 		<div class="navbar-translate">
 			<i class="fa fa-user-o" aria-hidden="true"></i> <a
 				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-				title="loginOrRegister.do" data-placement="bottom" target="_blank">login</a>
+				title="loginOrRegister.do" data-placement="bottom">login</a>
 			<button class="navbar-toggler navbar-toggler" type="button"
 				data-toggle="collapse" data-target="#navigation"
 				aria-controls="navigation-index" aria-expanded="false"
@@ -79,8 +79,8 @@
 						<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
 					</h6>
 				</div>
+				</div>
 		</c:forEach>
-	</div>
 	</div>
 	<!-- Modal Bodies come here -->
 
