@@ -66,12 +66,12 @@
     </div>
   </nav>
   <!-- <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');"> -->
-  <div class="page-header" style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
+<div class="page-header" style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-4 ml-auto mr-auto">
-          <div class="card card-register">
+          <div class="card card-register" style="background-image: url('./assets/img/login-image.jpg');">
             <form class="register-form" action="createUser.do" modelAttribute="user">
               <label>Username</label>
               <input type="text" class="form-control" name="userName" placeholder="Username">
@@ -79,18 +79,18 @@
               <input type="password" class="form-control" name="password" placeholder="Password">
               <label>Email</label>
               <input type="text" class="form-control" name="email" placeholder="Email">
-              <button class="btn btn-danger btn-block btn-round">Register</button>
+              <button class="btn btn-primary btn-block btn-round">Register</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer register-footer text-center">
+    <!-- <div class="footer register-footer text-center">
       <h6>©
         <script>
           document.write(new Date().getFullYear())
         </script></h6>
-    </div>
+    </div> -->
   </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
