@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Insert title here</title>
+<title>Points in ${point.destination.getName()</title>
 </head>
 </head>
 <body>
 	<div class="mdl-card">
-		<c:forEach var="p" items="${allpoints}">
+		<c:forEach var="point" items="${allpoints}">
 			<div class="mdl-card__title">
 				<h2 class="mdl-card__title-text">${point.name }<br>${point.destination.getName() }</h2>
 			</div>
@@ -26,16 +26,16 @@
 				${point.address.getState() } ${point.address.getZipcode() }
 				${point.address.getPhone() }
 				<h4>Amenities:</h4>
-				<c:forEach var="a" items="${point.getAmenities()}">
-					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
+				<c:forEach var="amenity" items="${point.getAmenities()}">
+					<li><a href="getPoint.do?id=${amenity.id }">${amenity.name }</a></li>
 				</c:forEach>
 				<h4>Activities:</h4>
-				<c:forEach var="a" items="${point.getActivities()}">
-					<li><a href="getPoint.do?fid=${a.id }">${a.name }</a></li>
+				<c:forEach var="activity" items="${point.getActivities()}">
+					<li><a href="getPoint.do?id=${activity.id }">${activity.name }</a></li>
 				</c:forEach>
 				<h4>Comments:</h4>
-				<c:forEach var="c" items="${point.getComments()}">
-					<li><a href="getPoint.do?fid=${c.id }">${c.commentText }</a></li>
+				<c:forEach var="comment" items="${point.getComments()}">
+					<li><a href="viewUser.do?id=${comment.id }">${comment.commentText }</a></li>
 					<br>
 					<br>
 				</c:forEach>
