@@ -34,10 +34,10 @@ public class Address {
 	private String phone;
 
 	@Column(name = "latitude")
-	private double latitude;
+	private long latitude;
 
 	@Column(name = "longitude")
-	private double longitude;
+	private long longitude;
 
 //	Getters and setters
 
@@ -119,7 +119,7 @@ public class Address {
 	}
 
 	public Address(int id, String street1, String street2, String city, String state, String zipcode, String phone,
-			double latitude, double longitude) {
+			long latitude, long longitude) {
 		super();
 		this.id = id;
 		this.street1 = street1;
