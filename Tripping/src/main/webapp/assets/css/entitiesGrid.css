@@ -12,33 +12,58 @@
     
 }
 
-.destination-container {
+.entity-container {
 	width: 18%;
     margin: 10px;
     border: 1px solid lightblue;
-    padding: 5px 10px;
     border-radius: 6px;
 }
 
-.destination-container:hover {
-	box-shadow: 2px 2px lightblue;
+.entity-content {
+	padding: 0px 10px 10px;
 }
 
-.destination-card-image {
+.entity-container:hover {
+	box-shadow: 2px 2px lightblue;
+	background-color: #EEF2F2;
+}
+
+.entity-card-image {
 	background-size: cover;
     background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 1620px) {
-	.destination-container {
+	.entity-container {
 	width: 23%;
 
 	}
 }
 
 @media only screen and (max-width: 1340px) {
-	.destination-container {
+	.entity-container {
 	width: 31%;
+
+	}
+}
+
+@media only screen and (max-width: 950px) {
+	.entity-container {
+	width: 45%;
+
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.entity-container {
+	width: 65%;
+
+	}
+}
+
+@media only screen and (max-width: 390px) {
+	.entity-container {
+	width: 87%;
 
 	}
 }
