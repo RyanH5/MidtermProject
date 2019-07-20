@@ -28,7 +28,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="http://localhost:8090/indexWIP.do" rel="tooltip" title="tripping" data-placement="bottom">
+        <a class="navbar-brand" href="/" rel="tooltip" title="tripping" data-placement="bottom">
           tripping
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,11 +106,11 @@
 								<li>
 									<div class="row">
 										<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
-											<div class="section text-center">
+											<div class="section text-center" style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 												<c:forEach var="entry"
 													items="${sessionScope.user.getJournalEntries() }">
 													<em><h2>${entry.getTitle() }</h2></em>
-													<a href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
+													<%-- <a href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
 													<h4>Event:</h4>
 													<a href="viewEvent.do?id=${entry.getEvent().getId() }">${entry.getEvent().getName() }</a>
@@ -121,7 +121,7 @@
 													<h4>Activity:</h4>
 													<a
 														href="viewActivity.do?id=${entry.getActivity().getId() }">${p.getActivity().getName() }</a>
-													<br>
+													<br> --%>
 												</c:forEach>
 											</div>
 										</div>

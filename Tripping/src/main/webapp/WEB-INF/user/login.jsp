@@ -51,9 +51,7 @@
 	<div class="container">
 		<div class="navbar-translate">
 		<i class="fa fa-user-o" aria-hidden="true"></i>
-			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-				title="loginOrRegister.do" data-placement="bottom"
-				target="_blank">login</a>
+			<a class="navbar-brand" href="/" rel="tooltip" data-placement="bottom">tripping</a>
 			<button class="navbar-toggler navbar-toggler" type="button"
 				data-toggle="collapse" data-target="#navigation"
 				aria-controls="navigation-index" aria-expanded="false"
@@ -86,13 +84,15 @@
 	</div>
 </nav>
 	<div class="section section-image section-login"
-		style="background-image: url('./assets/img/login-image.jpg');">
+		style="background-image: url('https://i1.wp.com/www.borrowlenses.com/blog/wp-content/uploads/2016/06/String-Lake-at-Night.jpg?resize=1080%2C720&ssl=1');">
+<!-- 	<div class="section section-image section-login"
+		style="background-image: url('./assets/img/login-image.jpg');"> -->
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mx-auto">
 					<div class="card card-register" style="background-image: url('./assets/img/login-image.jpg');">
 						<h3 class="title mx-auto">Welcome</h3>
-						<div class="social-line text-center">
+						<!-- <div class="social-line text-center">
 							<a href="#pablo"
 								class="btn btn-neutral btn-facebook btn-just-icon mt-0"> <i
 								class="fa fa-facebook-square"></i>
@@ -103,7 +103,7 @@
 								class="btn btn-neutral btn-twitter btn-just-icon mt-0"> <i
 								class="fa fa-twitter"></i>
 							</a>
-						</div>
+						</div> -->
 						<form class="login-form" action="userLogin.do">
 							<label>Username</label>
 							<div class="input-group form-group-no-border">
@@ -125,15 +125,15 @@
 								<input type="text" name="password" class="form-control"
 									placeholder="Password">
 							</div>
-							<button class="btn btn-danger btn-block btn-round">Login</button>
+							<button class="btn btn-primary btn-block btn-round" style="color:#563C77">Login</button>
 						</form>
-						<div class="forgot">
-							<a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-						</div>
+						<!-- <div class="forgot">
+							<a href="#" class="btn btn-link btn-primary">Forgot password?</a>
+						</div> -->
 					</div>
 					<div class="col text-center">
 						<a href="userRegister.do"
-							class="btn btn-outline-neutral btn-round btn-lg" target="_blank">View
+							class="btn btn-outline-neutral btn-round btn-lg">View
 							Register Page</a>
 <!-- 					<div class="container">
  						<div class="row">
