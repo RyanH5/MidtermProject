@@ -51,6 +51,7 @@
 								</c:if>
 								
 							</label>
+							<button type="button" class="btn btn-danger btn-round">SAVE</button>
 						</form>
 						<form action="toggleAdmin.do" modelAttribute="user" method="GET">
 							<label>Admin: 
