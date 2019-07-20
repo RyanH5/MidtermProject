@@ -652,9 +652,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (1, 1, 1, NULL, 'tasty fruits in the mountains', NULL, NULL);
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (2, 2, 1, NULL, 'tasty fruits in the mountains', NULL, NULL);
-INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (3, 3, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (1, 1, 1, '2019-07-11 11:00:00', 'tasty fruits in the mountains', 5, 'reviewtext');
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (2, 2, 1, '2019-07-11 11:00:00', 'tasty fruits in the mountains', 5, 'reviewtext');
+INSERT INTO `event_user_review` (`id`, `user_id`, `event_id`, `create_date`, `title`, `rating`, `review_text`) VALUES (3, 3, 2, '2019-07-11 11:00:00', 'tasty fruits in the mountains', 5, 'NULL');
 
 COMMIT;
 
@@ -664,11 +664,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'Specific Trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'Specific Trailhead', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'Fishing Hole', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'Kayak Drop-In Site', 1, 1, NULL, NULL);
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'Kayak Drop-In Site', 1, 1, NULL, NULL);
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'Specific Trailhead', 1, 1, 'descshort', 'desclong');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'Specific Trailhead', 1, 1, 'descshort', 'desclong');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'Fishing Hole', 1, 1, 'descshort', 'desclong');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'Kayak Drop-In Site', 1, 1, 'deschort', 'desclong');
+INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'Kayak Drop-In Site', 1, 1, 'descshort', 'desclong');
 
 COMMIT;
 
@@ -711,4 +711,3 @@ USE `trippingdb`;
 INSERT INTO `point_of_interest_comment` (`id`, `user_id`, `poi_id`, `comment_text`, `rating`, `comment_date`) VALUES (1, 1, 1, 'sometext', 5, NULL);
 
 COMMIT;
-

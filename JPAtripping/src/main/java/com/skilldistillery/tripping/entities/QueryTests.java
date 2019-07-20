@@ -91,7 +91,7 @@ public class QueryTests {
 					+ " JOIN points.destination dest"
 					+ " WHERE dest.id = :id"
 					+ " AND a.id = :aid";
-			int aid = 1;
+			//int aid = 1;
 			List<PointOfInterest> points3 = em.createQuery(jpql5, PointOfInterest.class)
 				.setParameter("id", id)
 				.setParameter("aid", 2)
