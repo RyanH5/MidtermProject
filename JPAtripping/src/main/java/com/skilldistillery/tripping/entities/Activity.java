@@ -33,7 +33,7 @@ public class Activity {
 	@Column(name = "image_url")
 	private String imageUrl;
 	
-	@Column(name = "icon_url")
+	@Column(name = "icon_tag")
 	private String iconUrl;
 
 	@ManyToMany(mappedBy = "activities")
