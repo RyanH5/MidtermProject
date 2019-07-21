@@ -28,7 +28,6 @@
 
 </head>
 
-<<<<<<< HEAD
 <nav id="navExample" class="navbar navbar-expand-lg fixed-top" style="background-color:#B0E0E6;" color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
@@ -51,7 +50,7 @@
 			          tripping
 			        </a></li>
 				<li class="nav-item"><a href="viewActivities.do"
-=======
+
 <body class="index-page sidebar-collapse">
 
 	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
@@ -114,7 +113,7 @@
 		</div>
 	</nav>
 	<!-- End Navbar -->
-	
+
 <<<<<<< HEAD
 	<div class="main-section" style="background-color:#F0FFFF;">
 		<c:forEach var="d" items="${dests}">
@@ -155,7 +154,7 @@
 					<c:forEach var="p" items="${destination.getPoints()}">
 						<a href="viewPoint.do?id=${p.id }"><h3>${p.name }</a></h3><br>
 >>>>>>> master
-					</c:forEach>					
+					</c:forEach>
 				</div>
 			</div>
 		</c:forEach>
@@ -191,7 +190,7 @@
 					<h6 class="text-muted">Tripping</h6>
 					<h3 class="modal-title text-center">Register</h3>
 										<p>Create an account account</p>
-					
+
 				</div>
 				<form class="register-form" action="createUser.do">
 					<div class="modal-body">
