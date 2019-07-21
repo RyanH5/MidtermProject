@@ -64,7 +64,7 @@
 			<c:forEach var="a" items="${point.getActivities()}">
 				<li><a href="viewActivity.do?id=${a.id }">${a.name }</a></li>
 			</c:forEach>
-			<h4>Comments:</h4>
+			<h4>Comments:</h4> 	
 			<c:forEach var="c" items="${point.getComments()}">
 				<li><a href="viewComment.do?id=${c.id }">${c.commentText }</a></li>
 				<br>
