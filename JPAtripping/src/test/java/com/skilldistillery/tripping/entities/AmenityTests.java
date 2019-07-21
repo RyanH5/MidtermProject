@@ -47,14 +47,14 @@ public class AmenityTests {
 		assertEquals("Lodging", amenity.getName());
 		assertEquals("Please, come stay and enjoy your visit", amenity.getShortDescription());
 		assertEquals("Colorado hotels and lodging range from five-star luxury hotels to rustic cabins. Whether it’s a city hotel, mountain resort, historic B&B or alpine lodge, Colorado accommodations provide amazing views, values and a variety of places to stay. Choose between the largest international hotel chains to small inns. And, you’ll find plenty of great dining options and activities no matter where you stay in Colorado.", amenity.getLongDescription());
-		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlsPQxYDhJxgl3MNFMocEEmPwMmcG5llr5rmUCGB1yb2_YPSy4jQ", amenity.getIconUrl());
+		assertEquals("https://www.birchwoodhotel.co.za/wp-content/uploads/2016/05/hotel-icon.png", amenity.getIconUrl());
 	}
 
 	@Test
 	void test_Amenity_has_Points() {
 		assertNotNull(amenity.getPoints());
 		assertEquals(1, amenity.getPoints().size());
-		assertEquals("Specific Trailhead", amenity.getPoints().get(0).getName());
+		assertEquals("Emerald Lake Trail", amenity.getPoints().get(0).getName());
 	}
 	
 }

@@ -1,7 +1,6 @@
 package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class AmenityTest {
@@ -41,12 +39,6 @@ class AmenityTest {
 		em.close();
 	}
 
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 
 	void test_Amenity_mappingId() {
@@ -74,7 +66,7 @@ class AmenityTest {
 	@Test
 
 	void test_Amenity_mapping_image_url() {
-		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlsPQxYDhJxgl3MNFMocEEmPwMmcG5llr5rmUCGB1yb2_YPSy4jQ", amenity.getIconUrl());
+		assertEquals("https://www.birchwoodhotel.co.za/wp-content/uploads/2016/05/hotel-icon.png", amenity.getIconUrl());
 	}
 
 @Test

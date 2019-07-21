@@ -5,6 +5,7 @@ import java.util.List;
 import com.skilldistillery.tripping.entities.Activity;
 import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.Destination;
+import com.skilldistillery.tripping.entities.DestinationReview;
 import com.skilldistillery.tripping.entities.PointOfInterest;
 
 public interface DestinationDAO {
@@ -26,5 +27,9 @@ public interface DestinationDAO {
 	public List<Activity> getActivitiesByDestination(int pointId);
 
 	public List<Destination> getAllDestinations();
+
+	public void createDestinationReview(DestinationReview review);
+
+	void removeDestinationReview(DestinationReview review);
 	
 }

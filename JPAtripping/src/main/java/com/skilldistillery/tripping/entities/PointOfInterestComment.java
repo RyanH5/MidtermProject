@@ -31,6 +31,15 @@ public class PointOfInterestComment {
 	@JoinColumn(name = "poi_id")
 	private PointOfInterest point;
 
+	public PointOfInterestComment(User user, PointOfInterest point, String commentText, int rating, Date commentDate) {
+		super();
+		this.user = user;
+		this.point = point;
+		this.commentText = commentText;
+		this.rating = rating;
+		this.commentDate = commentDate;
+	}
+
 	@Column(name = "comment_text")
 	private String commentText;
 
@@ -104,6 +113,28 @@ public class PointOfInterestComment {
 
 	public void setPoint(PointOfInterest point) {
 		this.point = point;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PointOfInterestComment other = (PointOfInterestComment) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 	
 

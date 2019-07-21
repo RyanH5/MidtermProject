@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.DestinationDAO;
 import com.skilldistillery.tripping.entities.Destination;
+import com.skilldistillery.tripping.entities.DestinationReview;
 
 @Controller
 public class DestinationController {
@@ -18,16 +19,17 @@ public class DestinationController {
 	
 	@RequestMapping(value= {"viewDestination.do"})
 	public ModelAndView getDestination(ModelAndView model, int id) {
-		Destination dest = dao.findDestinationById(id);
-		model.addObject("dest", dest);
+		Destination destination = dao.findDestinationById(id);
+		destination.getPoints();
+		model.addObject("destination", destination);
 		model.setViewName("entity/viewDestination");
 		return model;
 	}
 	
 	@RequestMapping(value= {"viewDestinations.do"})
 	public ModelAndView getDestinations(ModelAndView model) {
-		List<Destination> dests = dao.getAllDestinations();
-		model.addObject("dests", dests);
+		List<Destination> destinations = dao.getAllDestinations();
+		model.addObject("destinations", destinations);
 		model.setViewName("entities/viewDestinations");
 		return model;
 	}
@@ -36,6 +38,31 @@ public class DestinationController {
 		List<Destination> dests = dao.getAllDestinations();
 		model.addObject("dests", dests);
 		model.setViewName("shelltemplate");
+		return model;
+	}
+	
+	@RequestMapping(value= {"createDestination.do"})
+	public ModelAndView createDestination(ModelAndView model, Destination destination) {
+		destination = new Destination("hey","hey");
+		dao.createDestination(destination);
+		model.addObject("destination", destination);
+		model.setViewName("entity/viewDestination");
+		return model;
+	}
+	@RequestMapping(value= {"createDestinationReview.do"})
+	public ModelAndView createDestinationReview(ModelAndView model, DestinationReview review, int id) {
+		review.setDestination(dao.findDestinationById(id));
+		review.setReviewText("reviewed");
+		dao.createDestinationReview(review);
+		model.setViewName("entity/viewDestination");
+		return model;
+	}
+	@RequestMapping(value= {"removeDestination.do"})
+	public ModelAndView createDestinationReview(ModelAndView model, int id) {
+		Destination removed = dao.findDestinationById(id);
+		dao.deleteDestination(id);
+		model.addObject("removed", removed);
+		model.setViewName("entities/viewDestinations");
 		return model;
 	}
 }

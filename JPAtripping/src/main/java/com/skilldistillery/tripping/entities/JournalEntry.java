@@ -32,6 +32,37 @@ public class JournalEntry {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	public JournalEntry(User user, String title, String entryText, Date createDate, Destination destination) {
+		super();
+		this.user = user;
+		this.title = title;
+		this.entryText = entryText;
+		this.createDate = createDate;
+		this.destination = destination;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JournalEntry other = (JournalEntry) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	@Column(name = "is_public")
 	private boolean isPublic;
 

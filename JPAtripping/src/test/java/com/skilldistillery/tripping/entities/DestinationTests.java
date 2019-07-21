@@ -43,7 +43,7 @@ class DestinationTests {
 	@Test
 	void test_destination_userReviews_association() {
 		Destination dest2 = em.find(Destination.class, 2);
-		assertEquals("it was so awesome i broke my arm", dest2.getDestinationReviews().get(0).getReviewText());
+		assertEquals("There are only 339 people in the town. There is a liquor store. There is also some really wonderful hiking, and it's so cool to see actualy dinosaur bones which are in the side of a mountain. The visitor center was also very cool. It was worth the ridiculous drive.", dest2.getDestinationReviews().get(0).getReviewText());
 		
 	}
 	
