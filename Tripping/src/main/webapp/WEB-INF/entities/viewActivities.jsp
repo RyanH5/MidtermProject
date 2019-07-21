@@ -38,7 +38,7 @@
 
 
 			<div class="navbar-translate">
-				<i class="fa fa-user-o" aria-hidden="true"></i> <a
+				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> <a
 					class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 					title="login" data-placement="bottom" data-toggle="modal"
 					data-target="#loginModal"> login </a>

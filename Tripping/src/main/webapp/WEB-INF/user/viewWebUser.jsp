@@ -1,113 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%--
-<body>
-	<header class="header">
-		<form action="/" method="GET">
-  			<input type="submit" value="Tripping" class="btn"/>
-		</form>
-		<nav>
-			<form action="userLogout.do" method="GET">
-	  	<input type="submit" value="logout" class="nav btn link"/>
-	  </form>
-		</nav>
-	</header>
-		<section>
-			<h2>Welcome, ${user.userName }</h2>
-		</section>
-	<c:choose>
-		<c:when test="${! empty user}">
-			<h4>User Info</h4>
-			<p>ID: ${user.id}</p>
-			<p>Username: ${user.userName}</p>
-			<p>First Name: ${user.firstName}</p>
-			<p>Last Name: ${user.lastName}</p>
-			<p>Don't look at this password: ${user.password}</p>
-			<p>Create Date: ${user.createDate }</p>
-			<p>Email: ${user.email }</p>
-			<p>Image: ${user.imageURL }</p>
-			<p>Role: ${user.role }</p>
-			<p>Active: ${user.active }</p>
-		</c:when>
-		<c:otherwise> No User Here</c:otherwise>
-	</c:choose>
-</body>
---%>
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img//apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img//favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Tripping User Profile
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <!-- CSS Files -->
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
- 
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76"
+	href="./assets/img//apple-icon.png">
+<link rel="icon" type="image/png" href="./assets/img//favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>${user.userName} profile</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+	rel="stylesheet" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- CSS Files -->
+<link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="./assets/css/paper-kit.css" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
+
 </head>
 
-<body class="profile-page sidebar-collapse">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
-          tripping
-        </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </button>
-      </div>
-      		<div class="collapse navbar-collapse justify-content-end"
-			id="navigation">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a href="viewActivities.do"
+<body class="index-page sidebar-collapse">
+
+	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
+		color-on-scroll="300">
+		<div class="container">
+			<div class="navbar-translate">
+				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> 
+				
+				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+					title="login" data-placement="bottom" data-toggle="modal"
+					data-target="#loginModal"> login </a>
+				<button class="navbar-toggler navbar-toggler" type="button"
+					data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation-index" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-bar bar1"></span> <span
+						class="navbar-toggler-bar bar2"></span> <span
+						class="navbar-toggler-bar bar3"></span>
+				</button>
+		
+				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+					title="login" data-placement="bottom" data-toggle="modal"
+					data-target="#registerModal"> register </a>
+				<button class="navbar-toggler navbar-toggler" type="button"
+					data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation-index" aria-expanded="false"
+					aria-label="Toggle navigation">
+				</button>
+			</div>
+
+
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navigation">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a href="viewActivities.do"
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Activities</a></li>
 					<li class="nav-item"><a href="viewDestinations.do"
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Destinations</a></li>
-					<li class="nav-item"><a href="viewEvents.do" 
-					class="nav-link"><i class="nc-icon nc-layout-11"></i>
-							Events</a></li>
-				<li class="nav-item"><a class="nav-link" rel="tooltip"
-					title="Star on GitHub" data-placement="bottom"
-					href="https://github.com/RyanH5/MidtermProject" >
-						<i class="fa fa-github"></i>
-						<p class="d-lg-none">GitHub</p>
-				</a></li>
-			</ul>
+					<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
+							class="nc-icon nc-layout-11"></i> Events</a></li>
+					<li class="nav-item"><a class="nav-link" rel="tooltip"
+						title="Star on GitHub" data-placement="bottom"
+						href="viewUsers.do"> <i
+							class="fa fa-github"></i>
+							<p class="d-lg-none">GitHub</p>
+					</a></li>
+				</ul>
+			</div>
 		</div>
-    </div>
-  </nav>
-  <!-- End Navbar -->
-  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg);
-    background-position-y: 42%;">
-    <div class="filter"></div>
-  </div>
-  <div class="section profile-content">
-    <div class="container">
-      <div class="owner">
-        <div class="avatar">
-          <img src="${user.imageURL }" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-        </div>
-        <div class="name">
-          <h4 class="title">${user.userName }
-            <br />
+	</nav>
+	<!-- End Navbar -->
+	<div class="page-header page-header-xs" data-parallax="true"
+		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;">
+		<div class="filter"></div>
+	</div>
+	<div class="section profile-content">
+		<div class="container">
+			<div class="owner">
+				<div class="avatar">
+					<img src="${user.imageURL }" alt="Circle Image"
+						class="img-circle img-no-padding img-responsive">
+				</div>
+				<div class="name">
+					<h4 class="title">${user.userName }
+						<br />
 					</h4>
 					<h6 class="description">${user.role }</h6>
 				</div>
@@ -139,15 +125,14 @@
 							<ul class="list-unstyled follows">
 								<li>
 									<div class="row">
-<!-- 							<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
+										<!-- 							<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
 											<img src="../assets/img/faces/clem-onojeghuo-2.jpg"
 												alt="Circle Image"
 												class="img-circle img-no-padding img-responsive">
 										</div> -->
 										<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
 											<div class="section text-center">
-												<c:forEach var="entry"
-													items="${user.getJournalEntries() }">
+												<c:forEach var="entry" items="${user.getJournalEntries() }">
 													<em><h2>${entry.getTitle() }</h2></em>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
@@ -215,9 +200,8 @@
 			<div class="row">
 				<nav class="footer-nav">
 					<ul>
-						<li><a href="/" >Trip Blog</a></li>
-						<li><a href="https://www.creative-tim.com/license"
-							>Licenses</a></li>
+						<li><a href="/">Trip Blog</a></li>
+						<li><a href="https://www.creative-tim.com/license">Licenses</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -270,5 +254,5 @@
 			}
 		});
 	</script>
-	</body>
+</body>
 </html>

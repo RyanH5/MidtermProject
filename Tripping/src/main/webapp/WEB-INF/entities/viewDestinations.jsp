@@ -38,7 +38,7 @@
 
 
 			<div class="navbar-translate">
-				<i class="fa fa-user-o" aria-hidden="true"></i> <a
+				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> <a
 					class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 					title="login" data-placement="bottom" data-toggle="modal"
 					data-target="#loginModal"> login </a>
@@ -100,9 +100,19 @@
 					<br>
 					<a href="createDestination.do?id=${destination.id }">Create</a><br>
 					<a href="createDestinationReview.do?id=${destination.id }">FIX Create Destination Review</a><br>
+					<a href="createPointComment.do?id=${point.id }">FIX Create Point Review</a><br>
+					<a href="createEventReview.do?id=${event.id }">FIX Create Event Review</a><br>
+					<a href="createEventReview.do?id=${event.id }">STRETCH GOALS FILE UPLOADS FOR IMG?</a><br>
 					<a href="updateDestination.do?id=${destination.id }">FIX ME Update Destination</a><br>
-					<a href="removeDestination.do?id=${destination.id }">Remove</a><br>
-<!-- 					<h4>Points Of Interest:</h4> -->
+					<a href="updateDestination.do?id=${destination.id }">FIX ME Update Point Add/Remove Activity</a><br>
+					<a href="updateDestination.do?id=${destination.id }">FIX ME Add Point of Interest</a><br>
+					<a href="removeDestination.do?id=${destination.id }">Remove Destination</a><br>
+					<a href="removePointOfInterestComment.do?id=${destination.id }">Remove Point of Interest</a><br>
+					<a href="removeDestinationReview.do?id=${destination.id }">Remove Destination Review</a><br>
+					<a href="removePointOfInterestComment.do?id=${destination.id }">Remove Point of Interest Comment</a><br>
+					<a href="removeEventReview.do?id=${destination.id }">Remove Event Review</a><br>
+					<a href="removeEventReview.do?id=${destination.id }">Add/Remove Activity/Amenity</a><br>
+					<p>FIX ME, NEED TWO COLUMNS  Points Of Interest:</p>
 					<c:forEach var="p" items="${destination.getPoints()}">
 						<a href="viewPoint.do?id=${p.id }"><h3>${p.name }</a></h3><br>
 					</c:forEach>					

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -34,13 +33,10 @@
 	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
 		color-on-scroll="300">
 		<div class="container">
-
-
-
-
 			<div class="navbar-translate">
-				<i class="fa fa-user-o" aria-hidden="true"></i> <a
-					class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> 
+				
+				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 					title="login" data-placement="bottom" data-toggle="modal"
 					data-target="#loginModal"> login </a>
 				<button class="navbar-toggler navbar-toggler" type="button"
@@ -51,9 +47,7 @@
 						class="navbar-toggler-bar bar2"></span> <span
 						class="navbar-toggler-bar bar3"></span>
 				</button>
-			</div>
-
-			<div class="navbar-translate">
+		
 				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 					title="login" data-placement="bottom" data-toggle="modal"
 					data-target="#registerModal"> register </a>
@@ -61,9 +55,6 @@
 					data-toggle="collapse" data-target="#navigation"
 					aria-controls="navigation-index" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-bar bar1"></span> <span
-						class="navbar-toggler-bar bar2"></span> <span
-						class="navbar-toggler-bar bar3"></span>
 				</button>
 			</div>
 
@@ -81,7 +72,7 @@
 							class="nc-icon nc-layout-11"></i> Events</a></li>
 					<li class="nav-item"><a class="nav-link" rel="tooltip"
 						title="Star on GitHub" data-placement="bottom"
-						href="viewAll.do"> <i
+						href="viewUsers.do"> <i
 							class="fa fa-github"></i>
 							<p class="d-lg-none">GitHub</p>
 					</a></li>

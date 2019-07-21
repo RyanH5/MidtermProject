@@ -31,7 +31,7 @@ public class PointOfInterestController {
 	
 	@RequestMapping(path = "viewPoints.do")
 	public ModelAndView viewPoints(ModelAndView model) {
-		List<PointOfInterest> allpoints = dao.getPointsByDestination(1);
+		List <PointOfInterest> allpoints = dao.getAllPoints();
 		model.addObject("allpoints", allpoints);
 		model.setViewName("entities/viewPoints");
 		return model;

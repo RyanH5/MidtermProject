@@ -31,7 +31,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
-		<i class="fa fa-user-o" aria-hidden="true"></i>
+		<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a>
 			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
 				title="loginOrRegister.do" data-placement="bottom"
 				> login </a>
