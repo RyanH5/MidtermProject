@@ -209,7 +209,6 @@
 	</div>
 	<!-- END MODALS  -->
 	<!--   end modal -->
->>>>>>> master
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
