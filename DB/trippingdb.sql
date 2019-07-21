@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS `address` (
   `state` VARCHAR(250) NULL,
   `zip` VARCHAR(9) NULL,
   `phone` VARCHAR(20) NULL,
-  `latitude` DECIMAL NULL,
-  `longitude` DECIMAL NULL,
+  `latitude` DECIMAL(7,4) NULL,
+  `longitude` DECIMAL(7,4) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -417,7 +417,7 @@ COMMIT;
 START TRANSACTION;
 USE `trippingdb`;
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (1, 'Bear Lake Rd', NULL, 'Estes Park', 'CO', '80517', '970-947-2926', 40.3129, -105.6464);
-INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (2, 'Mesa Verde', NULL, 'Mancos, CO', 'CO', '81328', '970-947-2927', 43.5827, -110.8219);
+INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (2, 'Mesa Verde', NULL, 'Mancos, CO', 'CO', '81328', '970-947-2927', 37.2308, -108.4618);
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (3, '13th St & Ford Street', NULL, 'Golden', 'CO', '80401', '800-642-6116', 39.7541, -105.2304);
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (4, 'El Paso County', NULL, 'Colorado Springs', 'CO', '80809', '970-947-2929', 38.8409, -105.0423);
 INSERT INTO `address` (`id`, `street_1`, `street_2`, `city`, `state`, `zip`, `phone`, `latitude`, `longitude`) VALUES (5, '193 Vegma Plaza', NULL, 'Gunnison', 'CO', '81230', '970-947-2930', 38.5458, 106.9253);
