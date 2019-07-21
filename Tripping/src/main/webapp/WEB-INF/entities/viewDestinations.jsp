@@ -105,9 +105,9 @@
 				<div class="section text-center entity-card-image" style="background-image: url('${d.image}'); height: 230px;">
 				</div>
 				<div class="entity-content dest">
-					<h2 class="entity-title"><a href="viewDestination.do?id=${d.id }">${d.name }</a></h2>
+					<h2 class="entity-title" style="font-weight: bold;"><a href="viewDestination.do?id=${d.id }">${d.name }</a></h2>
 					<br>
-					<a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a><br>
+					<strong><a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a></strong><br>
 					<h4>Points Of Interest:</h4>
 					<c:forEach var="p" items="${d.getPoints()}">
 						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
