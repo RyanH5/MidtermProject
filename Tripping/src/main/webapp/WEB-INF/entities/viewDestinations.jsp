@@ -28,6 +28,29 @@
 
 </head>
 
+<nav id="navExample" class="navbar navbar-expand-lg fixed-top" style="background-color:#B0E0E6;" color-on-scroll="300">
+	<div class="container">
+		<div class="navbar-translate">
+		<i class="fa fa-user-o" aria-hidden="true"></i>
+			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+				title="loginOrRegister.do" data-placement="bottom">login</a>
+			<button class="navbar-toggler navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navigation"
+				aria-controls="navigation-index" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-bar bar1"></span><span
+					class="navbar-toggler-bar bar2"></span><span
+					class="navbar-toggler-bar bar3"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navigation">
+			<ul class="navbar-nav">
+				<li><a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+			          tripping
+			        </a></li>
+				<li class="nav-item"><a href="viewActivities.do"
+
 <body class="index-page sidebar-collapse">
 
 	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
@@ -71,6 +94,7 @@
 				id="navigation">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a href="viewActivities.do"
+>>>>>>> master
 						class="nav-link"><i class="nc-icon nc-layout-11"></i>
 							Activities</a></li>
 					<li class="nav-item"><a href="viewDestinations.do"
@@ -89,7 +113,21 @@
 		</div>
 	</nav>
 	<!-- End Navbar -->
-	
+
+<<<<<<< HEAD
+	<div class="main-section" style="background-color:#F0FFFF;">
+		<c:forEach var="d" items="${dests}">
+			<div class="entity-container">
+				<div class="section text-center entity-card-image" style="background-image: url('${d.image}'); height: 230px;">
+				</div>
+				<div class="entity-content dest">
+					<h2 class="entity-title" style="font-weight: bold;"><a href="viewDestination.do?id=${d.id }">${d.name }</a></h2>
+					<br>
+					<strong><a href="viewDestination.do?id=${d.id }">${d.shortDescription }</a></strong><br>
+					<h4>Points Of Interest:</h4>
+					<c:forEach var="p" items="${d.getPoints()}">
+						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+=======
 	<div class="main-section">
 		<c:forEach var="destination" items="${destinations}">
 			<div class="entity-container"><a href="viewDestination.do?id=${destination.id }">
@@ -115,11 +153,30 @@
 					<p>FIX ME, NEED TWO COLUMNS  Points Of Interest:</p>
 					<c:forEach var="p" items="${destination.getPoints()}">
 						<a href="viewPoint.do?id=${p.id }"><h3>${p.name }</a></h3><br>
-					</c:forEach>					
+>>>>>>> master
+					</c:forEach>
 				</div>
 			</div>
 		</c:forEach>
 	</div>
+<<<<<<< HEAD
+	<!-- <footer class="footer footer-black  footer-white ">
+		<div class="container">
+			<div class="row">
+				<nav class="footer-nav">
+					<ul>
+						<li><a href="https://www.creative-tim.com" target="_blank">Creative
+								Tim</a></li>
+						<li><a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+						</li>
+						<li><a href="https://www.creative-tim.com/license"
+							target="_blank">Licenses</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</footer> -->
+=======
 <!-- register modal -->
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
 		aria-hidden="false">
@@ -133,7 +190,7 @@
 					<h6 class="text-muted">Tripping</h6>
 					<h3 class="modal-title text-center">Register</h3>
 										<p>Create an account account</p>
-					
+
 				</div>
 				<form class="register-form" action="createUser.do">
 					<div class="modal-body">
@@ -152,6 +209,7 @@
 	</div>
 	<!-- END MODALS  -->
 	<!--   end modal -->
+>>>>>>> master
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
