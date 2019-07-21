@@ -81,7 +81,7 @@
 							class="nc-icon nc-layout-11"></i> Events</a></li>
 					<li class="nav-item"><a class="nav-link" rel="tooltip"
 						title="Star on GitHub" data-placement="bottom"
-						href="https://github.com/RyanH5/MidtermProject"> <i
+						href="viewAll.do"> <i
 							class="fa fa-github"></i>
 							<p class="d-lg-none">GitHub</p>
 					</a></li>
@@ -170,6 +170,8 @@
 					</button>
 					<h6 class="text-muted">Tripping</h6>
 					<h3 class="modal-title text-center">Register</h3>
+										<p>Create an account account</p>
+					
 				</div>
 				<form class="register-form" action="createUser.do">
 					<div class="modal-body">
@@ -181,7 +183,7 @@
 							<label>Password</label> <input type="password" value=""
 								name="password" placeholder="password" class="form-control" />
 						</div>
-						<button class="btn btn-block btn-round">Regjster</button>
+						<button class="btn btn-block btn-round">Register</button>
 				</form>
 			</div>
 		</div>
