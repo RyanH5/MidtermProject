@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name="destination_user_review ")
+@Table(name = "destination_user_review ")
 public class DestinationReview {
 
 //	Declarations
@@ -28,6 +28,19 @@ public class DestinationReview {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("DestinationReview [user=");
+		builder.append(user);
+		builder.append(", destination=");
+		builder.append(destination);
+		builder.append(", createDate=");
+		builder.append(createDate);
+		builder.append("]");
+		return builder.toString();
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
@@ -79,11 +92,9 @@ public class DestinationReview {
 		this.createDate = createDate;
 	}
 
-
 	public String getTitle() {
 		return title;
 	}
-
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -105,13 +116,11 @@ public class DestinationReview {
 		this.reviewText = reviewText;
 	}
 
-
 	public DestinationReview() {
 	}
 
 	public DestinationReview(User user, Destination destination, Date createDate, String title, int rating,
 			String reviewText) {
-		super();
 		this.user = user;
 		this.destination = destination;
 		this.createDate = createDate;
@@ -120,16 +129,8 @@ public class DestinationReview {
 		this.reviewText = reviewText;
 	}
 
-//	To String
-
-	public DestinationReview(int id, Destination destination) {
-		super();
-		this.id = id;
+	public DestinationReview(Destination destination, User user) {
+		this.user = user;
 		this.destination = destination;
 	}
-
-
-
-
-
 }

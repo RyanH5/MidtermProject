@@ -43,12 +43,11 @@ public class AddressTests {
 	@Test
 	void test_Address_mappings() {
 		assertEquals(1, address.getId());
-		assertEquals("palm harbor", address.getCity());
-		assertEquals("329 birch ct", address.getStreet1());
-		assertEquals("market street", address.getStreet2());
-		assertEquals("fl", address.getState());
-		assertEquals("727-545-5708", address.getPhone());
-		assertEquals("80499", address.getZipcode());
+		assertEquals("Estes Park", address.getCity());
+		assertEquals("Bear Lake Rd", address.getStreet1());
+		assertEquals("CO", address.getState());
+		assertEquals("970-947-2926", address.getPhone());
+		assertEquals("80517", address.getZipcode());
 //		assertEquals(39.833, address.getLatitude());
 //		assertEquals(59.543, address.getLongitude());
 		// TODO: FIXME:bdrgd

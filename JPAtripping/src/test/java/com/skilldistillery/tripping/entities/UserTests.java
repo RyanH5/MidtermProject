@@ -2,7 +2,6 @@ package com.skilldistillery.tripping.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class UserTests {
@@ -38,12 +36,6 @@ class UserTests {
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-	}
-
-	@Disabled
-	@Test
-	void test() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -79,7 +71,7 @@ class UserTests {
 	void test_user_has_destination_reviews() {
 		User user = em.find(User.class, 1);
 		assertNotNull(user.getDestReviews());
-		assertEquals("golden biking review", user.getDestReviews().get(0).getTitle());
+		assertEquals("Rocky Mountain National Park is a MUST!", user.getDestReviews().get(0).getTitle());
 	}
 	
 	@Test

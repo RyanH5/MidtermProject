@@ -108,6 +108,7 @@ public class UserDAOImpl implements UserDAO {
 		return journalEntryImages;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<JournalEntryImage> findJournalEntryImagesById(int id) {
 		journalEntryImages = (List<JournalEntryImage>) em.find(JournalEntryImage.class, id);
