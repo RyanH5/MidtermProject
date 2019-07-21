@@ -24,7 +24,7 @@
 <!-- CSS Files -->
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
-<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
+<!-- <link href="./assets/css/entitiesGrid.css" rel="stylesheet" /> -->
 
 </head>
 
@@ -102,32 +102,31 @@
 
 	<div class="mdl-card">
 		<div class="mdl-card__title">
-			<h2 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h2>
+			<h2 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h2><br>
 		</div>
 		<div class="mdl-card__media">
 			<img src="skytower.jpg" width="500" height="300" border="0" alt=""
 				style="padding: 10px;">
 		</div>
 		<div class="mdl-card__supporting-text center-text">
+		<c:forEach var="amenity" items="${point.getAmenities()}">
+			<a href="viewAmenity.do?id=${amenity.id }">
+				<img src="${amenity.iconUrl }" alt="${amenity.name }" width="42" height="42">
+			</a>
+			</c:forEach>
+			<br><h3>
 			${point.address.getStreet1() } ${point.address.getCity() }
 			${point.address.getState() } ${point.address.getZipcode() }<br>
 			${point.address.getPhone() }<br> latitude :
-			${point.address.latitude }, longitude : ${point.address.longitude }
-			<!-- <h4>Amenities:</h4> -->
-			<c:forEach var="amenity" items="${point.getAmenities()}">
-				<img href="viewAmenity.do?id=${amenity.id }" src="${amenity.iconUrl }" alt="${amenity.name }" width="42" height="42">
-			</c:forEach>
-			<h4>Activities:</h4>
+			${point.address.latitude }, longitude : ${point.address.longitude }<br></h3>
 			<c:forEach var="activity" items="${point.getActivities()}">
-				<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
-			</c:forEach>
-			<h4>Comments:</h4>
+				<img href="viewActivity.do?id=${activity.id }" src="${activity.iconUrl }" alt="${activity.name }" width="42" height="42">
+			</c:forEach><br><h3>Comments</h3>
 			<c:forEach var="comment" items="${point.getComments()}">
-				<li><a href="viewComment.do?id=${comment.user.id }">${comment.commentText }</a></li>
-				<br>
+				<a href="viewComment.do?id=${comment.user.id }">${comment.user.userName }</a>
+				${comment.commentText }
 			</c:forEach>
-		</div>
-		<div class="mdl-card__actions">
+<%-- 		<div class="mdl-card__actions">
 			<a href="AddToBucketList.do?id=${destination.id }"
 				class="btn btn-link btn-neutral"> <i class="fa fa-minus"
 				aria-hidden="true"></i>Delete Comment
@@ -137,7 +136,7 @@
 				class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
 				<i class="material-icons">Add Comment</i>
 			</button>
-		</div>
+		</div> --%>
 	</div>
 </body>
 

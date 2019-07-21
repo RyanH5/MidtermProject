@@ -166,10 +166,6 @@
           <p>Create your account free and secure</p>
         </div>
         <div class="modal-body">
-          <button class="btn btn-block btn-round"> Sign Up with Email</button>
-          <button class="btn btn-block btn-round">Connect with Facebook</button>
-          <button class="btn btn-block btn-round">Connect with Twitter</button>
-          <button type="button" class="btn btn-info btn-round btn-block btn-simple"> Sign In with Email </button>
         </div>
         <div class="modal-footer no-border-footer"></div>
       </div>

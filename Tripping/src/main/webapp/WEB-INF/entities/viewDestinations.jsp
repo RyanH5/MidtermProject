@@ -27,93 +27,123 @@
 
 </head>
 
-<nav id="navExample" class="navbar navbar-expand-lg fixed-top"
-	color-on-scroll="300">
-	<div class="container">
-		<div class="navbar-translate">
-		<i class="fa fa-user-o" aria-hidden="true"></i>
-			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-				title="loginOrRegister.do" data-placement="bottom">login</a>
-			<button class="navbar-toggler navbar-toggler" type="button"
-				data-toggle="collapse" data-target="#navigation"
-				aria-controls="navigation-index" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-bar bar1"></span><span
-					class="navbar-toggler-bar bar2"></span><span
-					class="navbar-toggler-bar bar3"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse justify-content-end"
-			id="navigation">
-			<ul class="navbar-nav">
-				<li><a class="navbar-brand" href="/" rel="tooltip"
-					title="tripping" data-placement="bottom"> tripping </a></li>
-				<li class="nav-item"><a href="viewActivities.do"
-					class="nav-link"><i class="nc-icon nc-layout-11"></i>
-						Activities</a></li>
-				<li class="nav-item"><a href="viewDestinations.do"
-					class="nav-link"><i class="nc-icon nc-layout-11"></i>
-						Destinations</a></li>
-				<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
-						class="nc-icon nc-layout-11"></i> Events</a></li>
-				<li class="nav-item"><a class="nav-link" rel="tooltip"
-					title="Star on GitHub" data-placement="bottom"
-					href="https://github.com/RyanH5/MidtermProject" target="_blank">
-						<i class="fa fa-github"></i>
-						<p class="d-lg-none">GitHub</p>
-				</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
+  	color-on-scroll="300">
+  	<div class="container">
 
-<div class="main-section" style="background-image: url('https://www.outtherecolorado.com/wp-content/uploads/2017/03/65c35611befe96d3a3f0f010e1e74fcd-1024x683.jpg')">
-	<div class="fog-low">
-					<img src="./assets/img/fog-low.png" alt="">
-				</div>
-				<div class="fog-low right">
-					<img src="./assets/img/fog-low.png" alt="">
-				</div>
-	<div class="moving-clouds"
-		style="background-image: url('./assets/img/clouds.png');"></div>
-	<c:forEach var="destination" items="${destinations}">
-<%-- 		<div class="entity-container card" href="viewDestination.do?id=${destination.id }">
-			<div class="section text-center entity-card-image"
-				>
-			</div>
-			<h6 class="entity-title text-block">
-				
-			</h6>
-		</div> --%>
-		<div class="entity-container card card-body" style="background-color:#00000;">
-              <label class="badge badge-pill badge-info">Web Design</label>
-              <a href="#pablo">
-                <h3 class="card-title" style="color:black"><a href="viewDestination.do?id=${destination.id }">${destination.name }</a></h3>
-              </a>
-              <p class="card-description">Nothing must be arbitrary or left to chance. Care and accuracy in the design process show respect towards the consumer.
-              </p>
-              <div class="card-footer">
-                <a href="AddToBucketList.do?id=${destination.id }" class="btn btn-link btn-neutral">
-                  <i class="fa fa-plus" aria-hidden="true"></i> Add to Bucket List
-                </a>
-             <!--    <a href="#pablo" class="btn btn-link btn-neutral">
-                  <i class="fa fa-minus" aria-hidden="true"></i> Delete
-                </a> -->
-              </div>
-            </div>
-		
-		
-		
-		
-		
-	</c:forEach>
-</div>
-<footer class="footer footer-black  footer-white ">
-	<div class="container">
-		<div class="row">
-			<nav class="footer-nav"></nav>
+
+
+      <div class="navbar-translate">
+      			<i class="fa fa-user-o" aria-hidden="true"></i> <a
+      				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+      				title="loginOrRegister.do" data-placement="bottom"> login </a>
+      			<button class="navbar-toggler navbar-toggler" type="button"
+      				data-toggle="collapse" data-target="#navigation"
+      				aria-controls="navigation-index" aria-expanded="false"
+      				aria-label="Toggle navigation">
+      				<span class="navbar-toggler-bar bar1"></span> <span
+      					class="navbar-toggler-bar bar2"></span> <span
+      					class="navbar-toggler-bar bar3"></span>
+      			</button>
+      		</div>
+
+
+  		<div class="collapse navbar-collapse justify-content-end"
+  			id="navigation">
+  			<ul class="navbar-nav">
+  				<li class="nav-item"><a href="viewActivities.do"
+  					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+  						Activities</a></li>
+  				<li class="nav-item"><a href="viewDestinations.do"
+  					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+  						Destinations</a></li>
+  				<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
+  						class="nc-icon nc-layout-11"></i> Events</a></li>
+  				<li class="nav-item"><a class="nav-link" rel="tooltip"
+  					title="Star on GitHub" data-placement="bottom"
+  					href="https://github.com/RyanH5/MidtermProject"> <i
+  						class="fa fa-github"></i>
+  						<p class="d-lg-none">GitHub</p>
+  				</a></li>
+  			</ul>
+  		</div>
+  	</div>
+  </nav>
+  <!-- End Navbar -->
+<%-- 	<div class="section section-image section-login"
+		style="background-image: url('https://www.uncovercolorado.com/wp-content/uploads/2017/10/Colorado-Kayaking-Lake-Clouds-950x475.jpg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 mx-auto">
+					<div class="card card-register" style="background-image: url('./assets/img/login-image.jpg');">
+	<c:forEach var="d" items="${dests}">
+						<h3 class="title mx-auto">Welcome</h3>
+						<div class="social-line text-center">
+							<a href="#pablo"
+								class="btn btn-neutral btn-facebook btn-just-icon mt-0"> <i
+								class="fa fa-facebook-square"></i>
+							</a> <a href="#pablo"
+								class="btn btn-neutral btn-google btn-just-icon mt-0"> <i
+								class="fa fa-google-plus"></i>
+							</a> <a href="#pablo"
+								class="btn btn-neutral btn-twitter btn-just-icon mt-0"> <i
+								class="fa fa-twitter"></i>
+							</a>
+						</div>
+		<div class="section text-center">
+			<h2>${d.name }</h2>
+			<a href="viewDestination.do?id=${d.id }">${d.name }</a><br>
+			<a href="viewDestination.do?id=${d.id }">${d.description }</a><br>
+			<h4>Points Of Interest:</h4>
+			<c:forEach var="p" items="${d.getPoints()}">
+				<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+			</c:forEach>
 		</div>
+	</c:forEach>
+	</div> --%>
+	
+	<div class="main-section">
+		<c:forEach var="destination" items="${destinations}">
+			<div class="entity-container"><a href="viewDestination.do?id=${destination.id }">
+				<div class="section text-center entity-card-image" style="background-image: url('${destination.image}'); height: 230px;">
+				</div></a>
+				<div class="entity-content dest">
+					<h2 class="entity-title"><a href="viewDestination.do?id=${destination.id }">${destination.name }</a></h2>
+					<br>
+					<a href="viewDestination.do?id=${destination.id }">${d.shortDescription }</a><br>
+					<h4>Points Of Interest:</h4>
+					<c:forEach var="p" items="${destination.getPoints()}">
+						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+					</c:forEach>					
+				</div>
+			</div>
+		</c:forEach>
 	</div>
-</footer>
-</body>
+	<footer class="footer footer-black  footer-white ">
+		<div class="container">
+			<div class="row">
+				<nav class="footer-nav">
+					<ul>
+						<li><a href="https://www.creative-tim.com" target="_blank">Creative
+								Tim</a></li>
+						<li><a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+						</li>
+						<li><a href="https://www.creative-tim.com/license"
+							target="_blank">Licenses</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</footer>
+	<!--   Core JS Files   -->
+	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+	<script src="./assets/js/plugins/bootstrap-switch.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="./assets/js/plugins/nouislider.min.js"
+		type="text/javascript"></script>
+	
+	</body>
 </html>
