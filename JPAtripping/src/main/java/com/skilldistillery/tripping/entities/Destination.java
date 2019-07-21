@@ -40,6 +40,12 @@ public class Destination {
 		return true;
 	}
 
+	public Destination(String name, String shortDescription) {
+		super();
+		this.name = name;
+		this.shortDescription = shortDescription;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

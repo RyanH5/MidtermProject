@@ -81,34 +81,57 @@
 	</c:forEach>
 
 	</div>
-
-	<!-- Modal Bodies come here -->
-
+<!-- register modal -->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
+		aria-hidden="false">
+		<div class="modal-dialog modal-register">
+			<div class="modal-content">
+				<div class="modal-header no-border-header text-center">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h6 class="text-muted">Tripping</h6>
+					<h3 class="modal-title text-center">Register</h3>
+										<p>Create an account account</p>
+					
+				</div>
+				<form class="register-form" action="createUser.do">
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Username</label> <input type="text" value=""
+								name="userName" placeholder="username" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Password</label> <input type="password" value=""
+								name="password" placeholder="password" class="form-control" />
+						</div>
+						<button class="btn btn-block btn-round">Register</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- END MODALS  -->
 	<!--   end modal -->
+	<!--   Core JS Files   -->
+	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+	<script src="./assets/js/plugins/bootstrap-switch.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="./assets/js/plugins/nouislider.min.js"
+		type="text/javascript"></script>
+	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+	<script src="./assets/js/plugins/moment.min.js"></script>
+	<script src="./assets/js/plugins/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
+	<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
+	<!--  Google Maps Plugin    -->
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 </body>
 
-<!--   Core JS Files   -->
-<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="./assets/js/plugins/nouislider.min.js"
-	type="text/javascript"></script>
-
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="./assets/js/plugins/moment.min.js"></script>
-<script src="./assets/js/plugins/bootstrap-datepicker.js"
-	type="text/javascript"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
-<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
 </html>

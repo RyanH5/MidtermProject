@@ -10,7 +10,7 @@
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>tripping</title>
+<title>destinations</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -98,31 +98,50 @@
 				<div class="entity-content dest">
 					<h2 class="entity-title"><a href="viewDestination.do?id=${destination.id }">${destination.name }</a></h2>
 					<br>
-					<a href="viewDestination.do?id=${destination.id }">${d.shortDescription }</a><br>
-					<h4>Points Of Interest:</h4>
+					<a href="createDestination.do?id=${destination.id }">Create</a><br>
+					<a href="createDestinationReview.do?id=${destination.id }">FIX Create Destination Review</a><br>
+					<a href="updateDestination.do?id=${destination.id }">FIX ME Update Destination</a><br>
+					<a href="removeDestination.do?id=${destination.id }">Remove</a><br>
+<!-- 					<h4>Points Of Interest:</h4> -->
 					<c:forEach var="p" items="${destination.getPoints()}">
-						<a href="viewPoint.do?id=${p.id }">${p.name }</a><br>
+						<a href="viewPoint.do?id=${p.id }"><h3>${p.name }</a></h3><br>
 					</c:forEach>					
 				</div>
 			</div>
 		</c:forEach>
 	</div>
-	<footer class="footer footer-black  footer-white ">
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav">
-					<ul>
-						<li><a href="https://www.creative-tim.com" target="_blank">Creative
-								Tim</a></li>
-						<li><a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-						</li>
-						<li><a href="https://www.creative-tim.com/license"
-							target="_blank">Licenses</a></li>
-					</ul>
-				</nav>
+<!-- register modal -->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
+		aria-hidden="false">
+		<div class="modal-dialog modal-register">
+			<div class="modal-content">
+				<div class="modal-header no-border-header text-center">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h6 class="text-muted">Tripping</h6>
+					<h3 class="modal-title text-center">Register</h3>
+										<p>Create an account account</p>
+					
+				</div>
+				<form class="register-form" action="createUser.do">
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Username</label> <input type="text" value=""
+								name="userName" placeholder="username" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Password</label> <input type="password" value=""
+								name="password" placeholder="password" class="form-control" />
+						</div>
+						<button class="btn btn-block btn-round">Register</button>
+				</form>
 			</div>
 		</div>
-	</footer>
+	</div>
+	<!-- END MODALS  -->
+	<!--   end modal -->
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -132,6 +151,16 @@
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 	<script src="./assets/js/plugins/nouislider.min.js"
 		type="text/javascript"></script>
-	
-	</body>
+	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+	<script src="./assets/js/plugins/moment.min.js"></script>
+	<script src="./assets/js/plugins/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
+	<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
+	<!--  Google Maps Plugin    -->
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+</body>
+
 </html>

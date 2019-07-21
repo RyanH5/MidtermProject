@@ -125,105 +125,116 @@
 
 	<div class="mdl-card">
 		<div class="mdl-card__title">
-			<h2 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h2><br>
+			<h2 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h2>
+			<br>
 		</div>
 		<div class="mdl-card__media">
 			<img src="skytower.jpg" width="500" height="300" border="0" alt=""
 				style="padding: 10px;">
 		</div>
 		<div class="mdl-card__supporting-text center-text">
-		<c:forEach var="amenity" items="${point.getAmenities()}">
-			<a href="viewAmenity.do?id=${amenity.id }">
-				<img src="${amenity.iconUrl }" alt="${amenity.name }" width="42" height="42">
-			</a>
+			<c:forEach var="amenity" items="${point.getAmenities()}">
+				<a href="viewAmenity.do?id=${amenity.id }"> <img
+					src="${amenity.iconUrl }" alt="${amenity.name }" width="42"
+					height="42">
+				</a>
 			</c:forEach>
-			<br><h3>
-			${point.address.getStreet1() } ${point.address.getCity() }
-			${point.address.getState() } ${point.address.getZipcode() }<br>
-			${point.address.getPhone() }<br> latitude :
-			${point.address.latitude }, longitude : ${point.address.longitude }<br></h3>
+			<br>
+			
+			<h3>
+				${point.address.getStreet1() } ${point.address.getCity() }
+				${point.address.getState() } ${point.address.getZipcode() }<br>
+				${point.address.getPhone() }<br> latitude :
+				${point.address.latitude }, longitude : ${point.address.longitude }<br>
+			</h3>
+
 			<c:forEach var="activity" items="${point.getActivities()}">
-				<img href="viewActivity.do?id=${activity.id }" src="${activity.iconUrl }" alt="${activity.name }" width="42" height="42">
-			</c:forEach><br><h3>Comments</h3>
+				<a href="viewActivity.do?id=${activity.id }"> <img
+					src="${activity.iconUrl }" alt="${activity.name }" width="42"
+					height="42">
+				</a>
+			</c:forEach>
+			<br>
+			<h3>Comments</h3>
 			<c:forEach var="comment" items="${point.getComments()}">
 				<a href="viewUser.do?id=${comment.user.id }">${comment.user.userName }</a>
 				${comment.commentText }
 			</c:forEach>
-	</div>
-<footer class="footer footer-black  footer-white ">
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav"></nav>
-			</div>
 		</div>
-	</footer>
-	<!-- Modal Bodies come here -->
-	<!-- login modal -->
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-		aria-hidden="false">
-		<div class="modal-dialog modal-register">
-			<div class="modal-content">
-				<div class="modal-header no-border-header text-center">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h6 class="text-muted">Tripping</h6>
-					<h3 class="modal-title text-center">Plan your next trip!</h3>
-					<p>Log in to your account</p>
+		<footer class="footer footer-black  footer-white ">
+			<div class="container">
+				<div class="row">
+					<nav class="footer-nav"></nav>
 				</div>
+			</div>
+		</footer>
+		<!-- Modal Bodies come here -->
+		<!-- login modal -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+			aria-hidden="false">
+			<div class="modal-dialog modal-register">
+				<div class="modal-content">
+					<div class="modal-header no-border-header text-center">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h6 class="text-muted">Tripping</h6>
+						<h3 class="modal-title text-center">Plan your next trip!</h3>
+						<p>Log in to your account</p>
+					</div>
 
-				<form class="login-form" action="userLogin.do">
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Username</label> <input type="text" value=""
-								name="userName" placeholder="username" class="form-control" />
+					<form class="login-form" action="userLogin.do">
+						<div class="modal-body">
+							<div class="form-group">
+								<label>Username</label> <input type="text" value=""
+									name="userName" placeholder="username" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Password</label> <input type="password" value=""
+									name="password" placeholder="password" class="form-control" />
+							</div>
+							<button class="btn btn-block btn-round">Log in</button>
 						</div>
-						<div class="form-group">
-							<label>Password</label> <input type="password" value=""
-								name="password" placeholder="password" class="form-control" />
+						<div class="modal-footer no-border-footer">
+							<span class="text-muted  text-center">Looking <a href="">create
+									an account</a> ?
+							</span>
 						</div>
-						<button class="btn btn-block btn-round">Log in</button>
-					</div>
-					<div class="modal-footer no-border-footer">
-						<span class="text-muted  text-center">Looking <a href="">create
-								an account</a> ?
-						</span>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- register modal -->
-	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
-		aria-hidden="false">
-		<div class="modal-dialog modal-register">
-			<div class="modal-content">
-				<div class="modal-header no-border-header text-center">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h6 class="text-muted">Tripping</h6>
-					<h3 class="modal-title text-center">Register</h3>
-										<p>Create an account account</p>
-					
+					</form>
 				</div>
-				<form class="register-form" action="createUser.do">
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Username</label> <input type="text" value=""
-								name="userName" placeholder="username" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Password</label> <input type="password" value=""
-								name="password" placeholder="password" class="form-control" />
-						</div>
-						<button class="btn btn-block btn-round">Register</button>
-				</form>
 			</div>
 		</div>
-	</div>
+		<!-- register modal -->
+		<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
+			aria-hidden="false">
+			<div class="modal-dialog modal-register">
+				<div class="modal-content">
+					<div class="modal-header no-border-header text-center">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h6 class="text-muted">Tripping</h6>
+						<h3 class="modal-title text-center">Register</h3>
+						<p>Create an account account</p>
+
+					</div>
+					<form class="register-form" action="createUser.do">
+						<div class="modal-body">
+							<div class="form-group">
+								<label>Username</label> <input type="text" value=""
+									name="userName" placeholder="username" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Password</label> <input type="password" value=""
+									name="password" placeholder="password" class="form-control" />
+							</div>
+							<button class="btn btn-block btn-round">Register</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- END MODALS  -->
 	<!--   end modal -->

@@ -43,15 +43,15 @@
 						<td>${user.userName }</td>
 						<td>${user.role }</td>
 						<td>${user.createDate }</td>
-						<td class="td-actions text-right"><a href="viewUser.do" >
+						<td class="td-actions text-right"><a href="viewUser.do?id=${user.id }" >
 							<button type="button" rel="tooltip" title="View Profile"
 								class="btn btn-info btn-simple btn-xs">
 								<i class="fa fa-user"></i>
-							</button></a><a href="updateProfile.do">
-							<button type="button" rel="tooltip" title="Edit Profile"
+							</button></a><a href="updateProfile.do?id=${user.id }">
+							<button type="button" rel="tooltip" title="Update Profile"
 								class="btn btn-success btn-simple btn-xs">
 								<i class="fa fa-edit"></i>
-							</button></a><a href="markInactive.do">
+							</button></a><a href="markInactive.do?id=${user.id }">
 							<button type="button" rel="tooltip" title="Mark Inactive"
 								class="btn btn-danger btn-simple btn-xs">
 								<i class="fa fa-times"></i>
