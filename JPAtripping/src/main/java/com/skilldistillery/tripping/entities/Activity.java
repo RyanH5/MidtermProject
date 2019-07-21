@@ -32,6 +32,9 @@ public class Activity {
 
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	@Column(name = "icon_url")
+	private String iconUrl;
 
 	@ManyToMany(mappedBy = "activities")
 	private List<PointOfInterest> points;
@@ -159,6 +162,14 @@ public Activity(String name, String shortDescription, String longDescription, St
 			points.remove(pointOfInterest);
 			pointOfInterest.removeActivity(this);
 		}
+	}
+
+	public String getIconUrl() {
+		return iconUrl;
+	}
+
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
 	}
 
 }
