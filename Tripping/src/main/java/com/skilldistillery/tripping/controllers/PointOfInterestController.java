@@ -19,6 +19,10 @@ public class PointOfInterestController {
 	@RequestMapping(path = "viewPoint.do")
 	public ModelAndView viewPoint(ModelAndView model, int id) {
 		PointOfInterest point = dao.findPointOfInterestById(id);
+		point.getActivities();
+		point.getAddress();
+		point.getAmenities();
+		point.getComments();
 		model.addObject("point", point);
 		model.setViewName("entity/viewPoint");
 //		model.setViewName("entity/viewGoogleMap");

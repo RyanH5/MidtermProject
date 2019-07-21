@@ -93,12 +93,12 @@
 							<input type="text" name="password" class="form-control"
 								placeholder="Password">
 						</div>
-						<button class="btn btn btn-outline-warning btn-block btn-round"
+						<button class="btn btn btn-primary btn-block btn-round"
 							style="color: #563C77">Login</button>
 					</form>
 				<div class="input-group form-group-no-border">
 					<a href="userRegister.do"
-						class="btn btn btn-outline-warning btn-block btn-round" style="color: #563C77">Register</a>
+						class="btn btn btn-primary btn-block btn-round" style="color: #563C77">Register</a>
 				</div>
 				</div>
 			</div>

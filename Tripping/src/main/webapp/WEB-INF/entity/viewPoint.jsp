@@ -2,14 +2,70 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-<title>Insert title here</title>
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76"
+	href="../assets/img//apple-icon.png">
+<link rel="icon" type="image/png" href="../assets/img//favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>tripping</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+	rel="stylesheet" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- CSS Files -->
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
+
 </head>
-</head>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
+	color-on-scroll="300">
+	<div class="container">
+		<div class="navbar-translate">
+			<i class="fa fa-user-o" aria-hidden="true"></i> <a
+				class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
+				title="loginOrRegister.do" data-placement="bottom"> login </a>
+			<button class="navbar-toggler navbar-toggler" type="button"
+				data-toggle="collapse" data-target="#navigation"
+				aria-controls="navigation-index" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-bar bar1"></span> <span
+					class="navbar-toggler-bar bar2"></span> <span
+					class="navbar-toggler-bar bar3"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navigation">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a href="viewActivities.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Activities</a></li>
+				<li class="nav-item"><a href="viewDestinations.do"
+					class="nav-link"><i class="nc-icon nc-layout-11"></i>
+						Destinations</a></li>
+				<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
+						class="nc-icon nc-layout-11"></i> Events</a></li>
+				<li class="nav-item"><a class="nav-link" rel="tooltip"
+					title="Star on GitHub" data-placement="bottom"
+					href="https://github.com/RyanH5/MidtermProject"> <i
+						class="fa fa-github"></i>
+						<p class="d-lg-none">GitHub</p>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- End Navbar -->
 <body>
 
 	<script src="http://maps.google.com/maps/api/js"></script>
@@ -19,11 +75,11 @@
 	width: 400px;
 	height: 400px;
 }
-</style>    
+</style>
 </head>
 <body>
 	<div id="map"></div>
-    <script>
+	<script>
       var map;
       function initMap() {
     	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
@@ -40,8 +96,9 @@
         
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
-    async defer></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
+		async defer></script>
 
 	<div class="mdl-card">
 		<div class="mdl-card__title">
@@ -51,34 +108,34 @@
 			<img src="skytower.jpg" width="500" height="300" border="0" alt=""
 				style="padding: 10px;">
 		</div>
-		<div class="mdl-card__supporting-text">
+		<div class="mdl-card__supporting-text center-text">
 			${point.address.getStreet1() } ${point.address.getCity() }
 			${point.address.getState() } ${point.address.getZipcode() }<br>
-			${point.address.getPhone() }<br> 	latitude : ${point.address.latitude },
-				longitude : ${point.address.longitude }
-			<h4>Amenities:</h4>
-			<c:forEach var="a" items="${point.getAmenities()}">
-				<li><a href="viewAmenity.do?id=${a.id }">${a.name }</a></li>
+			${point.address.getPhone() }<br> latitude :
+			${point.address.latitude }, longitude : ${point.address.longitude }
+			<!-- <h4>Amenities:</h4> -->
+			<c:forEach var="amenity" items="${point.getAmenities()}">
+				<img href="viewAmenity.do?id=${amenity.id }" src="${amenity.iconUrl }" alt="${amenity.name }" width="42" height="42">
 			</c:forEach>
 			<h4>Activities:</h4>
-			<c:forEach var="a" items="${point.getActivities()}">
-				<li><a href="viewActivity.do?id=${a.id }">${a.name }</a></li>
+			<c:forEach var="activity" items="${point.getActivities()}">
+				<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
 			</c:forEach>
 			<h4>Comments:</h4>
-			<c:forEach var="c" items="${point.getComments()}">
-				<li><a href="viewComment.do?id=${c.id }">${c.commentText }</a></li>
-				<br>
+			<c:forEach var="comment" items="${point.getComments()}">
+				<li><a href="viewComment.do?id=${comment.user.id }">${comment.commentText }</a></li>
 				<br>
 			</c:forEach>
 		</div>
 		<div class="mdl-card__actions">
-			<button
-				class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-				Button</button>
+			<a href="AddToBucketList.do?id=${destination.id }"
+				class="btn btn-link btn-neutral"> <i class="fa fa-minus"
+				aria-hidden="true"></i>Delete Comment
+			</a>
 			<!-- Colored FAB button -->
 			<button
 				class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
-				<i class="material-icons">add</i>
+				<i class="material-icons">Add Comment</i>
 			</button>
 		</div>
 	</div>

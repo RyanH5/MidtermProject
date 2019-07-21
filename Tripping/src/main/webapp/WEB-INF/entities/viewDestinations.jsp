@@ -66,16 +66,46 @@
 		</div>
 	</div>
 </nav>
-<div class="main-section">
+
+<div class="main-section" style="background-image: url('https://www.outtherecolorado.com/wp-content/uploads/2017/03/65c35611befe96d3a3f0f010e1e74fcd-1024x683.jpg')">
+	<div class="fog-low">
+					<img src="./assets/img/fog-low.png" alt="">
+				</div>
+				<div class="fog-low right">
+					<img src="./assets/img/fog-low.png" alt="">
+				</div>
+	<div class="moving-clouds"
+		style="background-image: url('./assets/img/clouds.png');"></div>
 	<c:forEach var="destination" items="${destinations}">
-		<div class="entity-container card">
+<%-- 		<div class="entity-container card" href="viewDestination.do?id=${destination.id }">
 			<div class="section text-center entity-card-image"
-				style="background-image: url('${destination.image}'); height: 230px;">
+				>
 			</div>
-			<h6 class="entity-title">
-				<a href="viewDestination.do?id=${destination.id }">${destination.name }</a>
+			<h6 class="entity-title text-block">
+				
 			</h6>
-		</div>
+		</div> --%>
+		<div class="entity-container card card-body" style="background-color:#00000;">
+              <label class="badge badge-pill badge-info">Web Design</label>
+              <a href="#pablo">
+                <h3 class="card-title" style="color:black"><a href="viewDestination.do?id=${destination.id }">${destination.name }</a></h3>
+              </a>
+              <p class="card-description">Nothing must be arbitrary or left to chance. Care and accuracy in the design process show respect towards the consumer.
+              </p>
+              <div class="card-footer">
+                <a href="AddToBucketList.do?id=${destination.id }" class="btn btn-link btn-neutral">
+                  <i class="fa fa-plus" aria-hidden="true"></i> Add to Bucket List
+                </a>
+             <!--    <a href="#pablo" class="btn btn-link btn-neutral">
+                  <i class="fa fa-minus" aria-hidden="true"></i> Delete
+                </a> -->
+              </div>
+            </div>
+		
+		
+		
+		
+		
 	</c:forEach>
 </div>
 <footer class="footer footer-black  footer-white ">

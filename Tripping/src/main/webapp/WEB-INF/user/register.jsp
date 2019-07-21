@@ -94,13 +94,26 @@
 					<h3 class="title mx-auto">Register</h3>
 						<form class="register-form" action="createUser.do"
 							modelAttribute="user">
-							<label>Username</label> <input type="text" class="form-control"
-								name="userName" placeholder="Username"> <label>Password</label>
-							<input type="password" class="form-control" name="password"
-								placeholder="Password"> <label>Email</label> <input
-								type="text" class="form-control" name="email"
-								placeholder="Email">
-							<button class="btn btn-primary btn-block btn-round">Register</button>
+							<label>Username</label>
+						<div class="input-group form-group-no-border">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> <i
+									class="nc-icon nc-email-85"></i>
+								</span>
+							</div>
+							<input type="text" name="userName" class="form-control"
+								placeholder="Username">
+						</div> <label>Password</label>
+							<div class="input-group form-group-no-border">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> <i
+									class="nc-icon nc-key-25"></i>
+								</span>
+							</div>
+							<input type="text" name="password" class="form-control"
+								placeholder="Password">
+						</div>
+							<button class="btn btn-primary btn-block btn-round" style="color: #563C77">Register</button>
 						</form>
 					</div>
 				</div>
