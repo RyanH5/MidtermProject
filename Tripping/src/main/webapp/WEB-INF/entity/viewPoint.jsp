@@ -110,13 +110,13 @@
           center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
           zoom: 8
         });
-        
+
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
             title: '${point.name}'
           });
-        
+
       }
     </script>
 	<script
@@ -134,13 +134,16 @@
 		</div>
 		<div class="mdl-card__supporting-text center-text">
 			<c:forEach var="amenity" items="${point.getAmenities()}">
-				<a href="viewAmenity.do?id=${amenity.id }"> <img
+				<a href="viewAmenity.do?id=${amenity.id }">
+
+				 <%-- <img
 					src="${amenity.iconUrl }" alt="${amenity.name }" width="42"
-					height="42">
+					height="42"> --%>
 				</a>
+				${amenity.iconUrl }
 			</c:forEach>
 			<br>
-			
+
 			<h3>
 				${point.address.getStreet1() } ${point.address.getCity() }
 				${point.address.getState() } ${point.address.getZipcode() }<br>
@@ -149,9 +152,10 @@
 			</h3>
 
 			<c:forEach var="activity" items="${point.getActivities()}">
-				<a href="viewActivity.do?id=${activity.id }"> <img
-					src="${activity.iconUrl }" alt="${activity.name }" width="42"
-					height="42">
+				<a href="viewActivity.do?id=${activity.id }">
+
+				${activity.iconUrl }
+
 				</a>
 			</c:forEach>
 			<br>
