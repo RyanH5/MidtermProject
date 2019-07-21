@@ -29,6 +29,42 @@ public class EventReview {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+
+	public EventReview(User user, Event event, Date createDate, String title, Integer rating, String review_text) {
+		super();
+		this.user = user;
+		this.event = event;
+		this.createDate = createDate;
+		this.title = title;
+		this.rating = rating;
+		this.review_text = review_text;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EventReview other = (EventReview) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "event_id")
 	private Event event;

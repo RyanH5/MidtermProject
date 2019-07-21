@@ -42,13 +42,13 @@ class DestinationUserReviewTests {
 
 	@Test
 	void test_destination_usr_review_mappings() {
-		assertEquals("golden biking review", dr1.getTitle());
-		assertEquals("Located in the northwest corner of Colorado, is the town of Dinosaur. Origonaly named Baxter Springs, then Artesia, and renamed again in 1966, Dinosaur.", dr1.getDestination().getDescription());
+		assertEquals("Rocky Mountain National Park is a MUST!", dr1.getTitle());
+		assertEquals("Estes Park lies at the entrence to Colorado's jewl, Rocky Mountain National Park. At an elevation of 7522', Estes Park offers fantastic scenery and wildlife, as well as great shops, restaurants, and prime lodging.", dr1.getDestination().getDescription());
 	}
 	
 	@Test
 	void test_destination_usr_review_association_destination() {
-		assertEquals("Dinoaur offers great ancient history with easy access to Dinosaur National Monument with a touch of modern amenities.", dr1.getDestination().getShortDescription());
+		assertEquals("Estes Park is a great place to escape the hustle and bustle of Denver and the summertime heat at lower elevation.", dr1.getDestination().getShortDescription());
 	}
 	
 

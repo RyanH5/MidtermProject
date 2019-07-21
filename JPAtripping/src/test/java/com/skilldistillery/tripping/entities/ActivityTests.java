@@ -54,7 +54,7 @@ public class ActivityTests {
 	void test_Activity_has_Points() {
 		assertNotNull(activity.getPoints());
 		assertEquals(1, activity.getPoints().size());
-		assertEquals("Specific Trailhead", activity.getPoints().get(0).getName());
+		assertEquals("Emerald Lake Trail", activity.getPoints().get(0).getName());
 	}
 	
 }

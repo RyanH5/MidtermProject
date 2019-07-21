@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.tripping.entities.Activity;
 import com.skilldistillery.tripping.entities.Amenity;
 import com.skilldistillery.tripping.entities.Destination;
+import com.skilldistillery.tripping.entities.DestinationReview;
 import com.skilldistillery.tripping.entities.PointOfInterest;
 
 @Transactional
@@ -91,6 +92,15 @@ public class DestinationDAOImpl implements DestinationDAO {
 		String query = "SELECT d FROM Destination d";
 		List<Destination> dests = em.createQuery(query, Destination.class).getResultList();
 		return dests;
+	}
+
+	@Override
+	public void createDestinationReview(DestinationReview review) {
+		em.persist(review);
+	}
+	@Override
+	public void removeDestinationReview(DestinationReview review) {
+		em.remove(review);
 	}
 
 }

@@ -101,7 +101,7 @@ public class Address {
 		return latitude;
 	}
 
-	public void setLatitude(long latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
@@ -109,7 +109,7 @@ public class Address {
 		return longitude;
 	}
 
-	public void setLongitude(long longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
@@ -118,12 +118,47 @@ public class Address {
 	public Address() {
 	}
 
-	public Address(int id, String street1, String street2, String city, String state, String zipcode, String phone,
-			double latitude, double longitude) {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Address [street1=");
+		builder.append(street1);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", state=");
+		builder.append(state);
+		builder.append(", zipcode=");
+		builder.append(zipcode);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	public Address(String street1, String city, String state, String zipcode, String phone, double latitude,
+			double longitude) {
 		super();
-		this.id = id;
 		this.street1 = street1;
-		this.street2 = street2;
 		this.city = city;
 		this.state = state;
 		this.zipcode = zipcode;
@@ -132,21 +167,13 @@ public class Address {
 		this.longitude = longitude;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Address Street=");
-		builder.append(street1);
-		builder.append(", City=");
-		builder.append(city);
-		builder.append(", State=");
-		builder.append(state);
-		builder.append(", Zipcode=");
-		builder.append(zipcode);
-		builder.append(", Phone=");
-		builder.append(phone);
-		builder.append("]");
-		return builder.toString();
+	public Address(String street1, String city, String state, String zipcode, String phone) {
+		super();
+		this.street1 = street1;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.phone = phone;
 	}
 
 //	To String
