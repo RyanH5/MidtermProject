@@ -31,8 +31,8 @@
 
 	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
 		color-on-scroll="300">
-		<div class="container">
-			<div class="navbar-translate">
+		<div class="container">	
+			<!-- <div class="navbar-translate">
 				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> 
 				
 				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
@@ -54,7 +54,8 @@
 					data-toggle="collapse" data-target="#navigation"
 					aria-controls="navigation-index" aria-expanded="false"
 					aria-label="Toggle navigation">
-				</button>
+				</button> -->
+				<a href="/" class="nav-link">tripping</a>
 			</div>
 
 
