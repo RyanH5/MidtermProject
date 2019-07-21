@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
@@ -26,6 +24,8 @@
 <!-- CSS Files -->
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
+
 </head>
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">

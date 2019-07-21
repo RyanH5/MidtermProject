@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
@@ -67,37 +67,29 @@ pageEncoding="UTF-8"%>
 	</div>
 </nav>
 
-	<div class="wrapper">
+<div class="wrapper">
 
-		<!-- content come here     -->
-		<div class="section text-center">
-			<h2>
-				<a href="viewPoint.do?id=${point.id }"></a><br>
-			</h2>
-			<h4>Points Of Interest:</h4>
-			<c:forEach var="p" items="${activity.getPoints()}">
-				<a href="viewPoint.do?id=${point.id }">${point.name }</a>
-				<br>
-			</c:forEach>
+	<div class="page-header section-dark"
+		style="background-image: url('${activity.imageUrl }')">
+		<div class="filter"></div>
+		<div class="content-center">
+			<h1 class="presentation-title">${activity.name }</h1>
+			<h2 class="presentation-subtitle text-center">${activity.shortDescription }</h2>
 		</div>
-
-		<div class="page-header section-dark"
-			style="background-image: url('${activity.imageUrl }')">
-			<div class="filter"></div>
-			<div class="content-center">
-				<h1 class="presentation-title">${activity.name }</h1>
-				<h2 class="presentation-subtitle text-center">${activity.shortDescription }</h2>
-			</div>
-		</div>
-		<div class="moving-clouds"
-			style="background-image: url('./assets/img/clouds.png');"></div>
-		<h6 class="category category-absolute"></h6>
 	</div>
-				${activity.longDescription }
-
-	<!-- Modal Bodies come here -->
-
-	<!--   end modal -->
+	<div class="moving-clouds"
+		style="background-image: url('./assets/img/clouds.png');"></div>
+	<h6 class="category category-absolute"></h6>
+</div>
+<div class="section text-center">
+	<c:forEach var="point" items="${activity.points }">
+		<a href="viewPoint.do?id=${point.id }">${point.name }</a>
+		<a href="viewPoint.do?id=${point.id }">${point.address.city }</a>
+		<br>
+	</c:forEach>
+</div>
+<!-- Modal Bodies come here -->
+<!--   end modal -->
 <footer class="footer footer-black  footer-white ">
 	<div class="container">
 		<div class="row">
@@ -105,52 +97,5 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 </footer>
-<!--   Core JS Files   -->
-<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="./assets/js/plugins/nouislider.min.js"
-	type="text/javascript"></script>
-<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-<script src="./assets/js/plugins/moment.min.js"></script>
-<script src="./assets/js/plugins/bootstrap-datepicker.js"
-	type="text/javascript"></script>
-<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<script>
-	$(document).ready(function() {
-
-		if ($("#datetimepicker").length != 0) {
-			$('#datetimepicker').datetimepicker({
-				icons : {
-					time : "fa fa-clock-o",
-					date : "fa fa-calendar",
-					up : "fa fa-chevron-up",
-					down : "fa fa-chevron-down",
-					previous : 'fa fa-chevron-left',
-					next : 'fa fa-chevron-right',
-					today : 'fa fa-screenshot',
-					clear : 'fa fa-trash',
-					close : 'fa fa-remove'
-				}
-			});
-		}
-
-		function scrollToDownload() {
-
-			if ($('.section-download').length != 0) {
-				$("html, body").animate({
-					scrollTop : $('.section-download').offset().top
-				}, 1000);
-			}
-		}
-	});
-</script>
 </body>
 </html>

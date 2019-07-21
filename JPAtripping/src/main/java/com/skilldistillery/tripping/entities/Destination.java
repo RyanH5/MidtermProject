@@ -7,6 +7,39 @@ import javax.persistence.*;
 @Entity
 public class Destination {
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Destination [name=");
+		builder.append(name);
+		builder.append(", shortDescription=");
+		builder.append(shortDescription);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Destination other = (Destination) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -32,7 +65,7 @@ public class Destination {
 	@OneToMany(mappedBy = "destination")
 	private List<DestinationReview> destinationReviews;
 
-	@OneToMany(mappedBy = "destination")
+	@OneToMany(mappedBy = "destination", fetch = FetchType.EAGER)
 	private List<PointOfInterest> points;
 
 	@OneToMany(mappedBy = "destination")

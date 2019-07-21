@@ -683,18 +683,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-<<<<<<< HEAD
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'Specific Trailhead', 1, 1, 'descshort', 'desclong');
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'Specific Trailhead', 1, 1, 'descshort', 'desclong');
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'Fishing Hole', 1, 1, 'descshort', 'desclong');
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'Kayak Drop-In Site', 1, 1, 'deschort', 'desclong');
-INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (5, 'Kayak Drop-In Site', 1, 1, 'descshort', 'desclong');
-=======
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (1, 'Emerald Lake Trail', 1, 1, 'Hiking trail to Emerald Lake from the Bear Lake Trailhead', 'Emerald Lake Trail is a 3.1 mile heavily trafficked out and back trail located near Estes Park, Colorado that features a lake and is rated as moderate. The trail offers a number of activity options and is best used from April until November.');
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (2, 'Mesa Verde', 2, 2, 'Archaeological park of an ancestral Pueblo village', '\"Mesa Verde, Spanish for green table, offers a spectacular look into the lives of the Ancestral Pueblo people who made it their home for over 700 years, from A.D. 600 to 1300. Today the park protects nearly 5,000 known archaeological sites, including 600 cliff dwellings. These sites are some of the most notable and best preserved in the United States.\nhttps://www.durango.org/discover-durango/mesa-verde\"');
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (3, 'Coors Brewery', 3, 3, 'Expansive, renowned brewery offers free tours and tastings', 'See and taste traditional brewing at the foot of the Rocky Mountains in the largest single-site brewery in the world! Since 1873 the Coors Brewery has thrived on a legacy of quality, innovation and customer service.');
 INSERT INTO `point_of_interest` (`id`, `name`, `address_id`, `destination_id`, `short_description`, `long_description`) VALUES (4, 'Pikes Peak', 4, 4, 'Famous mountain peak - a fourteener must!', 'Pikes Peak is the highest summit of the southern Front Range of the Rocky Mountains, in North America. The ultra-prominent 14,115-foot fourteener is located in Pike National Forest, 12 miles west of downtown Colorado Springs, Colorado.');
->>>>>>> master
 
 COMMIT;
 

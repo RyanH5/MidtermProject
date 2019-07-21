@@ -19,6 +19,7 @@ public class DestinationController {
 	@RequestMapping(value= {"viewDestination.do"})
 	public ModelAndView getDestination(ModelAndView model, int id) {
 		Destination destination = dao.findDestinationById(id);
+		destination.getPoints();
 		model.addObject("destination", destination);
 		model.setViewName("entity/viewDestination");
 		return model;

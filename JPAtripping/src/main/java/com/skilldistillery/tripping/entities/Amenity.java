@@ -27,6 +27,17 @@ public class Amenity {
 	@Column(name = "name")
 	private String name;
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Amenity [name=");
+		builder.append(name);
+		builder.append(", shortDescription=");
+		builder.append(shortDescription);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	@Column(name = "short_description")
 	private String shortDescription;
 
@@ -42,8 +53,6 @@ public class Amenity {
 	inverseJoinColumns = { @JoinColumn(name = "point_of_interest_id") })
 	private List<PointOfInterest> points;
 
-//	Getters and setters
-	
 //	@OneToMany(mappedBy="amenity")
 //	private Amenity amenity;
 
@@ -100,23 +109,35 @@ public class Amenity {
 	public Amenity() {
 	}
 
-	public Amenity(int id, String name, String shortDescription, String longDescription, String iconUrl) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.shortDescription = shortDescription;
-		this.longDescription = longDescription;
-		this.iconUrl = iconUrl;
-	}
-
+	
 //	To String
 
 	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Amenity [id=").append(id).append(", name=").append(name).append(", shortDescription=")
-				.append(shortDescription).append("]");
-		return builder.toString();
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	public Amenity(String name, String shortDescription) {
+		super();
+		this.name = name;
+		this.shortDescription = shortDescription;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Amenity other = (Amenity) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
 	public void addPoint(PointOfInterest pointOfInterest) {

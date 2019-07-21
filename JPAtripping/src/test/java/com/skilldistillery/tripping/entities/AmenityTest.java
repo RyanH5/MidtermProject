@@ -66,7 +66,7 @@ class AmenityTest {
 	@Test
 
 	void test_Amenity_mapping_image_url() {
-		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlsPQxYDhJxgl3MNFMocEEmPwMmcG5llr5rmUCGB1yb2_YPSy4jQ", amenity.getIconUrl());
+		assertEquals("https://www.birchwoodhotel.co.za/wp-content/uploads/2016/05/hotel-icon.png", amenity.getIconUrl());
 	}
 
 @Test

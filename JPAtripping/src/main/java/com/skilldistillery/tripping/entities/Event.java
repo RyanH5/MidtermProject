@@ -31,6 +31,7 @@ public class Event {
 	@JoinColumn(name = "event_id")
 	private List<EventReview> reviews;
 
+
 	@OneToMany
 	@JoinColumn(name = "event_id")
 	private List<EventImage> images;
@@ -54,8 +55,6 @@ public class Event {
 
 	@Column(name = "event_details")
 	private String eventDetails;
-
-//	Getters and Setters
 
 	public int getId() {
 		return id;
@@ -142,8 +141,6 @@ public class Event {
 	public Event() {
 	}
 
-//	To String
-
 	public Event(Destination destination, String name, String shortDescription, String longDescription, Date startDate,
 			Date endDate, String eventDetails) {
 		super();
@@ -159,8 +156,41 @@ public class Event {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Event [id=").append(id).append(", name=").append(name).append("]");
+		builder.append("Event [name=");
+		builder.append(name);
+		builder.append(", startDate=");
+		builder.append(startDate);
+		builder.append(", endDate=");
+		builder.append(endDate);
+		builder.append("]");
 		return builder.toString();
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	public void setImages(List<EventImage> images) {
+		this.images = images;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 
 }

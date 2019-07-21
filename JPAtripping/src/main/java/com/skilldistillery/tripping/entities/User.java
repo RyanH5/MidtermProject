@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +44,7 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "user")
 	private List<JournalEntry> journalEntries;
 
 	@Column(name = "image_url")
@@ -293,6 +292,28 @@ public class User {
 		builder.append(active);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
 	

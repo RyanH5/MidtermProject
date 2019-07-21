@@ -29,6 +29,19 @@ public class DestinationReview {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("DestinationReview [user=");
+		builder.append(user);
+		builder.append(", destination=");
+		builder.append(destination);
+		builder.append(", createDate=");
+		builder.append(createDate);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "destination_id")
 	private Destination destination;
@@ -127,9 +140,4 @@ public class DestinationReview {
 		this.id = id;
 		this.destination = destination;
 	}
-
-
-
-
-
 }

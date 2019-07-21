@@ -11,9 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="activity")
+@Table(name = "activity")
 public class Activity {
 
 //	Declarations
@@ -33,13 +32,39 @@ public class Activity {
 
 	@Column(name = "image_url")
 	private String imageUrl;
-	
-	@ManyToMany(mappedBy="activities")
+
+	@ManyToMany(mappedBy = "activities")
 	private List<PointOfInterest> points;
 
 	public List<PointOfInterest> getPoints() {
 		return points;
 	}
+	
+//	Hash Code
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Activity other = (Activity) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 
 	public void setPoints(List<PointOfInterest> points) {
 		this.points = points;
@@ -90,9 +115,14 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(int id, String name, String shortDescription, String longDescription, String imageUrl) {
+	public Activity(String name, String shortDescription) {
 		super();
-		this.id = id;
+		this.name = name;
+		this.shortDescription = shortDescription;
+	}
+
+public Activity(String name, String shortDescription, String longDescription, String imageUrl) {
+		super();
 		this.name = name;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
@@ -104,11 +134,16 @@ public class Activity {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Activity [id=").append(id).append(", name=").append(name).append(", shortDescription=")
-				.append(shortDescription).append("]");
+		builder.append("Activity [name=");
+		builder.append(name);
+		builder.append(", shortDescription=");
+		builder.append(shortDescription);
+		builder.append("]");
 		return builder.toString();
 	}
 
+// Add and Remove Methods 
+	
 	public void addPoint(PointOfInterest pointOfInterest) {
 		if (points == null)
 			points = new ArrayList<>();

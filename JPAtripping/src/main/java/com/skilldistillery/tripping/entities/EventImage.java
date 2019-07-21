@@ -17,6 +17,34 @@ public class EventImage {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	public EventImage(Event event, String imageUrl) {
+		super();
+		this.event = event;
+		this.imageUrl = imageUrl;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EventImage other = (EventImage) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "event_id")
 	private Event event;
@@ -54,13 +82,6 @@ public class EventImage {
 //	Constructors
 
 	public EventImage() {
-	}
-
-	public EventImage(int id, Event event, String imageUrl) {
-		super();
-		this.id = id;
-		this.event = event;
-		this.imageUrl = imageUrl;
 	}
 
 //	To String

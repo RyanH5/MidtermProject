@@ -44,13 +44,13 @@ public class PointOfInterestTests {
 	@Test
 	void test_PoI_mappings() {
 		assertEquals(1, point.getId());
-		assertEquals("Specific Trailhead", point.getName());
+		assertEquals("Emerald Lake Trail", point.getName());
 	}
 	
 	@Test
 	void test_PoI_has_Address() {
 		assertEquals(1, point.getAddress().getId());
-		assertEquals("1119 Zazpo Place", point.getAddress().getStreet1());
+		assertEquals("Bear Lake Rd", point.getAddress().getStreet1());
 	}
 	
 	@Test

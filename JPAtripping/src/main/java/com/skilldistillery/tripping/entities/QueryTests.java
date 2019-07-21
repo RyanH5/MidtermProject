@@ -9,8 +9,14 @@ import javax.persistence.Persistence;
 public class QueryTests {
 
 	public static void main(String[] args) {
-		int id = 1;
-		getPOIById(id);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("tripping");
+		EntityManager em = emf.createEntityManager();
+		Activity activity = new Activity("hiking", "so fun");
+		Address address = new Address("hi", "al", "ar", "72687", "585-210-9742");
+		Amenity amenity = new Amenity("hi","hi");
+		em.persist(activity);
+		em.persist(address);
+		em.persist(amenity);
 	}
 
 //	SQL 
