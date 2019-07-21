@@ -27,7 +27,7 @@
 
 </head>
 
-<nav id="navExample" class="navbar navbar-expand-lg fixed-top" color-on-scroll="300">
+<nav id="navExample" class="navbar navbar-expand-lg fixed-top" style="background-color:#B0E0E6;" color-on-scroll="300">
 	<div class="container">
 		<div class="navbar-translate">
 		<i class="fa fa-user-o" aria-hidden="true"></i>
@@ -99,7 +99,7 @@
 	</c:forEach>
 	</div> --%>
 	
-	<div class="main-section">
+	<div class="main-section" style="background-color:#F0FFFF;">
 		<c:forEach var="d" items="${dests}">
 			<div class="entity-container">
 				<div class="section text-center entity-card-image" style="background-image: url('${d.image}'); height: 230px;">
@@ -116,7 +116,7 @@
 			</div>
 		</c:forEach>
 	</div>
-	<footer class="footer footer-black  footer-white ">
+	<!-- <footer class="footer footer-black  footer-white ">
 		<div class="container">
 			<div class="row">
 				<nav class="footer-nav">
@@ -131,7 +131,7 @@
 				</nav>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 	<!--   Core JS Files   -->
 	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
