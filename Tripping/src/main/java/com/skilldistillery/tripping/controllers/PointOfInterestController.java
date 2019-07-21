@@ -21,6 +21,7 @@ public class PointOfInterestController {
 		PointOfInterest point = dao.findPointOfInterestById(id);
 		model.addObject("point", point);
 		model.setViewName("entity/viewPoint");
+//		model.setViewName("entity/viewGoogleMap");
 		return model;
 	}
 	
@@ -37,12 +38,12 @@ public class PointOfInterestController {
 		model.setViewName("indexWIP");
 		return model;
 	}
-	@RequestMapping(path = "viewGoogleMap.do")
-	public ModelAndView getGoogleMap(ModelAndView model) {
-		PointOfInterest point = dao.findPointOfInterestById(1);
-		model.addObject("point", point);
-		model.setViewName("entity/viewGoogleMap");
-		return model;
-	}
+//	@RequestMapping(path = "viewPoint.do")
+//	public ModelAndView getGoogleMap(ModelAndView model) {
+//		PointOfInterest point = dao.findPointOfInterestById(1);
+//		model.addObject("point", point);
+//		model.setViewName("entity/viewPoint");
+//		return model;
+//	}
 
 }
