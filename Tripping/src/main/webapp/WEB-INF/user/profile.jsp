@@ -13,33 +13,27 @@
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
-<!--     Fonts and icons     -->
-<!-- <link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-	rel="stylesheet">
-CSS Files
-<link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="./assets/css/paper-kit.css" rel="stylesheet" />
-<link href="./assets/css/entitiesGrid.css" rel="stylesheet" /> -->
 <jsp:include page="../bootstrapHead.jsp" />
 </head>
 <body class="index-page sidebar-collapse">
 	<jsp:include page="../navbar.jsp" />
 	
 	<div class="page-header page-header-xs" data-parallax="true"
-		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;">
+		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%; z-index: 0;">
 		<div class="filter"></div>
 	</div>
 	<div class="section profile-content"
 		style="background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);">
-		<div class="container">
+		<div class="container" style="margin-top: -200px;">
 			<div class="owner">
 				<div class="trippingAvatar">
 					<img src="${sessionScope.user.imageURL }" alt="Circle Image"
-						class="tripping-avatar">
+						class="tripping-avatar" style="vertical-align: middle;
+					    border-style: none;
+					    height: 250px;
+					    border-radius: 50%;
+					    z-index: 1;
+					    border: 2px solid rgb(120,68,59);">
 				</div>
 				<div class="name">
 					<h4 class="username">${sessionScope.user.userName }
@@ -102,74 +96,8 @@ CSS Files
 			</div>
 		</div>
 	</footer>
-	<!-- Modal Bodies come here -->
-	<!-- login modal -->
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-		aria-hidden="false">
-		<div class="modal-dialog modal-register">
-			<div class="modal-content">
-				<div class="modal-header no-border-header text-center">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h6 class="text-muted">Tripping</h6>
-					<h3 class="modal-title text-center">Plan your next trip!</h3>
-					<p>Log in to your account</p>
-				</div>
 
-				<form class="login-form" action="userLogin.do">
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Username</label> <input type="text" value=""
-								name="userName" placeholder="username" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Password</label> <input type="password" value=""
-								name="password" placeholder="password" class="form-control" />
-						</div>
-						<button class="btn btn-block btn-round">Log in</button>
-					</div>
-					<div class="modal-footer no-border-footer">
-						<span class="text-muted  text-center">Looking <a href="">create
-								an account</a> ?
-						</span>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- register modal -->
-	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
-		aria-hidden="false">
-		<div class="modal-dialog modal-register">
-			<div class="modal-content">
-				<div class="modal-header no-border-header text-center">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h6 class="text-muted">Tripping</h6>
-					<h3 class="modal-title text-center">Register</h3>
-										<p>Create an account account</p>
-					
-				</div>
-				<form class="register-form" action="createUser.do">
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Username</label> <input type="text" value=""
-								name="userName" placeholder="username" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>Password</label> <input type="password" value=""
-								name="password" placeholder="password" class="form-control" />
-						</div>
-						<button class="btn btn-block btn-round">Register</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<jsp:include page="../modals.jsp" />
+	<%-- <jsp:include page="../modals.jsp" /> --%>
     <jsp:include page="../bootstrapFoot.jsp" />
 </body>
 
