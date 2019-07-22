@@ -83,7 +83,7 @@
 					</div>
 				</div>
 			<div class="tab-pane text-center" id="following" role="tabpanel">
-				<h3 class="text-muted"></h3><a href="viewActivies.do">
+				<h3 class="text-muted"></h3><a href="viewActivities.do">
 				<button class="btn btn-warning btn-round">Find Things to Do</button></a>
 			</div>
 			</div>
