@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,76 +10,16 @@
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>${user.userName} profile</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-	rel="stylesheet">
-<!-- CSS Files -->
-<link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="./assets/css/paper-kit.css" rel="stylesheet" />
-<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
+
+<title>tripping</title>
+
+<jsp:include page="../bootstrapHead.jsp" />
 
 </head>
 
 <body class="index-page sidebar-collapse">
 
-	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
-		color-on-scroll="300">
-		<div class="container">
-			<div class="navbar-translate">
-				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> 
-				
-				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-					title="login" data-placement="bottom" data-toggle="modal"
-					data-target="#loginModal"> login </a>
-				<button class="navbar-toggler navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navigation"
-					aria-controls="navigation-index" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-bar bar1"></span> <span
-						class="navbar-toggler-bar bar2"></span> <span
-						class="navbar-toggler-bar bar3"></span>
-				</button>
-		
-				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-					title="login" data-placement="bottom" data-toggle="modal"
-					data-target="#registerModal"> register </a>
-				<button class="navbar-toggler navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navigation"
-					aria-controls="navigation-index" aria-expanded="false"
-					aria-label="Toggle navigation">
-				</button>
-			</div>
-
-
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navigation">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="viewActivities.do"
-						class="nav-link"><i class="nc-icon nc-layout-11"></i>
-							Activities</a></li>
-					<li class="nav-item"><a href="viewDestinations.do"
-						class="nav-link"><i class="nc-icon nc-layout-11"></i>
-							Destinations</a></li>
-					<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
-							class="nc-icon nc-layout-11"></i> Events</a></li>
-					<li class="nav-item"><a class="nav-link" rel="tooltip"
-						title="Star on GitHub" data-placement="bottom"
-						href="viewUsers.do"> <i
-							class="fa fa-github"></i>
-							<p class="d-lg-none">GitHub</p>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<jsp:include page="../navbar.jsp" />
 	<!-- End Navbar -->
 	<div class="page-header page-header-xs" data-parallax="true"
 		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;">
@@ -194,7 +135,39 @@
 			</div>
 		</div>
 	</div>
-		<jsp:include page="modals.jsp" />
-	<jsp:include page="bootstrapFoot.jsp" />
+		<jsp:include page="../modals.jsp" />
+	<jsp:include page="../bootstrapFoot.jsp" />
 </body>
 </html>
+
+<%-- 
+				<h2>Event Reviews:</h2>
+				<c:forEach var="a" items="${u.getEventReviews)}">
+					<li><a href="showUser.do?fid=${a.id }">${a.userName }</a></li>
+				</c:forEach>
+				<h2>Activities:</h2>
+				<c:forEach var="a" items="${u.getDestReviews()}">
+					<li><a href="showUser.do?fid=${a.id }">${a.userName }</a></li>
+				</c:forEach>
+				<h2>Comments:</h2>
+				<c:forEach var="c" items="${u.getPointComments()}">
+					<li><a href="showUser.do?fid=${u.id }">${u.pointComments }</a></li>
+					<br>
+					<br>
+				</c:forEach>
+				</c:forEach>
+				<form action="updateUser.do" method="GET">
+					<input type="hidden" value="${user.id}" name="userId" /> <input
+						type="submit" value="Update" />
+				</form>
+				<br>
+				<form action="deleteUser.do" method="POST">
+					<input type="hidden" value="${user.id}" name="userId" /> <input
+						type="submit" value="Delete" />
+				</form>
+				<br>
+			</c:when>
+			<c:otherwise>
+				<h4>No User found</h4>
+			</c:otherwise>
+		</c:choose> --%>
