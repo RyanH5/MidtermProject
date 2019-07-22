@@ -148,7 +148,7 @@
 		</div>
 	</div>
 </div>
-<!-- journal entry modal -->
+<!-- add trip modal -->
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog"
 	aria-hidden="false">
 	<div class="modal-dialog modal-register">
