@@ -26,7 +26,7 @@
 <link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 </head>
 <body class="index-page sidebar-collapse">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#B0E0E6;
         color-on-scroll="300">
         <div class="container">
             <div class="navbar-translate">
@@ -82,13 +82,13 @@
 
 	<div class="main-section" style="background-color:#F0FFFF;">
 		<c:forEach var="destination" items="${destinations}">
-			<div class="entity-container"><a href="viewDestination.do?id=${destination.id }">
+			<div class="entity-container card"><a href="viewDestination.do?id=${destination.id }">
 				<div class="section text-center entity-card-image" style="background-image: url('${destination.image}'); height: 230px;">
 				</div></a>
 				<div class="entity-content dest">
 					<h2 class="entity-title"><a href="viewDestination.do?id=${destination.id }">${destination.name }</a></h2>
 					<br>
-					<a href="createDestination.do?id=${destination.id }">Create</a><br>
+					<a href="createDestination.do">Create Destination</a><br>
 					
 					<a href="createReview"
                     class="navbar-brand" rel="tooltip"
