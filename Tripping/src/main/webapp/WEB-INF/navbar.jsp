@@ -70,7 +70,7 @@
 		id="navigation">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a href="viewActivities.do"
-				class="nav-link"><<i class="fas fa-hiking"></i> Activities
+				class="nav-link"><span></span><i class="fas fa-hiking"></i></span> Activities
 			</a></li>
 			<li class="nav-item"><a href="viewDestinations.do"
 				class="nav-link"><i class="fas fa-globe-americas"></i>

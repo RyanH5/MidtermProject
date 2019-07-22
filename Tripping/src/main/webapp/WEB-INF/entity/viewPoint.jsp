@@ -21,8 +21,10 @@
 
 	<jsp:include page="../navbar.jsp" />
 </head>
-<body class="index-page sidebar-collapse">
-	<div class="main-section" style="background-color: #F0FFFF;">
+
+		<div class="page-header section-dark"
+			style="background-image: url('${point.destination.image }')">
+			<div class="filter"></div>
 
 		<div id="map" class="entity-container card"></div>
 		<script>
@@ -53,34 +55,30 @@
 
 		<div class="entity-container card">
 			<div class="mdl-card__title">
-				<h2 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h2>
+				<h3 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h3>
 			</div>
 			<div class="mdl-card__supporting-text center-text">
+			<h3>
 				<c:forEach var="amenity" items="${point.getAmenities()}">
-					<a href="viewAmenity.do?id=${amenity.id }"> <img
-						src="${amenity.iconUrl }" alt="${amenity.name }" width="42"
-						height="42">
-					</a>
-				</c:forEach>
-				<br>
-				<h3>
+					<a href="viewAmenity.do?id=${amenity.id }">
+					<span>${amenity.iconUrl }</span></a>
+				</c:forEach><br>
 					${point.address.getStreet1() } ${point.address.getCity() }
 					${point.address.getState() } ${point.address.getZipcode() }<br>
 					${point.address.getPhone() }<br> latitude :
 					${point.address.latitude }, longitude : ${point.address.longitude }<br>
-				</h3>
-
 				<c:forEach var="activity" items="${point.getActivities()}">
-
 					<a href="viewActivity.do?id=${activity.id }">
 					<span>${activity.iconUrl }</span></a>
 				</c:forEach>
-				<br>
-				<h3>Comments</h3>
-				<c:forEach var="comment" items="${point.getComments()}">
-					<a href="viewUser.do?id=${comment.user.id }">${comment.user.userName }</a>
-				${comment.commentText }
-			</c:forEach>
+				<h3>
+				<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>
+				</h3>
+				<a href="#review" class="navbar-brand" rel="tooltip"
+						title="login" data-placement="bottom" data-toggle="modal"
+						data-target="#reviewModal"> Add To Trip Journal </a>
 			</div>
 		</div>
 	</div>

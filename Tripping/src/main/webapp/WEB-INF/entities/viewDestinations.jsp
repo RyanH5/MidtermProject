@@ -17,21 +17,22 @@
 	<div class="main-section" style="background-color: #F0FFFF;">
 		<c:forEach var="destination" items="${destinations}">
 			<div class="entity-container card">
-				<a href="viewDestination.do?id=${destination.id }">
+				<%-- <a href="viewDestination.do?id=${destination.id }"> --%>
 					<div class="section text-center entity-card-image" style="background-image: url('${destination.image}'); height: 230px;">
 					</div>
-				</a>
+				<!-- </a> -->
 				<div class="entity-content dest">
-					<h4 class="entity-title">
-						<a href="viewDestination.do?id=${destination.id }">${destination.name }</a>
-					</h4>
-					<%-- <br> <a href="createDestination.do">Create Destination</a><br>
-
+					<h6 class="entity-title">${destination.name }
+					
 					<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal"> createDestinationReview </a> <a
-						href="createDestinationReview.do?id=${destination.id }">FIX
-						Create Destination Review</a><br> <a
+						data-target="#reviewModal"> Add To Trip Journal </a>
+						
+						<%-- <a href="viewDestination.do?id=${destination.id }">$</a> --%>
+					</h6>
+					<%-- <br> <a href="createDestination.do">Create Destination</a><br>
+
+					<br> <a
 						href="createPointComment.do?id=${point.id }">FIX Create Point
 						Review</a><br> <a href="createEventReview.do?id=${event.id }">FIX
 						Create Event Review</a><br> <a

@@ -32,6 +32,9 @@
 				<h6 class="entity-title">
 					<a href="viewEvent.do?id=${event.id }">${event.name }</a>
 				</h6>
+				<a href="#review" class="navbar-brand" rel="tooltip"
+						title="login" data-placement="bottom" data-toggle="modal"
+						data-target="#reviewModal"> Add To Trip Journal </a>
 			</div>
 		</c:forEach>
 	</div>
