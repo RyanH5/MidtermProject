@@ -56,6 +56,7 @@
 					aria-label="Toggle navigation">
 				</button> -->
 				<a href="/" class="nav-link">tripping</a>
+				<a href="userLogout.do" class="nav-link">logout</a>
 			</div>
 
 
