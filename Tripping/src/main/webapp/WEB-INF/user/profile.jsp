@@ -14,74 +14,21 @@
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
 <!--     Fonts and icons     -->
-<link
+<!-- <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
 	rel="stylesheet" />
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
 	rel="stylesheet">
-<!-- CSS Files -->
+CSS Files
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
-<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
-
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" /> -->
+<jsp:include page="../bootstrapHead.jsp" />
 </head>
-
 <body class="index-page sidebar-collapse">
-
-	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
-		color-on-scroll="300">
-		<div class="container">	
-			<!-- <div class="navbar-translate">
-				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> 
-				
-				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-					title="login" data-placement="bottom" data-toggle="modal"
-					data-target="#loginModal"> login </a>
-				<button class="navbar-toggler navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navigation"
-					aria-controls="navigation-index" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-bar bar1"></span> <span
-						class="navbar-toggler-bar bar2"></span> <span
-						class="navbar-toggler-bar bar3"></span>
-				</button>
-		
-				<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-					title="login" data-placement="bottom" data-toggle="modal"
-					data-target="#registerModal"> register </a>
-				<button class="navbar-toggler navbar-toggler" type="button"
-					data-toggle="collapse" data-target="#navigation"
-					aria-controls="navigation-index" aria-expanded="false"
-					aria-label="Toggle navigation">
-				</button> -->
-				<a href="/" class="nav-link">tripping</a>
-				<a href="userLogout.do" class="nav-link">logout</a>
-			</div>
-
-
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navigation">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="viewActivities.do"
-						class="nav-link"><i class="nc-icon nc-layout-11"></i>
-							Activities</a></li>
-					<li class="nav-item"><a href="viewDestinations.do"
-						class="nav-link"><i class="nc-icon nc-layout-11"></i>
-							Destinations</a></li>
-					<li class="nav-item"><a href="viewEvents.do" class="nav-link"><i
-							class="nc-icon nc-layout-11"></i> Events</a></li>
-					<li class="nav-item"><a class="nav-link" rel="tooltip"
-						title="Star on GitHub" data-placement="bottom"
-						href="viewUsers.do"> <i
-							class="fa fa-github"></i>
-							<p class="d-lg-none">GitHub</p>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- End Navbar -->
+	<jsp:include page="../navbar.jsp" />
+	
 	<div class="page-header page-header-xs" data-parallax="true"
 		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;">
 		<div class="filter"></div>
@@ -222,28 +169,8 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	<!-- END MODALS  -->
-	<!--   end modal -->
-	<!--   Core JS Files   -->
-	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-	<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-	<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="./assets/js/plugins/nouislider.min.js"
-		type="text/javascript"></script>
-	<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-	<script src="./assets/js/plugins/moment.min.js"></script>
-	<script src="./assets/js/plugins/bootstrap-datepicker.js"
-		type="text/javascript"></script>
-	<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
-	<script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-	<!--  Google Maps Plugin    -->
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
+	<jsp:include page="../modals.jsp" />
+    <jsp:include page="../bootstrapFoot.jsp" />
 </body>
 
 </html>

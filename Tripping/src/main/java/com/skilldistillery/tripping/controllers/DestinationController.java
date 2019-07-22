@@ -43,10 +43,12 @@ public class DestinationController {
 	
 	@RequestMapping(value= {"createDestination.do"})
 	public ModelAndView createDestination(ModelAndView model, Destination destination) {
-		destination = new Destination("hey","hey");
+		Destination created = new Destination("hey","hey");
 		dao.createDestination(destination);
-		model.addObject("destination", destination);
-		model.setViewName("entity/viewDestination");
+		List<Destination> destinations = dao.getAllDestinations();
+		model.addObject("destinations", destinations);
+		model.addObject("created", created);
+		model.setViewName("entities/viewDestinations");
 		return model;
 	}
 	@RequestMapping(value= {"createDestinationReview.do"})
@@ -61,6 +63,9 @@ public class DestinationController {
 	public ModelAndView createDestinationReview(ModelAndView model, int id) {
 		Destination removed = dao.findDestinationById(id);
 		dao.deleteDestination(id);
+		List<Destination> destinations = dao.getAllDestinations();
+		model.addObject("destinations", destinations);
+		model.setViewName("entities/viewDestinations");
 		model.addObject("removed", removed);
 		model.setViewName("entities/viewDestinations");
 		return model;
