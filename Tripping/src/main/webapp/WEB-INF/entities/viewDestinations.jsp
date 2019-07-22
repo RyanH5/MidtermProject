@@ -35,9 +35,6 @@
 		color-on-scroll="300">
 		<div class="container">
 
-
-
-
 			<div class="navbar-translate">
 				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> <a
 					class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
