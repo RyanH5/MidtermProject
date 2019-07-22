@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76"
     href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+<link href="https://fonts.googleapis.com/css?family=Ranchers&display=swap" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>activities</title>
 <meta
@@ -28,7 +29,10 @@
 						href="viewActivity.do?id=${activity.id }"
 						style="background-image: url('${activity.imageUrl}'); height: 230px;">
 						<h4 class="entity-title">
-							<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
+							<a href="viewActivity.do?id=${activity.id }" style="font-family: 'Ranchers', cursive;
+    color: orange;
+    font-size: 36px;
+    text-shadow: 1px 1px green;">${activity.name }</a>
 						</h4>
 					</div>
 				</div>

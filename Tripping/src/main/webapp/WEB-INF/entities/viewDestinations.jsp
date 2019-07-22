@@ -23,7 +23,10 @@
 					</div>
 				<!-- </a> -->
 				<div class="entity-content dest" style="z-index: 10; margin-top: -181px;">
-					<h6 class="entity-title" style="font-family: 'Ranchers', cursive; color:orange; font-size:36px">${destination.name }</h6>
+					<h6 class="entity-title" style="font-family: 'Ranchers', cursive;
+    color: orange;
+    font-size: 36px;
+    text-shadow: 1px 1px green;">${destination.name }</h6>
 					<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
 						data-target="#reviewModal" style="margin-top: 133px;"> Add To Trip Journal </a>
