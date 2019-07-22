@@ -9,11 +9,17 @@
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
 <title>tripping</title>
+
 <jsp:include page="bootstrapHead.jsp" />
+
 </head>
+
 <body class="index-page sidebar-collapse">
+
 	<jsp:include page="navbar.jsp" />
+
 	<div class="page-header section-dark"
 		style="background-image: url('https://www.outtherecolorado.com/wp-content/uploads/2017/03/65c35611befe96d3a3f0f010e1e74fcd-1024x683.jpg')">
 		<div class="filter"></div>
@@ -32,19 +38,10 @@
 		</div>
 		<div class="moving-clouds"
 			style="background-image: url('./assets/img/clouds.png');"></div>
-		<a href="viewDestinations.do">
-			<h5 class="category category-absolute">EXPLORE
-		</a>
-		</h5>
+		<a href="viewDestinations.do"><h5
+				class="category category-absolute">EXPLORE</h5></a>
 	</div>
 
-	
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav"></nav>
-			</div>
-		</div>
-	</footer>
 	<jsp:include page="modals.jsp" />
 	<jsp:include page="bootstrapFoot.jsp" />
 </body>

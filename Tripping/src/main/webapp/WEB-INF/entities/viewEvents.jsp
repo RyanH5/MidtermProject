@@ -1,4 +1,5 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -35,13 +36,6 @@
 		</c:forEach>
 	</div>
 
-	
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav"></nav>
-			</div>
-		</div>
-	</footer>
 	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
 </body>

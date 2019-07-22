@@ -9,7 +9,7 @@
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>amenities</title>
+<title>destinations</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -36,12 +36,7 @@
 		</c:forEach>
 
 	</div>
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav"></nav>
-			</div>
-		</div>
-	</footer>
+	
 	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
 </body>

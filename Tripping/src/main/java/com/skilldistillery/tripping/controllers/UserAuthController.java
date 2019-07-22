@@ -26,6 +26,12 @@ public class UserAuthController {
 		model.setViewName("user/login");
 		return model;
 	}
+	@RequestMapping(path = "/")
+	public ModelAndView goHome() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("index");
+		return model;
+	}
 	
 	@RequestMapping(path = "userRegister.do")
 	public ModelAndView registerUser(ModelAndView model, User user) {
