@@ -40,8 +40,7 @@ forgoing some functionality that the team would have liked to include.
 * Design decisions need to be finalized early. Late decisions and changes added some
 pressure to getting features implemented.
 * A buffer needs to be built into the timeframe to accommodate fixing outstanding
-issues. It would have been helpful to have additional time for working on look and
-feel rather than fixing features that needed to be included.
+issues. There was pressure to fix features that needed to be included.
 
 ### Database Diagram
 ![Tripping](trippingdb.png)
