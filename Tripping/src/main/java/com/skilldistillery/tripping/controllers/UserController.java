@@ -51,8 +51,6 @@ public class UserController {
 	@RequestMapping(path = "completeTrip.do")
 	public ModelAndView userCompletedTrip(ModelAndView model, int tripId, HttpSession session) {
 		dao.completeTrip(tripId);
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println(tripId);
 		User user = dao.findUserById(((User)session.getAttribute("user")).getId());
 		session.setAttribute("user", user);
 		List<JournalEntry> futureTrips = new ArrayList<>();

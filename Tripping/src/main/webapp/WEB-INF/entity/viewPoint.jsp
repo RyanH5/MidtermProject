@@ -82,10 +82,14 @@
 					data-placement="bottom" data-toggle="modal"
 					data-target="#addCommentModal" style="margin-left:20px"><span><i class="fas fa-comments"></i></span></a>
 				</h3>
-				<a href="#review" class="navbar-brand" rel="tooltip"
-						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#tripModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
+				<c:choose>
+					<c:when test="${! empty sessionScope.user}">
+						<a href="#review" class="navbar-brand" rel="tooltip"
+							title="login" data-placement="bottom" data-toggle="modal"
+							data-target="#tripModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
 						<br>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 
