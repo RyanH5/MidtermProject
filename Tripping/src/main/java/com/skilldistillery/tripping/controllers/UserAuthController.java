@@ -56,8 +56,6 @@ public class UserAuthController {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
 			user.getJournalEntries();
 			session.setAttribute("user", user);
-			System.out.println("===============================================================");
-			System.out.println(user.getJournalEntries().get(0).isComplete());
 			List<JournalEntry> futureTrips = new ArrayList<>();
 			List<JournalEntry> pastTrips = new ArrayList<>();
 			for (int i = 0; i < user.getJournalEntries().size(); i++) {
