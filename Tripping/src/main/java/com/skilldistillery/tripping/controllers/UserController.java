@@ -54,6 +54,7 @@ public class UserController {
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println(tripId);
 		User user = dao.findUserById(((User)session.getAttribute("user")).getId());
+		session.setAttribute("user", user);
 		List<JournalEntry> futureTrips = new ArrayList<>();
 		List<JournalEntry> pastTrips = new ArrayList<>();
 		for (int i = 0; i < user.getJournalEntries().size(); i++) {
@@ -73,8 +74,8 @@ public class UserController {
 	@RequestMapping(path = "didNotCompleteTrip.do")
 	public ModelAndView incompleteTrip(ModelAndView model, int tripId, HttpSession session) {
 		dao.didNotFinishTrip(tripId);
-		model.setViewName("user/profile");
-		User user = (User)session.getAttribute("user");
+		User user = dao.findUserById(((User)session.getAttribute("user")).getId());
+		session.setAttribute("user", user);
 		List<JournalEntry> futureTrips = new ArrayList<>();
 		List<JournalEntry> pastTrips = new ArrayList<>();
 		for (int i = 0; i < user.getJournalEntries().size(); i++) {
@@ -87,6 +88,7 @@ public class UserController {
 		
 		model.addObject("futureTrips", futureTrips);
 		model.addObject("pastTrips", pastTrips);
+		model.setViewName("user/profile");
 		return model;
 	}
 	
