@@ -97,10 +97,10 @@
 													style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 													<h4>${entry.getTitle() }</h4>
 													<div class="form-check">
-														<label class="form-check-label"> <input
+														<!-- <label class="form-check-label"> <input
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
-														</label>
+														</label> -->
 														<form action="completeTrip.do" method="GET">
 															<button type="submit" name="tripId" value="${entry.getId()}">Complete Trip</button>
 														</form> 
@@ -127,10 +127,10 @@
 													style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 													<h4>${entry.getTitle() }</h4>
 													<div class="form-check">
-														<label class="form-check-label"> <input
+										<!-- 				<label class="form-check-label"> <input
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
-														</label>
+														</label> -->
 														<form action="didNotCompleteTrip.do" method="GET">
 															<button type="submit" name="tripId" value="${entry.getId()}">Didn't complete trip</button>
 														</form>
