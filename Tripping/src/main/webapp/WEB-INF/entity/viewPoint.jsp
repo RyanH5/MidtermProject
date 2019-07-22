@@ -55,7 +55,7 @@
 			async defer></script>
 
 
-			<div class="card" style="height:fit-content;width: 20rem;margin-top:100px;">
+			<div class="card" style="height:fit-content;width: 20rem;margin-top:59px;">
 			<div class="card-body">
 				<h4 class="card-title">${point.name }</h4>
 				<p class="card-text">${point.address.getCity() }</p>
