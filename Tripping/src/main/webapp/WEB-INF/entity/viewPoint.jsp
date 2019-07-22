@@ -31,7 +31,7 @@
       var map;
       function initMap() {
     	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
-    	  
+
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
           zoom: 8
@@ -52,8 +52,8 @@
 		<script
 			src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
 			async defer></script>
-			
-			
+
+
 			<div class="card" style="height:fit-content;width: 20rem;margin-top:100px;">
 			<div class="card-body">
 				<h4 class="card-title">${point.name }</h4>
@@ -76,14 +76,15 @@
 					${activity.iconUrl }</a>
 				</c:forEach>
 			</div>
-<h3>
+				<h3>
 					<a class="navbar-brand" href="#login" rel="tooltip" title="login"
 					data-placement="bottom" data-toggle="modal"
 					data-target="#addCommentModal" style="margin-left:20px"><span><i class="fas fa-comments"></i></span></a>
-				</h3> 
+				</h3>
 				<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
 						data-target="#reviewModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
+						<br>
 			</div>
 		</div>
 	</div>
