@@ -88,7 +88,7 @@
 						<div class="col-md-6 ml-auto mr-auto">
 							<ul class="list-unstyled follows">
 								<c:forEach var="entry"
-									items="${futureTrips }">
+									items="${futureTrips}">
 									<li>
 										<div class="row">
 											<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">

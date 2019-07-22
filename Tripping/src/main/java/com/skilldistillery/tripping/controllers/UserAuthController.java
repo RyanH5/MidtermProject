@@ -64,7 +64,7 @@ public class UserAuthController {
 				if(user.getJournalEntries().get(i).isComplete()) {
 					pastTrips.add(user.getJournalEntries().get(i));
 				}	else {
-					pastTrips.add(user.getJournalEntries().get(i));
+					futureTrips.add(user.getJournalEntries().get(i));
 				}
 			}
 			
