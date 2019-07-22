@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <nav id="tripping navExample"
-	class="navbar navbar-expand-lg fixed-top navbar-transpart"
-	style="background-color: #B0E0E6;" color-on-scroll="300">
+	class="navbar navbar-expand-lg fixed-top"
+	style="background-color: #B0E0E6 !important; padding-top: 0px;">
 	<a class="navbar-brand" href="/" rel="tooltip" title="login"
 		data-placement="bottom"> tripping </a>
 	<c:choose>
