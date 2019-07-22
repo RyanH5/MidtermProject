@@ -2,6 +2,8 @@ package com.skilldistillery.tripping.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.JournalEntryDAO;
 import com.skilldistillery.tripping.data.PointOfInterestDAO;
+import com.skilldistillery.tripping.data.UserDAO;
 import com.skilldistillery.tripping.entities.JournalEntry;
 import com.skilldistillery.tripping.entities.PointOfInterest;
+import com.skilldistillery.tripping.entities.User;
 
 @Controller
 public class PointOfInterestController {
+	
+	@Autowired
+	private UserDAO dao3;
 
 	@Autowired
 	private PointOfInterestDAO dao;
@@ -54,7 +61,10 @@ public class PointOfInterestController {
 	
 	@RequestMapping(path = "addTrip.do", method=RequestMethod.POST)
 	public String createTrip(@ModelAttribute("JournalEntry") 
-	JournalEntry journalEntry, BindingResult result, Model model) {
+	JournalEntry journalEntry, BindingResult result, Model model, HttpSession session) {
+		User user = dao3.findUserById(((User)session.getAttribute("user")).getId());
+		session.setAttribute("user", user);
+		journalEntry.setUser(user);
 		
 		JournalEntry managed = dao2.createJournalEntry(journalEntry);
 		

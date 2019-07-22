@@ -3,22 +3,25 @@
 ### Midterm Group Project for Skill Distillery
 
 ### Team Enthroned Slaughter
-* Cecil Kitch (SCRUM master/Back end/Front end)
-* Craig Dreiling (DBA/Graphics/Back end)
-* Ryan Harrington (Repo owner/Front end/Back end)
-* Chana Cohn (Back end/documentation/Graphics)
+* Cecil Kitch (SCRUM master)
+* Craig Dreiling (DBA)
+* Ryan Harrington (Repo owner)
+* Chana Cohn (JPA/documentation)
+* All: front end, back end, graphics
 
 ### Overview
 Tripping is a travel app that allows the user to view travel sites in Colorado, along
 with associated activities and events for different sites. Sites can be displayed with
 amenities and a google maps location.
 
-A visitor can browse to locations, activities and events.
+A visitor can browse to destinations, activities and events. Destinations include points of interest, 
+and points of interest have a map location, business address, phone number and associated
+amenities.
 
-The user can create an account destinations and events to a travel journal which
-is associated with their profile. The user can also delete or update their entries.
+The user can create an account and add destinations, events and points of interest to a travel journal 
+which is associated with their profile. The user can also delete or update their entries.
 
-An administrator can make a user account inactive.
+An administrator can make a user account inactive and perform additional functions.
 
 ### Technologies used
 * Spring MVC

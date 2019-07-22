@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76"
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>tripping</title>
 <meta
@@ -96,10 +97,13 @@
 													style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 													<h4>${entry.getTitle() }</h4>
 													<div class="form-check">
-														<label class="form-check-label"> <input
+														<!-- <label class="form-check-label"> <input
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
-														</label>
+														</label> -->
+														<form action="completeTrip.do" method="GET">
+															<button type="submit" name="tripId" value="${entry.getId()}">Complete Trip</button>
+														</form> 
 													</div>
 												</div>
 											</div>
@@ -123,10 +127,13 @@
 													style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 													<h4>${entry.getTitle() }</h4>
 													<div class="form-check">
-														<label class="form-check-label"> <input
+										<!-- 				<label class="form-check-label"> <input
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
-														</label>
+														</label> -->
+														<form action="didNotCompleteTrip.do" method="GET">
+															<button type="submit" name="tripId" value="${entry.getId()}">Didn't complete trip</button>
+														</form>
 													</div>
 												</div>
 											</div>

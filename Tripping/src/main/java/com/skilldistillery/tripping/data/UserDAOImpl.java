@@ -214,4 +214,17 @@ public class UserDAOImpl implements UserDAO {
 		return true;
 	}
 	
+	public boolean completeTrip(int tripId) {
+		System.out.println(tripId);
+		JournalEntry updatedTrip = em.find(JournalEntry.class, tripId);
+		updatedTrip.setComplete(true);
+		return true;
+	}
+	
+	public boolean didNotFinishTrip(int tripId) {
+		JournalEntry updatedTrip = em.find(JournalEntry.class, tripId);
+		updatedTrip.setComplete(false);
+		return true;
+	}
+	
 }
