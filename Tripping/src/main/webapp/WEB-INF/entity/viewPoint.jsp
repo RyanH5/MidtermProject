@@ -31,7 +31,7 @@
       var map;
       function initMap() {
     	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
-    	  
+
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
           zoom: 8
@@ -52,36 +52,39 @@
 		<script
 			src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
 			async defer></script>
-			
-			
+
+
 			<div class="card" style="height:fit-content;width: 20rem;margin-top:100px;">
 			<div class="card-body">
 				<h4 class="card-title">${point.name }</h4>
 				<p class="card-text">${point.address.getCity() }</p>
 			</div>
+			<div>
 				<c:forEach var="amenity" items="${point.getAmenities()}">
-					<a href="viewAmenity.do?id=${amenity.id }">
-					${amenity.iconUrl }</a>
+					<a href="viewAmenity.do?id=${amenity.id }" style="margin-left:20px">
+					<span>${amenity.iconUrl }</span></a>
 				</c:forEach>
-				<p class="card-text">${point.address.getStreet1() }</p>
-				<p class="card-text">${point.address.getCity() }</p>
-				<p class="card-text">${point.address.getState() }</p>
-				<p class="card-text"> ${point.address.getZipcode() }</p>
-				<p class="card-text">${point.address.getPhone() }</p> 
-				<p class="card-text">latitude :${point.address.latitude },</p>
-				<p class="card-text">longitude : ${point.address.longitude }</p>
-			<c:forEach var="activity" items="${point.getActivities()}">
-				<a href="viewActivity.do?id=${activity.id }" class="card-link">
+			</div>
+				<p class="card-text" style="margin-left:20px">${point.address.getStreet1() }</p>
+				<p class="card-text" style="margin-left:20px">${point.address.getCity() }  ${point.address.getZipcode() }</p>
+				<p class="card-text" style="margin-left:20px">${point.address.getPhone() }</p>
+				<p class="card-text" style="margin-left:20px">latitude :${point.address.latitude },
+						longitude : ${point.address.longitude }</p>
+			<div>
+				<c:forEach var="activity" items="${point.getActivities()}">
+					<a href="viewActivity.do?id=${activity.id }" class="card-link" style="margin-left:20px">
 					${activity.iconUrl }</a>
-			</c:forEach>
-				<!-- <h3>
-				<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+				</c:forEach>
+			</div>
+				<h3>
+					<a class="navbar-brand" href="#login" rel="tooltip" title="login"
 					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>
-				</h3> -->
+					data-target="#addCommentModal" style="margin-left:20px"><span><i class="fas fa-comments"></i></span></a>
+				</h3>
 				<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal" style="color:deepskyblue;"> Add To Trip Journal </a>
+						data-target="#reviewModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
+						<br>
 			</div>
 		</div>
 	</div>
