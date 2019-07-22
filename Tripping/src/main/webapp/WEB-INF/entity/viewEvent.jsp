@@ -21,24 +21,25 @@
 
 	<jsp:include page="../navbar.jsp" />
 </head>
-<body class="index-page sidebar-collapse">
-	<div class="main-section" style="background-color: #F0FFFF;">
-		<div class="entity-container card">
-			<h2>${event.name}</h2>
-			<br> <span>${event.shortDescription}</span> <br>
-			<p>${event.longDescription }</p>
-			<br>
-			<h3>From: ${event.startDate } - ${event.endDate }</h3>
-			<br>
-			<h3>${event.endDate }</h3>
-			<br>
-			<p>${event.eventDetails }</p>
-			<br>
-			
+<!-- <body class="index-page sidebar-collapse"> -->
+	<div class="main-section" style="height:150vh;background-color:
+	#CCDAEF;">
+<!-- 	#BBD2F4;"> -->
+<!-- 	#F0FFFF;"> -->
+		<!-- <div class="entity-container card"> -->
+		<div class="card" style="height:fit-content;width: 20rem;margin-top:100px;">
+			<div class="card-body">
+				<h4 class="card-title">${event.name}</h4>
+				<%-- <h2>${event.name}</h2> --%>
+			<h6 class="card-subtitle mb-2 text-muted"${event.shortDescription}></h6>
+			<p class="card-text">${event.longDescription }</p>
+			<h5>From: <br>
+			${event.startDate } - <br>
+			${event.endDate }</h5>
+			<h5">${event.eventDetails }</h5>
 			<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal"> Add To Trip Journal </a>
-			
+						data-target="#reviewModal" style="color:deepskyblue;"> Add To Trip Journal </a>
 		</div>
 	</div>
 	<jsp:include page="../modals.jsp" />
