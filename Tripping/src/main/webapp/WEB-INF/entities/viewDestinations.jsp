@@ -29,8 +29,12 @@
     text-shadow: 1px 1px green;">${destination.name }</h6>
 					<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal" style="margin-top: 133px;"> Add To Trip Journal </a>
-						
+						data-target="#reviewModal" style="margin-top: 133px;
+					    width: 95%;
+					    color: orange;
+					    text-align: center;
+					    font-weight: 400;"> Add To Trip Journal </a>
+											
 						<%-- <a href="viewDestination.do?id=${destination.id }">$</a> --%>
 					<%-- <br> <a href="createDestination.do">Create Destination</a><br>
 
@@ -60,8 +64,7 @@
 						Activity/Amenity</a><br>
 					<p>FIX ME, NEED TWO COLUMNS Points Of Interest:</p> --%>
 					<c:forEach var="p" items="${destination.getPoints()}">
-						<a href="viewPoint.do?id=${p.id }"><h6>${p.name }</a>
-						</h6>
+						<h6 style="width: 95%; text-align: center; color: orange;"><a href="viewPoint.do?id=${p.id }" style="color: orange;">${p.name }</a></h6>
 					</c:forEach>
 				</div>
 			</div>
