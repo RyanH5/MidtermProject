@@ -17,9 +17,11 @@
 <link
     href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
     rel="stylesheet" />
-<link
+<!-- <link
     href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-    rel="stylesheet">
+    rel="stylesheet"> -->
+    <script src="https://kit.fontawesome.com/d2e3aa6080.js"></script>
+    
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />

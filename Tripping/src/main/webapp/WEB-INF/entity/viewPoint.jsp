@@ -18,9 +18,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
 	rel="stylesheet" />
-<link
+<!-- <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
-	rel="stylesheet">
+	rel="stylesheet"> -->
+<script src="https://kit.fontawesome.com/d2e3aa6080.js"></script>
+
 <!-- CSS Files -->
 <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="./assets/css/paper-kit.css" rel="stylesheet" />
@@ -106,16 +108,21 @@
       var map;
       function initMap() {
     	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
+    	  
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
           zoom: 8
         });
-
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
             title: '${point.name}'
           });
+        for (var i = 0; i < points.length; i++) {}
+
+     /*    List<PointsOfInt> points = ... */
+     var points = [];
+     points.push(marker)
 
       }
     </script>
@@ -135,12 +142,9 @@
 		<div class="mdl-card__supporting-text center-text">
 			<c:forEach var="amenity" items="${point.getAmenities()}">
 				<a href="viewAmenity.do?id=${amenity.id }">
-
-				 <%-- <img
-					src="${amenity.iconUrl }" alt="${amenity.name }" width="42"
-					height="42"> --%>
+				<img src="${amenity.iconUrl }" alt="${amenity.name }" width="42"
+					height="42">
 				</a>
-				${amenity.iconUrl }
 			</c:forEach>
 			<br>
 
@@ -152,11 +156,8 @@
 			</h3>
 
 			<c:forEach var="activity" items="${point.getActivities()}">
-				<a href="viewActivity.do?id=${activity.id }">
-
-				${activity.iconUrl }
-
-				</a>
+			
+				<a href="viewActivity.do?id=${activity.id }"> ${activity.iconUrl }</a>
 			</c:forEach>
 			<br>
 			<h3>Comments</h3>
