@@ -22,16 +22,16 @@
 					</div>
 				</a>
 				<div class="entity-content dest">
-					<h2 class="entity-title">
+					<h4 class="entity-title">
 						<a href="viewDestination.do?id=${destination.id }">${destination.name }</a>
-					</h2>
-					<br> <a href="createDestination.do">Create Destination</a><br>
+					</h4>
+					<%-- <br> <a href="createDestination.do">Create Destination</a><br>
 
 					<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal"> createDestinationReview </a><%--  <a
+						data-target="#reviewModal"> createDestinationReview </a> <a
 						href="createDestinationReview.do?id=${destination.id }">FIX
-						Create Destination Review</a> --%><br> <a
+						Create Destination Review</a><br> <a
 						href="createPointComment.do?id=${point.id }">FIX Create Point
 						Review</a><br> <a href="createEventReview.do?id=${event.id }">FIX
 						Create Event Review</a><br> <a
@@ -55,12 +55,10 @@
 						Review</a><br> <a
 						href="removeEventReview.do?id=${destination.id }">Add/Remove
 						Activity/Amenity</a><br>
-					<p>FIX ME, NEED TWO COLUMNS Points Of Interest:</p>
+					<p>FIX ME, NEED TWO COLUMNS Points Of Interest:</p> --%>
 					<c:forEach var="p" items="${destination.getPoints()}">
-						<a href="viewPoint.do?id=${p.id }"><h3>${p.name }</a>
-						</h3>
-						<br>
-
+						<a href="viewPoint.do?id=${p.id }"><h6>${p.name }</a>
+						</h6>
 					</c:forEach>
 				</div>
 			</div>

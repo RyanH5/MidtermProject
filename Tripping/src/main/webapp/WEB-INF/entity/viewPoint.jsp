@@ -73,7 +73,7 @@
 				<c:forEach var="activity" items="${point.getActivities()}">
 
 					<a href="viewActivity.do?id=${activity.id }">
-						${activity.iconUrl }</a>
+					<span>${activity.iconUrl }</span></a>
 				</c:forEach>
 				<br>
 				<h3>Comments</h3>

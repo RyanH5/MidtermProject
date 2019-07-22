@@ -27,11 +27,9 @@
 					<div class="section text-center entity-card-image"
 						href="viewActivity.do?id=${activity.id }"
 						style="background-image: url('${activity.imageUrl}'); height: 230px;">
-					</div>
-					<div class="entity-content dest">
-						<h6 class="entity-title">
+						<h4 class="entity-title">
 							<a href="viewActivity.do?id=${activity.id }">${activity.name }</a>
-						</h6>
+						</h4>
 					</div>
 				</div>
 			</c:forEach>

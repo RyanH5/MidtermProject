@@ -15,39 +15,19 @@
 <body class="index-page sidebar-collapse">
 	<jsp:include page="../navbar.jsp" />
 	<div class="wrapper">
-		<div class="page-header section-dark"
+		<div class="main-section"
 			style="background-image: url('${destination.image }')">
 			<div class="filter"></div>
-			<div class="content-center">
-				<h1 class="presentation-title">${destination.name }</h1>
-				<h2 class="presentation-subtitle text-center">${destination.shortDescription }</h2>
+			<div class="entity-container card">
+				<h3 class="presentation-title">${destination.name }</h1>
+					<h6 class="presentation-subtitle text-center">${destination.shortDescription }</h2>
 			</div>
 		</div>
-		<div class="moving-clouds"
-			style="background-image: url('./assets/img/clouds.png');"></div>
-		<h6 class="category category-absolute"></h6>
-	</div>
-	<div class="section text-center">
-		<c:forEach var="point" items="${destination.points }">
-			<a href="viewPoint.do?id=${point.id }">${point.name }</a>
-			<a href="viewPoint.do?id=${point.id }">${point.address.city }</a>
-			<br>
-		</c:forEach>
-	</div>
+		<div class="entity-container card">
+			<c:forEach var="point" items="${destination.points }">
 
-
-	<script src="http://maps.google.com/maps/api/js"></script>
-	<script src="gmaps.js"></script>
-	<style type="text/css">
-#map {
-	width: 400px;
-	height: 400px;
-}
-</style>
-</head>
-<body>
-	<div id="map"></div>
-	<script>
+				<div id="map"></div>
+				<script>
       var map;
       function initMap() {
     	  
@@ -60,13 +40,22 @@
           zoom: 8
         });
         
-        
-        
       }
     </script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
-		async defer></script>
+				
+				<a href="viewPoint.do?id=${point.id }">${point.name }</a>
+				<a href="viewPoint.do?id=${point.id }">${point.address.city }</a>
+				<br>
+			</c:forEach>
+		</div>
+
+		<div class="moving-clouds"
+			style="background-image: url('./assets/img/clouds.png');"></div>
+		<h6 class="category category-absolute"></h6>
+	</div>
+</head>
+<body>
+
 
 	<!-- Modal Bodies come here -->
 	<!--   end modal -->

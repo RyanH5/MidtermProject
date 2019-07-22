@@ -36,10 +36,34 @@
 				</div>
 			</div>
 		</div>
+	<!-- 		<div class="card-body __web-inspector-hide-shortcut__">
+                    <form method="" action="">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Activity" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Destination" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" value="" placeholder="Date Picker" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <button type="button" class="btn btn-danger btn-block"><i class="nc-icon nc-zoom-split"></i> &nbsp; Search</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div> -->
 		<div class="moving-clouds"
 			style="background-image: url('./assets/img/clouds.png');"></div>
-		<a href="viewDestinations.do"><h5
-				class="category category-absolute">EXPLORE</h5></a>
+		<a href="viewDestinations.do"><h5 class="category category-absolute"><strong>EXPLORE</strong></a>
+		</h5>
 	</div>
 
 	<jsp:include page="modals.jsp" />
