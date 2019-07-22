@@ -15,7 +15,7 @@
 					aria-label="Toggle navigation"></button> 
 					<i class="fas fa-sign-out-alt"></i>logout
 			</a>
-			<a href="viewProfile.do">
+			<a href="viewProfile.do" name="user" value="${sessionScope.user}">
 				<button class="navbar-toggler navbar-toggler" type="button"
 					data-toggle="collapse" data-target="#navigation"
 					aria-controls="navigation-index" aria-expanded="false"
