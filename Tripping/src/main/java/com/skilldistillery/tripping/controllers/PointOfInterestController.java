@@ -1,5 +1,6 @@
 package com.skilldistillery.tripping.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -69,7 +70,18 @@ public class PointOfInterestController {
 		JournalEntry managed = dao2.createJournalEntry(journalEntry);
 		
 		model.addAttribute("journalEntry", managed);
+		List<JournalEntry> futureTrips = new ArrayList<>();
+		List<JournalEntry> pastTrips = new ArrayList<>();
+		for (int i = 0; i < user.getJournalEntries().size(); i++) {
+			if(user.getJournalEntries().get(i).isComplete()) {
+				pastTrips.add(user.getJournalEntries().get(i));
+			}	else {
+				futureTrips.add(user.getJournalEntries().get(i));
+			}
+		}
 		
+		model.addAttribute("futureTrips", futureTrips);
+		model.addAttribute("pastTrips", pastTrips);
 		return "user/profile";
 	}
 	
