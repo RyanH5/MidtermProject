@@ -31,7 +31,6 @@ public class UserController {
 	
 	@RequestMapping(path = "viewProfile.do")
 	public ModelAndView viewUserById(ModelAndView model, Errors errors, HttpSession session) {
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++");
 		User user = (User)session.getAttribute("user");
 		List<JournalEntry> futureTrips = new ArrayList<>();
 		List<JournalEntry> pastTrips = new ArrayList<>();
@@ -48,5 +47,7 @@ public class UserController {
 		model.setViewName("user/profile");
 		return model;
 	}
+	
+	
 
 }

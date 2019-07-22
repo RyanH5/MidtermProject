@@ -100,6 +100,9 @@
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
 														</label>
+														<form action="completeTrip.do" method="GET">
+															<input type="submit" value="Completed" />
+														</form> 
 													</div>
 												</div>
 											</div>
@@ -127,6 +130,9 @@
 															class="form-check-input" type="checkbox" value="unchecked" checked>
 															<span class="form-check-sign"></span>
 														</label>
+														<form action="didNotCompleteTrip.do" method="GET">
+															<input type="submit" value="Todo" />
+														</form>
 													</div>
 												</div>
 											</div>
