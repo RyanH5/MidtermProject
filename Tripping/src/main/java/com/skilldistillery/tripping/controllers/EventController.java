@@ -19,6 +19,9 @@ public class EventController {
 	@RequestMapping(path = "viewEvent.do")
 	public ModelAndView viewEvent(ModelAndView model, int id) {
 		Event event = dao.findEventById(id);
+		
+		event.getImages();
+		
 		model.addObject("event", event);
 		model.setViewName("entity/viewEvent");
 		return model;

@@ -27,10 +27,13 @@
 			<div class="entity-container card">
 				<div class="section text-center entity-card-image"
 					href="viewEvent.do?id=${event.id }"
-					style="background-image: url('${event.destination.image}'); height: 230px;">
+					style="background-image: url('${event.images.get(0).imageUrl}'); height: 230px;">
 				</div>
 				<h6 class="entity-title">
-					<a href="viewEvent.do?id=${event.id }">${event.name }</a>
+					<a href="viewEvent.do?id=${event.id }" style="font-family: 'Ranchers', cursive;
+    color: orange;
+    font-size: 36px;
+    text-shadow: 1px 1px green;">${event.name }</a>
 				</h6>
 				<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
