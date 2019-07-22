@@ -34,6 +34,11 @@
 			<br>
 			<p>${event.eventDetails }</p>
 			<br>
+			
+			<a href="#review" class="navbar-brand" rel="tooltip"
+						title="login" data-placement="bottom" data-toggle="modal"
+						data-target="#reviewModal"> Add To Trip Journal </a>
+			
 		</div>
 	</div>
 	<jsp:include page="../modals.jsp" />
