@@ -30,12 +30,9 @@
 
 <body class="index-page sidebar-collapse">
 
-	<nav class="navbar navbar-expand-lg fixed-top navbar-transparent "
-		color-on-scroll="300">
-		<div class="container">
-
-
-
+	<nav class="navbar navbar-expand-lg fixed-top"
+		color-on-scroll="300" style="background-color:#B0E0E6">
+		<div class="container">	
 
 			<div class="navbar-translate">
 				<a href="viewProfile.do"><i class="fa fa-user-o" aria-hidden="true"></i></a> <a

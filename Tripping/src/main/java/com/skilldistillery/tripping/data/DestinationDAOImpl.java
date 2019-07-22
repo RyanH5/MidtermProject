@@ -29,7 +29,7 @@ public class DestinationDAOImpl implements DestinationDAO {
 	@Override
 	public Destination createDestination(Destination destination) {
 		em.persist(destination);
-		return null;
+		return destination;
 	}
 
 	@Override
