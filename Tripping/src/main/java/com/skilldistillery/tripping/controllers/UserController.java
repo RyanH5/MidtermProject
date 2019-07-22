@@ -31,7 +31,6 @@ public class UserController {
 	
 	@RequestMapping(path = "viewProfile.do")
 	public ModelAndView viewUserById(ModelAndView model, Errors errors, HttpSession session) {
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++");
 		User user = (User)session.getAttribute("user");
 		List<JournalEntry> futureTrips = new ArrayList<>();
 		List<JournalEntry> pastTrips = new ArrayList<>();
@@ -48,5 +47,51 @@ public class UserController {
 		model.setViewName("user/profile");
 		return model;
 	}
+	
+	@RequestMapping(path = "completeTrip.do")
+	public ModelAndView userCompletedTrip(ModelAndView model, int tripId, HttpSession session) {
+		dao.completeTrip(tripId);
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(tripId);
+		User user = dao.findUserById(((User)session.getAttribute("user")).getId());
+		session.setAttribute("user", user);
+		List<JournalEntry> futureTrips = new ArrayList<>();
+		List<JournalEntry> pastTrips = new ArrayList<>();
+		for (int i = 0; i < user.getJournalEntries().size(); i++) {
+			if(user.getJournalEntries().get(i).isComplete()) {
+				pastTrips.add(user.getJournalEntries().get(i));
+			}	else {
+				futureTrips.add(user.getJournalEntries().get(i));
+			}
+		}
+		
+		model.addObject("futureTrips", futureTrips);
+		model.addObject("pastTrips", pastTrips);
+		model.setViewName("user/profile");
+		return model;
+	}
+
+	@RequestMapping(path = "didNotCompleteTrip.do")
+	public ModelAndView incompleteTrip(ModelAndView model, int tripId, HttpSession session) {
+		dao.didNotFinishTrip(tripId);
+		User user = dao.findUserById(((User)session.getAttribute("user")).getId());
+		session.setAttribute("user", user);
+		List<JournalEntry> futureTrips = new ArrayList<>();
+		List<JournalEntry> pastTrips = new ArrayList<>();
+		for (int i = 0; i < user.getJournalEntries().size(); i++) {
+			if(user.getJournalEntries().get(i).isComplete()) {
+				pastTrips.add(user.getJournalEntries().get(i));
+			}	else {
+				futureTrips.add(user.getJournalEntries().get(i));
+			}
+		}
+		
+		model.addObject("futureTrips", futureTrips);
+		model.addObject("pastTrips", pastTrips);
+		model.setViewName("user/profile");
+		return model;
+	}
+	
+	
 
 }

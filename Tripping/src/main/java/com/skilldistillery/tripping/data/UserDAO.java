@@ -57,6 +57,10 @@ public interface UserDAO {
 	
 	public boolean updatePOIComment(int id, PointOfInterestComment poiComment);
 	
+	public boolean completeTrip(int tripId);
+	
+	public boolean didNotFinishTrip(int tripId);
+	
 	
 	
 }
