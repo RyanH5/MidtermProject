@@ -29,7 +29,7 @@
     text-shadow: 1px 1px green;">${destination.name }</h6>
 					<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal" style="margin-top: 133px;
+						data-target="#tripModal" style="margin-top: 133px;
 					    width: 95%;
 					    color: orange;
 					    text-align: center;
