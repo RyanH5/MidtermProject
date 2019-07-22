@@ -1,5 +1,6 @@
 package com.skilldistillery.tripping.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.UserAuthDAO;
+import com.skilldistillery.tripping.entities.JournalEntry;
 import com.skilldistillery.tripping.entities.User;
 
 @Controller
@@ -50,13 +52,26 @@ public class UserAuthController {
 	}
 	
 	@RequestMapping(path = "userLogin.do", method=RequestMethod.GET)
-	public String login(User user, Errors errors, HttpSession session) {
+	public ModelAndView login(User user, Errors errors, HttpSession session, ModelAndView model) {
 			user = dao.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());
 			user.getJournalEntries();
 			session.setAttribute("user", user);
-			System.out.println(session);
-			System.out.println(user);
-			return "user/profile";
+			System.out.println("===============================================================");
+			System.out.println(user.getJournalEntries().get(0).isComplete());
+			List<JournalEntry> futureTrips = new ArrayList<>();
+			List<JournalEntry> pastTrips = new ArrayList<>();
+			for (int i = 0; i < user.getJournalEntries().size(); i++) {
+				if(user.getJournalEntries().get(i).isComplete()) {
+					pastTrips.add(user.getJournalEntries().get(i));
+				}	else {
+					futureTrips.add(user.getJournalEntries().get(i));
+				}
+			}
+			
+			model.addObject("futureTrips", futureTrips);
+			model.addObject("pastTrips", pastTrips);
+			model.setViewName("user/profile");
+			return model;
 	}
 	
 	@RequestMapping(path = "userLogout.do", method=RequestMethod.GET)

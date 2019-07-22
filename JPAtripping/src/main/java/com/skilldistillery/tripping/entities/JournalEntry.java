@@ -217,13 +217,28 @@ public class JournalEntry {
 		this.images = images;
 	}
 
-//	To String
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("JournalEntry [id=").append(id).append(", title=").append(title).append("]");
+		builder.append("JournalEntry [id=");
+		builder.append(id);
+		builder.append(", user=");
+		builder.append(user);
+		builder.append(", isPublic=");
+		builder.append(isPublic);
+		builder.append(", isComplete=");
+		builder.append(isComplete);
+		builder.append(", title=");
+		builder.append(title);
+		builder.append(", entryText=");
+		builder.append(entryText);
+		builder.append(", createDate=");
+		builder.append(createDate);
+		builder.append(", images=");
+		builder.append(images);
+		builder.append("]");
 		return builder.toString();
 	}
 
+	
 }
