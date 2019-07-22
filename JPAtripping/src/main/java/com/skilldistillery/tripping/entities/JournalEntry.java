@@ -239,6 +239,7 @@ public class JournalEntry {
 		builder.append("]");
 		return builder.toString();
 	}
-
+	
+	
 	
 }
