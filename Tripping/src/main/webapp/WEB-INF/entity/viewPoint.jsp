@@ -52,8 +52,41 @@
 		<script
 			src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
 			async defer></script>
+			
+			
+			<div class="card" style="height:fit-content;width: 20rem;margin-top:100px;">
+			<div class="card-body">
+				<h4 class="card-title">${point.name }</h4>
+				<p class="card-text">${point.address.getCity() }</p>
+			</div>
+				<c:forEach var="amenity" items="${point.getAmenities()}">
+					<a href="viewAmenity.do?id=${amenity.id }">
+					${amenity.iconUrl }</a>
+				</c:forEach>
+				<p class="card-text">${point.address.getStreet1() }</p>
+				<p class="card-text">${point.address.getCity() }</p>
+				<p class="card-text">${point.address.getState() }</p>
+				<p class="card-text"> ${point.address.getZipcode() }</p>
+				<p class="card-text">${point.address.getPhone() }</p> 
+				<p class="card-text">latitude :${point.address.latitude },</p>
+				<p class="card-text">longitude : ${point.address.longitude }</p>
+			<c:forEach var="activity" items="${point.getActivities()}">
+				<a href="viewActivity.do?id=${activity.id }" class="card-link">
+					${activity.iconUrl }</a>
+			</c:forEach>
+				<!-- <h3>
+				<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>
+				</h3> -->
+				<a href="#review" class="navbar-brand" rel="tooltip"
+						title="login" data-placement="bottom" data-toggle="modal"
+						data-target="#reviewModal" style="color:deepskyblue;"> Add To Trip Journal </a>
+			</div>
+		</div>
+	</div>
 
-		<div class="entity-container card">
+		<%-- <div class="entity-container card">
 			<div class="mdl-card__title">
 				<h3 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h3>
 			</div>
@@ -81,7 +114,7 @@
 						data-target="#reviewModal"> Add To Trip Journal </a>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
 </body>
