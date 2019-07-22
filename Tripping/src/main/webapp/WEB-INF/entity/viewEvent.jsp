@@ -22,8 +22,10 @@
 	<jsp:include page="../navbar.jsp" />
 </head>
 <!-- <body class="index-page sidebar-collapse"> -->
-	<div class="main-section" style="height:150vh;background-color:
-	#CCDAEF;">
+	<div class="main-section" style="height: 100vh;
+    background-repeat: no-repeat;
+    background-image: url('${event.images.get(0).imageUrl}');
+    background-size: cover;">
 <!-- 	#BBD2F4;"> -->
 <!-- 	#F0FFFF;"> -->
 		<!-- <div class="entity-container card"> -->
@@ -36,11 +38,12 @@
 			<h5>From: <br>
 			${event.startDate } - <br>
 			${event.endDate }</h5>
-			<h5">${event.eventDetails }</h5>
+			<h5>${event.eventDetails }</h5>
 			<a href="#review" class="navbar-brand" rel="tooltip"
 						title="login" data-placement="bottom" data-toggle="modal"
 						data-target="#reviewModal" style="color:deepskyblue;"> Add To Trip Journal </a>
 		</div>
+	</div>
 	</div>
 	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
