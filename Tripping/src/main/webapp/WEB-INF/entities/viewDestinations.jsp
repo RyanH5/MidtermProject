@@ -28,28 +28,6 @@
 
 </head>
 
-<nav id="navExample" class="navbar navbar-expand-lg fixed-top" style="background-color:#B0E0E6;" color-on-scroll="300">
-	<div class="container">
-		<div class="navbar-translate">
-		<i class="fa fa-user-o" aria-hidden="true"></i>
-			<a class="navbar-brand" href="loginOrRegister.do" rel="tooltip"
-				title="loginOrRegister.do" data-placement="bottom">login</a>
-			<button class="navbar-toggler navbar-toggler" type="button"
-				data-toggle="collapse" data-target="#navigation"
-				aria-controls="navigation-index" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-bar bar1"></span><span
-					class="navbar-toggler-bar bar2"></span><span
-					class="navbar-toggler-bar bar3"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse justify-content-end"
-			id="navigation">
-			<ul class="navbar-nav">
-				<li><a class="navbar-brand" href="/" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
-			          tripping
-			        </a></li>
-				<li class="nav-item"><a href="viewActivities.do"
 
 <body class="index-page sidebar-collapse">
 
