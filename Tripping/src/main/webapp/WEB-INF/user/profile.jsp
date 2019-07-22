@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76"
 	href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>tripping</title>
 <meta
@@ -101,7 +102,7 @@
 															<span class="form-check-sign"></span>
 														</label>
 														<form action="completeTrip.do" method="GET">
-															<input type="submit" value="Completed" />
+															<button type="submit" name="tripId" value="${entry.getId()}">Complete Trip</button>
 														</form> 
 													</div>
 												</div>
@@ -131,7 +132,7 @@
 															<span class="form-check-sign"></span>
 														</label>
 														<form action="didNotCompleteTrip.do" method="GET">
-															<input type="submit" value="Todo" />
+															<button type="submit" name="tripId" value="${entry.getId()}">Didn't complete trip</button>
 														</form>
 													</div>
 												</div>
