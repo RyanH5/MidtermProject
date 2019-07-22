@@ -34,8 +34,6 @@
 					</c:if>
 				</c:when>
 				<c:otherwise>
-					<a href="userRegister.do">View User Registration</a><br>
-					<a href="loginOrRegister.do">View User Login</a><br>
 				</c:otherwise>
 			</c:choose>
 			<a href="shellTemplate.do">View Shell Template</a><br>
