@@ -51,6 +51,23 @@
 	}
 }
 
+@media only screen and (max-width: 992px) {
+	.navbar-toggler .navbar-toggler {
+		position: absolute !important;
+	    right: 10px !important;
+	    top: 25px !important;
+	}
+	
+	.navbar-translate {
+		justify-content: flex-start !important;
+    	display: flex !important;
+	}
+	
+	#hidebtn{
+		display: none !important;
+	}
+}
+
 @media only screen and (max-width: 950px) {
 	.entity-container {
 	width: 45%;

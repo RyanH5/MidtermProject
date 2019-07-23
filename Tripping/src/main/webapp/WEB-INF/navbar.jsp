@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link href="./assets/css/entitiesGrid.css" rel="stylesheet" />
 <nav id="tripping navExample"
 	class="navbar navbar-expand-lg fixed-top"
 	style="background-color: #B0E0E6 !important; padding-top: 0px;">
-	<a class="navbar-brand" href="/" rel="tooltip" title="login"
-		data-placement="bottom"> tripping </a>
+	<!-- <a class="navbar-brand" href="/" rel="tooltip" title="login"
+		data-placement="bottom"> tripping </a> -->
 	<c:choose>
 		<c:when test="${! empty sessionScope.user}">
+			<a class="navbar-brand" href="/" rel="tooltip" title="login"
+			data-placement="bottom"> tripping </a>
 			<a href="userLogout.do" class="navbar-brand" >
 				<button class="navbar-toggler navbar-toggler" type="button"
 					data-toggle="collapse" data-target="#navigation"
@@ -41,6 +44,8 @@
 		</c:when>
 		<c:otherwise>
 			<div class="navbar-translate">
+				<a class="navbar-brand" href="/" rel="tooltip" title="login"
+			data-placement="bottom"> tripping </a>
 				<button class="navbar-toggler navbar-toggler" type="button"
 					data-toggle="collapse" data-target="#navigation"
 					aria-controls="navigation-index" aria-expanded="false"
@@ -69,6 +74,20 @@
 	<div class="collapse navbar-collapse justify-content-end"
 		id="navigation">
 		<ul class="navbar-nav">
+<!-- 			<li class="navbar-toggler navbar-toggler" type="button"
+					data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation-index" aria-expanded="false"
+					aria-label="Toggle navigation"><a class="navbar-brand" href="#login" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#loginModal"> login </a></li>
+				
+				<li class="navbar-toggler navbar-toggler" type="button"
+					data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation-index" aria-expanded="false"
+					aria-label="Toggle navigation"><a class="navbar-brand" href="#register" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#registerModal"> register </a></li> -->
+				
 			<li class="nav-item"><a href="viewActivities.do"
 				class="nav-link"><span></span><i class="fas fa-hiking"></i></span> Activities
 			</a></li>
