@@ -59,7 +59,7 @@
 
 	<div class="entity-container card" style="margin-top: 50px;">
 		<div class="card-body">
-			<h3 class="card-title" style="color: orange;">${destination.name }</h3>
+			<h3 class="card-title" style="color: orange;" style="font-weight:400;">${destination.name }</h3>
 			<h5 class="card-text">${destination.shortDescription }</h5>
 			<h5 style="color: orange;">Events:</h5>
 			<c:forEach var="event" items="${destination.events}">
@@ -71,16 +71,16 @@
 			<br>
 			<h5 style="color: orange;">Points of Interest:</h5>
 			<c:forEach var="point" items="${destination.points }">
-		<%-- 		<h6>
+		<h6>
 					<a href="viewPoint.do?id=${point.id }">${point.name }</a>
-					<c:forEach var="activity" items="${point.getActivities()}">
+					<%-- <c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
-					</c:forEach>
-					<c:forEach var="amenity" items="${point.getAmenities()}">
+					</c:forEach> --%>
+					<%-- <c:forEach var="amenity" items="${point.getAmenities()}">
 						<a href="viewAmenity.do?id=${amenity.id }"> <span>${amenity.iconUrl }</span></a>
-					</c:forEach>
+					</c:forEach> --%>
 					<br>
-				</h6> --%>
+				</h6>
 			</c:forEach>
 			<c:choose>
 				<c:when test="${! empty sessionScope.user}">

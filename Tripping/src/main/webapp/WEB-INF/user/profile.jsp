@@ -56,35 +56,6 @@
 					</ul>
 				</div>
 			</div>
-			<!-- Tab panes -->
-			<%-- 				<div class="tab-content following">
-				<div class="tab-pane active" id="follows" role="tabpanel">
-					<div class="row">
-						<div class="col-md-6 ml-auto mr-auto">
-							<ul class="list-unstyled follows">
-								<c:forEach var="entry"
-									items="${sessionScope.user.getJournalEntries() }">
-									<li>
-										<div class="row">
-											<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
-												<div class="section text-center"
-													style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
-													<h4>${entry.getTitle() }</h4>
-													<div class="form-check">
-														<label class="form-check-label"> <input
-															class="form-check-input" type="checkbox" value="unchecked" checked>
-															<span class="form-check-sign"></span>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-								</c:forEach>
-							</ul>
-						</div>
-					</div>
-				</div> --%>
 			<div class="tab-content following">
 				<div class="tab-pane active" id="follows" role="tabpanel">
 					<div class="row">

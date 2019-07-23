@@ -43,14 +43,14 @@
 
 		<c:otherwise>
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="navbar-brand" href="#login"
+				<li class="nav-item"><a class="navbar-brand" href="#login style="width: 95%; color: orange; text-align: center; font-weight: 400;""
 					rel="tooltip" title="login" data-placement="bottom"
 					data-toggle="modal" data-target="#loginModal"> login </a></li>
 				<a class="navbar-brand" href="#register" rel="tooltip"
 					title="register" data-placement="bottom" data-toggle="modal"
 					data-target="#registerModal"
-					style="width: 95%; color: orange; text-align: center; font-weight: 400;">
-					Register to Create a trip </a>
+					style="width: 95%; color: orange; text-align: center; font-weight: 800;">
+					Register </a>
 				</li>
 			</ul>
 		</c:otherwise>
