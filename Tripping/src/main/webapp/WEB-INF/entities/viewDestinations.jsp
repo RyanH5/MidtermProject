@@ -24,16 +24,29 @@
 				<!-- </a> -->
 				<div class="entity-content dest" style="z-index: 10; margin-top: -181px;">
 					<h6 class="entity-title" style="font-family: 'Ranchers', cursive;
-    color: orange;
-    font-size: 36px;
-    text-shadow: 1px 1px green;">${destination.name }</h6>
-					<a href="#review" class="navbar-brand" rel="tooltip"
-						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#tripModal" style="margin-top: 133px;
-					    width: 95%;
 					    color: orange;
-					    text-align: center;
-					    font-weight: 400;"> Add To Trip Journal </a>
+					    font-size: 36px;
+					    text-shadow: 1px 1px green;">${destination.name }</h6>
+					    <c:choose>
+							<c:when test="${! empty sessionScope.user}">
+								<a href="#review" class="navbar-brand" rel="tooltip"
+									title="login" data-placement="bottom" data-toggle="modal"
+									data-target="#tripModal" style="margin-top: 133px;
+								    width: 95%;
+								    color: orange;
+								    text-align: center;
+								    font-weight: 400;"> Add To Trip Journal </a>
+					    	</c:when>
+					    	<c:otherwise>
+					    		<a class="navbar-brand" href="#register" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#registerModal" style="margin-top: 133px;
+								    width: 95%;
+								    color: orange;
+								    text-align: center;
+								    font-weight: 400;"> Register to Create a trip </a>
+					    	</c:otherwise>
+					    </c:choose>
 											
 						<%-- <a href="viewDestination.do?id=${destination.id }">$</a> --%>
 					<%-- <br> <a href="createDestination.do">Create Destination</a><br>
