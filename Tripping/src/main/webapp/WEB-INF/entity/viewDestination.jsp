@@ -75,8 +75,8 @@
 					<a href="viewPoint.do?id=${point.id }" style="color:deepskyblue;font-weight: 400;">${point.name }</a>
 					<%-- <c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
-					</c:forEach>
-					<c:forEach var="amenity" items="${point.getAmenities()}">
+					</c:forEach> --%>
+					<%-- <c:forEach var="amenity" items="${point.getAmenities()}">
 						<a href="viewAmenity.do?id=${amenity.id }"> <span>${amenity.iconUrl }</span></a>
 					</c:forEach> --%>
 					<br>
@@ -110,8 +110,8 @@
 					<a href="viewActivity.do?id=${destination.id }">
 					<span>${destination.iconUrl }</span></a>
 				</c:forEach>
-				<br></h3> 
-				
+				<br></h3>
+
 				<h3>Comments</h3>
 				<c:forEach var="comment" items="${point.getComments()}">
 					<a href="viewUser.do?id=${comment.user.id }">${comment.user.userName }</a>

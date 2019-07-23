@@ -22,7 +22,7 @@
 	<jsp:include page="../navbar.jsp" />
 	<!-- End Navbar -->
 	<div class="page-header page-header-xs" data-parallax="true"
-		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;  z-index: 0;">
+		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%; z-index: 0;">
 		<div class="filter"></div>
 	</div>
 	<div class="section profile-content">
@@ -43,8 +43,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 ml-auto mr-auto text-center">
-				</div>
+				<div class="col-md-6 ml-auto mr-auto text-center"></div>
 			</div>
 			<div class="nav-tabs-navigation">
 				<div class="nav-tabs-wrapper">
@@ -64,15 +63,16 @@
 							<ul class="list-unstyled follows">
 								<li>
 									<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
-										<div class="section text-center">
-											<c:forEach var="entry" items="${user.getJournalEntries() }">
+										<c:forEach var="entry" items="${user.getJournalEntries() }">
+											<div class="section text-center"
+												style="font-weight: 400; color: orange; background-image: url()";>
 												<div class="row text-center">
 													<em><h2>${entry.getTitle() }</h2></em> <a
 														href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
 												</div>
-											</c:forEach>
-										</div>
+											</div>
+										</c:forEach>
 									</div>
 								</li>
 							</ul>
