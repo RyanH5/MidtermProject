@@ -58,20 +58,20 @@
 			async defer></script>
 	
 		<div class="entity-container card" style="margin-top:50px;">
-			<div class="card-body">
-					<h3 class="card-title" style="color:orange;">${activity.name }</h3>
-					<h5 class="card-text">${activity.shortDescription }</h5>
-					<p class="card-text">${activity.longDescription }</p>
-				<h5 style="color:orange;">Destinations:</h5>
+			<div class="card-body" style="background-color: #F0FFFF;">
+					<h3 class="card-title" style="color:orange;font-weight:400;">${activity.name }</h3>
+					<h5 class="card-text" style="font-weight:400;">${activity.shortDescription }</h5>
+					<p class="card-text" style="font-weight:400;">${activity.longDescription }</p>
+				<h5 style="color:orange;font-weight:400;">Destinations:</h5>
 					<c:forEach var="point" items="${activity.points}">
-						<a href="viewDestination.do?id=${point.destination.id }" style="margin-left:10px">
+						<a href="viewDestination.do?id=${point.destination.id }" style="margin-left:10px;color:deepskyblue;font-weight:400;">
 							<span>${point.address.city }</span>
 						</a>
 					</c:forEach><br>
-					<h5 style="color:orange;">Points of Interest:</h5>
+					<h5 style="color:orange;font-weight:400;">Points of Interest:</h5>
 					<c:forEach var="point" items="${activity.points }">
 						<h6>
-							<a href="viewPoint.do?id=${point.id }">${point.name }</a>
+							<a href="viewPoint.do?id=${point.id }" style="color:deepskyblue;font-weight:400;">${point.name }</a>
 						</h6>
 					</c:forEach>
 				<c:choose>
