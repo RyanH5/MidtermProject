@@ -117,7 +117,7 @@ DROP TABLE IF EXISTS `journal_entry` ;
 CREATE TABLE IF NOT EXISTS `journal_entry` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `is_public` TINYINT NULL,
+  `is_public` TINYINT NULL DEFAULT 0,
   `is_complete` TINYINT NULL,
   `title` VARCHAR(150) NULL,
   `entry_text` LONGTEXT NULL,
@@ -627,22 +627,22 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trippingdb`;
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (1, 1, 'https://www.colorado.com/sites/default/files/styles/640x480/public/zzdata-41018_720x480.jpg?itok=DRLtdZri');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (1, 1, 'https://kid101.com/wp-content/uploads/2018/05/Estes-Park-Jazz-Fest.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (2, 1, 'https://scontent.fapa1-1.fna.fbcdn.net/v/t1.0-9/13502031_1073777109368131_8133733787932458512_n.jpg?_nc_cat=110&_nc_oc=AQkmAVxO_0kk0fUo6GzPugRjCMktOCyxlwnOxx6cMga-ng3IP2_GfoQ_axYS4RJk3EI&_nc_ht=scontent.fapa1-1.fna&oh=e9937d2f0374449cf4e337bc1ccd81d3&oe=5DB5B9F7');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (3, 1, 'https://www.eptrail.com/wp-content/uploads/migration/2010/0518/20100518_19eplpht1.jpg?w=620');
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (4, 2, 'https://n.b5z.net/i/u/10123266/i/MCFB_2019.jpg');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (4, 2, 'https://cowboylifestylenetwork.com/wp-content/uploads/2016/05/Bareback-Rider-at-Estes-Park-Rooftop-Rodeo-.png');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (5, 2, 'https://www.visitmoffatcounty.com/images/pages/30.png');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (6, 2, 'https://www.fitnancials.com/wp-content/uploads/2017/07/skeleton-1897428_1920.jpg');
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (7, 3, 'https://d368g9lw5ileu7.cloudfront.net/races/race51986-logo.bzWbYo.png');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (7, 3, 'https://i1.wp.com/www.rockymountainfoodtours.com/wp-content/uploads/2017/05/food-festivals-featured-image.jpg?fit=400%2C400&ssl=1');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (8, 3, 'https://static1.squarespace.com/static/5afd99603e2d093eda260ca1/t/5c0eaf224fa51abe99ba8cce/1544466225269/Hero+Image.jpg?format=1000w');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (9, 3, 'https://static1.squarespace.com/static/55ca2859e4b064262a961cf5/t/5787a57246c3c4b68ff3abaf/1468507524328/');
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (10, 4, 'https://20dqe434dcuq54vwy1wai79h-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/Labor-Day-Lift-Off-1024x622.jpg');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (10, 4, 'https://media.9news.com/assets/KUSA/images/559169200/559169200_1140x641.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (11, 4, 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F58844113%2F185226728078%2F1%2Foriginal.20190320-212311?w=1000&auto=compress&rect=370%2C0%2C1312%2C656&s=1b583f9cd0b157af4597ec0cfda16dcc');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (12, 4, 'https://myareanetwork-photos.s3.amazonaws.com/event_photos/cover/234060_1434035977.jpeg?1434035984');
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (13, 5, 'https://www.zapplication.org/fair_logos/6928.jpeg?version=20190418105208');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (13, 5, 'https://i.pinimg.com/originals/6d/fa/b0/6dfab051a6a7b783c3eff417e8d4e125.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (14, 5, 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F57537451%2F136957731844%2F1%2Foriginal.20190227-161639?w=1000&auto=compress&rect=2%2C0%2C898%2C449&s=f49084f4921d3a9d4d18d3ddb80596e9');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (15, 5, 'https://www.colorado.com/sites/default/files/styles/640x480/public/zzdata-40732_640x480.jpg?itok=ytEUchhM');
-INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (16, 6, 'https://aspenmountainlodge.com/wp-content/uploads/2018/05/7cf06313e6987de943f52e392f422651.jpg');
+INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (16, 6, 'http://www.castlepinesconnection.com/images/news/2018/jul/wtw_making.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (17, 6, 'https://www.stayaspensnowmass.com/sites/default/files/images/summer/jas_ld_sunset.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (18, 6, 'http://www.coloradobucketlist.com/wp-content/uploads/2012/09/snowmass-balloon-festival.jpg');
 INSERT INTO `event_image` (`id`, `event_id`, `image_url`) VALUES (19, 7, 'https://www.visitgrandjunction.com/sites/default/master/files/styles/profile_page_slide_640x480/public/zzdata-6146_640x480.jpg?itok=a5srxeL2');
