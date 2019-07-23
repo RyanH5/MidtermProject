@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
 }
 
 .entity-container {
@@ -19,12 +19,22 @@
     border-radius: 6px;
 }
 
+.entity-container-no-outline {
+	width: 18%;
+    margin: 10px;
+    border-radius: 3px;
+}
+
 .entity-content {
 	padding: 0px 10px 10px;
 }
 
 .entity-container:hover {
 	box-shadow: 2px 2px lightblue;
+	background-color: #EEF2F2;
+}
+
+.entity-container-no-outline:hover {
 	background-color: #EEF2F2;
 }
 

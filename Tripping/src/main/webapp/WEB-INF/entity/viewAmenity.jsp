@@ -41,13 +41,8 @@
 			</c:forEach>
 		</div>
 	</div>
-	<footer class="footer footer-black  footer-white ">
-		<div class="container">
-			<div class="row">
-				<nav class="footer-nav"></nav>
-			</div>
-		</div>
-	</footer>
-	modals.jsp" /> bootstrapFoot.jsp" />
+
+	<jsp:include page="../modals.jsp" />
+	<jsp:include page="../bootstrapFoot.jsp" />
 </body>
 </html>

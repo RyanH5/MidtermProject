@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,16 +22,82 @@
 
 	<jsp:include page="../navbar.jsp" />
 </head>
-<div class="main-section"
-	style="background-image: url('${destination.image }')">
 
-	<div class="entity-container card">
-		<div class="mdl-card__title">
-			<h3 class="mdl-card__title-text">${destination.name }</h3>
+<div class="page-header section-dark"
+	style="background-image: url('${destination.image }')">
+	<div class="filter"></div>
+	<div class="moving-clouds"
+		style="background-image: url('./assets/img/clouds.png');"></div>
+	<h6 class="category category-absolute text-center"></h6>
+
+	<div id="map" class="entity-container card"></div>
+	<script>
+      var map;
+      function initMap() {
+    	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
+          zoom: 8
+        });
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: '${point.name}'
+          });
+        /* for (var i = 0; i < points.length; i++) {}
+
+     /*    List<PointsOfInt> points = ... */
+     /*var points = [];
+     points.push(marker) */
+
+      }
+    </script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
+		async defer></script>
+
+	<div class="entity-container card" style="margin-top: 50px;">
+		<div class="card-body">
+			<h3 class="card-title" style="color: orange;">${destination.name }</h3>
+			<h5 class="card-text">${destination.shortDescription }</h5>
+			<h5 style="color: orange;">Events:</h5>
+			<c:forEach var="event" items="${destination.events}">
+				<a href="viewEvent.do?id=${event.id }" style="margin-left: 10px">
+					<span>${event.name }<br> ${event.startDate } -
+						${event.endDate }<br></span>
+				</a>
+			</c:forEach>
+			<br>
+			<h5 style="color: orange;">Points of Interest:</h5>
+			<c:forEach var="point" items="${destination.points }">
+		<%-- 		<h6>
+					<a href="viewPoint.do?id=${point.id }">${point.name }</a>
+					<c:forEach var="activity" items="${point.getActivities()}">
+						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
+					</c:forEach>
+					<c:forEach var="amenity" items="${point.getAmenities()}">
+						<a href="viewAmenity.do?id=${amenity.id }"> <span>${amenity.iconUrl }</span></a>
+					</c:forEach>
+					<br>
+				</h6> --%>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${! empty sessionScope.user}">
+					<a href="#review" class="navbar-brand" rel="tooltip" title="login"
+						data-placement="bottom" data-toggle="modal"
+						data-target="#tripModal"
+						style="width: 95%; color: orange; text-align: center; font-weight: 400;">
+						Add To Trip Journal </a>
+				</c:when>
+				<c:otherwise>
+
+				</c:otherwise>
+			</c:choose>
 		</div>
-		<div class="mdl-card__supporting-text center-text">
-			<h6 class="presentation-subtitle text-center">${destination.shortDescription }</h6>
-			<%-- <h3>
+	</div>
+</div>
+<%-- <h3>
 				<c:forEach var="amenity" items="${point.getAmenities()}">
 					<a href="viewAmenity.do?id=${amenity.id }">
 					<span>${amenity.iconUrl }</span></a>
@@ -39,9 +106,9 @@
 					${point.address.getState() } ${point.address.getZipcode() }<br>
 					${point.address.getPhone() }<br> latitude :
 					${point.address.latitude }, longitude : ${point.address.longitude }<br>
-				<c:forEach var="activity" items="${point.getActivities()}">
-					<a href="viewActivity.do?id=${activity.id }">
-					<span>${activity.iconUrl }</span></a>
+				<c:forEach var="destination" items="${point.getActivities()}">
+					<a href="viewActivity.do?id=${destination.id }">
+					<span>${destination.iconUrl }</span></a>
 				</c:forEach>
 				<br></h3> 
 				
@@ -49,51 +116,100 @@
 				<c:forEach var="comment" items="${point.getComments()}">
 					<a href="viewUser.do?id=${comment.user.id }">${comment.user.userName }</a>
 				${comment.commentText }
+	<c:forEach var="point" items="${destination.points }"></c:forEach>
 			</c:forEach> --%>
-			<h3>
-				<a class="navbar-brand" href="#" rel="tooltip" title="login"
-					data-placement="bottom" data-toggle="modal"
-					data-target="reviewModal"><span><i
-						class="fas fa-comments"></i></span></a>
-			</h3>
+<div class="modal fade" id="tripModal" tabindex="-1" role="dialog"
+	aria-hidden="false">
+	<div class="modal-dialog modal-register">
+		<div class="modal-content">
+			<div class="modal-header no-border-header text-center">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<form:form class="container text-center" action="addTrip.do"
+					modelAttribute="journalEntry">
+					<h3>Add Trip to Journal</h3>
+					<div>
+						<div class="row">
+
+							<div class="col-md-7 col-sm-7">
+								<div class="form-group">
+									<h6>
+										New Trip
+									</h6>
+									<h6>
+										Trip Name <!-- <span class="icon-danger">*</span> -->
+									</h6>
+									<form:input type="text" class="form-control border-input"
+										placeholder="Trip to ${point.name }" name="title" path="title" />
+								</div>
+								<div class="form-group">
+									<h6>Notes</h6>
+									<form:textarea class="form-control textarea-limited"
+										placeholder="" rows="13" maxlength="4500" path="entryText"></form:textarea>
+
+								</div>
+							</div>
+						</div>
+						<div class="row buttons-row">
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-danger btn-block btn-round"
+									type="reset">Cancel</button>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-primary btn-block btn-round"
+									type="submit">Save</button>
+							</div>
+						</div>
+					</div>
+				</form:form>
+			</div>
 		</div>
 	</div>
-	<c:forEach var="point" items="${destination.points }"></c:forEach>
-
-	<div id="map" class="entity-container card"></div>
-	<script>
-      var map;
-      function initMap() {
-
-    	 
-    	  
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
-          zoom: 8
-        });
-        
-        
-        var points = [];
-        points.push(marker)
-        
-        for (var i = 0; i < destination.points.length; i++) {
-        	
-        	var myLatLng = {lat: ${destination.points.get(i).address.latitude }, lng: ${destination.points.get(i).address.longitude }};
-        	
-        	var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: '${point.name}'
-              });
-        	
-        }
-
-      }
-    </script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&callback=initMap"
-		async defer></script>
-
+</div>
+<!-- addComment modal -->
+<div class="modal fade" id="addCommentModal" tabindex="-1" role="dialog"
+	aria-hidden="false">
+	<div class="modal-dialog modal-register">
+		<div class="modal-content">
+			<div class="modal-header no-border-header text-center">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<form class="container" action="addComment.do">
+					<h3>New Comment ${point.name }</h3>
+					<div>
+						<div class="row">
+							<div class="col-md-7 col-sm-7">
+								<div class="form-group">
+									<h6>Comment Text</h6>
+									<textarea class="form-control textarea-limited" placeholder=""
+										rows="13" maxlength="300"></textarea>
+									<h5>
+										<small> <span id="textarea-limited-message"
+											class="pull-right">300 characters left</span>
+										</small>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="row buttons-row">
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-danger btn-block btn-round"
+									type="reset">Cancel</button>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-primary btn-block btn-round"
+									type="submit">Save</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 <jsp:include page="../modals.jsp" />
 <jsp:include page="../bootstrapFoot.jsp" />
