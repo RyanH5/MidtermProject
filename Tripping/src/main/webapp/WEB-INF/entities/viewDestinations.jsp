@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Ranchers&display=swap" rel="stylesheet">
 <jsp:include page="../bootstrapHead.jsp" />
 </head>
-<body class="index-page sidebar-collapse"style="background-color: #F0FFFF;">
+<body class="index-page sidebar-collapse"style="background-color: #B0E0E6;">
 	<jsp:include page="../navbar.jsp" />
 	<div class="main-section">
 	<div class="moving-clouds"

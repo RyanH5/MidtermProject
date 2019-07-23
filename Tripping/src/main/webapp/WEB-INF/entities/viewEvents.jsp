@@ -22,7 +22,7 @@
 
 	<jsp:include page="../navbar.jsp" />
 
-	<div class="main-section" style="background-color: #F0FFFF;">
+	<div class="main-section" style="background-color: #B0E0E6;">
 		<c:forEach var="event" items="${events}">
 			<div class="entity-container card" style="position: relative;
     													height: 230px;">

@@ -71,7 +71,7 @@
 			<br>
 			<h5 style="color: orange;">Points of Interest:</h5>
 			<c:forEach var="point" items="${destination.points }">
-				<h6>
+		<%-- 		<h6>
 					<a href="viewPoint.do?id=${point.id }">${point.name }</a>
 					<c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
@@ -80,7 +80,7 @@
 						<a href="viewAmenity.do?id=${amenity.id }"> <span>${amenity.iconUrl }</span></a>
 					</c:forEach>
 					<br>
-				</h6>
+				</h6> --%>
 			</c:forEach>
 			<c:choose>
 				<c:when test="${! empty sessionScope.user}">
