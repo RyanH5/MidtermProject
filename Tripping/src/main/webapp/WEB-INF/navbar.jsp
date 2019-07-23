@@ -40,7 +40,7 @@
         <c:otherwise>
             <ul class="navbar-nav" id="navbar-login-links" style="flex-direction: row; padding-left: 15px;">
 	            <li class="nav-item">
-		        	<a class="navbar-brand" href="/" rel="tooltip" title="tripping"
+		        	<a class="navbar-brand" href="index.do" rel="tooltip" title="tripping"
 		        data-placement="bottom" style="width: 95%;
 									    color: orange;
 									    text-align: center;

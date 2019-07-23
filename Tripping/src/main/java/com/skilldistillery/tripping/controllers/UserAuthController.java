@@ -36,7 +36,7 @@ public class UserAuthController {
 		model.setViewName("user/login");
 		return model;
 	}
-	@RequestMapping(path = "/")
+	@RequestMapping(path = "index.do")
 	public ModelAndView goHome() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("index");
