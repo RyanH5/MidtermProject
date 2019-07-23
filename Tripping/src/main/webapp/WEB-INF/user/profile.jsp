@@ -66,7 +66,7 @@
 						<c:forEach var="entry" items="${futureTrips}">
 							<div class="entity-container card">
 								<div class="card-body text-center"
-									style="background-image: url('entry.destination.image');">
+									style="background-image: url('${entry.destination.image}');">
 									<h4>${entry.getTitle() }</h4>
 									<div class="form-check">
 										<!-- <label class="form-check-label"> <input
@@ -88,7 +88,7 @@
 						<c:forEach var="entry" items="${pastTrips}">
 							<div class="entity-container card">
 								<div class="card-body text-center"
-									style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+									style="background-image: url('${entry.destination.image}');">
 									<h4>${entry.getTitle() }</h4>
 									<div class="form-check">
 										<!-- 				<label class="form-check-label"> <input

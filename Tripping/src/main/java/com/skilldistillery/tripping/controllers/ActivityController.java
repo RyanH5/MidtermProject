@@ -11,10 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.tripping.data.ActivityDAO;
 import com.skilldistillery.tripping.data.DestinationDAO;
 import com.skilldistillery.tripping.data.EventDAO;
+import com.skilldistillery.tripping.data.UserAuthDAO;
 import com.skilldistillery.tripping.entities.Activity;
 import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.Event;
 import com.skilldistillery.tripping.entities.JournalEntry;
+import com.skilldistillery.tripping.entities.User;
 
 @Controller
 public class ActivityController {
@@ -24,7 +26,9 @@ public class ActivityController {
 	@Autowired
 	private DestinationDAO dao2;
 	@Autowired
-	private EventDAO dao3;
+	private UserAuthDAO dao3;
+	@Autowired
+	private EventDAO dao4;
 	
 	@ModelAttribute("JournalEntry")
 	public JournalEntry populateEntry() {
@@ -50,10 +54,21 @@ public class ActivityController {
 		model.addObject("activities", activities);
 		List<Destination> destinations = dao2.getAllDestinations();
 		model.addObject("destinations", destinations);
-		List<Event> events = dao3.getAllEvents();
+		List<Event> events = dao4.getAllEvents();
 		model.addObject("events", events);
 		model.setViewName("entities/viewActivities");
 		return model;
+	}
+	@RequestMapping(value= {"deleteActivity.do"})
+	public ModelAndView removeActivity(ModelAndView model, int id) {
+		model.setViewName("user/allUsers");
+		List<User> users = dao3.findAllUsers();
+		model.addObject("users", users);
+		List<Activity> activities = dao.getAllActivities();
+		List<Destination> destinations = dao2.getAllDestinations();
+		model.addObject("activities", activities);
+		model.addObject("destinations", destinations);
+		return model;	
 	}
 	
 }

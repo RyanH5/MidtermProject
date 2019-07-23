@@ -62,15 +62,19 @@ public class DestinationController {
 		model.setViewName("entity/viewDestination");
 		return model;
 	}
-	@RequestMapping(value= {"removeDestination.do"})
+	@RequestMapping(value= {"deleteDestination.do"})
 	public ModelAndView createDestinationReview(ModelAndView model, int id) {
 		Destination removed = dao.findDestinationById(id);
+		removed.setDestinationReviews(null);
+		removed.setEvents(null);
+		removed.setPoints(null);
 		dao.deleteDestination(id);
 		List<Destination> destinations = dao.getAllDestinations();
 		model.addObject("destinations", destinations);
 		model.setViewName("entities/viewDestinations");
 		model.addObject("removed", removed);
 		model.setViewName("entities/viewDestinations");
+		model.addObject("deleted", true);
 		return model;
 	}
 	

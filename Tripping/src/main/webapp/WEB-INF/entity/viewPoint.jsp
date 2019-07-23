@@ -51,7 +51,7 @@
       }
     </script>
 		<script
-			src="https://maps.googleapis.com/maps/api/js?key=INSERT KEY&callback=initMap"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtfyQecgKNt3o8G3MQSt3hVmAisejry4o&callback=initMap"
 			async defer></script>
 
 			<div class="entity-container card" style="height:fit-content;width: 20rem;background-color: #F0FFFF;margin-top:59px;">
@@ -116,6 +116,8 @@
 									</h6>
 									<form:input type="text" class="form-control border-input"
 										placeholder="Trip to ${point.name }" name="title" path="title" />
+									<form:input type="hidden" class="form-control border-input"
+										name="destination" path="destination" value="${point.destination}"  />
 								</div>
 								<div class="form-group">
 									<h6>Notes</h6>
