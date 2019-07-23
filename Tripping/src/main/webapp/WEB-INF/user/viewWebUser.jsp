@@ -22,19 +22,18 @@
 	<jsp:include page="../navbar.jsp" />
 	<!-- End Navbar -->
 	<div class="page-header page-header-xs" data-parallax="true"
-		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;">
+		style="background-image: url(https://www.thomasmangan.com/images/xl/LongsPeakGlacierGorge12.2.14.2.jpg); background-position-y: 42%;  z-index: 0;">
 		<div class="filter"></div>
 	</div>
 	<div class="section profile-content">
-		<div class="container">
+		<div class="container" style="margin-top: -150px;">
 			<div class="owner">
-				<div class="avatar">
+				<div class="trippingAvatar">
 					<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
-
 						<img src="${user.imageURL }" alt="Circle Image"
-							class="img-circle img-no-padding img-responsive">
+							class="tripping-avatar"
+							style="vertical-align: middle; border-style: none; height: 150px; width: 150px; border-radius: 50%; z-index: 1; border: 2px solid rgb(120, 68, 59);">
 					</div>
-
 				</div>
 				<div class="name">
 					<h4 class="title">${user.userName }
@@ -45,13 +44,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 ml-auto mr-auto text-center">
-					<p>Biography Placeholder?</p>
-					<br />
-					<btn class="btn btn-outline-default btn-round"> <i
-						class="fa fa-cog"></i> Settings</btn>
 				</div>
 			</div>
-			<br />
 			<div class="nav-tabs-navigation">
 				<div class="nav-tabs-wrapper">
 					<ul class="nav nav-tabs" role="tablist">
@@ -72,30 +66,10 @@
 									<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
 										<div class="section text-center">
 											<c:forEach var="entry" items="${user.getJournalEntries() }">
-												<div class="row">
+												<div class="row text-center">
 													<em><h2>${entry.getTitle() }</h2></em> <a
 														href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
-													<h4>Event:</h4>
-													<a href="viewEvent.do?id=${entry.getEvent().getId() }">${entry.getEvent().getName() }</a>
-													<h4>Destination:</h4>
-													<a
-														href="viewDestination.do?id=${entry.getDestination().getId() }">${p.getDestination().getName() }</a>
-													<br>
-													<h4>Activity:</h4>
-													<a
-														href="viewActivity.do?id=${entry.getActivity().getId() }">${p.getActivity().getName() }</a>
-													<br>
-
-													<div class="col-lg-3 col-md-4 col-4  ml-auto mr-auto">
-														<div class="form-check">
-															<label class="form-check-label"> <input
-																class="form-check-input" type="checkbox" value=""
-																checked> <span class="form-check-sign"></span>
-															</label>
-														</div>
-													</div>
-
 												</div>
 											</c:forEach>
 										</div>
@@ -104,11 +78,6 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-				<div class="tab-pane text-center" id="following" role="tabpanel">
-					<h3 class="text-muted">You havent tripped yet! :(</h3>
-					<button class="btn btn-warning btn-round">Find Things to
-						Do</button>
 				</div>
 			</div>
 		</div>

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.tripping.data.DestinationDAO;
 import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.DestinationReview;
+import com.skilldistillery.tripping.entities.JournalEntry;
 
 @Controller
 public class DestinationController {
@@ -19,9 +20,11 @@ public class DestinationController {
 	
 	@RequestMapping(value= {"viewDestination.do"})
 	public ModelAndView getDestination(ModelAndView model, int id) {
+		JournalEntry journalentryholder = new JournalEntry();
 		Destination destination = dao.findDestinationById(id);
 		destination.getPoints();
 		model.addObject("destination", destination);
+		model.addObject("journalEntry", journalentryholder);
 		model.setViewName("entity/viewDestination");
 		return model;
 	}
@@ -70,5 +73,6 @@ public class DestinationController {
 		model.setViewName("entities/viewDestinations");
 		return model;
 	}
+	
 }
 	

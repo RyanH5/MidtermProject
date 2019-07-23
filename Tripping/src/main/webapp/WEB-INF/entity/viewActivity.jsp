@@ -59,29 +59,130 @@
 	
 		<div class="entity-container card" style="margin-top:50px;">
 			<div class="card-body">
-				<div class="section text-center">
-					<h3 class="card-title">${activity.name }</h3>
+					<h3 class="card-title" style="color:orange;">${activity.name }</h3>
 					<h5 class="card-text">${activity.shortDescription }</h5>
 					<p class="card-text">${activity.longDescription }</p>
-				<div class="section text-center">
-				<h5>Destinations:</h5>
+				<h5 style="color:orange;">Destinations:</h5>
 					<c:forEach var="point" items="${activity.points}">
 						<a href="viewDestination.do?id=${point.destination.id }" style="margin-left:10px">
 							<span>${point.address.city }</span>
 						</a>
-					</c:forEach>
-				</div>
-					<h5>Points of Interest:</h5>
+					</c:forEach><br>
+					<h5 style="color:orange;">Points of Interest:</h5>
 					<c:forEach var="point" items="${activity.points }">
 						<h6>
 							<a href="viewPoint.do?id=${point.id }">${point.name }</a>
 						</h6>
 					</c:forEach>
+				<c:choose>
+					<c:when test="${! empty sessionScope.user}">
+						<a href="#review" class="navbar-brand" rel="tooltip" title="login"
+							data-placement="bottom" data-toggle="modal"
+							data-target="#tripModal"
+							style="width: 95%; color: orange; text-align: center; font-weight: 400;">
+							Add To Trip Journal </a>
+					</c:when>
+					<c:otherwise>
+
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 		</div>
-	</div>
 
+<div class="modal fade" id="tripModal" tabindex="-1" role="dialog"
+	aria-hidden="false">
+	<div class="modal-dialog modal-register">
+		<div class="modal-content">
+			<div class="modal-header no-border-header text-center">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<form:form class="container text-center" action="addTrip.do"
+					modelAttribute="journalEntry">
+					<h3>Add Trip to Journal</h3>
+					<div>
+						<div class="row">
+
+							<div class="col-md-7 col-sm-7">
+								<div class="form-group">
+									<h6>
+										New Trip
+									</h6>
+									<h6>
+										Trip Name <!-- <span class="icon-danger">*</span> -->
+									</h6>
+									<form:input type="text" class="form-control border-input"
+										placeholder="Trip to ${point.name }" name="title" path="title" />
+								</div>
+								<div class="form-group">
+									<h6>Notes</h6>
+									<form:textarea class="form-control textarea-limited"
+										placeholder="" rows="13" maxlength="4500" path="entryText"></form:textarea>
+
+								</div>
+							</div>
+						</div>
+						<div class="row buttons-row">
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-danger btn-block btn-round"
+									type="reset">Cancel</button>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-primary btn-block btn-round"
+									type="submit">Save</button>
+							</div>
+						</div>
+					</div>
+				</form:form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- addComment modal -->
+<div class="modal fade" id="addCommentModal" tabindex="-1" role="dialog"
+	aria-hidden="false">
+	<div class="modal-dialog modal-register">
+		<div class="modal-content">
+			<div class="modal-header no-border-header text-center">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<form class="container" action="addComment.do">
+					<h3>New Comment ${point.name }</h3>
+					<div>
+						<div class="row">
+							<div class="col-md-7 col-sm-7">
+								<div class="form-group">
+									<h6>Comment Text</h6>
+									<textarea class="form-control textarea-limited" placeholder=""
+										rows="13" maxlength="300"></textarea>
+									<h5>
+										<small> <span id="textarea-limited-message"
+											class="pull-right">300 characters left</span>
+										</small>
+									</h5>
+								</div>
+							</div>
+						</div>
+						<div class="row buttons-row">
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-danger btn-block btn-round"
+									type="reset">Cancel</button>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<button class="btn btn-outline-primary btn-block btn-round"
+									type="submit">Save</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
 	</body>

@@ -1,4 +1,5 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -25,13 +26,13 @@
 
 <div class="page-header section-dark"
 	style="background-image: url('${point.destination.image }')">
-		<div class="filter"></div>
+	<div class="filter"></div>
 	<div class="moving-clouds"
 		style="background-image: url('./assets/img/clouds.png');"></div>
 	<h6 class="category category-absolute"></h6>
 
 	<div id="map" class="entity-container card">
-	<script>
+		<script>
       var map;
       function initMap() {
     	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
@@ -53,58 +54,64 @@
 
       }
     </script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
-		async defer></script>
-</div>
-	<div class="entity-container card" style="height: fit-content; width: 20rem;">
-		  <div class="card-body">
-		<div class="mdl-card__supporting-text center-text">
-			<h4 class="card-title">${point.name }</h4>
-			<p class="card-text">${point.address.getCity() }</p>
-		</div>
-		<div>
-			<c:forEach var="amenity" items="${point.getAmenities()}">
-				<a href="viewAmenity.do?id=${amenity.id }" style="margin-left: 20px">
-					<span>${amenity.iconUrl }</span>
-				</a>
-			</c:forEach>
-		</div>
-		<p class="card-text" style="margin-left: 20px">${point.address.getStreet1() }</p>
-		<p class="card-text" style="margin-left: 20px">${point.address.getCity() }
-			${point.address.getZipcode() }</p>
-		<p class="card-text" style="margin-left: 20px">${point.address.getPhone() }</p>
-		<p class="card-text" style="margin-left: 20px">latitude
-			:${point.address.latitude }, longitude : ${point.address.longitude }</p>
-		<div>
-			<c:forEach var="activity" items="${point.getActivities()}">
-				<a href="viewActivity.do?id=${activity.id }" class="card-link"
-					style="margin-left: 20px"> ${activity.iconUrl }</a>
-			</c:forEach>
-		</div>
-		<c:choose>
-			<c:when test="${! empty sessionScope.user}">
-				<a href="#review" class="navbar-brand" rel="tooltip"
-					title="Add To Trip Journal" data-placement="bottom"
-					data-toggle="modal" data-target="#tripModal"
-					style="color: orange; margin-left: 20px;"><span><i
-						class="fas fa-map-pin"></i></span></a>
-				<a class="navbar-brand" rel="tooltip" title="Add Comment"
-					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal" style="color: deepskyblue;"><span><i class="fas fa-comments"></i></span></a>
-			</c:when>
-		</c:choose>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
+			async defer></script>
+	</div>
+	<div class="entity-container card"
+		style="height: fit-content; width: 20rem;">
+		<div class="card-body">
+			<div class="mdl-card__supporting-text center-text">
+				<div>
+					<c:forEach var="amenity" items="${point.getAmenities()}">
+						<a href="viewAmenity.do?id=${amenity.id }"
+							style="margin-left: 20px"> <span>${amenity.iconUrl }</span>
+						</a>
+					</c:forEach>
+					<c:forEach var="activity" items="${point.getActivities()}">
+						<a href="viewActivity.do?id=${activity.id }"
+							style="margin-left: 20px"> <span>${activity.iconUrl }</span>
+						</a>
+					</c:forEach>
+				</div>
+				<h4 class="card-title">${point.name }</h4>
+				<p class="card-text">${point.address.getCity() }</p>
+			</div>
+			<p class="card-text" style="margin-left: 20px">${point.address.getStreet1() }</p>
+			<p class="card-text" style="margin-left: 20px">${point.address.getCity() }
+				${point.address.getZipcode() }</p>
+			<p class="card-text" style="margin-left: 20px">${point.address.getPhone() }</p>
+			<p class="card-text" style="margin-left: 20px">
+				latitude :${point.address.latitude }<br /> longitude :
+				${point.address.longitude }
+			</p>
+
+			<c:choose>
+				<c:when test="${! empty sessionScope.user}">
+					<a href="#review" class="navbar-brand" rel="tooltip"
+						title="Add To Trip Journal" data-placement="bottom"
+						data-toggle="modal" data-target="#tripModal"
+						style="color: orange; margin-left: 20px;"><span><i
+							class="fas fa-map-pin"></i></span></a>
+					<a class="navbar-brand" rel="tooltip" title="Add Comment"
+						data-placement="bottom" data-toggle="modal"
+						data-target="#addCommentModal" style="color: deepskyblue;"><span><i
+							class="fas fa-comments"></i></span></a>
+				</c:when>
+			</c:choose>
 		</div>
 	</div>
 	<div class="entity-container-no-outline">
 		<c:forEach var="comment" items="${point.comments}">
 			<div class="entity-container-no-outline card"
-				style="height: fit-content; width: 20rem;"><div class="card-body">
-				<div class="mdl-card__supporting-text center-text">
-					<h5>
-						<a href="viewUser.do?id=${comment.user.getId()}"> <span>${comment.user.userName }:</span></a><br>${comment.commentText }
-					</h5>
-				</div></div>
+				style="height: fit-content; width: 20rem;">
+				<div class="card-body">
+					<div class="mdl-card__supporting-text center-text">
+						<h5>
+							<a href="viewUser.do?id=${comment.user.getId()}"> <span>${comment.user.userName }:</span></a><br>${comment.commentText }
+						</h5>
+					</div>
+				</div>
 			</div>
 		</c:forEach>
 	</div>
@@ -127,11 +134,10 @@
 
 							<div class="col-md-7 col-sm-7">
 								<div class="form-group">
+									<h6>New Trip</h6>
 									<h6>
-										New Trip
-									</h6>
-									<h6>
-										Trip Name <!-- <span class="icon-danger">*</span> -->
+										Trip Name
+										<!-- <span class="icon-danger">*</span> -->
 									</h6>
 									<form:input type="text" class="form-control border-input"
 										placeholder="Trip to ${point.name }" name="title" path="title" />
