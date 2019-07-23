@@ -23,13 +23,13 @@
 	<jsp:include page="../navbar.jsp" />
 </head>
 
-<div class="page-header section-dark" style="background-color:#B0E0E6;">
+<div class="wrapper" style="background-color:#B0E0E6; margin-top:72px;">
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
 				<tr>
 					<th class="text-center">#</th>
-					<th>Username</th>
+					<th>User</th>
 					<th>Role</th>
 					<th>Since</th>
 					<th class="text-right">Actions</th>
@@ -46,17 +46,17 @@
 							href="viewUser.do?id=${user.id }">
 								<button type="button" rel="tooltip" title="View Profile"
 									class="btn btn-info btn-simple btn-xs">
-									<i class="fa fa-user"></i>
+									<i class="fas fa-user"></i>
 								</button>
 						</a><a href="updateProfile.do?id=${user.id }">
 								<button type="button" rel="tooltip" title="Update Profile"
 									class="btn btn-success btn-simple btn-xs">
-									<i class="fa fa-edit"></i>
+									<i class="fas fa-edit"></i>
 								</button>
 						</a><a href="markInactive.do?id=${user.id }">
 								<button type="button" rel="tooltip" title="Mark Inactive"
 									class="btn btn-danger btn-simple btn-xs">
-									<i class="fa fa-times"></i>
+									<i class="fas fa-times"></i>
 								</button>
 						</a></td>
 					</tr>
@@ -68,8 +68,6 @@
 				<tr>
 					<th class="text-center">#</th>
 					<th>Activity</th>
-					<th>Name</th>
-					<th>Points</th>
 					<th class="text-right">Actions</th>
 				</tr>
 			</thead>
@@ -80,21 +78,57 @@
 						<td>${activity.name }</td>
 						<td class="td-actions text-right"><a
 							href="viewActivity.do?id=${activity.id }">
-								<button type="button" rel="tooltip" title="View Profile"
+								<button type="button" rel="tooltip" title="View Activity"
 									class="btn btn-info btn-simple btn-xs">
-									<i class="fa fa-user"></i>
+									<i class="fas fa-map-pin"></i>
 								</button>
 						</a><a href="updateActivity.do?id=${activity.id }">
-								<button type="button" rel="tooltip" title="Update Profile"
+								<button type="button" rel="tooltip" title="Update Activity"
 									class="btn btn-success btn-simple btn-xs">
-									<i class="fa fa-edit"></i>
+									<i class="fas fa-edit"></i>
 								</button>
 						</a><a href="deleteActivity.do?id=${activity.id }">
-								<button type="button" rel="tooltip" title="Mark Inactive"
+								<button type="button" rel="tooltip" title="Remove Activity"
 									class="btn btn-danger btn-simple btn-xs">
-									<i class="fa fa-times"></i>
+									<i class="fas fa-times"></i>
 								</button>
-						</a></td>
+						</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-center">#</th>
+					<th>Destinations</th>
+					<th class="text-right">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="destination" items="${destinations}">
+					<tr>
+						<td class="text-center">${destination.id }</td>
+						<td>${destination.name }</td>
+						<td class="td-actions text-right"><a
+							href="viewDestination.do?id=${destination.id }">
+								<button type="button" rel="tooltip" title="View Destination"
+									class="btn btn-info btn-simple btn-xs">
+									<i class="fas fa-map-pin"></i>
+								</button>
+						</a><a href="updateDestination.do?id=${destination.id }">
+								<button type="button" rel="tooltip" title="Update Destination"
+									class="btn btn-success btn-simple btn-xs">
+									<i class="fas fa-edit"></i>
+								</button>
+						</a><a href="deleteDestination.do?id=${destination.id }">
+								<button type="button" rel="tooltip" title="Remove Destination"
+									class="btn btn-danger btn-simple btn-xs">
+									<i class="fas fa-times"></i>
+								</button>
+						</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

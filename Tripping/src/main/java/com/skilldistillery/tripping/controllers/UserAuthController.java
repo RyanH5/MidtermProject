@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.tripping.data.ActivityDAO;
+import com.skilldistillery.tripping.data.DestinationDAO;
 import com.skilldistillery.tripping.data.UserAuthDAO;
 import com.skilldistillery.tripping.entities.Activity;
+import com.skilldistillery.tripping.entities.Destination;
 import com.skilldistillery.tripping.entities.JournalEntry;
 import com.skilldistillery.tripping.entities.User;
 
@@ -25,6 +27,8 @@ public class UserAuthController {
 	private UserAuthDAO dao;
 	@Autowired
 	private ActivityDAO dao2;
+	@Autowired
+	private DestinationDAO dao3;
 	
 	@RequestMapping(path = "loginOrRegister.do")
 	public ModelAndView registerOrLogin() {
@@ -87,7 +91,9 @@ public class UserAuthController {
 		List<User> users = dao.findAllUsers();
 		modelAndView.addObject("users", users);
 		List<Activity> activities = dao2.getAllActivities();
+		List<Destination> destinations = dao3.getAllDestinations();
 		modelAndView.addObject("activities", activities);
+		modelAndView.addObject("destinations", destinations);
 		return modelAndView;	
 	}
 	

@@ -116,6 +116,8 @@
 									</h6>
 									<form:input type="text" class="form-control border-input"
 										placeholder="Trip to ${point.name }" name="title" path="title" />
+									<form:input type="hidden" class="form-control border-input"
+										name="destination.id" path="destination.id" value="${point.destination.id }"  />
 								</div>
 								<div class="form-group">
 									<h6>Notes</h6>
