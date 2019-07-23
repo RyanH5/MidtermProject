@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <nav class="navbar navbar-expand-lg fixed-top "
 	style="background-color: #F0FFFF;">
-	<a class="navbar-brand" href="/" rel="tooltip" title="login"
+	<a class="navbar-brand" href="/" rel="tooltip" title="tripping"
 		data-placement="bottom"> tripping </a>
 	<c:choose>
 		<c:when test="${! empty sessionScope.user}">
