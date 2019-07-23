@@ -25,7 +25,7 @@
 	<div class="main-section" style="background-color: #F0FFFF;">
 		<c:forEach var="event" items="${events}">
 			<div class="entity-container card" style="position: relative;
-    													height: 295px;">
+    													height: 230px;">
 				<div class="section text-center entity-card-image"
 					href="viewEvent.do?id=${event.id }"
 					style="background-image: url('${event.images.get(0).imageUrl}'); height: 230px;">
@@ -39,7 +39,7 @@
     font-size: 36px;
     text-shadow: 1px 1px green;">${event.name }</a>
 				</h6>
-				<c:choose>
+				<%-- <c:choose>
 					<c:when test="${! empty sessionScope.user}">
 						<a href="#review" class="navbar-brand" rel="tooltip"
 								title="login" data-placement="bottom" data-toggle="modal"
@@ -59,7 +59,7 @@
 								    font-weight: 400;"> Register to Create a trip </a>
 					
 					</c:otherwise>
-				</c:choose>
+				</c:choose> --%>
 			</div>
 		</c:forEach>
 	</div>

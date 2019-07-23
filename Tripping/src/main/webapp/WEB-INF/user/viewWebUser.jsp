@@ -29,8 +29,12 @@
 		<div class="container">
 			<div class="owner">
 				<div class="avatar">
-					<img src="${user.imageURL }" alt="Circle Image"
-						class="img-circle img-no-padding img-responsive">
+					<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
+
+						<img src="${user.imageURL }" alt="Circle Image"
+							class="img-circle img-no-padding img-responsive">
+					</div>
+
 				</div>
 				<div class="name">
 					<h4 class="title">${user.userName }
@@ -65,17 +69,12 @@
 						<div class="col-md-6 ml-auto mr-auto">
 							<ul class="list-unstyled follows">
 								<li>
-									<div class="row">
-										<!-- 							<div class="col-lg-2 col-md-4 col-4 ml-auto mr-auto">
-											<img src="../assets/img/faces/clem-onojeghuo-2.jpg"
-												alt="Circle Image"
-												class="img-circle img-no-padding img-responsive">
-										</div> -->
-										<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
-											<div class="section text-center">
-												<c:forEach var="entry" items="${user.getJournalEntries() }">
-													<em><h2>${entry.getTitle() }</h2></em>
-													<a href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
+									<div class="col-lg-7 col-md-4 col-4  ml-auto mr-auto">
+										<div class="section text-center">
+											<c:forEach var="entry" items="${user.getJournalEntries() }">
+												<div class="row">
+													<em><h2>${entry.getTitle() }</h2></em> <a
+														href="viewDestination.do?id=${entry.id }">${entry.getCreateDate() }</a>
 													<a href="viewDestination.do?id=${entry.id }">${entry.getEntryText() }</a>
 													<h4>Event:</h4>
 													<a href="viewEvent.do?id=${entry.getEvent().getId() }">${entry.getEvent().getName() }</a>
@@ -87,39 +86,18 @@
 													<a
 														href="viewActivity.do?id=${entry.getActivity().getId() }">${p.getActivity().getName() }</a>
 													<br>
-												</c:forEach>
-											</div>
-										</div>
-										<div class="col-lg-3 col-md-4 col-4  ml-auto mr-auto">
-											<div class="form-check">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="" checked>
-													<span class="form-check-sign"></span>
-												</label>
-											</div>
-										</div>
-									</div>
-								</li>
-								<hr />
-								<li>
-									<div class="row">
-										<div class="col-lg-2 col-md-4 col-4 mx-auto ">
-											<img src="./assets/img/faces/ayo-ogunseinde-2.jpg"
-												alt="Circle Image"
-												class="img-circle img-no-padding img-responsive">
-										</div>
-										<div class="col-lg-7 col-md-4 col-4">
-											<h6>
-												Banks <br /> <small>Singer</small>
-											</h6>
-										</div>
-										<div class="col-lg-3 col-md-4 col-4">
-											<div class="form-check">
-												<label class="form-check-label"> <input
-													class="form-check-input" type="checkbox" value="">
-													<span class="form-check-sign"></span>
-												</label>
-											</div>
+
+													<div class="col-lg-3 col-md-4 col-4  ml-auto mr-auto">
+														<div class="form-check">
+															<label class="form-check-label"> <input
+																class="form-check-input" type="checkbox" value=""
+																checked> <span class="form-check-sign"></span>
+															</label>
+														</div>
+													</div>
+
+												</div>
+											</c:forEach>
 										</div>
 									</div>
 								</li>
@@ -135,7 +113,7 @@
 			</div>
 		</div>
 	</div>
-		<jsp:include page="../modals.jsp" />
+	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
 </body>
 </html>

@@ -56,6 +56,78 @@
     
     <br><br>
     
+    
+    
+    
+    <div class="comments media-area">
+                    <h3 class="text-center">Comments</h3>
+                    <div class="media">
+                      <a class="pull-left" href="#paper-kit">
+                        <div class="avatar">
+                          <img class="media-object" alt="Tim Picture" src="../assets/img/faces/clem-onojeghuo-3.jpg">
+                        </div>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading">John Lincoln</h5>
+                        <div class="pull-right">
+                          <h6 class="text-muted">Sep 11, 11:54 AM</h6>
+                          <a href="#paper-kit" class="btn btn-info btn-link pull-right "> <i class="fa fa-reply"></i> Reply</a>
+                        </div>
+                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                        <div class="media">
+                          <a class="pull-left" href="#paper-kit">
+                            <div class="avatar">
+                              <img class="media-object" alt="64x64" src="../assets/img/faces/clem-onojeghuo-2.jpg">
+                            </div>
+                          </a>
+                          <div class="media-body">
+                            <h5 class="media-heading">Erik P.</h5>
+                            <div class="pull-right">
+                              <h6 class="text-muted">Sep 11, 11:56 AM</h6>
+                              <a href="#paper-kit" class="btn btn-info btn-link pull-right "> <i class="fa fa-reply"></i> Reply</a>
+                            </div>
+                            <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                            <p> Don't forget, You're Awesome!</p>
+                          </div>
+                        </div>
+                        <!-- end media -->
+                      </div>
+                    </div>
+                    <!-- end media -->
+                    <div class="media">
+                      <a class="pull-left" href="#paper-kit">
+                        <div class="avatar">
+                          <img class="media-object" alt="64x64" src="../assets/img/faces/joe-gardner-2.jpg">
+                        </div>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading">Joe</h5>
+                        <div class="pull-right">
+                          <h6 class="text-muted">Sep 11, 11:57 AM</h6>
+                          <a href="#paper-kit" class="btn btn-info btn-link pull-right "> <i class="fa fa-reply"></i> Reply</a>
+                        </div>
+                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                        <p> Don't forget, You're Awesome!</p>
+                      </div>
+                    </div>
+                    <!-- end media -->
+                  </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="section">
         <div class="container">
           <h3>Trip to ${destination.name }</h3>

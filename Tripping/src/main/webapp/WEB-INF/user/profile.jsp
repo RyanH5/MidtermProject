@@ -25,13 +25,14 @@
 	</div>
 	<div class="section profile-content"
 		style="background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);">
-		<div class="container" style="margin-top: -200px;">
+		<div class="container" style="margin-top: -150px;">
 			<div class="owner">
 				<div class="trippingAvatar">
 					<img src="${sessionScope.user.imageURL }" alt="Circle Image"
 						class="tripping-avatar" style="vertical-align: middle;
 					    border-style: none;
-					    height: 250px;
+					    height:150px;
+					    width:150px;
 					    border-radius: 50%;
 					    z-index: 1;
 					    border: 2px solid rgb(120,68,59);">

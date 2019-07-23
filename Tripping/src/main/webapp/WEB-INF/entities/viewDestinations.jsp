@@ -13,38 +13,36 @@
 <link href="https://fonts.googleapis.com/css?family=Ranchers&display=swap" rel="stylesheet">
 <jsp:include page="../bootstrapHead.jsp" />
 </head>
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse"style="background-color: #F0FFFF;">
 	<jsp:include page="../navbar.jsp" />
-	<div class="main-section" style="background-color: #F0FFFF;">
+	<div class="main-section">
+	<div class="moving-clouds"
+		style="background-image: url('./assets/img/clouds.png');"></div>
+	<h6 class="category category-absolute"></h6>
 		<c:forEach var="destination" items="${destinations}">
-			<div class="entity-container card" style="height: 310px;">
+			<div class="entity-container card" style="height: 232px;">
 				<%-- <a href="viewDestination.do?id=${destination.id }"> --%>
 					<div class="section text-center entity-card-image" style="background-image: url('${destination.image}'); height: 230px;">
 					</div>
 				<!-- </a> -->
 				<div class="entity-content dest" style="z-index: 10; margin-top: -181px;">
+					<a href="viewDestination.do?id=${destination.id }">
 					<h6 class="entity-title" style="font-family: 'Ranchers', cursive;
 					    color: orange;
 					    font-size: 36px;
-					    text-shadow: 1px 1px green;">${destination.name }</h6>
+					    text-shadow: 1px 1px green;">${destination.name }</h6></a>
 					    <c:choose>
 							<c:when test="${! empty sessionScope.user}">
 								<a href="#review" class="navbar-brand" rel="tooltip"
 									title="login" data-placement="bottom" data-toggle="modal"
-									data-target="#tripModal" style="margin-top: 133px;
+									data-target="#tripModal" style="
 								    width: 95%;
 								    color: orange;
 								    text-align: center;
 								    font-weight: 400;"> Add To Trip Journal </a>
 					    	</c:when>
 					    	<c:otherwise>
-					    		<a class="navbar-brand" href="#register" rel="tooltip" title="login"
-					data-placement="bottom" data-toggle="modal"
-					data-target="#registerModal" style="margin-top: 133px;
-								    width: 95%;
-								    color: orange;
-								    text-align: center;
-								    font-weight: 400;"> Register to Create a trip </a>
+					    		
 					    	</c:otherwise>
 					    </c:choose>
 											
@@ -54,9 +52,7 @@
 					<br> <a
 						href="createPointComment.do?id=${point.id }">FIX Create Point
 						Review</a><br> <a href="createEventReview.do?id=${event.id }">FIX
-						Create Event Review</a><br> <a
-						href="createEventReview.do?id=${event.id }">STRETCH GOALS FILE
-						UPLOADS FOR IMG?</a><br> <a
+						Create Event Review</a><br>
 						href="updateDestination.do?id=${destination.id }">FIX ME
 						Update Destination</a><br> <a
 						href="updateDestination.do?id=${destination.id }">FIX ME
@@ -74,8 +70,7 @@
 						href="removeEventReview.do?id=${destination.id }">Remove Event
 						Review</a><br> <a
 						href="removeEventReview.do?id=${destination.id }">Add/Remove
-						Activity/Amenity</a><br>
-					<p>FIX ME, NEED TWO COLUMNS Points Of Interest:</p> --%>
+						Activity/Amenity</a><br> --%>
 					<c:forEach var="p" items="${destination.getPoints()}">
 						<h6 style="width: 95%; text-align: center; color: orange;"><a href="viewPoint.do?id=${p.id }" style="color: orange;">${p.name }</a></h6>
 					</c:forEach>
