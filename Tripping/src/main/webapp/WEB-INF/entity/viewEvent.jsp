@@ -58,15 +58,15 @@
 		async defer></script>
 
 	<div class="entity-container card" style="margin-top: 50px;">
-		<div class="card-body">
+		<div class="card-body" style="background-color: #F0FFFF;">
 			<div class="card-body">
-				<h4 class="card-title" style="color:orange;">${event.name}</h4>
-				<h5 class="cart-title"> ${event.shortDescription}</h5>
-				<p class="card-title">${event.longDescription }</p>
+				<h4 class="card-title" style="color:orange;font-weight:400;">${event.name}</h4>
+				<h5 class="cart-title" style="font-weight:400;"> ${event.shortDescription}</h5>
+				<p class="card-title" style="font-weight:400;">${event.longDescription }</p>
 				<h5>
 					From: <br> ${event.startDate } - <br> ${event.endDate }
 				</h5>
-				<h5>${event.eventDetails }</h5>
+				<h5 style="font-weight:400;">${event.eventDetails }</h5>
 				<c:choose>
 					<c:when test="${! empty sessionScope.user}">
 						<a href="#review" class="navbar-brand" rel="tooltip" title="login"
