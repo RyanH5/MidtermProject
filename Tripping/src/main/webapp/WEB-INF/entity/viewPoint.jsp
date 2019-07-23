@@ -51,79 +51,47 @@
       }
     </script>
 		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
+			src="https://maps.googleapis.com/maps/api/js?key=INSERT KEY&callback=initMap"
 			async defer></script>
 
-
-			<div class="card" style="height:fit-content;width: 20rem;margin-top:59px;">
-			<div class="card-body">
-				<h4 class="card-title">${point.name }</h4>
-				<p class="card-text">${point.address.getCity() }</p>
-			</div>
-			<div>
+			<div class="entity-container card" style="height:fit-content;width: 20rem;background-color: #F0FFFF;margin-top:59px;">
+			<div class="card-body text-center">
+				<h4 class="card-title" style="font-weight:400;">${point.name }</h4>
+				<h4 class="card-text" style="font-weight:400;">${point.address.getCity() }</h4>
 				<c:forEach var="amenity" items="${point.getAmenities()}">
-					<a href="viewAmenity.do?id=${amenity.id }" style="margin-left:20px">
+					<a href="viewAmenity.do?id=${amenity.id }" style="margin-left:20px;font-weight:400;">
 					<span>${amenity.iconUrl }</span></a>
 				</c:forEach>
-			</div>
-				<p class="card-text" style="margin-left:20px">${point.address.getStreet1() }</p>
-				<p class="card-text" style="margin-left:20px">${point.address.getCity() }  ${point.address.getZipcode() }</p>
-				<p class="card-text" style="margin-left:20px">${point.address.getPhone() }</p>
-				<p class="card-text" style="margin-left:20px">latitude :${point.address.latitude },
-						longitude : ${point.address.longitude }</p>
-			<div>
 				<c:forEach var="activity" items="${point.getActivities()}">
-					<a href="viewActivity.do?id=${activity.id }" class="card-link" style="margin-left:20px">
+					<a href="viewActivity.do?id=${activity.id }" class="card-link" style="margin-left:20px;font-weight:400;">
 					${activity.iconUrl }</a>
 				</c:forEach>
-			</div>
+				<h6 class="card-text" style="margin-left:20px; font-weight:400;">${point.address.getStreet1() }</h6>
+				<h6 class="card-text" style="margin-left:20px; font-weight:400;">${point.address.getCity() }  ${point.address.getZipcode() }</h6>
+				<h6 class="card-text" style="margin-left:20px; font-weight:400;">${point.address.getPhone() }</h6>
+				<h6 class="card-text" style="margin-left:20px; font-weight:400;">latitude :${point.address.latitude }<br />
+						longitude : ${point.address.longitude }
 				<h3>
 					<a class="navbar-brand" href="#login" rel="tooltip" title="login"
-					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal" style="margin-left:20px"><span><i class="fas fa-comments"></i></span></a>
+						data-placement="bottom" data-toggle="modal"
+						data-target="#addCommentModal"
+						style="margin-left: 20px; color: deepskyblue; font-weight: 400;"><span><i
+							class="fas fa-comments"></i></span></a>
+					<c:choose>
+						<c:when test="${! empty sessionScope.user}">
+							<a href="#review" class="navbar-brand" rel="tooltip"
+								title="login" data-placement="bottom" data-toggle="modal"
+								data-target="#tripModal"
+								style="color: orange; margin-left: 20px; font-weight: 400"><span></span><i
+								class="fas fa-map-pin"></i></span></a>
+						</c:when>
+					</c:choose>
 				</h3>
-				<c:choose>
-					<c:when test="${! empty sessionScope.user}">
-						<a href="#review" class="navbar-brand" rel="tooltip"
-							title="login" data-placement="bottom" data-toggle="modal"
-							data-target="#tripModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
-						<br>
-					</c:when>
-				</c:choose>
+			</div>
 			</div>
 		</div>
 
-		<%-- <div class="entity-container card">
-			<div class="mdl-card__title">
-				<h3 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h3>
-			</div>
-			<div class="mdl-card__supporting-text center-text">
-			<h3>
-				<c:forEach var="amenity" items="${point.getAmenities()}">
-					<a href="viewAmenity.do?id=${amenity.id }">
-					<span>${amenity.iconUrl }</span></a>
-				</c:forEach><br>
-					${point.address.getStreet1() } ${point.address.getCity() }
-					${point.address.getState() } ${point.address.getZipcode() }<br>
-					${point.address.getPhone() }<br> latitude :
-					${point.address.latitude }, longitude : ${point.address.longitude }<br>
-				<c:forEach var="activity" items="${point.getActivities()}">
-					<a href="viewActivity.do?id=${activity.id }">
-					<span>${activity.iconUrl }</span></a>
-				</c:forEach>
-				<h3>
-				<a class="navbar-brand" href="#login" rel="tooltip" title="login"
-					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>
-				</h3>
-				<a href="#review" class="navbar-brand" rel="tooltip"
-						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal"> Add To Trip Journal </a>
-			</div>
-		</div>
-	</div> --%>
-	<jsp:include page="../modals.jsp" />
-	<div class="modal fade" id="tripModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="tripModal" tabindex="-1" role="dialog"
 	aria-hidden="false">
 	<div class="modal-dialog modal-register">
 		<div class="modal-content">
@@ -132,23 +100,27 @@
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<form:form class="container" action="addTrip.do" modelAttribute="journalEntry">
-					<h3>Add Trip to Bucket List</h3>
+				<form:form class="container text-center" action="addTrip.do"
+					modelAttribute="journalEntry">
+					<h3>Add Trip to Journal</h3>
 					<div>
 						<div class="row">
 
 							<div class="col-md-7 col-sm-7">
 								<div class="form-group">
 									<h6>
-										Trip Name <span class="icon-danger">*</span>
+										New Trip
+									</h6>
+									<h6>
+										Trip Name <!-- <span class="icon-danger">*</span> -->
 									</h6>
 									<form:input type="text" class="form-control border-input"
-										placeholder="Trip to ${point.name }" name="title" path="title"/>
+										placeholder="Trip to ${point.name }" name="title" path="title" />
 								</div>
 								<div class="form-group">
-									<h6>Bucket List Notes</h6>
-									<form:textarea class="form-control textarea-limited" placeholder=""
-										rows="13" maxlength="4500" path="entryText"></form:textarea>
+									<h6>Notes</h6>
+									<form:textarea class="form-control textarea-limited"
+										placeholder="" rows="13" maxlength="4500" path="entryText"></form:textarea>
 
 								</div>
 							</div>
@@ -212,6 +184,7 @@
 		</div>
 	</div>
 </div>
+	<jsp:include page="../modals.jsp" />
 	<jsp:include page="../bootstrapFoot.jsp" />
-</body>
+	</body>
 </html>

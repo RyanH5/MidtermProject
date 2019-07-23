@@ -18,11 +18,11 @@
 <jsp:include page="../bootstrapHead.jsp" />
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse" style="background-color: #F0FFFF;" >
    
     <jsp:include page="../navbar.jsp" />
 
-	<div class="main-section" style="background-color: #F0FFFF;">
+	<div class="main-section" style="background-color: #B0E0E6;">
 			<c:forEach var="activity" items="${activities}">
 				<div class="entity-container card">
 					<div class="section text-center entity-card-image"
