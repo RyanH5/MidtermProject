@@ -7070,9 +7070,9 @@ License - nucleoapp.com/license/
 /*          Changes for small display      */
 
 @media (max-width: 767px) {
-  #cd-vertical-nav {
+/*   #cd-vertical-nav {
     display: none !important;
-  }
+  } */
   .coloured-cards .card-big-shadow {
     margin: 0 auto;
   }
