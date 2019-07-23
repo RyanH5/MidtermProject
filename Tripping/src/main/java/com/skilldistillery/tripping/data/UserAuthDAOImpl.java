@@ -37,6 +37,7 @@ public class UserAuthDAOImpl implements UserAuthDAO {
 	public User createNewUser(User user) {
 		user.setRole("webUser");
 		user.setActive(true);
+		user.setImageURL("https://vignette.wikia.nocookie.net/trueblood/images/2/2e/FaceGoesHere.png/revision/latest?cb=20101010225552");
 		em.persist(user);
 		
 		return user;
