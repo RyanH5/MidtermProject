@@ -58,21 +58,21 @@
 		async defer></script>
 
 	<div class="entity-container card" style="margin-top: 50px;">
-		<div class="card-body">
-			<h3 class="card-title" style="color: orange;" style="font-weight:400;">${destination.name }</h3>
-			<h5 class="card-text">${destination.shortDescription }</h5>
-			<h5 style="color: orange;">Events:</h5>
+		<div class="card-body" style="background-color: #F0FFFF;">
+			<h3 class="card-title" style="color: orange;font-weight:400;">${destination.name }</h3>
+			<h5 class="card-text" style="font-weight:400;">${destination.shortDescription }</h5>
+			<h5 style="color: orange;font-weight:400;">Events:</h5>
 			<c:forEach var="event" items="${destination.events}">
-				<a href="viewEvent.do?id=${event.id }" style="margin-left: 10px">
+				<a href="viewEvent.do?id=${event.id }" style="margin-left: 10px;color:deepskyblue;font-weight:400;">
 					<span>${event.name }<br> ${event.startDate } -
 						${event.endDate }<br></span>
 				</a>
 			</c:forEach>
 			<br>
-			<h5 style="color: orange;">Points of Interest:</h5>
+			<h5 style="color: orange;font-weight:400;">Points of Interest:</h5>
 			<c:forEach var="point" items="${destination.points }">
-		<h6>
-					<a href="viewPoint.do?id=${point.id }">${point.name }</a>
+				<h6>
+					<a href="viewPoint.do?id=${point.id }" style="color:deepskyblue;font-weight: 400;">${point.name }</a>
 					<%-- <c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
 					</c:forEach> --%>
@@ -110,8 +110,8 @@
 					<a href="viewActivity.do?id=${destination.id }">
 					<span>${destination.iconUrl }</span></a>
 				</c:forEach>
-				<br></h3> 
-				
+				<br></h3>
+
 				<h3>Comments</h3>
 				<c:forEach var="comment" items="${point.getComments()}">
 					<a href="viewUser.do?id=${comment.user.id }">${comment.user.userName }</a>
