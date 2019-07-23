@@ -30,14 +30,14 @@
 		style="background-image: url('./assets/img/clouds.png');"></div>
 	<h6 class="category category-absolute text-center"></h6>
 
-	<div id="map" class="entity-container card"></div>
-	<script>
+	<!-- <div id="map" class="entity-container card"></div>
+		<script>
       var map;
       function initMap() {
-    	  var myLatLng = {lat: ${point.address.latitude }, lng: ${point.address.longitude }};
+    	  var myLatLng = ${destination.points.get(0).address.latitude }, lng: ${destination.points.get(0).address.longitude }};
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: ${point.address.latitude }, lng: ${point.address.longitude }},
+          center: {lat: ${destination.points.get(0).address.latitude }, lng: ${destination.points.get(0).address.longitude }},
           zoom: 8
         });
         var marker = new google.maps.Marker({
@@ -53,10 +53,10 @@
 
       }
     </script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
-		async defer></script>
-
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtfyQecgKNt3o8G3MQSt3hVmAisejry4o&callback=initMap"
+			async defer></script>
+ -->
 	<div class="entity-container card" style="margin-top: 50px;">
 		<div class="card-body" style="background-color: #F0FFFF;">
 			<h3 class="card-title" style="color: orange; font-weight: 400;">${destination.name }</h3>

@@ -30,7 +30,7 @@
 		style="background-image: url('./assets/img/clouds.png');"></div>
 	<h6 class="category category-absolute"></h6>
 
-	<div id="map" class="entity-container card"></div>
+	<!-- <div id="map" class="entity-container card"></div>
 		<script>
       var map;
       function initMap() {
@@ -54,8 +54,8 @@
       }
     </script>
 		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-iDfFnLA6gtcuXgzqGOdDqeVr4TQFHI4&callback=initMap"
-			async defer></script>
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtfyQecgKNt3o8G3MQSt3hVmAisejry4o&callback=initMap"
+			async defer></script> -->
 	
 		<div class="entity-container card" style="margin-top:50px;">
 			<div class="card-body" style="background-color: #F0FFFF;">
