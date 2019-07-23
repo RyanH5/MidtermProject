@@ -55,8 +55,8 @@
 			async defer></script>
 
 
-			<div class="card" style="height:fit-content;width: 20rem;margin-top:59px;">
-			<div class="card-body">
+			<div class="entity-container card" style="height:fit-content; width: 20rem;">
+			<div class="mdl-card__supporting-text center-text">
 				<h4 class="card-title">${point.name }</h4>
 				<p class="card-text">${point.address.getCity() }</p>
 			</div>
@@ -77,51 +77,31 @@
 					${activity.iconUrl }</a>
 				</c:forEach>
 			</div>
-				<h3>
-					<a class="navbar-brand" href="#login" rel="tooltip" title="login"
-					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal" style="margin-left:20px"><span><i class="fas fa-comments"></i></span></a>
-				</h3>
 				<c:choose>
 					<c:when test="${! empty sessionScope.user}">
 						<a href="#review" class="navbar-brand" rel="tooltip"
-							title="login" data-placement="bottom" data-toggle="modal"
-							data-target="#tripModal" style="color:deepskyblue;margin-left:20px;"> Add To Trip Journal </a>
-						<br>
+							title="Add To Trip Journal" data-placement="bottom" data-toggle="modal"
+							data-target="#tripModal" style="color:deepskyblue; margin-left:20px;"><span><i class="fas fa-map-pin"></i></span></a>
 					</c:when>
 				</c:choose>
 			</div>
-		</div>
-
-		<%-- <div class="entity-container card">
-			<div class="mdl-card__title">
-				<h3 class="mdl-card__title-text">${point.name }<br>${point.address.getCity() }</h3>
-			</div>
+	<c:forEach var="comment" items="${point.comments}">
+		<div class="entity-container card"
+			style="height: fit-content; width: 20rem;">
 			<div class="mdl-card__supporting-text center-text">
-			<h3>
-				<c:forEach var="amenity" items="${point.getAmenities()}">
-					<a href="viewAmenity.do?id=${amenity.id }">
-					<span>${amenity.iconUrl }</span></a>
-				</c:forEach><br>
-					${point.address.getStreet1() } ${point.address.getCity() }
-					${point.address.getState() } ${point.address.getZipcode() }<br>
-					${point.address.getPhone() }<br> latitude :
-					${point.address.latitude }, longitude : ${point.address.longitude }<br>
-				<c:forEach var="activity" items="${point.getActivities()}">
-					<a href="viewActivity.do?id=${activity.id }">
-					<span>${activity.iconUrl }</span></a>
-				</c:forEach>
-				<h3>
-				<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+				<h5>
+					<a href="viewUser.do?id=${comment.user.getId()}"> <span>${comment.user.userName }:</span></a><br>${comment.commentText }
+					<hr>
+					<!-- <a class="navbar-brand" rel="tooltip" title="Add Comment"
 					data-placement="bottom" data-toggle="modal"
-					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>
-				</h3>
-				<a href="#review" class="navbar-brand" rel="tooltip"
-						title="login" data-placement="bottom" data-toggle="modal"
-						data-target="#reviewModal"> Add To Trip Journal </a>
+					data-target="#addCommentModal"><span><i class="fas fa-comments"></i></span></a>-->
+				</h5> 
 			</div>
 		</div>
-	</div> --%>
+	</c:forEach>
+</div>
+		
+		
 	<jsp:include page="../modals.jsp" />
 	<div class="modal fade" id="tripModal" tabindex="-1" role="dialog"
 	aria-hidden="false">
