@@ -59,20 +59,22 @@
 
 	<div class="entity-container card" style="margin-top: 50px;">
 		<div class="card-body" style="background-color: #F0FFFF;">
-			<h3 class="card-title" style="color: orange;font-weight:400;">${destination.name }</h3>
-			<h5 class="card-text" style="font-weight:400;">${destination.shortDescription }</h5>
-			<h5 style="color: orange;font-weight:400;">Events:</h5>
+			<h3 class="card-title" style="color: orange; font-weight: 400;">${destination.name }</h3>
+			<h5 class="card-text" style="font-weight: 400;">${destination.shortDescription }</h5>
+			<h5 style="color: orange; font-weight: 400;">Events:</h5>
 			<c:forEach var="event" items="${destination.events}">
-				<a href="viewEvent.do?id=${event.id }" style="margin-left: 10px;color:deepskyblue;font-weight:400;">
+				<a href="viewEvent.do?id=${event.id }"
+					style="margin-left: 10px; color: deepskyblue; font-weight: 400;">
 					<span>${event.name }<br> ${event.startDate } -
 						${event.endDate }<br></span>
 				</a>
 			</c:forEach>
 			<br>
-			<h5 style="color: orange;font-weight:400;">Points of Interest:</h5>
+			<h5 style="color: orange; font-weight: 400;">Points of Interest:</h5>
 			<c:forEach var="point" items="${destination.points }">
 				<h6>
-					<a href="viewPoint.do?id=${point.id }" style="color:deepskyblue;font-weight: 400;">${point.name }</a>
+					<a href="viewPoint.do?id=${point.id }"
+						style="color: deepskyblue; font-weight: 400;">${point.name }</a>
 					<%-- <c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
 					</c:forEach> --%>
@@ -82,18 +84,22 @@
 					<br>
 				</h6>
 			</c:forEach>
-			<c:choose>
-				<c:when test="${! empty sessionScope.user}">
-					<a href="#review" class="navbar-brand" rel="tooltip" title="login"
-						data-placement="bottom" data-toggle="modal"
-						data-target="#tripModal"
-						style="width: 95%; color: orange; text-align: center; font-weight: 400;">
-						Add To Trip Journal </a>
-				</c:when>
-				<c:otherwise>
-
-				</c:otherwise>
-			</c:choose>
+			<h3>
+			<!-- 	<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+					data-placement="bottom" data-toggle="modal"
+					data-target="#addCommentModal"
+					style="margin-left: 20px; color: deepskyblue; font-weight: 400;"><span><i
+						class="fas fa-comments"></i></span></a> -->
+				<c:choose>
+					<c:when test="${! empty sessionScope.user}">
+						<a href="#review" class="navbar-brand" rel="tooltip" title="login"
+							data-placement="bottom" data-toggle="modal"
+							data-target="#tripModal"
+							style="color: orange; margin-left: 20px; font-weight: 400"><span></span><i
+							class="fas fa-map-pin"></i></span></a>
+					</c:when>
+				</c:choose>
+			</h3>
 		</div>
 	</div>
 </div>
@@ -135,11 +141,10 @@
 
 							<div class="col-md-7 col-sm-7">
 								<div class="form-group">
+									<h6>New Trip</h6>
 									<h6>
-										New Trip
-									</h6>
-									<h6>
-										Trip Name <!-- <span class="icon-danger">*</span> -->
+										Trip Name
+										<!-- <span class="icon-danger">*</span> -->
 									</h6>
 									<form:input type="text" class="form-control border-input"
 										placeholder="Trip to ${point.name }" name="title" path="title" />

@@ -67,18 +67,22 @@
 					From: <br> ${event.startDate } - <br> ${event.endDate }
 				</h5>
 				<h5 style="font-weight:400;">${event.eventDetails }</h5>
-				<c:choose>
-					<c:when test="${! empty sessionScope.user}">
-						<a href="#review" class="navbar-brand" rel="tooltip" title="login"
-							data-placement="bottom" data-toggle="modal"
-							data-target="#tripModal"
-							style="width: 95%; color: orange; text-align: center; font-weight: 400;">
-							Add To Trip Journal </a>
-					</c:when>
-					<c:otherwise>
-
-					</c:otherwise>
-				</c:choose>
+				<h3>
+			<!-- 		<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+						data-placement="bottom" data-toggle="modal"
+						data-target="#addCommentModal"
+						style="margin-left: 20px; color: deepskyblue; font-weight: 400;"><span><i
+							class="fas fa-comments"></i></span></a> -->
+					<c:choose>
+						<c:when test="${! empty sessionScope.user}">
+							<a href="#review" class="navbar-brand" rel="tooltip"
+								title="login" data-placement="bottom" data-toggle="modal"
+								data-target="#tripModal"
+								style="color: orange; margin-left: 20px; font-weight: 400"><span></span><i
+								class="fas fa-map-pin"></i></span></a>
+						</c:when>
+					</c:choose>
+				</h3>
 			</div>
 		</div>
 	</div>
