@@ -23,7 +23,7 @@ which is associated with their profile. The user can also delete or update their
 
 An administrator can make a user account inactive and perform additional functions.
 
-### [View live here] [http://3.130.50.134:8080/Tripping/]
+### [View live here](http://3.130.50.134:8080/Tripping/)
 
 ### Technologies used
 * Spring MVC
