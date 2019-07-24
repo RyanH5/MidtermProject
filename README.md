@@ -26,20 +26,19 @@ An administrator can make a user account inactive and perform additional functio
 ### [View live here](http://3.130.50.134:8080/Tripping/)
 
 ### Technologies used
+* Java
 * Spring MVC
 * JPA/Hibernate/JPQL
 * Mysql
-* Paperkit
 * bootstrap
-* Entities Grid
 * CSS
-* Github
+* Git
 * MAMP
 * font-awesome
-* paperkit
 * slack
 * hibernate
-* grade
+* gradel
+* aws
 
 ### How to Use
 * A user can browse activities, events and destinations without logging in.
