@@ -23,6 +23,8 @@ which is associated with their profile. The user can also delete or update their
 
 An administrator can make a user account inactive and perform additional functions.
 
+### [View live here] [http://3.130.50.134:8080/Tripping/]
+
 ### Technologies used
 * Spring MVC
 * JPA/Hibernate/JPQL
@@ -65,3 +67,11 @@ was immensely helpful. The team utilized instructor resources well when needed.
 
 ### Database Diagram
 ![Tripping](trippingdb.png)
+
+### Desktop Preview
+
+<img src="Screen Shot 2019-07-24 at 8.18.00 AM.png" />
+
+### Mobile Preiew
+
+<img src="Screen Shot 2019-07-24 at 8.19.03 AM.png" />
