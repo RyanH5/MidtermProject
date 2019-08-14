@@ -32,7 +32,7 @@
 							<a href="viewActivity.do?id=${activity.id }" style="font-family: 'Ranchers', cursive;
     color: orange;
     font-size: 36px;
-    text-shadow: 1px 1px green;">${activity.name }</a>
+    text-shadow: 2px 2px green;">${activity.name }</a>
 						</h4>
 					</div>
 				</div>

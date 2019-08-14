@@ -37,7 +37,7 @@
 					<a href="viewEvent.do?id=${event.id }" style="font-family: 'Ranchers', cursive;
     color: orange;
     font-size: 36px;
-    text-shadow: 1px 1px green;">${event.name }</a>
+    text-shadow: 2px 2px green;">${event.name }</a>
 				</h6>
 				<%-- <c:choose>
 					<c:when test="${! empty sessionScope.user}">

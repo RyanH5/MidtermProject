@@ -1,27 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76"
-	href="./assets/img//apple-icon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/img//apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img//favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>${destination.name}</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 <jsp:include page="../bootstrapHead.jsp" />
+<jsp:include page="../navbar.jsp" />
 </head>
-
 <body class="index-page sidebar-collapse">
-
-	<jsp:include page="../navbar.jsp" />
-</head>
 
 <div class="page-header section-dark"
 	style="background-image: url('${destination.image }')">
@@ -29,34 +21,6 @@
 	<div class="moving-clouds"
 		style="background-image: url('./assets/img/clouds.png');"></div>
 	<h6 class="category category-absolute text-center"></h6>
-
-	<!-- <div id="map" class="entity-container card"></div>
-		<script>
-      var map;
-      function initMap() {
-    	  var myLatLng = ${destination.points.get(0).address.latitude }, lng: ${destination.points.get(0).address.longitude }};
-
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: ${destination.points.get(0).address.latitude }, lng: ${destination.points.get(0).address.longitude }},
-          zoom: 8
-        });
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: '${point.name}'
-          });
-        /* for (var i = 0; i < points.length; i++) {}
-
-     /*    List<PointsOfInt> points = ... */
-     /*var points = [];
-     points.push(marker) */
-
-      }
-    </script>
-		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtfyQecgKNt3o8G3MQSt3hVmAisejry4o&callback=initMap"
-			async defer></script>
- -->
 	<div class="entity-container card" style="margin-top: 50px;">
 		<div class="card-body" style="background-color: #F0FFFF;">
 			<h3 class="card-title" style="color: orange; font-weight: 400;">${destination.name }</h3>
@@ -71,21 +35,28 @@
 			</c:forEach>
 			<br>
 			<h5 style="color: orange; font-weight: 400;">Points of Interest:</h5>
-			<c:forEach var="point" items="${destination.points }">
-				<h6>
-					<a href="viewPoint.do?id=${point.id }"
-						style="color: deepskyblue; font-weight: 400;">${point.name }</a>
-					<%-- <c:forEach var="activity" items="${point.getActivities()}">
+			<c:choose>
+				<c:when test="${! empty destination.points}">
+					<c:forEach var="point" items="${destination.points }">
+						<h6>
+							<a href="viewPoint.do?id=${point.id }"
+								style="color: deepskyblue; font-weight: 400;">${point.name }</a>
+							<%-- <c:forEach var="activity" items="${point.getActivities()}">
 						<a href="viewActivity.do?id=${activity.id }"> <span>${activity.iconUrl }</span></a>
 					</c:forEach> --%>
-					<%-- <c:forEach var="amenity" items="${point.getAmenities()}">
+							<%-- <c:forEach var="amenity" items="${point.getAmenities()}">
 						<a href="viewAmenity.do?id=${amenity.id }"> <span>${amenity.iconUrl }</span></a>
 					</c:forEach> --%>
-					<br>
-				</h6>
-			</c:forEach>
+							<br>
+						</h6>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
+
 			<h3>
-			<!-- 	<a class="navbar-brand" href="#login" rel="tooltip" title="login"
+				<!-- 	<a class="navbar-brand" href="#login" rel="tooltip" title="login"
 					data-placement="bottom" data-toggle="modal"
 					data-target="#addCommentModal"
 					style="margin-left: 20px; color: deepskyblue; font-weight: 400;"><span><i

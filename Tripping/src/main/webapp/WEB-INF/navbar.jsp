@@ -27,7 +27,7 @@
                             </a> <a class="dropdown-item" data-scroll="true" data-id="#points"
                                 href="modal"> <i class="nc-icon nc-settings"></i> Add Point
                             </a> <a class="dropdown-item" data-scroll="true" data-id="#events"
-                                href=modal""> <i class="nc-icon nc-bullet-list-67"></i> Add
+                                href="modal"> <i class="nc-icon nc-bullet-list-67"></i> Add
                                 Event
                             </a> <a class="dropdown-item" data-scroll="true" data-id="#users"
                                 href="viewUsers.do"> <i class="fas fa-users"></i> View All
@@ -40,7 +40,7 @@
         <c:otherwise>
             <ul class="navbar-nav" id="navbar-login-links" style="flex-direction: row; padding-left: 15px;">
 	            <li class="nav-item">
-		        	<a class="navbar-brand" href="index.do" rel="tooltip" title="tripping"
+		        	<a class="navbar-brand" href="/" rel="tooltip" title="tripping"
 		        data-placement="bottom" style="width: 95%;
 									    color: orange;
 									    text-align: center;
@@ -49,11 +49,11 @@
                 <li class="nav-item"><a class="navbar-brand" href="#login" style="width: 95%; color: orange; text-align: center; font-weight: 800;"
                     rel="tooltip" title="login" data-placement="bottom"
                     data-toggle="modal" data-target="#loginModal"> login </a></li>
-                <li><a class="navbar-brand" href="#register" rel="tooltip"
+                <li><<!-- a class="navbar-brand" href="#register" rel="tooltip"
                     title="register" data-placement="bottom" data-toggle="modal"
                     data-target="#registerModal"
                     style="width: 95%; color: orange; text-align: center; font-weight: 800;">
-                    Register </a>
+                    Register </a> -->
                 </li>
             </ul>
         </c:otherwise>

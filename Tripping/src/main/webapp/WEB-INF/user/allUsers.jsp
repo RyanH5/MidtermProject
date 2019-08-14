@@ -23,7 +23,7 @@
 	<jsp:include page="../navbar.jsp" />
 </head>
 
-<div class="wrapper" style="background-color:#B0E0E6; margin-top:72px;">
+<div class="wrapper" style="background-color:#F0FFFF; margin-top:72px;">
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
